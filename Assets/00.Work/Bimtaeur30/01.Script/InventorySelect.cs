@@ -2,6 +2,8 @@ using UnityEngine;
 using DG.Tweening;
 using System.Linq;
 using DG.Tweening;
+using UnityEngine.UI;
+using TMPro;
 
 public class InventorySelect : MonoBehaviour
 {
@@ -26,10 +28,15 @@ public class InventorySelect : MonoBehaviour
                 RectTransform slotRect = InventoryManager.Instance.SlotList[i]
                     .GetComponent<RectTransform>();
 
+                Image slotImage = InventoryManager.Instance.SlotList[i].GetComponent<Image>();
+                TextMeshProUGUI TrashTxt = InventoryManager.Instance.SlotList[i].transform.Find("TrashTxt").gameObject.GetComponent<TextMeshProUGUI>();
+
                 if (num == i) // 선택된 슬롯
                 {
                     Vector2 targetPos = new Vector2(slotRect.anchoredPosition.x, 10);
                     slotRect.DOAnchorPos(targetPos, 0.2f);
+                    slotImage.DOColor(new Color(95f / 255f, 64f / 255f, 64f / 255f), 0.2f);
+                    TrashTxt.DOFade(1f, 0.2f);
                 }
                 else // 선택 안된 슬롯
                 {
@@ -37,6 +44,8 @@ public class InventorySelect : MonoBehaviour
                     {
                         Vector2 originPos = new Vector2(slotRect.anchoredPosition.x, -60);
                         slotRect.DOAnchorPos(originPos, 0.2f);
+                        slotImage.DOColor(new Color(49f / 255f, 49f / 255f, 49f / 255f), 0.2f);
+                        TrashTxt.DOFade(0f, 0.2f);
                     }
                 }
             }
@@ -51,10 +60,15 @@ public class InventorySelect : MonoBehaviour
             RectTransform slotRect = InventoryManager.Instance.SlotList[i]
                 .GetComponent<RectTransform>();
 
+            Image slotImage = InventoryManager.Instance.SlotList[i].GetComponent<Image>();
+            TextMeshProUGUI TrashTxt = InventoryManager.Instance.SlotList[i].transform.Find("TrashTxt").gameObject.GetComponent<TextMeshProUGUI>();
+
             if (Mathf.Abs(slotRect.anchoredPosition.y) > 0.1f)
             {
                 Vector2 originPos = new Vector2(slotRect.anchoredPosition.x, -60);
                 slotRect.DOAnchorPos(originPos, 0.2f);
+                slotImage.DOColor(new Color(49f / 255f, 49f / 255f, 49f / 255f), 0.2f);
+                TrashTxt.DOFade(0f, 0.2f);
             }
         }
     }
@@ -90,10 +104,10 @@ public class InventorySelect : MonoBehaviour
 
         Sequence seq = DOTween.Sequence();
 
-        seq.Join(recCurrent.DOAnchorPos(new Vector2(-xOffset, recCurrent.anchoredPosition.y), 0.5f).SetEase(Ease.OutQuad));
-        seq.Join(cgCurrent.DOFade(0f, 0.5f));
-        seq.Join(recNext.DOAnchorPosX(0, 0.5f).SetEase(Ease.OutQuad));
-        seq.Join(cgNext.DOFade(1f, 0.5f));
+        seq.Join(recCurrent.DOAnchorPos(new Vector2(-xOffset, recCurrent.anchoredPosition.y), 0.2f).SetEase(Ease.OutQuad));
+        seq.Join(cgCurrent.DOFade(0f, 0.2f));
+        seq.Join(recNext.DOAnchorPosX(0, 0.2f).SetEase(Ease.OutQuad));
+        seq.Join(cgNext.DOFade(1f, 0.2f));
 
         seq.OnComplete(() =>
         {
