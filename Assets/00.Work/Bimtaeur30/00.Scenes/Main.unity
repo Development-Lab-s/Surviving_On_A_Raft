@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 12522170}
   - component: {fileID: 12522169}
   - component: {fileID: 12522171}
+  - component: {fileID: 12522172}
   m_Layer: 5
   m_Name: InvenFrame_01
   m_TagString: Untagged
@@ -221,6 +222,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &12522172
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12522167}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &229666399
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c615a2313e0faf4ab63960871a2c463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSlotsSelecting: 0
+  currentSlotsSelecting: -1
   currentInvenSelecting: 1
 --- !u!4 &229666401
 Transform:
@@ -296,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06da53c27536f984c9d57a3bb9ae13ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IS: {fileID: 229666400}
 --- !u!4 &406499247
 Transform:
   m_ObjectHideFlags: 0
@@ -490,6 +504,7 @@ GameObject:
   - component: {fileID: 1273570038}
   - component: {fileID: 1273570037}
   - component: {fileID: 1273570036}
+  - component: {fileID: 1273570039}
   m_Layer: 5
   m_Name: InvenFrame_02
   m_TagString: Untagged
@@ -580,6 +595,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273570034}
   m_CullTransparentMesh: 1
+--- !u!225 &1273570039
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273570034}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1686612128
 GameObject:
   m_ObjectHideFlags: 0
