@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace _00.Work.CheolYee._01.Codes.SO
 {
-    [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "SO/PlayerInputSO")]
+    [CreateAssetMenu(fileName = "PlayerInputSO", menuName = "SO/Player/PlayerInputSO")]
     public class PlayerInputSo : ScriptableObject, Controls.IPlayerActions
     {
         public Action OnJumpKeyPress;
