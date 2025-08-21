@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -14,13 +15,17 @@ public class Test : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
+
+
             for (int i = 0; i < 15; i++)
             {
                 Vector3Int tilePosition = new Vector3Int(-47, -24 + i, 0);
                 tilemap.SetTile(tilePosition, myTile);
             }
+            
+            SpawnManager.Instance.StartCycle();
         }
     }
 }
