@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edfc60b39b4d0c74fac9e7a742e85c74, type: 3}
   m_Name: SortifyNoteDatabase
   m_EditorClassIdentifier: 
-  notes: []
+  notes:
+  - objID: End_leftBtn_2_ButtonUI_4_CharacterSelectUI_0_MainUICanvas_1
+    noteContent: New Note Content
+    comments: []
