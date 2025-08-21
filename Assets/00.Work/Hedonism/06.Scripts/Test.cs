@@ -17,15 +17,12 @@ public class Test : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-
-
+            SpawnManager.Instance.StartCycle();
             for (int i = 0; i < 15; i++)
             {
                 Vector3Int tilePosition = new Vector3Int(-47, -24 + i, 0);
                 tilemap.SetTile(tilePosition, myTile);
             }
-            
-            SpawnManager.Instance.StartCycle();
         }
     }
 }

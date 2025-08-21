@@ -20,8 +20,8 @@ MonoBehaviour:
   - id: 2
     position: {x: 0, y: 7}
   - id: 3
-    position: {x: 0, y: 5}
+    position: {x: 0, y: 9}
   - id: 4
-    position: {x: 0, y: 5}
+    position: {x: 0, y: 13}
   - id: 5
-    position: {x: 0, y: 5}
+    position: {x: 0, y: 17}

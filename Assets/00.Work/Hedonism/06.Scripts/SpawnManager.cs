@@ -1,46 +1,38 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using _00.Work.Resource.Manager;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : MonoSingleton<SpawnManager>
 {
-    [SerializeField] private SpawnSO spawnSO;
-    private List<SpawnSO.SpawnPointData> currentSpawnList;
+    [SerializeField] private List<Transform> spawnPoints; // 인스펙터에 프리팹들 넣기
+    private Transform currentSpawn;
 
-    private SpawnSO.SpawnPointData currentSpawn;
-    
-    public static SpawnManager Instance { get; private set; }
-
-    private void Awake()
+    void Start()
     {
-        if (Instance == null)
-            Instance = this;
-        else return;
-
-        // SO 데이터를 복사해서 사용 (원본 훼손 X)
-        currentSpawnList = new List<SpawnSO.SpawnPointData>(spawnSO.spawnPoints);
+        Debug.Log(spawnPoints.Count);
     }
-
     public void StartCycle()
     {
-        if (currentSpawnList.Count == 0)
+        Debug.Log(spawnPoints.Count);
+        if (spawnPoints.Count == 0)
         {
             Debug.Log("모든 스폰포인트를 다 사용했습니다!");
             return;
         }
 
-        // 랜덤 선택
-        int randomIndex = Random.Range(0, currentSpawnList.Count);
-        currentSpawn = currentSpawnList[randomIndex];
+        // 랜덤 인덱스 선택
+        int randomIndex = Random.Range(0, spawnPoints.Count);
+        currentSpawn = spawnPoints[randomIndex];
 
         // 플레이어 이동
         MovePlayerTo(currentSpawn.position);
+        Debug.Log($"인덱스: {randomIndex}, 포지션: {currentSpawn.position}");
 
-        // 사용한 위치 삭제
-        currentSpawnList.RemoveAt(randomIndex);
+        // 사용한 스폰포인트 제거
+        spawnPoints.RemoveAt(randomIndex);
     }
 
-    private void MovePlayerTo(Vector2 pos)
+    private void MovePlayerTo(Vector3 pos)
     {
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
