@@ -7,6 +7,7 @@ using TMPro;
 
 public class InventorySelect : MonoBehaviour
 {
+    [SerializeField] private Color SlotSelectColor;
     public int currentSlotsSelecting = -1; // -1이면 아무것도 선택 안하는중
     public int currentInvenSelecting = 1; // 첨엔 1번 인벤토리부터
     private int invenChangeWay = 1; // 1 == 왼쪽으로, -1 == 오른쪽으로. 즉 각각 인벤토리 교체 번호가 커지는중(1), 작아지는중이다(2).
@@ -14,6 +15,8 @@ public class InventorySelect : MonoBehaviour
 
     public void SlotSelectMethod(int num)
     {
+        if (InventoryManager.Instance.ItemSlotList[num] == null)
+            return;
         if (currentSlotsSelecting == num)
         {
             SlotUnselectMethod();
@@ -29,14 +32,15 @@ public class InventorySelect : MonoBehaviour
                     .GetComponent<RectTransform>();
 
                 Image slotImage = InventoryManager.Instance.SlotList[i].GetComponent<Image>();
-                TextMeshProUGUI TrashTxt = InventoryManager.Instance.SlotList[i].transform.Find("TrashTxt").gameObject.GetComponent<TextMeshProUGUI>();
+                CanvasGroup SelectImage = InventoryManager.Instance.SlotList[i].transform.Find("SelectImage").gameObject.GetComponent<CanvasGroup>();
 
                 if (num == i) // 선택된 슬롯
                 {
                     Vector2 targetPos = new Vector2(slotRect.anchoredPosition.x, 10);
                     slotRect.DOAnchorPos(targetPos, 0.2f);
-                    slotImage.DOColor(new Color(95f / 255f, 64f / 255f, 64f / 255f), 0.2f);
-                    TrashTxt.DOFade(1f, 0.2f);
+                    slotImage.DOColor(SlotSelectColor, 0.2f);
+                    SelectImage.DOFade(1f, 0.2f);
+                    SelectImage.DOFade(1f, 0.2f);
                 }
                 else // 선택 안된 슬롯
                 {
@@ -45,7 +49,8 @@ public class InventorySelect : MonoBehaviour
                         Vector2 originPos = new Vector2(slotRect.anchoredPosition.x, -60);
                         slotRect.DOAnchorPos(originPos, 0.2f);
                         slotImage.DOColor(new Color(49f / 255f, 49f / 255f, 49f / 255f), 0.2f);
-                        TrashTxt.DOFade(0f, 0.2f);
+                        SelectImage.DOFade(0f, 0.2f);
+                        SelectImage.DOFade(0f, 0.2f);
                     }
                 }
             }
@@ -61,14 +66,15 @@ public class InventorySelect : MonoBehaviour
                 .GetComponent<RectTransform>();
 
             Image slotImage = InventoryManager.Instance.SlotList[i].GetComponent<Image>();
-            TextMeshProUGUI TrashTxt = InventoryManager.Instance.SlotList[i].transform.Find("TrashTxt").gameObject.GetComponent<TextMeshProUGUI>();
+            CanvasGroup SelectImage = InventoryManager.Instance.SlotList[i].transform.Find("SelectImage").gameObject.GetComponent<CanvasGroup>();
 
             if (Mathf.Abs(slotRect.anchoredPosition.y) > 0.1f)
             {
                 Vector2 originPos = new Vector2(slotRect.anchoredPosition.x, -60);
                 slotRect.DOAnchorPos(originPos, 0.2f);
                 slotImage.DOColor(new Color(49f / 255f, 49f / 255f, 49f / 255f), 0.2f);
-                TrashTxt.DOFade(0f, 0.2f);
+                SelectImage.DOFade(0f, 0.2f);
+                SelectImage.DOFade(0f, 0.2f);
             }
         }
     }
