@@ -16,11 +16,11 @@ MonoBehaviour:
   maxHealth: 25
   moveSpeed: 2
   attackPower: 20
-  detectRadius: 5
-  attackRange: 1.2
+  detectRadius: 10
+  attackRange: 2.25
   attackCooldown: 1
   jumpForceY: 6
-  obstacleCheckDist: 0.6
-  jumpCooldown: 0.5
+  obstacleCheckDist: 0.7
+  jumpCooldown: 1
   dropItem: []
   dropCountRange: {x: 1, y: 1}

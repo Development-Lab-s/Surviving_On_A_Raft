@@ -1,10 +1,10 @@
-using _00.Work.CheolYee._01.Codes.Player;
+using _00.Work.CheolYee._01.Codes.Agents;
 using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
 
-namespace _00.Work.CheolYee._01.Codes.Agent
+namespace _00.Work.CheolYee._01.Codes.Player
 {
-    public class AgentPlayer : Agent
+    public class Player : Agent
     {
         //플레이어의 모든 컴포넌트를 관리하는 스크립트입니다.
         
@@ -13,16 +13,16 @@ namespace _00.Work.CheolYee._01.Codes.Agent
         
         [Header("Agent SO Data")]
         [field:SerializeField] public PlayerInputSo PlayerInput {get; private set;} //인풋SO
-        public PlayerAnimator AnimatorComponent { get; private set; } //플레이어 애니메이션 담당
+        public PlayerAnimator PlayerAnimatorComponent { get; private set; } //플레이어 애니메이션 담당
         
         protected override void Awake()
         {
             base.Awake();
-            AnimatorComponent = GetComponentInChildren<PlayerAnimator>(); //애니메이터 가져오기
+            PlayerAnimatorComponent = GetComponentInChildren<PlayerAnimator>(); //애니메이터 가져오기
 
             PlayerInput.OnJumpKeyPress += HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 등록
-            MovementComponent.Initialize(CharacterData); //캐릭터 데이터로 기본값 설정
-            HealthComponent.Initialize(CharacterData.health); //체력 컴포넌트에 SO 체력값 설정
+            MovementComponent.GetComponent<PlayerMovement>().Initialize(CharacterData); //캐릭터 데이터로 기본값 설정
+            HealthComponent.Initialize(this, CharacterData.health); //체력 컴포넌트에 오너 설정, 체력 설정
         }
 
         private void OnDestroy()
@@ -31,11 +31,16 @@ namespace _00.Work.CheolYee._01.Codes.Agent
         }
 
 
-        protected override void Update()
+        private void Update()
         {
-            base.Update();
+            CalculateInAirTime(); //공중 시간 계산
             SetupMovementX(); //무브먼트 스크립트에 지속적으로 X값 전달
             UpdateAnimator(); //애니메이션 업데이트
+        }
+
+        private void FixedUpdate()
+        {
+            ApplyExtraGravity(); //추가 중력 적용
         }
 
         private void HandleJumpKeyPress() //점프키 눌렀을 때 실행
@@ -54,7 +59,7 @@ namespace _00.Work.CheolYee._01.Codes.Agent
 
         private void UpdateAnimator()
         {
-            AnimatorComponent.HandleFlip(PlayerInput.Movement.x);
+            PlayerAnimatorComponent.HandleFlip(PlayerInput.Movement.x);
         }
     }
 }
