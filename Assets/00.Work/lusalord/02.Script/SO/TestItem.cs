@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TestItem : ItemTypeSpin
 {
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         Debug.Log(spinSpeed);
     }
 }
