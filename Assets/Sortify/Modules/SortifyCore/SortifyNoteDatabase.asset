@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edfc60b39b4d0c74fac9e7a742e85c74, type: 3}
   m_Name: SortifyNoteDatabase
   m_EditorClassIdentifier: 
-  notes: []
+  notes:
+  - objID: Main_Knife_2_AttackItem_0_Items_1_Player_3
+    noteContent: "\uC774\uAC8C \uBB50\uC8E0 \uC2E0\uAE30\uD558\uB124\uC694\n"
+    comments:
+    - userName: "\uC774\uAC70 \uC9C4\uC9DC\uC5D0\uC694?"
+      text: "\uC774\uAC70 \uC9C4\uC9DC\uC5D0\uC694?????"
+      timestamp: 2025-08-19
