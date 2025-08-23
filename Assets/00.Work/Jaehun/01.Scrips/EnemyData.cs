@@ -1,13 +1,12 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SO/EnemyData", fileName = "EnemyData")]  // so만들기
 public class EnemyData : ScriptableObject
 {
     [Header("기본 스탯")]
-    [SerializeField] private string EnemyName = "anyting";       // 적 이름.
-    [Min(1)][SerializeField] private float maxHealth = 30f;     // 일단 값들은 전부 대충 넣은거니까 적들마다 바꾸면 됨. // 참고로 [Min(1)은 최솟값을 1이상으로 강제하는 일종의 안전장치임.
+    //[SerializeField] private string EnemyName = "anyting";       // 적 이름.
+    //[SerializeField] private float maxHealth = 30f;     // 일단 값들은 전부 대충 넣은거니까 적들마다 바꾸면 됨. // 참고로 [Min(1)은 최솟값을 1이상으로 강제하는 일종의 안전장치임.
     public float moveSpeed = 2.5f; //적 이동속도. 만약 안움직이는 적이 있을지도 모르니 안전장치는 빼겠음.
-    [Min(0)][SerializeField] private float attackPower = 5f;    //적 공격력.
+    //[SerializeField] private float attackPower = 5f;    //적 공격력.
 
     [Header("거리(근거리 기준]")]
     public float detectRadius = 5f; // 감지 반경

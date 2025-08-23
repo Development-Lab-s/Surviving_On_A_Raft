@@ -1,4 +1,4 @@
-using _00._Work._02._Scripts.Manager.Pooling;
+using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using UnityEngine;
 
@@ -35,11 +35,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemy.FSM
         }
         private void InvokeDeadEvent()
         {
-            /*Debug.Log("<color=red>Boom!</color>");
-            const string deadEffectName = "ZombieExplosion";
-            EffectPlayer effect = PoolManager.Instance.Pop(deadEffectName) as EffectPlayer;
-            Debug.Assert(effect != null, "effect != null");
-            effect.SetPositionAndPlay(_enemy.transform.position);*/
             Enemy.onDeath?.Invoke();
              
             if (Enemy is IPoolable poolable)

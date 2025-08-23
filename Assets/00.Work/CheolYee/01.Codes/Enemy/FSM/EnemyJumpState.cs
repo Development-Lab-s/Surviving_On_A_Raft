@@ -16,7 +16,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemy.FSM
 
             if (_groundEnemy != null)
             {
-                _groundEnemy.Jump();
+                _groundEnemy.MovementComponent.Jump();
                 _hasJumped = true;
             }
         }

@@ -1,8 +1,10 @@
 using _00.Work.CheolYee._01.Codes.Agents;
+using _00.Work.CheolYee._01.Codes.Enemy.Attacks;
 using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-namespace _00.Work.CheolYee._01.Codes.Player
+namespace _00.Work.CheolYee._01.Codes.Players
 {
     public class Player : Agent
     {
@@ -14,11 +16,25 @@ namespace _00.Work.CheolYee._01.Codes.Player
         [Header("Agent SO Data")]
         [field:SerializeField] public PlayerInputSo PlayerInput {get; private set;} //인풋SO
         public PlayerAnimator PlayerAnimatorComponent { get; private set; } //플레이어 애니메이션 담당
+
+        protected MeleeAttack AttackBehaviour; //공격을 할 수 있는가?
         
+        
+
+        [Header("Attack Settings")]
+        public float damage;
+        public float attackDuration;
+        public float knockbackPower; // 넉백 힘
+        [field:SerializeField] public DamageCaster DamageCaster { get; protected set; } //데미지 가하는 컴포넌트
         protected override void Awake()
         {
             base.Awake();
             PlayerAnimatorComponent = GetComponentInChildren<PlayerAnimator>(); //애니메이터 가져오기
+
+            damage = CharacterData.attack;
+            attackDuration = CharacterData.attackSpeed;
+
+            AttackBehaviour = new MeleeAttack(); //임시로 기본공격을 만들어둠
 
             PlayerInput.OnJumpKeyPress += HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 등록
             MovementComponent.GetComponent<PlayerMovement>().Initialize(CharacterData); //캐릭터 데이터로 기본값 설정
@@ -36,6 +52,10 @@ namespace _00.Work.CheolYee._01.Codes.Player
             CalculateInAirTime(); //공중 시간 계산
             SetupMovementX(); //무브먼트 스크립트에 지속적으로 X값 전달
             UpdateAnimator(); //애니메이션 업데이트
+            if (Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                AttackBehaviour?.Attack(this);
+            }
         }
 
         private void FixedUpdate()

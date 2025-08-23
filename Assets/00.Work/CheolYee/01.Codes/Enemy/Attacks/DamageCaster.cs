@@ -38,7 +38,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemy.Attacks
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.magenta;
             Gizmos.DrawWireSphere(transform.position, damageRadius);
         }
 #endif

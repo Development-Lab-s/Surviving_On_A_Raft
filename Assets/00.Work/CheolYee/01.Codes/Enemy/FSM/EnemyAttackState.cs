@@ -12,9 +12,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemy.FSM
         {
             base.Enter();
             Enemy.MovementComponent.StopImmediately(); //움직임 멈추고
-            
-            Vector2 direction = Enemy.targetTrm.position - Enemy.transform.position;
-            Enemy.MovementComponent.SetMovement(direction.x);
             Enemy.Attack();
         }
 

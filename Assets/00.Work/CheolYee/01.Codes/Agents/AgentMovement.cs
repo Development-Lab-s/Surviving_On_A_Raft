@@ -10,11 +10,11 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         [field: SerializeField] public Rigidbody2D RbCompo { get; private set; } //다른곳에서 리지드바디를 가져오기 위함
         
         [Header("Settings")]
-        public float moveSpeed = 5f;
-        public float jumpForce = 7f; //나중에 스탯 시스템으로 변경한다.
+        protected float MoveSpeed = 5f; //이동 속도
+        protected float JumpForce = 7f; //점프력
+        protected float KnockBackDuration = 0.2f; //넉백 시간
         [SerializeField] protected LayerMask groundLayer; //땅 레이어
         [SerializeField] protected Vector2 groundCheckRadius; //땅 체크 범위
-        [SerializeField] protected float knockBackDuration = 0.2f; //넉백 시간
 
         //NotifyValue: 값이 변경되었을 때, 이벤트를 발행해주는 기능이다. 이벤트처럼 OnValueChange에 구독하는 형식으로 사용 가능하다
         public readonly NotifyValue<bool> IsGround = new NotifyValue<bool>();
@@ -41,7 +41,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public void Jump(float multi = 1f)
         {
             RbCompo.linearVelocity = Vector2.zero;
-            RbCompo.AddForce(Vector2.up * jumpForce * multi, ForceMode2D.Impulse);
+            RbCompo.AddForce(Vector2.up * (JumpForce * multi), ForceMode2D.Impulse);
         }
 
         private void FixedUpdate()
@@ -52,7 +52,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
             MoveAgent();
         }
 
-        protected void CheckGround()
+        private void CheckGround()
         {
             Collider2D overlapBox = Physics2D.OverlapBox(transform.position, groundCheckRadius, 0, groundLayer);
 
@@ -61,7 +61,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         private void MoveAgent()
         {
-            RbCompo.linearVelocityX = _xMove * moveSpeed;
+            RbCompo.linearVelocityX = _xMove * MoveSpeed;
         }
 
         public void AddGravity(Vector2 force)
@@ -92,7 +92,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         private IEnumerator KnockBackCoroutine()
         {
             _canMove = false; //움직이지 못하게 막아주고
-            yield return new WaitForSeconds(knockBackDuration); //시간 대기
+            yield return new WaitForSeconds(KnockBackDuration); //시간 대기
             RbCompo.linearVelocity = Vector2.zero;
             _canMove = true;
         }

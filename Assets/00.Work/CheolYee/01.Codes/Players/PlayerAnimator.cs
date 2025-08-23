@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace _00.Work.CheolYee._01.Codes.Player
+namespace _00.Work.CheolYee._01.Codes.Players
 {
     public class PlayerAnimator : MonoBehaviour
     {

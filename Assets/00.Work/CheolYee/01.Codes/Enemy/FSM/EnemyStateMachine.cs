@@ -7,7 +7,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemy.FSM
         //Enemy의 상태를 관리하고, 상태 전환을 하는 클래스
         public EnemyState CurrentState { get; private set; } //현재 상태를 나타내는 프로퍼티 (읽기 가능)
         
-        //Enemy의 상태(Enum)과 객체(EnemyState)를 묶는? 딕셔너리
+        //Enemy의 상태(Enum)과 객체의 실제 상태 타입들을 묶는 딕셔너리
         private readonly Dictionary<EnemyBehaviourType, EnemyState> _stateDictionary = new Dictionary<EnemyBehaviourType, EnemyState>();
 
         private Enemy _enemy; // 이 클래스를 참조하는 적 객체를 알기 위한것.

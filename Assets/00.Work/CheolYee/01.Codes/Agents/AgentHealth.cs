@@ -8,25 +8,27 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public UnityEvent onHit;
         public UnityEvent onDeath;
 
-        [SerializeField] private float maxHealth = 150f;
-        
+        private float _maxHealth = 150f;
         private float _currentHealth;
+        
         private Agent _owner;
 
         public void Initialize(Agent owner, float health)
         {
-            maxHealth = health;
+            _maxHealth = health;
             _owner = owner;
             ResetHealth();
         }
 
         public void ResetHealth()
         {
-            _currentHealth = maxHealth;
+            _currentHealth = _maxHealth;
         }
 
         public void TakeDamage(float amount, Vector2 normal, Vector2 point, float kbPower)
         {
+            Debug.Assert(_owner != null, $"{nameof(_owner)} 의 체력이 초기화되지 않았습니다.");
+            
             _currentHealth -= amount;
             onHit?.Invoke();
 
