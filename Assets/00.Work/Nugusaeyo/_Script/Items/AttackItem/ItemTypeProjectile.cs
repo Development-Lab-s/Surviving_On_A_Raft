@@ -8,7 +8,6 @@ public abstract class ItemTypeProjectile : TestAttackItem
     public float Speed;
 
     private GameObject Projectile;
-
     protected virtual void SpawnProjectile(Vector3 spawnPosition,TestPlayer player)
     {
         Projectile = Instantiate(ProjectilePrefab,
