@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _00.Work.lusalord._02.Script.ItemType;
 using Unity.VisualScripting;
 using UnityEngine;

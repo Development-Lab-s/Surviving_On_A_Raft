@@ -12,12 +12,12 @@ namespace _00.Work.lusalord._02.Script.ItemType
         
         public List<GameObject> spinItems;
         public float spinSpeed => _spinItemSO.spinSpeed;
+        
         protected virtual void Awake()
         {
             _spinItemSO = (SpinItemSO)attackItemSo;
             Spawn();
         }
-
         public void Spawn()
         {
             GameObject spawnItem = Instantiate(_spinItemSO.spinPrefab, transform);
