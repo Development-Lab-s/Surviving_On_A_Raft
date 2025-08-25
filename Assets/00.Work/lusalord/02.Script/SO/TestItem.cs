@@ -1,13 +1,14 @@
-using System.Collections.Generic;
 using _00.Work.lusalord._02.Script.ItemType;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class TestItem : ItemTypeSpin
+namespace _00.Work.lusalord._02.Script.SO
 {
-    protected override void Awake()
+    public class TestItem : ItemTypeSpin
     {
-        base.Awake();
-        Debug.Log(spinSpeed);
+        protected override void Awake()
+        {
+            base.Awake();
+            Debug.Log(SpinSpeed);
+        }
     }
 }
