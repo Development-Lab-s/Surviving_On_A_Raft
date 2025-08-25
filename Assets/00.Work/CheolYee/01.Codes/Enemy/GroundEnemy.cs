@@ -46,7 +46,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemy
             _stateMachine.AddState(EnemyBehaviourType.Jump, new EnemyJumpState(this, _stateMachine, "JUMP"));
             _stateMachine.AddState(EnemyBehaviourType.Attack, new EnemyAttackState(this, _stateMachine, "ATTACK"));
             _stateMachine.AddState(EnemyBehaviourType.Death, new EnemyDeathState(this, _stateMachine, "DEATH"));
-            
             //후 초기화
             _stateMachine.Initialize(EnemyBehaviourType.Idle, this);
         }
@@ -66,7 +65,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemy
             return Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsWall);
         }
         
-
         #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {

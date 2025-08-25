@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Agents
@@ -11,7 +10,6 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         [SerializeField] private float extraGravity = 200f; //플레이어가 공중에 떠 있을 때 일정 시간 후 떨어지는 속도의 중력값
         [SerializeField] private float gravityDelay = 0.15f; //공중에 떠 있는 시간
 
-        public Action OnFlipEvent;
         public AgentMovement MovementComponent { get; private set; } //이동 담당
         public AgentHealth HealthComponent { get; private set; } //체력 담당
         
@@ -55,7 +53,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         #region Flip Controller
 
         // 캐릭터가 오른쪽을 보고 있는지 확인
-        public bool IsFacingRight()
+        private bool IsFacingRight()
         {
             // y축 회전값이 0이면 오른쪽을 보고 있는 것으로 간주
             //Approximately: 약, 대략이라는 뜻으로, 1번값과 2번값의 부동소수점을 비교하여 근사하면 true,
@@ -64,19 +62,19 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         }
 
         // 타겟 위치에 따라 캐릭터의 방향(스프라이트)을 좌우 반전
-        public void HandleSpriteFlip(Vector3 targetPosition)
+        protected void HandleSpriteFlip(Vector3 targetPosition)
         {
             //만약에 타겟(마우스, 플레이어 등 움직이는 것)의 x좌표가 자신보다 크다면(오른쪽에 있다면)
+            if (MovementComponent.RbCompo.linearVelocityX <= 0) return;
+            
             if (targetPosition.x < transform.position.x && IsFacingRight())
             {
                 transform.eulerAngles = new Vector3(0, 180f, 0);  // 왼쪽을 봄
-                OnFlipEvent?.Invoke();
             }
             else if (targetPosition.x > transform.position.x && IsFacingRight() == false)//아니라면
             {
                 transform.eulerAngles = Vector3.zero;             // 오른쪽을 봄
-                OnFlipEvent?.Invoke();
-            } 
+            }
         }
 
         #endregion

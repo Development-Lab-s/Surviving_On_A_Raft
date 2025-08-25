@@ -16,7 +16,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemy.FSM
         public override void Update()
         {
             base.Update();
-
+            
             Collider2D player = Enemy.GetPlayerInRange(); //플레이어가 감지 범위 안에 있는지 확인
             if (player != null) //있으면
             {
