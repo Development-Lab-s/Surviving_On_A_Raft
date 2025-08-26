@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6675e1c6bcef4395b0f9eb383fe09e0e, type: 3}
-  m_Name: CostStar
+  m_Name: CostSlot5
   m_EditorClassIdentifier: 
   costImg: {fileID: 7723152184336226453, guid: b3ac799a90cb3884292147df4ca02c37, type: 3}
   costName: "\uC6B4\uC11D"
