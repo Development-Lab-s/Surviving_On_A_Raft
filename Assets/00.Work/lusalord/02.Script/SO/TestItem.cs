@@ -8,7 +8,7 @@ namespace _00.Work.lusalord._02.Script.SO
         protected override void Awake()
         {
             base.Awake();
-            Debug.Log(SpinSpeed);
         }
+        
     }
 }
