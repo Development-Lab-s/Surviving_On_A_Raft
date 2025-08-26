@@ -36,7 +36,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemy
         
         public ContactFilter2D whatIsPlayer; //플레이어를 탐지하는 필터
         public Transform targetTrm; //현재 타겟 위치
-        public Transform targetLadderTrm; //현재 타겟 사다리 위치
 
         protected int EnemyLayer; //자신의 레이어 ID
         private Collider2D[] _playerCollider; //탐지한 오브젝트 저장용

@@ -6,6 +6,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemy
     public class GroundRangeAttackEnemy : GroundEnemy
     {
         [Header("RangeAttack Settings")]
+        public Transform firePos;
         public GameObject projectilePrefab;
         public float projectileSpeed;
         

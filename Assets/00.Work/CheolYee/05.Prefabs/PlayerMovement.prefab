@@ -45,10 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <RbCompo>k__BackingField: {fileID: 0}
-  moveSpeed: 5
-  jumpForce: 7
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
   groundCheckRadius: {x: 0.6, y: 0.1}
-  knockBackDuration: 0.1
