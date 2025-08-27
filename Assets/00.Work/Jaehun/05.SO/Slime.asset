@@ -16,7 +16,7 @@ MonoBehaviour:
   maxHealth: 25
   moveSpeed: 2
   attackPower: 20
-  detectRadius: 5
+  detectRadius: 6
   attackRange: 1.2
   attackCooldown: 1
   jumpForceY: 6

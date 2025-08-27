@@ -6,6 +6,8 @@ public class AttackState : IState
     public void Enter()
     {
         e.StopX(); // 제자리
+        e.SetRun(false);
+        if (e.anim) e.anim.SetBool("HashIsHunting", false);
         if (e.atkCooldownTimer > 0f) return; // 공격 쿨타임 상태면 기다리기
 
         // Attack 트리거 → 애니 중간 프레임에 AnimationEvent(함수명: AE_DealDamage)

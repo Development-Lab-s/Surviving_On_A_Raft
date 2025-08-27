@@ -7,7 +7,11 @@ internal class ChaseState : IState
 
     public ChaseState(EnemyControllFSM e) => this.e = e;
 
-    public void Enter() { }
+    public void Enter()
+    {
+        e.SetRun(true);
+        if (e.anim) e.anim.SetBool("HashIsHunting", true); // 추격시작
+    }
 
     public void Tick()
     {
@@ -40,5 +44,9 @@ internal class ChaseState : IState
         e.moveDir = (int)Mathf.Sign(dirX == 0 ? e.moveDir : dirX);
     }
 
-    public void Exit() { }
+    public void Exit()
+    {
+        e.SetRun(false);
+        if (e.anim) e.anim.SetBool("HashIsHunting", false);
+    }
 }

@@ -32,7 +32,7 @@ public class EnemyControllFSM : MonoBehaviour
     [SerializeField] private float hp;           // 현재 체력
     public Vector3 startPos;   // 시작점(순찰 기준)
     public int moveDir = 1;    // +1 오른쪽, -1 왼쪽
-    public float atkCooldownTimer;  // 공격 쿨타임
+    public float atkCooldownTimer = 5;  // 공격 쿨타임
     public float jumpCooldownTimer; // 점프 쿨타임
 
     IState _current;       // 현재 상태
@@ -40,6 +40,14 @@ public class EnemyControllFSM : MonoBehaviour
     Collider2D[] _cols;    // 나와 자식의 콜라이더들
 
     static readonly int HashIsRunning = Animator.StringToHash("IsRunning"); // 엔진 시간에 배운 그거 맞음.
+    static readonly int HashIsHunting = Animator.StringToHash("IsHunting");
+    static readonly int HashDie = Animator.StringToHash("Die");
+
+    public void SetRun(bool on)     // 추격상태일때 달리기가 안나와서 일단 임시로 만들거
+    {
+        if (anim) anim.SetBool(HashIsRunning, on);
+    }
+
 
     void Awake()           // 시작하자마자 전부 채워주고
     {
@@ -51,7 +59,7 @@ public class EnemyControllFSM : MonoBehaviour
 
     public void Start()
     {
-        // HP시스템은 내일쯤 민철이에게 물어보자.
+        // HP시스템은 민철이에게 물어보자.
 
         startPos = transform.position;    // 시작할때 정해진 위치에서
 
@@ -70,7 +78,7 @@ public class EnemyControllFSM : MonoBehaviour
         _current?.Tick();
 
         // 달리기 Bool: 수평속도 크면 달리는 중
-        // if (anim) anim.SetBool(HashIsRunning, Mathf.Abs(rb.linearVelocityX.x) > 0.05f);
+        //if (anim) anim.SetBool(HashIsRunning, Mathf.Abs(rb.linearVelocity.x) > 0.05f);
     }
 
     private void FixedUpdate()
@@ -151,22 +159,27 @@ public class EnemyControllFSM : MonoBehaviour
         rb.linearVelocity = v;
         jumpCooldownTimer = data.jumpCooldown;
     }
-    /*public void TakeDamage(float dmg)
+    public void TakeDamage(float dmg)
     {
         hp -= dmg;
         if (hp <= 0f) Die();
-    그냥 애니메이션만 하면 되는거 맞나?
-    }*/ // 나중에 체력 시스템 보고서 만들것.
+    }
 
     void Die()
     {
         SpawnDrops();
-        gameObject.SetActive(false);
+
+        foreach (var c in _cols) if (c) c.enabled = false;
+        this.enabled = false; // FSM 업데이트 정지(선택)
+        rb.linearVelocity = Vector2.zero;    // 멈춤
+
+        if (anim) anim.SetTrigger(HashDie);
+        else Destroy(gameObject, 0.2f); // 애니가 없을 때만 약간 딜레이 파괴
     }
     void SpawnDrops()
     {
         // if (!data || !data.dropPrefab) return;
-        int count = data.RollDropCount();
+        int count = data.RollDropCount();   //그 적 데이터 쪽에서 랜덤으로 정해지는 떨어지는 아이템.
         //for (int i = 0; i < count; i++)
         //  Instantiate(data.dropPrefab, transform.position, Quaternion.identity);
     }

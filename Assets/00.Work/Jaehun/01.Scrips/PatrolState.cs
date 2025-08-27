@@ -9,9 +9,11 @@ public class PatrolState : IState
 
     public void Enter()
     {
+        e.SetRun(false);
         leftX = e.startPos.x - e.patrolDistance; // 왼쪽 끝
         rightX = e.startPos.x + e.patrolDistance; // 오른쪽 끝
         if (Mathf.Abs(e.rb.linearVelocity.x) < 0.05f) e.moveDir = 1; // 정지면 오른쪽부터
+        if (e.anim) e.anim.SetBool("HashIsHunting", false);  // 순찰은 사냥 아님
     }
 
     public void Tick()
