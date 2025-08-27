@@ -9,14 +9,14 @@ public class PatrolState : IState
 
     public void Enter()
     {
-        leftX = e.startPos.x - e.patrolDistance; // ¿ŞÂÊ ³¡
-        rightX = e.startPos.x + e.patrolDistance; // ¿À¸¥ÂÊ ³¡
-        if (Mathf.Abs(e.rb.linearVelocity.x) < 0.05f) e.moveDir = 1; // Á¤Áö¸é ¿À¸¥ÂÊºÎÅÍ
+        leftX = e.startPos.x - e.patrolDistance; // ì™¼ìª½ ë
+        rightX = e.startPos.x + e.patrolDistance; // ì˜¤ë¥¸ìª½ ë
+        if (Mathf.Abs(e.rb.linearVelocity.x) < 0.05f) e.moveDir = 1; // ì •ì§€ë©´ ì˜¤ë¥¸ìª½ë¶€í„°
     }
 
     public void Tick()
     {
-        // ÇÃ·¹ÀÌ¾î°¡ °¨Áö ¹İ°æ ¾È¿¡ µé¾î¿À¸é Ãß°İÀ¸·Î ÀüÈ¯
+        // í”Œë ˆì´ì–´ê°€ ê°ì§€ ë°˜ê²½ ì•ˆì— ë“¤ì–´ì˜¤ë©´ ì¶”ê²©ìœ¼ë¡œ ì „í™˜
         if (e.DistanceToPlayer() <= e.data.detectRadius)
         {
             e.ChangeState(new ChaseState(e));
@@ -24,13 +24,13 @@ public class PatrolState : IState
         }
     }
 
-    public void FixedTick() // ÃÊ´ç ¿òÁ÷ÀÓ. ±×´Ï±î FixedUpdate¶ó »ı°¢ÇÏ¸éµÊ. ½ÇÁ¦·Î ±×°Ô ¸ÂÀ½.
+    public void FixedTick() // ì´ˆë‹¹ ì›€ì§ì„. ê·¸ë‹ˆê¹Œ FixedUpdateë¼ ìƒê°í•˜ë©´ë¨. ì‹¤ì œë¡œ ê·¸ê²Œ ë§ìŒ.
     {
-        e.MoveX(e.moveDir * e.data.moveSpeed); // ¿òÁ÷ÀÓ
+        e.MoveX(e.moveDir * e.data.moveSpeed); // ì›€ì§ì„
 
-        float x = e.transform.position.x;     // ¿¡³Ê¹ÌÀÇ xÀ§Ä¡¸¦ x¶ó°í ÀúÀåÇÔ.
-        if (x >= rightX) e.moveDir = -1;          // ÀÌÁ¦ x°¡ ¿À¸¥ÂÊº¸´Ù Å©°Å³ª °°À»°æ¿ì ¿ŞÂÊÀ¸·Î
-        else if (x <= leftX) e.moveDir = 1;       // ¹İ´ë´Â ¿À¸¥ÂÊÀ¸·Î
+        float x = e.transform.position.x;     // ì—ë„ˆë¯¸ì˜ xìœ„ì¹˜ë¥¼ xë¼ê³  ì €ì¥í•¨.
+        if (x >= rightX) e.moveDir = -1;          // ì´ì œ xê°€ ì˜¤ë¥¸ìª½ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ì„ê²½ìš° ì™¼ìª½ìœ¼ë¡œ
+        else if (x <= leftX) e.moveDir = 1;       // ë°˜ëŒ€ëŠ” ì˜¤ë¥¸ìª½ìœ¼ë¡œ
     }
 
     public void Exit() { }
