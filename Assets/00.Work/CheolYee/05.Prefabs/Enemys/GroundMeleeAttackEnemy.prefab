@@ -277,7 +277,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   enemyData: {fileID: 11400000, guid: dcd0d07e9d419c345b3f782b9446404d, type: 2}
-  detectRadius: 4.93
+  detectRadius: 0
   attackRadius: 2
   attackCooldown: 0
   knockbackPower: 0

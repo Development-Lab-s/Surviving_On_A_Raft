@@ -105,9 +105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayer:
     serializedVersion: 2
-    m_Bits: 192
-  speed: 20
-  lifeTime: 8.03
+    m_Bits: 72
+  speed: 10
+  lifeTime: 1.5
   itemName: EnemyBullet
   damageCaster: {fileID: 6181935180572779290}
 --- !u!50 &6044163031519489196
@@ -150,7 +150,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 72
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -1,5 +1,5 @@
 using _00.Work.CheolYee._01.Codes.Agents;
-using _00.Work.CheolYee._01.Codes.Enemy.Attacks;
+using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;

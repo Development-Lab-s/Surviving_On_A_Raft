@@ -16,7 +16,7 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
             RbCompo = GetComponent<Rigidbody2D>();
         }
         
-        public abstract void Initialize(Transform firePos, float damage, float knockbackPower);
+        public abstract void Initialize(Transform firePos, Transform tragetPos, float damage, float knockbackPower);
 
         public void ResetItem()
         {

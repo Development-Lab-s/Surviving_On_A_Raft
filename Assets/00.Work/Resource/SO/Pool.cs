@@ -32,6 +32,7 @@ namespace _00.Work.Resource.SO
             IPoolable item;
             if (_pool.Count == 0)
             {
+                Debug.Log($"새로 생성 {_prefab.name}");
                 GameObject gameObj = Object.Instantiate(_prefab, _parent);
                 gameObj.name = _poolable.ItemName;
                 item = gameObj.GetComponent<IPoolable>();
@@ -39,9 +40,9 @@ namespace _00.Work.Resource.SO
             else
             {
                 item = _pool.Pop();
-                item.GameObject.SetActive(true); //꺼져있던 아이템을 활성화 시켜준다.
             }
 
+            item.GameObject.SetActive(true);
             return item;
         }
 

@@ -13,6 +13,8 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public AgentMovement MovementComponent { get; private set; } //이동 담당
         public AgentHealth HealthComponent { get; private set; } //체력 담당
         
+        public SpriteRenderer SpriteRendererComponent { get; private set; } //스프라이트 담당
+        
         public Animator AnimatorComponent { get; private set; }
 
         public bool isDead; // 캐릭터가 죽었는가?
@@ -23,6 +25,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
             MovementComponent = GetComponentInChildren<AgentMovement>(); //무브먼트 가져오기
             HealthComponent = GetComponentInChildren<AgentHealth>(); //체력 가져오기
             AnimatorComponent  = GetComponentInChildren<Animator>(); //애니메이터 가져오기
+            SpriteRendererComponent = GetComponentInChildren<SpriteRenderer>(); //렌더러 가져오기
         }
         
         protected void CalculateInAirTime() //공중에 있는 시간 계산

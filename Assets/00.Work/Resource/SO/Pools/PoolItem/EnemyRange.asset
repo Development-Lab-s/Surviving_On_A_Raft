@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 808b3eaf175ccb04b91aa8bd44b8d567, type: 3}
-  m_Name: EnemyTest
+  m_Name: EnemyRange
   m_EditorClassIdentifier: 
-  poolName: GroundRangeEnemy
-  prefab: {fileID: 5109870591153661004, guid: 6da9e72e28b1feb48951d421354a5dea, type: 3}
+  poolName: Slime
+  prefab: {fileID: 7625470294587464396, guid: 06115fb14a287cd48afbbefe528a361f, type: 3}
   count: 2

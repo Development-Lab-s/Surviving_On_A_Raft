@@ -1,4 +1,4 @@
-using _00.Work.CheolYee._01.Codes.Enemy.Attacks;
+using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using _00.Work.Resource.Manager;
 using UnityEngine;
 using IPoolable = _00.Work.Resource.SO.IPoolable;
@@ -20,13 +20,14 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
         private float _knockBackPower; //넉백파워
         private Vector2 _direction; //방향
         
-        public override void Initialize(Transform firePos, float damage, float knockbackPower)
+        public override void Initialize(Transform firePos, Transform targetPos,  float damage, float knockbackPower)
         {
             _damage = damage; //데미지
             _knockBackPower = knockbackPower; //넉백량
-            _direction = firePos.right; //타겟까지 방향
+            _direction = (targetPos.position - firePos.position).normalized;
             
-            transform.SetPositionAndRotation(firePos.position, firePos.rotation); //포지션과 각도 맞추기
+            float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+            transform.SetPositionAndRotation(firePos.position, Quaternion.Euler(0, 0, angle));
         }
 
         private void FixedUpdate()
