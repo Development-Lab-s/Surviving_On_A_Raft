@@ -20,9 +20,9 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     }
     public void SpawnPortal()
     {
+        //나는 할거야 for문을 포탈이 랜덤으로 몇개 열리게에~ 그리고오 맵마다 배치할거야아
+        // ~ 들어간 맵에 있는 풀만 활성화 시킬 수 있어야데👍
         Portal portal = PoolManager.Instance.Pop(_portalItemPrefab.poolName) as Portal;
-        Debug.Log(portal.transform.position);
-        Debug.Log(spawnPoint.position);
         portal.transform.position = spawnPoint.position;
         portal.Initialize(portalData, true);
     }
