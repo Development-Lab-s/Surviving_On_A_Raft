@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _00.Work.lusalord._02.Script.SO.AttackItem.ItemType;
 using UnityEngine;
 
@@ -11,19 +12,28 @@ namespace _00.Work.lusalord._02.Script.ItemType
         public float _angle = 0;
         private Vector3 _startDir;
         private float _radius = 0;
+        private List<float> _childOffsets = new List<float>();
         
         protected virtual void Awake()
         {
+            
             _spinItemSo = (SpinItemSo)attackItemSo;
             _radius = _spinItemSo.spinRadius;
-            Spawn();
+            
+            gameObject.name = _spinItemSo.itemName;
+            for (int i = 1; i < _spinItemSo.spinAmount + 1; i++)
+            {
+                float angle = i * (2f * Mathf.PI / _spinItemSo.spinAmount);
+                _childOffsets.Add(angle);
+                Spawn(angle);
+            }
         }
-        public GameObject Spawn()
+        public GameObject Spawn(float angle)
         {
             GameObject spawnItem = Instantiate(_spinItemSo.spinPrefab, transform);
             spawnItem.transform.position = transform.position = new Vector3(
-                _radius * Mathf.Cos(_angle) , 
-                _radius* Mathf.Sin(_angle) , 
+                _radius * Mathf.Cos(_angle),
+                _radius* Mathf.Sin(_angle),
                 0);
             return spawnItem;
         }
@@ -32,11 +42,12 @@ namespace _00.Work.lusalord._02.Script.ItemType
         {
             _angle += SpinSpeed * Time.deltaTime;
 
-            foreach (Transform child in transform)
+            for (int i = 0; i < _childOffsets.Count; i++)
             {
-                child.localPosition = new Vector3(
-                    _radius * Mathf.Cos(_angle),
-                    _radius * Mathf.Sin(_angle),
+                float childAngle = _childOffsets[i] + _angle;
+                transform.GetChild(i).localPosition = new Vector3(
+                    _radius * Mathf.Cos(childAngle), 
+                    _radius * Mathf.Sin(childAngle), 
                     0);
             }
             transform.position = _playerTrs.position;

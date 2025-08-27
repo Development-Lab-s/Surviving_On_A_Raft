@@ -15,8 +15,8 @@ MonoBehaviour:
   itemName: 
   level: 0
   atkRate: 0
-  spinRadius: 5
+  spinRadius: 3
   spinPrefab: {fileID: 3944626458033196950, guid: 70a2162174e371a43bd15009a0f61ec2, type: 3}
   spinSpeed: 5
-  spinAmount: 0
+  spinAmount: 6
   spinItems: []

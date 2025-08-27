@@ -1,5 +1,5 @@
+using _00.Work.lusalord._02.Script.SO.AttackItem.ItemType;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _00.Work.lusalord._02.Script.ItemType
 {
@@ -7,14 +7,15 @@ namespace _00.Work.lusalord._02.Script.ItemType
     {
         public GameObject forwardPrefab;
         public string itemName;
-        public float itemSpeed;
-    
-        private GameObject _forward;
+        public float size;
+        
+        private SpinItemSo _spinItemSo;
 
-        protected virtual void SpawnProjectile(Vector3 spawnPosition)
+        protected virtual void Awake()
         {
-            _forward = Instantiate(forwardPrefab, spawnPosition, Quaternion.identity);
-            _forward.name = itemName;
+            _spinItemSo = (SpinItemSo)attackItemSo;
         }
+        
+        
     }
 }
