@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a11b1fa2c850b2449121e36a07f1f29, type: 3}
   m_Name: Potion
   m_EditorClassIdentifier: 
-  ItemImage: {fileID: 21300000, guid: eecd9a70fb639124fb003668d954cf96, type: 3}
+  ItemImage: {fileID: 21300000, guid: cea05765aba250243b5e913242143499, type: 3}
   ItemName: "\uD3EC\uC158"
   ItemDescription: "\uD3C9\uBC94\uD55C \uBB3C\uB7B5\uC785\uB2C8\uB2E4"

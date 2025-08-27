@@ -18,6 +18,9 @@ public class ItemInfoView : MonoBehaviour
     [SerializeField] private Vector2 IIDownPos;
 
     [SerializeField] private Volume globalVolume;
+
+    [SerializeField] private PlayerInput PInput;
+
     private DepthOfField dof;  // FieldOfView override
 
     private void Start()
@@ -30,6 +33,10 @@ public class ItemInfoView : MonoBehaviour
 
     public void ItemInfoViewMethod(ExItemSO ItemSO)
     {
+        if (PInput.isActiveAndEnabled == true)
+            return;
+        PInput.ChangeUIEnabled(true);
+
         Sequence seq = DOTween.Sequence();
         AnimateFocus(0.1f, 0.3f);
         seq.Join(ItemInfo.DOAnchorPos(IIUPPos, 0.8f));
@@ -45,6 +52,8 @@ public class ItemInfoView : MonoBehaviour
 
     public void ItemInfoUnViewMethod()
     {
+        PInput.ChangeUIEnabled(false);
+
         Sequence seq = DOTween.Sequence();
         AnimateFocus(10f, 0.3f);
         seq.Join(ItemInfo.DOAnchorPos(IIDownPos, 0.8f));
