@@ -1,94 +1,89 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))] // Rigidbody2D ¾øÀ¸¸é ÀÚµ¿ Ãß°¡ (±×³É ¾Öµµ ¾ÈÀüÀåÄ¡ ´À³¦.)
+[RequireComponent(typeof(Rigidbody2D))] // Rigidbody2D ì—†ìœ¼ë©´ ìë™ ì¶”ê°€ (ê·¸ëƒ¥ ì• ë„ ì•ˆì „ì¥ì¹˜ ëŠë‚Œ.)
 public class EnemyControllFSM : MonoBehaviour
 {
-    [Header("SO(µ¥ÀÌÅÍ) & Å¸°Ù")]
-    public EnemyData data;   // SO(¼öÄ¡/¼³Á¤)
-    [SerializeField] private Transform player;      // µû¶ó°¥ ÇÃ·¹ÀÌ¾î À§Ä¡
+    [Header("SO(ë°ì´í„°) & íƒ€ê²Ÿ")]
+    public EnemyData data;   // SO(ìˆ˜ì¹˜/ì„¤ì •)
+    [SerializeField] private Transform player;      // ë”°ë¼ê°ˆ í”Œë ˆì´ì–´ ìœ„ì¹˜
 
-    [Header("Layers (¸¶½ºÅ©·Î ÇÊÅÍ¸µ)")]
-    [SerializeField] private LayerMask playerMask;   // °ø°İ ÆÇÁ¤¿¡ ¸ÂÀ» ·¹ÀÌ¾î(=Player¸¸)
-    [SerializeField] private LayerMask groundMask;   // Á¢Áö È®ÀÎ(¶¥/ÇÃ·§Æû)
-    [SerializeField] private LayerMask obstacleMask; // Àü¹æ Àå¾Ö¹°(º®/ºí·Ï µîµî)
+    [Header("Layers (ë§ˆìŠ¤í¬ë¡œ í•„í„°ë§)")]
+    [SerializeField] private LayerMask playerMask;   // ê³µê²© íŒì •ì— ë§ì„ ë ˆì´ì–´(=Playerë§Œ)
+    [SerializeField] private LayerMask groundMask;   // ì ‘ì§€ í™•ì¸(ë•…/í”Œë«í¼)
+    [SerializeField] private LayerMask obstacleMask; // ì „ë°© ì¥ì• ë¬¼(ë²½/ë¸”ë¡ ë“±ë“±)
 
-    [Header("¼øÂû")]
-    public float patrolDistance = 2f; // ½ÃÀÛÀ§Ä¡ ±âÁØ ÁÂ/¿ì ¿Õº¹ °Å¸®(¼øÂû¿ë)
+    [Header("ìˆœì°°")]
+    public float patrolDistance = 2f; // ì‹œì‘ìœ„ì¹˜ ê¸°ì¤€ ì¢Œ/ìš° ì™•ë³µ ê±°ë¦¬(ìˆœì°°ìš©)
 
-    [Header("°ø°İ ¹İ°æ (È÷Æ®¹Ú½º)")]
-    [SerializeField] private Vector2 attackPointOffset = new Vector2(0.6f, 0f); // ³» À§Ä¡ ±âÁØ ¾ÕÂÊ ¿ÀÇÁ¼Â
-    [SerializeField] private float attackHitRadius = 0.6f;                      // ¿øÇüÀ¸·Î µÈ È÷Æ®¹Ú½º ¹İ°æ (¼ÖÁ÷È÷ ÀÌ°Ç ³ªµµ Àß ¸ğ¸£´Âµ¥ ¿øÇüÀ¸·Î µÇ´Â ÀÌÀ¯°¡ ¹¹Áö>? ³ªÁß¿¡ ¹ÎÃ¶ÀÌÇÑÅ× ¹°¾îº¼°Í.)
+    [Header("ê³µê²© ë°˜ê²½ (íˆíŠ¸ë°•ìŠ¤)")]
+    [SerializeField] private Vector2 attackPointOffset = new Vector2(0.6f, 0f); // ë‚´ ìœ„ì¹˜ ê¸°ì¤€ ì•ìª½ ì˜¤í”„ì…‹
+    [SerializeField] private float attackHitRadius = 0.6f;                      // ì›í˜•ìœ¼ë¡œ ëœ íˆíŠ¸ë°•ìŠ¤ ë°˜ê²½ (ì†”ì§íˆ ì´ê±´ ë‚˜ë„ ì˜ ëª¨ë¥´ëŠ”ë° ì›í˜•ìœ¼ë¡œ ë˜ëŠ” ì´ìœ ê°€ ë­ì§€>? ë‚˜ì¤‘ì— ë¯¼ì² ì´í•œí…Œ ë¬¼ì–´ë³¼ê²ƒ.)
 
-    [Header("ÆäÀÌµå ÀÎ (½ºÆù µÉ ¶§")]
-    [SerializeField] private bool fadeInOnSpawn = true;               // »ı¼ºÁßÀ¸·Î ¸¸µé°í
+    [Header("í˜ì´ë“œ ì¸ (ìŠ¤í° ë  ë•Œ")]
+    [SerializeField] private bool fadeInOnSpawn = true;               // ìƒì„±ì¤‘ìœ¼ë¡œ ë§Œë“¤ê³ 
     [SerializeField] private float fadeInDuration = 0.4f;
-    [SerializeField] private bool freezeAIWhileFading = true;         // ÆäÀÌµå Áß FSM ÀÏ½ÃÁ¤Áö
-    [SerializeField] private bool disableCollidersWhileFading = true; // ÆäÀÌµå Áß Ãæµ¹ ²ô±â
+    [SerializeField] private bool freezeAIWhileFading = true;         // í˜ì´ë“œ ì¤‘ FSM ì¼ì‹œì •ì§€
+    [SerializeField] private bool disableCollidersWhileFading = true; // í˜ì´ë“œ ì¤‘ ì¶©ëŒ ë„ê¸°
 
-    public Rigidbody2D rb;     // ¹°¸®Àû ÀÌµ¿
-    public Animator anim;      // ¾Ö´Ï¸ŞÀÌÅÍ
-    [SerializeField] private SpriteRenderer sr;  // ½Ã°¢(µÚÁı±â/ÆäÀÌµå)
-    [SerializeField] private float hp;           // ÇöÀç Ã¼·Â
-    public Vector3 startPos;   // ½ÃÀÛÁ¡(¼øÂû ±âÁØ)
-    public int moveDir = 1;    // +1 ¿À¸¥ÂÊ, -1 ¿ŞÂÊ
-    public float atkCooldownTimer = 5;  // °ø°İ ÄğÅ¸ÀÓ
-    public float jumpCooldownTimer; // Á¡ÇÁ ÄğÅ¸ÀÓ
+    public Rigidbody2D rb;     // ë¬¼ë¦¬ì  ì´ë™
+    public Animator anim;      // ì• ë‹ˆë©”ì´í„°
+    [SerializeField] private SpriteRenderer sr;  // ì‹œê°(ë’¤ì§‘ê¸°/í˜ì´ë“œ)
+    [SerializeField] private float hp;           // í˜„ì¬ ì²´ë ¥
+    public Vector3 startPos;   // ì‹œì‘ì (ìˆœì°° ê¸°ì¤€)
+    public int moveDir = 1;    // +1 ì˜¤ë¥¸ìª½, -1 ì™¼ìª½
+    public float atkCooldownTimer;  // ê³µê²© ì¿¨íƒ€ì„
+    public float jumpCooldownTimer; // ì í”„ ì¿¨íƒ€ì„
+    public Vector2 groundCheckRadius;
+    public Vector3 groundCheckOffset;
+    public Vector2 obstacleCheckOffset;
 
-    IState _current;       // ÇöÀç »óÅÂ
-    bool _isFading;        // ÆäÀÌµå Áß ÀÎÁö ¾Æ´ÑÁö ¾Ë·ÁÁÖ´Â ¿ªÇÒ
-    Collider2D[] _cols;    // ³ª¿Í ÀÚ½ÄÀÇ Äİ¶óÀÌ´õµé
+    IState _current;       // í˜„ì¬ ìƒíƒœ
+    bool _isFading;        // í˜ì´ë“œ ì¤‘ ì¸ì§€ ì•„ë‹Œì§€ ì•Œë ¤ì£¼ëŠ” ì—­í• 
+    Collider2D[] _cols;    // ë‚˜ì™€ ìì‹ì˜ ì½œë¼ì´ë”ë“¤
 
-    static readonly int HashIsRunning = Animator.StringToHash("IsRunning"); // ¿£Áø ½Ã°£¿¡ ¹è¿î ±×°Å ¸ÂÀ½.
-    static readonly int HashIsHunting = Animator.StringToHash("IsHunting");
-    static readonly int HashDie = Animator.StringToHash("Die");
+    static readonly int HashIsRunning = Animator.StringToHash("IsRunning"); // ì—”ì§„ ì‹œê°„ì— ë°°ìš´ ê·¸ê±° ë§ìŒ.
 
-    public void SetRun(bool on)     // Ãß°İ»óÅÂÀÏ¶§ ´Ş¸®±â°¡ ¾È³ª¿Í¼­ ÀÏ´Ü ÀÓ½Ã·Î ¸¸µé°Å
-    {
-        if (anim) anim.SetBool(HashIsRunning, on);
-    }
-
-
-    void Awake()           // ½ÃÀÛÇÏÀÚ¸¶ÀÚ ÀüºÎ Ã¤¿öÁÖ°í
+    void Awake()           // ì‹œì‘í•˜ìë§ˆì ì „ë¶€ ì±„ì›Œì£¼ê³ 
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         _cols = GetComponentsInChildren<Collider2D>();
     }
 
     public void Start()
     {
-        // HP½Ã½ºÅÛÀº ¹ÎÃ¶ÀÌ¿¡°Ô ¹°¾îº¸ÀÚ.
+        // HPì‹œìŠ¤í…œì€ ë‚´ì¼ì¯¤ ë¯¼ì² ì´ì—ê²Œ ë¬¼ì–´ë³´ì.
 
-        startPos = transform.position;    // ½ÃÀÛÇÒ¶§ Á¤ÇØÁø À§Ä¡¿¡¼­
+        startPos = transform.position;    // ì‹œì‘í• ë•Œ ì •í•´ì§„ ìœ„ì¹˜ì—ì„œ
 
-        if (fadeInOnSpawn && sr) StartCoroutine(FadeInRoutine());
+        if (fadeInOnSpawn && sr != null) StartCoroutine(FadeInRoutine());
 
-        ChangeState(new PatrolState(this)); // ÃÖÃÊ »óÅÂ: ¼øÂû
+        ChangeState(new PatrolState(this)); // ìµœì´ˆ ìƒíƒœ: ìˆœì°°
     }
 
     void Update()
     {
-        // Å¸ÀÌ¸Ó °¨¼Ò(Äğ´Ù¿îµé)
+        // íƒ€ì´ë¨¸ ê°ì†Œ(ì¿¨ë‹¤ìš´ë“¤)
         if (atkCooldownTimer > 0f) atkCooldownTimer -= Time.deltaTime;
         if (jumpCooldownTimer > 0f) jumpCooldownTimer -= Time.deltaTime;
 
-        if (_isFading && freezeAIWhileFading) return; // ÆäÀÌµå ÁßÀÌ¸é FSM ³í¸® Á¤Áö
+        if (_isFading && freezeAIWhileFading) return; // í˜ì´ë“œ ì¤‘ì´ë©´ FSM ë…¼ë¦¬ ì •ì§€
         _current?.Tick();
 
-        // ´Ş¸®±â Bool: ¼öÆò¼Óµµ Å©¸é ´Ş¸®´Â Áß
-        //if (anim) anim.SetBool(HashIsRunning, Mathf.Abs(rb.linearVelocity.x) > 0.05f);
+        // ë‹¬ë¦¬ê¸° Bool: ìˆ˜í‰ì†ë„ í¬ë©´ ë‹¬ë¦¬ëŠ” ì¤‘
+        // if (anim) anim.SetBool(HashIsRunning, Mathf.Abs(rb.linearVelocityX.x) > 0.05f);
     }
 
     private void FixedUpdate()
     {
-        if (_isFading && freezeAIWhileFading) return; // ÆäÀÌµå ÁßÀÏ¶§´Â ¹°¸®Àû Ãæµ¹ ¾ø¾Ö±â
+        if (_isFading && freezeAIWhileFading) return; // í˜ì´ë“œ ì¤‘ì¼ë•ŒëŠ” ë¬¼ë¦¬ì  ì¶©ëŒ ì—†ì• ê¸°
         _current?.FixedTick();
-        UpdateFlipByVelocity(); // ÀÌµ¿ ¹æÇâÀ¸·Î ½ºÇÁ¶óÀÌÆ® µÚÁı±â
+        UpdateFlipByVelocity(); // ì´ë™ ë°©í–¥ìœ¼ë¡œ ìŠ¤í”„ë¼ì´íŠ¸ ë’¤ì§‘ê¸°
     }
 
-    // »óÅÂ ÀüÈ¯(Ç×»ó Exit ¡æ ±³Ã¼ ¡æ Enter ¼ø¼­)
+    // ìƒíƒœ ì „í™˜(í•­ìƒ Exit â†’ êµì²´ â†’ Enter ìˆœì„œ)
     public void ChangeState(IState next)
     {
         _current?.Exit();
@@ -102,56 +97,51 @@ public class EnemyControllFSM : MonoBehaviour
         return Vector2.Distance(transform.position, player.position);
     }
 
-    public float DirToPlayerX() // ÇÃ·¹ÀÌ¾î°¡ ¿À¸¥ÂÊÀÌ¸é +1, ¿ŞÂÊÀÌ¸é -1.
+    public float DirToPlayerX() // í”Œë ˆì´ì–´ê°€ ì˜¤ë¥¸ìª½ì´ë©´ +1, ì™¼ìª½ì´ë©´ -1.
     {
-        if (!player) return 0f;  // ÇÃ·¹ÀÌ¾î°¡ ¾øÀ¸¸é 0À» ¸®ÅÏ.
-        return Mathf.Sign(player.position.x - transform.position.x); // ÇÃ·¹ÀÌ¾î xÀ§Ä¡ »©±â Àû À§Ä¡x »©±âÇÏ¸é µû¶ó°¡±â ¸ÂÁö?
+        if (!player) return 0f;  // í”Œë ˆì´ì–´ê°€ ì—†ìœ¼ë©´ 0ì„ ë¦¬í„´.
+        return player.position.x - transform.position.x; // í”Œë ˆì´ì–´ xìœ„ì¹˜ ë¹¼ê¸° ì  ìœ„ì¹˜x ë¹¼ê¸°í•˜ë©´ ë”°ë¼ê°€ê¸° ë§ì§€?
     }
-    public void MoveX(float vx) // ¼öÆò ¼Óµµ ¼¼ÆÃ
+    public void MoveX(float vx) // ìˆ˜í‰ ì†ë„ ì„¸íŒ…
     {
         var v = rb.linearVelocity; v.x = vx; rb.linearVelocity = v;
     }
-    public void StopX()   // ¸ØÃß±â
+    public void StopX()   // ë©ˆì¶”ê¸°
     {
-        var v = rb.linearVelocity; v.x = 0f; rb.linearVelocity = v;   // ¼öÆò ¼Óµµ 0
+        var v = rb.linearVelocity; v.x = 0f; rb.linearVelocity = v;   // ìˆ˜í‰ ì†ë„ 0
     }
-    void UpdateFlipByVelocity() // ¼Óµµ ±âÁØ ÁÂ¿ì µÚÁı±â
+    void UpdateFlipByVelocity() // ì†ë„ ê¸°ì¤€ ì¢Œìš° ë’¤ì§‘ê¸°
     {
-        if (!sr) return;
-        if (Mathf.Abs(rb.linearVelocity.x) > 0.01f)
-            sr.flipX = rb.linearVelocity.x < 0f; // ¿ŞÂÊ ÀÌµ¿ÀÌ¸é flipX=true
+        float velocityX = Mathf.Abs(rb.linearVelocity.x);
+        if (!sr || velocityX == 0) return;
+        if (velocityX > 0.01f)
+            sr.flipX = rb.linearVelocity.x < 0f; // ì™¼ìª½ ì´ë™ì´ë©´ flipX=true
     }
 
-    // ¹Ù´ÚÃ¼Å©: ¹ß ¾Æ·¡·Î ÂªÀº ·¹ÀÌ¸¦ ½÷¼­ ¶¥ÀÌ ÀÖ´ÂÁö È®ÀÎ.
+    // ë°”ë‹¥ì²´í¬: ë°œ ì•„ë˜ë¡œ ì§§ì€ ë ˆì´ë¥¼ ì´ì„œ ë•…ì´ ìˆëŠ”ì§€ í™•ì¸.
     public bool IsGrounded()
     {
-        Vector2 origin = (Vector2)transform.position + Vector2.down * 0.05f;
-        float dist = 0.1f;
-        var hit = Physics2D.Raycast(origin, Vector2.down, dist, groundMask);
-        // Debug.DrawRay(origin, Vector2.down * dist, Color.green);
-        return hit; // hit.collider != null ÀÌ¸é true
+        Collider2D coll = Physics2D.OverlapBox(transform.position + groundCheckOffset, groundCheckRadius, 0, groundMask);
+        return coll; // hit.collider != null ì´ë©´ true
     }
 
-    // --- Àü¹æ Àå¾Ö¹° Ã¼Å©: º¸´Â ¹æÇâÀ¸·Î ·¹ÀÌ µÎ °³(³·Àº/³ôÀº) ---
+    // --- ì „ë°© ì¥ì• ë¬¼ ì²´í¬: ë³´ëŠ” ë°©í–¥ìœ¼ë¡œ ë ˆì´ ë‘ ê°œ(ë‚®ì€/ë†’ì€) ---
     public bool HasObstacleAhead()
     {
-        float face = (sr && sr.flipX) ? -1f : 1f; // ¿Ş:-1, ¿À:+1  º¸´Â ¹æÇâ¿¡ µû¶ó ¹Ù²ñ.
+        float face = (sr && sr.flipX) ? -1f : 1f; // ì™¼:-1, ì˜¤:+1  ë³´ëŠ” ë°©í–¥ì— ë”°ë¼ ë°”ë€œ.
         Vector2 dir = new Vector2(face, 0f);
 
-        // ³·Àº ·¹ÀÌ: ³·Àº »óÀÚ °°Àº Àå¾Ö¹°
-        Vector2 low = (Vector2)transform.position + new Vector2(0.1f * face, 0.1f);
-        // ³ôÀº ·¹ÀÌ: Å° Å« º® °°Àº Àå¾Ö¹°
-        Vector2 high = (Vector2)transform.position + new Vector2(0.1f * face, 0.8f);
+        // ë‚®ì€ ë ˆì´: ë‚®ì€ ìƒì ê°™ì€ ì¥ì• ë¬¼
+        Vector2 low = (Vector2)transform.position + new Vector2(0.1f * face, 0.1f) + obstacleCheckOffset;
+        // ë†’ì€ ë ˆì´: í‚¤ í° ë²½ ê°™ì€ ì¥ì• ë¬¼
+        Vector2 high = (Vector2)transform.position + new Vector2(0.1f * face, 0.8f) + obstacleCheckOffset;
 
         var hitLow = Physics2D.Raycast(low, dir, data.obstacleCheckDist, obstacleMask);
         var hitHigh = Physics2D.Raycast(high, dir, data.obstacleCheckDist, obstacleMask);
 
-        // Debug.DrawRay(low,  dir * data.obstacleCheckDist, Color.magenta);
-        // Debug.DrawRay(high, dir * data.obstacleCheckDist, Color.magenta);
-
         return hitLow || hitHigh;
     }
-    // --- Á¡ÇÁ ½ÇÇà: ¼öÁ÷ ¼Óµµ¸¸ ¹Ù²ã À§·Î Æ¢¾î¿À¸§ + Äğ´Ù¿î ¼³Á¤ ---
+    // --- ì í”„ ì‹¤í–‰: ìˆ˜ì§ ì†ë„ë§Œ ë°”ê¿” ìœ„ë¡œ íŠ€ì–´ì˜¤ë¦„ + ì¿¨ë‹¤ìš´ ì„¤ì • ---
     public void DoJump()
     {
         var v = rb.linearVelocity;
@@ -159,31 +149,26 @@ public class EnemyControllFSM : MonoBehaviour
         rb.linearVelocity = v;
         jumpCooldownTimer = data.jumpCooldown;
     }
-    public void TakeDamage(float dmg)
+    /*public void TakeDamage(float dmg)
     {
         hp -= dmg;
         if (hp <= 0f) Die();
-    }
+    ê·¸ëƒ¥ ì• ë‹ˆë©”ì´ì…˜ë§Œ í•˜ë©´ ë˜ëŠ”ê±° ë§ë‚˜?
+    }*/ // ë‚˜ì¤‘ì— ì²´ë ¥ ì‹œìŠ¤í…œ ë³´ê³ ì„œ ë§Œë“¤ê²ƒ.
 
     void Die()
     {
         SpawnDrops();
-
-        foreach (var c in _cols) if (c) c.enabled = false;
-        this.enabled = false; // FSM ¾÷µ¥ÀÌÆ® Á¤Áö(¼±ÅÃ)
-        rb.linearVelocity = Vector2.zero;    // ¸ØÃã
-
-        if (anim) anim.SetTrigger(HashDie);
-        else Destroy(gameObject, 0.2f); // ¾Ö´Ï°¡ ¾øÀ» ¶§¸¸ ¾à°£ µô·¹ÀÌ ÆÄ±«
+        gameObject.SetActive(false);
     }
     void SpawnDrops()
     {
         // if (!data || !data.dropPrefab) return;
-        int count = data.RollDropCount();   //±× Àû µ¥ÀÌÅÍ ÂÊ¿¡¼­ ·£´ıÀ¸·Î Á¤ÇØÁö´Â ¶³¾îÁö´Â ¾ÆÀÌÅÛ.
+        int count = data.RollDropCount();
         //for (int i = 0; i < count; i++)
         //  Instantiate(data.dropPrefab, transform.position, Quaternion.identity);
     }
-    // ---- °ø°İ ÆÇÁ¤: Attack ¾Ö´Ï Å¬¸³ Áß°£ ÇÁ·¹ÀÓ¿¡ "AE_DealDamage" ÀÌº¥Æ® Ãß°¡ ----
+    // ---- ê³µê²© íŒì •: Attack ì• ë‹ˆ í´ë¦½ ì¤‘ê°„ í”„ë ˆì„ì— "AE_DealDamage" ì´ë²¤íŠ¸ ì¶”ê°€ ----
     public void AE_DealDamage() => DealDamageNow();
 
     void DealDamageNow()
@@ -191,7 +176,7 @@ public class EnemyControllFSM : MonoBehaviour
         float face = (sr && sr.flipX) ? -1f : 1f;
         Vector2 center = (Vector2)transform.position + new Vector2(attackPointOffset.x * face, attackPointOffset.y);
 
-        // ÇÃ·¹ÀÌ¾î ·¹ÀÌ¾î¸¸ ¸ÂÃã
+        // í”Œë ˆì´ì–´ ë ˆì´ì–´ë§Œ ë§ì¶¤
         var hit = Physics2D.OverlapCircle(center, attackHitRadius, playerMask);
         if (hit)
         {
@@ -201,32 +186,36 @@ public class EnemyControllFSM : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // °¨Áö/»ç°Å¸® µğ¹ö±× ¿ø
+        // ê°ì§€/ì‚¬ê±°ë¦¬ ë””ë²„ê·¸ ì›
         if (data)
         {
             Gizmos.color = Color.yellow; Gizmos.DrawWireSphere(transform.position, data.detectRadius);
             Gizmos.color = Color.red; Gizmos.DrawWireSphere(transform.position, data.attackRange);
         }
 
-        // Àü¹æ ·¹ÀÌ µğ¹ö±× ¼±
+        // ì „ë°© ë ˆì´ ë””ë²„ê·¸ ì„ 
         Gizmos.color = Color.magenta;
         float face = (sr && sr.flipX) ? -1f : 1f;
         Vector2 dir = new Vector2(face, 0f);
-        Vector2 low = (Vector2)transform.position + new Vector2(0.1f * face, 0.1f);
-        Vector2 high = (Vector2)transform.position + new Vector2(0.1f * face, 0.8f);
+        Vector2 low = (Vector2)transform.position + new Vector2(0.1f * face, 0.1f) + obstacleCheckOffset;
+        Vector2 high = (Vector2)transform.position + new Vector2(0.1f * face, 0.8f) + obstacleCheckOffset;
         Gizmos.DrawLine(low, low + dir * (data ? data.obstacleCheckDist : 0.6f));
         Gizmos.DrawLine(high, high + dir * (data ? data.obstacleCheckDist : 0.6f));
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position + groundCheckOffset, groundCheckRadius);
 
-        // °ø°İ È÷Æ®¹Ú½º µğ¹ö±× ¿ø
+        // ê³µê²© íˆíŠ¸ë°•ìŠ¤ ë””ë²„ê·¸ ì›
         Gizmos.color = Color.cyan;
         Vector2 c = (Vector2)transform.position + new Vector2(attackPointOffset.x * face, attackPointOffset.y);
         Gizmos.DrawWireSphere(c, attackHitRadius);
     }
 
-    // ---- ½ºÆù ÆäÀÌµåÀÎ: ¾ËÆÄ 0¡æ1, Ãæµ¹/AI Àá±ñ OFF ----
+    // ---- ìŠ¤í° í˜ì´ë“œì¸: ì•ŒíŒŒ 0â†’1, ì¶©ëŒ/AI ì ê¹ OFF ----
     IEnumerator FadeInRoutine()
     {
         _isFading = true;
+        Debug.Log("FadeIn");
 
         if (disableCollidersWhileFading)
             foreach (var c in _cols) if (c) c.enabled = false;

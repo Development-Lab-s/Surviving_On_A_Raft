@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   icon: {fileID: 0}
-  level: 1
-  maxLevel: 10
-  _modifiers:
-  - stateType: 0
-    value: 1
-  - stateType: 1
-    value: 0
+  level: 6
+  id: 0
+  criticalChance: 0
+  hp: 0
+  speed: 0
+  atk: 0
+  atkSpeed: 0
+  nextLevelPassiveItem: {fileID: 0}

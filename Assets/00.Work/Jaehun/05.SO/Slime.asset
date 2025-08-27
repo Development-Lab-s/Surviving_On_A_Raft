@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6c4d8eb48039e4a8dfda3c1e5aa337, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: 
-  EnemyName: Slime
-  maxHealth: 25
   moveSpeed: 2
-  attackPower: 20
-  detectRadius: 6
-  attackRange: 1.2
+  detectRadius: 10
+  attackRange: 2.25
   attackCooldown: 1
   jumpForceY: 6
-  obstacleCheckDist: 0.6
-  jumpCooldown: 0.5
+  obstacleCheckDist: 0.7
+  jumpCooldown: 1
   dropItem: []
   dropCountRange: {x: 1, y: 1}
