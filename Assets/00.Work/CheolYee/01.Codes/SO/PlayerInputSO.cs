@@ -8,6 +8,7 @@ namespace _00.Work.CheolYee._01.Codes.SO
     public class PlayerInputSo : ScriptableObject, Controls.IPlayerActions
     {
         public Action OnJumpKeyPress;
+        public Action OnSkillKeyPress;
         
         public Vector2 Movement {get; private set;}
         public Vector2 MousePosition {get; private set;}
@@ -43,6 +44,11 @@ namespace _00.Work.CheolYee._01.Codes.SO
         {
             Vector2 screenPosition = context.ReadValue<Vector2>();
             MousePosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        }
+
+        public void OnSkill(InputAction.CallbackContext context)
+        {
+            if (context.performed) OnSkillKeyPress?.Invoke();
         }
     }
 }
