@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 808b3eaf175ccb04b91aa8bd44b8d567, type: 3}
-  m_Name: Portal
+  m_Script: {fileID: 11500000, guid: 725b5cebf69c43bdafffa55b3f51d77f, type: 3}
+  m_Name: Fisher
   m_EditorClassIdentifier: 
-  poolName: Portal
-  prefab: {fileID: 6007683180048170692, guid: a1d66abbaabf43f42856122ca8f9e4d3, type: 3}
-  count: 5
+  skillPrefab: {fileID: 0}
+  skillDamage: 0
+  skillCooldown: 0
