@@ -1,3 +1,6 @@
+using _00.Work.CheolYee._01.Codes.Enemys.Portals;
+using _00.Work.Resource.Manager;
+using _00.Work.Resource.SO;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -18,11 +21,18 @@ public class Test : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             SpawnManager.Instance.StartCycle();
+
+
             for (int i = 0; i < 15; i++)
             {
                 Vector3Int tilePosition = new Vector3Int(-47, -24 + i, 0);
                 tilemap.SetTile(tilePosition, myTile);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SpawnManager.Instance.SpawnPortal();
         }
     }
 }
