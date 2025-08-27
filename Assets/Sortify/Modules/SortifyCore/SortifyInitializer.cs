@@ -1,4 +1,4 @@
-#if UNITY_EDITOR && SORTIFY
+﻿#if UNITY_EDITOR && SORTIFY
 using UnityEditor;
 using UnityEngine;
 
