@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using UnityEngine;
 using IPoolable = _00.Work.Resource.SO.IPoolable;
 
-namespace _00._Work._02._Scripts.Manager.Pooling
+namespace _00.Work.Resource.Manager
 {
     public class PoolManager : MonoSingleton<PoolManager>
     {

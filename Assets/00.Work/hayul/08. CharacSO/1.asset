@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e7e6193c2fed34d92a22ffbab512e9, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  characterImage: {fileID: 0}
+  characterName: "\uC5B4\uBD80"
+  maxHp: "\uCCB4\uB825 : 230"
+  attackPower: "\uACF5\uACA9\uB825 : 15"
+  attackSpeed: "\uACF5\uACA9 \uC18D\uB3C4 : 3.5"
+  moveSpeed: "\uC774\uB3D9 \uC18D\uB3C4 : 5"
+  abilityCooldown: "\uC2A4\uD0AC \uCFE8\uD0C0\uC784 : 40s"
+  description: 
