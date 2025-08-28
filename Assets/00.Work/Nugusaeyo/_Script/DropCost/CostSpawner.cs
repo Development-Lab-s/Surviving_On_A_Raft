@@ -1,18 +1,21 @@
 using System.Collections.Generic;
+using _00.Work.Resource.Manager;
+using _00.Work.Resource.SO;
 using UnityEngine;
 
 public class CostSpawner : MonoBehaviour
 {
     public List<GameObject> spreadCost = new List<GameObject>();
 
-    public void SpawnCost()
+    public void SpawnCost(Vector2 spawnPosition)
     {
         int amount = Random.Range(0, 3);
         
-        Debug.Log($"Cost Spawned, Amount : {amount}");
+        
         
         for (int i = 0; i < amount; i++)
         {
+            /*
             int costType = Random.Range(1, 101);
             
             if (costType < 2) // 1% 확률로 코스트 타입 E 생성
@@ -34,8 +37,11 @@ public class CostSpawner : MonoBehaviour
             else //  39% 확률로 A 생성
             {
                 costType = 0;
-            }
-            Instantiate(spreadCost[costType], transform.position, Quaternion.identity);
+            }*/
+            int costType = 3;
+            IPoolable cost = PoolManager.Instance.Pop($"Cost");
+            cost.GameObject.transform.position = spawnPosition;
+            Debug.Log($"Cost Spawned, Amount : {amount},  CostType : {costType}");
         }
     }
 }

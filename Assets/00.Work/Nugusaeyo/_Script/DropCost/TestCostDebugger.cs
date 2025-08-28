@@ -14,7 +14,7 @@ public class TestCostDebugger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            _costSpawner.SpawnCost();
+            _costSpawner.SpawnCost(transform.position);
         }
     }
 }
