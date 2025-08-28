@@ -17,14 +17,15 @@ namespace _00.Work.Nugusaeyo._Script.Enemy
         private void OnEnable()
         {
             _rigidbody2D.AddForce(new Vector2(Random.Range(-100, 100), Random.Range(125, 200)));
-            PoolManager.Instance.Pop(ItemName);
         }
         
-        public string ItemName => "Cost";
+        public string ItemName => "ItemCost";
         public GameObject GameObject => gameObject;
         public void ResetItem()
         {
             _rigidbody2D.linearVelocity = Vector2.zero;
+            gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
+            
         }
 
     }

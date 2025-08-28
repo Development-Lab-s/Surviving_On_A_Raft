@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TestCostDebugger : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class TestCostDebugger : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Keyboard.current.jKey.wasPressedThisFrame)
         {
             _costSpawner.SpawnCost(transform.position);
         }

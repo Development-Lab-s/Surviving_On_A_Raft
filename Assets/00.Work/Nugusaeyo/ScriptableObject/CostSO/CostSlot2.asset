@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6675e1c6bcef4395b0f9eb383fe09e0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d47b267d7ba44e78a5fe9e668cacb74, type: 3}
   m_Name: CostSlot2
   m_EditorClassIdentifier: 
-  costImg: {fileID: -5971786586329499094, guid: a5983bd8c72fff347b8c8021f0168d88, type: 3}
-  costName: "\uAC15\uCCA0"
+  name: "\uAC15\uCCA0"
+  sprite: {fileID: -5971786586329499094, guid: a5983bd8c72fff347b8c8021f0168d88, type: 3}

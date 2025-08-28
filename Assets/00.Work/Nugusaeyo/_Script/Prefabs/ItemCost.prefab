@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4995316196911279453}
   - component: {fileID: 6962853015845466023}
   - component: {fileID: 3124993745265035939}
-  m_Layer: 0
-  m_Name: Cost
+  m_Layer: 14
+  m_Name: ItemCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

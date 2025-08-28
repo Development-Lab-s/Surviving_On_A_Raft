@@ -437,6 +437,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1754427374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1754427376}
+  - component: {fileID: 1754427375}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1754427375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754427374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5509d6157266274096520468cef7ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolList: {fileID: 11400000, guid: fcb10a74bf41197439c82f34ea19b0b6, type: 2}
+--- !u!4 &1754427376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754427374}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.3258772, y: 0.6102439, z: 557.6935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1894770893
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,10 +693,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3990108356257033120, guid: 87290d4dda625aa4e8ebbd5aa8878ee7, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -4234111311818579165, guid: efc6b55dff2ca9f4e9e57579c92e4f2e, type: 3}
     - target: {fileID: 7851838038050666593, guid: 87290d4dda625aa4e8ebbd5aa8878ee7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -763,3 +804,4 @@ SceneRoots:
   - {fileID: 2201410611889514615}
   - {fileID: 629508157}
   - {fileID: 1894770895}
+  - {fileID: 1754427376}

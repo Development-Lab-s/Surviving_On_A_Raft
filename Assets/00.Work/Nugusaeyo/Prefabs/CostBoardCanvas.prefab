@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 3321047678684726177}
   - component: {fileID: 3990108356257033120}
   - component: {fileID: 5572050876091292223}
-  - component: {fileID: 4176348527542119406}
+  - component: {fileID: 8961365173083750864}
   m_Layer: 5
   m_Name: CostBoard
   m_TagString: Untagged
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -4234111311818579165, guid: efc6b55dff2ca9f4e9e57579c92e4f2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4176348527542119406
+--- !u!114 &8961365173083750864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,27 +232,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 3317615921536474275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 330ac6a0d7adf0c45813940f6c1e3cf5, type: 3}
+  m_Script: {fileID: 11500000, guid: f3f1e1332db42ec40bad7296282cb70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costTexts:
+  costText:
   - {fileID: 1418782426913848108}
   - {fileID: 8663003072416993896}
   - {fileID: 6744611279764843626}
   - {fileID: 6783741231980326812}
   - {fileID: 7331030324063484618}
-  costSprites:
-  - {fileID: 4656324413709504921}
-  - {fileID: 3105014371645798621}
-  - {fileID: 1060524330877683423}
-  - {fileID: 939741380739974441}
-  - {fileID: 3932517991304777855}
-  costInformationSO:
+  costInformation:
   - {fileID: 11400000, guid: e5b5860bd4dce0c45979e997d980a38d, type: 2}
   - {fileID: 11400000, guid: a16bbb5a68a0934468aaec639fa96ed7, type: 2}
   - {fileID: 11400000, guid: 05d4155182d449b4e84ba566cd80e8ab, type: 2}
   - {fileID: 11400000, guid: 09381e86dc371cf4696cd4cd1c62f0eb, type: 2}
   - {fileID: 11400000, guid: 2264059c612cce2448e5b494f45da84b, type: 2}
+  costImg:
+  - {fileID: 4656324413709504921}
+  - {fileID: 3105014371645798621}
+  - {fileID: 1060524330877683423}
+  - {fileID: 939741380739974441}
+  - {fileID: 3932517991304777855}
 --- !u!1001 &378619002394758317
 PrefabInstance:
   m_ObjectHideFlags: 0
