@@ -29,7 +29,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
             
             CurrentState?.Exit(); //현재 상태에서 나갈 때 처리를 해줌
             CurrentState = _stateDictionary[newState]; //현재 상태를 새 상태로 전환
-            CurrentState.Enter(); //새 상태의 진입 처리를 해줌
+            CurrentState?.Enter(); //새 상태의 진입 처리를 해줌
         }
 
         public void AddState(EnemyBehaviourType stateEnum, EnemyState state) //FSM에 상태를 등록하는 함수이다.

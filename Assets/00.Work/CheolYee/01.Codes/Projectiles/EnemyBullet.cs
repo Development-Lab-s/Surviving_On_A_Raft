@@ -1,4 +1,5 @@
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
+using _00.Work.CheolYee._01.Codes.SO;
 using _00.Work.Resource.Manager;
 using UnityEngine;
 using IPoolable = _00.Work.Resource.SO.IPoolable;
