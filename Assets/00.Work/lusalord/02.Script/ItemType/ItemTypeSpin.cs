@@ -32,7 +32,6 @@ namespace _00.Work.lusalord._02.Script.ItemType
         {
             GameObject spawnItem = Instantiate(_spinItemSo.spinPrefab, transform);
             objects.Add(spawnItem);
-            spawnItem.SetActive(false);
             spawnItem.transform.position = transform.position = new Vector3(
                 _radius * Mathf.Cos(_angle),
                 _radius* Mathf.Sin(_angle),
