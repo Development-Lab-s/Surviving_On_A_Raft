@@ -8,15 +8,15 @@ namespace _00.Work.lusalord._02.Script.ItemType
     {
         private SpinItemSo _spinItemSo;
         protected float SpinSpeed => _spinItemSo.spinSpeed;
-        [SerializeField] private Transform _playerTrs;
-        public float _angle = 0;
+        [SerializeField] private Transform playerTrs;
+        private float _angle = 0;
         private Vector3 _startDir;
         private float _radius = 0;
         private List<float> _childOffsets = new List<float>();
+        protected List<GameObject> objects = new List<GameObject>();
         
         protected virtual void Awake()
         {
-            
             _spinItemSo = (SpinItemSo)attackItemSo;
             _radius = _spinItemSo.spinRadius;
             
@@ -31,6 +31,8 @@ namespace _00.Work.lusalord._02.Script.ItemType
         public GameObject Spawn(float angle)
         {
             GameObject spawnItem = Instantiate(_spinItemSo.spinPrefab, transform);
+            objects.Add(spawnItem);
+            spawnItem.SetActive(false);
             spawnItem.transform.position = transform.position = new Vector3(
                 _radius * Mathf.Cos(_angle),
                 _radius* Mathf.Sin(_angle),
@@ -50,7 +52,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
                     _radius * Mathf.Sin(childAngle), 
                     0);
             }
-            transform.position = _playerTrs.position;
+            transform.position = playerTrs.position;
         }
     }
 }
