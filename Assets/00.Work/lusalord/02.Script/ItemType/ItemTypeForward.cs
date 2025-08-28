@@ -1,20 +1,27 @@
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _00.Work.lusalord._02.Script.ItemType
 {
     public abstract class ItemTypeForward : AttackItem
     {
-        public GameObject forwardPrefab;
-        public string itemName;
-        public float itemSpeed;
-    
-        private GameObject _forward;
+        private ForwardItemSO _forwardItemSo;
 
-        protected virtual void SpawnProjectile(Vector3 spawnPosition)
+        private float _coolTime = 3;
+        public Transform pos;
+        protected virtual void Awake()
         {
-            _forward = Instantiate(forwardPrefab, spawnPosition, Quaternion.identity);
-            _forward.name = itemName;
+            gameObject.name = _forwardItemSo.itemName;
+            _forwardItemSo = (ForwardItemSO)attackItemSo;
+
+            _coolTime = _forwardItemSo.coolTime;
+        }
+
+        private void Update()
+        {
+            float curTime = Time.deltaTime;
+            Debug.Log(curTime);
+            
         }
     }
 }

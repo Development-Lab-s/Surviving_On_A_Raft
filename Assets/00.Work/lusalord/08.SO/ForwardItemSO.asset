@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
-  m_Name: SpinItemSO
+  m_Script: {fileID: 11500000, guid: 4a33e9fe531e7b344927dfd474e66d6c, type: 3}
+  m_Name: ForwardItemSO
   m_EditorClassIdentifier: 
-  itemName: "\uBCD1\uAC74\uC774\uBC14\uBCF4"
+  itemName: 
   level: 0
   atkRate: 0
-  spinRadius: 3
-  spinPrefab: {fileID: 3944626458033196950, guid: 70a2162174e371a43bd15009a0f61ec2, type: 3}
-  spinSpeed: 5
-  spinAmount: 6
-  spinItems: []
+  coolTime: 3
+  pos: {fileID: 0}
+  size: {x: 5, y: 5}
