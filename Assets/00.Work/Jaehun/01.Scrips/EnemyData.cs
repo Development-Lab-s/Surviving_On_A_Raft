@@ -1,32 +1,31 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SO/EnemyData", fileName = "EnemyData")]  // so¸¸µé±â
 public class EnemyData : ScriptableObject
 {
-    [Header("±âº» ½ºÅÈ")]
-    [SerializeField] private string EnemyName = "anyting";       // Àû ÀÌ¸§.
-    [Min(1)][SerializeField] private float maxHealth = 30f;     // ÀÏ´Ü °ªµéÀº ÀüºÎ ´ëÃæ ³ÖÀº°Å´Ï±î Àûµé¸¶´Ù ¹Ù²Ù¸é µÊ. // Âü°í·Î [Min(1)Àº ÃÖ¼Ú°ªÀ» 1ÀÌ»óÀ¸·Î °­Á¦ÇÏ´Â ÀÏÁ¾ÀÇ ¾ÈÀüÀåÄ¡ÀÓ.
-    public float moveSpeed = 2.5f; //Àû ÀÌµ¿¼Óµµ. ¸¸¾à ¾È¿òÁ÷ÀÌ´Â ÀûÀÌ ÀÖÀ»Áöµµ ¸ğ¸£´Ï ¾ÈÀüÀåÄ¡´Â »©°ÚÀ½.
-    [Min(0)][SerializeField] private float attackPower = 5f;    //Àû °ø°İ·Â.
+    [Header("ê¸°ë³¸ ìŠ¤íƒ¯")]
+    //[SerializeField] private string EnemyName = "anyting";       // ì  ì´ë¦„.
+    //[SerializeField] private float maxHealth = 30f;     // ì¼ë‹¨ ê°’ë“¤ì€ ì „ë¶€ ëŒ€ì¶© ë„£ì€ê±°ë‹ˆê¹Œ ì ë“¤ë§ˆë‹¤ ë°”ê¾¸ë©´ ë¨. // ì°¸ê³ ë¡œ [Min(1)ì€ ìµœì†Ÿê°’ì„ 1ì´ìƒìœ¼ë¡œ ê°•ì œí•˜ëŠ” ì¼ì¢…ì˜ ì•ˆì „ì¥ì¹˜ì„.
+    public float moveSpeed = 2.5f; //ì  ì´ë™ì†ë„. ë§Œì•½ ì•ˆì›€ì§ì´ëŠ” ì ì´ ìˆì„ì§€ë„ ëª¨ë¥´ë‹ˆ ì•ˆì „ì¥ì¹˜ëŠ” ë¹¼ê² ìŒ.
+    //[SerializeField] private float attackPower = 5f;    //ì  ê³µê²©ë ¥.
 
-    [Header("°Å¸®(±Ù°Å¸® ±âÁØ]")]
-    public float detectRadius = 5f; // °¨Áö ¹İ°æ
-    public float attackRange = 1.2f; // °ø°İ »ç°Å¸®
-    public float attackCooldown = 1.0f; // °ø°İ ÄğÅ¸ÀÓ. ÀûÀÌ °ø°İ ÈÄ ÀÏÁ¤ ½Ã°£µ¿¾È ¾Æ¹«°Íµµ ¾ÈÇÏ´Â ½Ã½ºÅÛ.
+    [Header("ê±°ë¦¬(ê·¼ê±°ë¦¬ ê¸°ì¤€]")]
+    public float detectRadius = 5f; // ê°ì§€ ë°˜ê²½
+    public float attackRange = 1.2f; // ê³µê²© ì‚¬ê±°ë¦¬
+    public float attackCooldown = 1.0f; // ê³µê²© ì¿¨íƒ€ì„. ì ì´ ê³µê²© í›„ ì¼ì • ì‹œê°„ë™ì•ˆ ì•„ë¬´ê²ƒë„ ì•ˆí•˜ëŠ” ì‹œìŠ¤í…œ.
 
-    [Header("Á¡ÇÁ(Àå¾Ö¹°)")]
-    [Min(1)] public float jumpForceY = 6f;   //Á¡ÇÁ·Â
-    [Min(0)] public float obstacleCheckDist = 0.6f; // Àü¹æ ·¹ÀÌ °Å¸®
-    [Min(0)] public float jumpCooldown = 0.5f; // ¿¬¼Ó Á¡ÇÁ ¹æÁö
+    [Header("ì í”„(ì¥ì• ë¬¼)")]
+    [Min(1)] public float jumpForceY = 6f;   //ì í”„ë ¥
+    [Min(0)] public float obstacleCheckDist = 0.6f; // ì „ë°© ë ˆì´ ê±°ë¦¬
+    [Min(0)] public float jumpCooldown = 0.5f; // ì—°ì† ì í”„ ë°©ì§€
 
-    [Header("µå¶ø (¾ÆÀÌÅÛ)")]
-    [SerializeField] private GameObject[] dropItem;  //Á×À¸¸é ¶³¾î¶ß¸®´Â ¾ÆÀÌÅÛ
-    public Vector2Int dropCountRange = new Vector2Int(1, 1); // ¸Å¹ø ·£´ı °³¼ö(ÃÖ¼Ò~ÃÖ´ë)
+    [Header("ë“œë (ì•„ì´í…œ)")]
+    [SerializeField] private GameObject[] dropItem;  //ì£½ìœ¼ë©´ ë–¨ì–´ëœ¨ë¦¬ëŠ” ì•„ì´í…œ
+    public Vector2Int dropCountRange = new Vector2Int(1, 1); // ë§¤ë²ˆ ëœë¤ ê°œìˆ˜(ìµœì†Œ~ìµœëŒ€)
 
-    public int RollDropCount()                    // ÀÌ°Ç Â¥ÇÇ ¿¹ºñ·Î ÇÑ ¸Ş¼­µå´Ï±î ¹«½ÃÇØµµ µÊ. ³ªÁß¿¡ ¼öÁ¤ÇÏ´ø 
+    public int RollDropCount()                    // ì´ê±´ ì§œí”¼ ì˜ˆë¹„ë¡œ í•œ ë©”ì„œë“œë‹ˆê¹Œ ë¬´ì‹œí•´ë„ ë¨. ë‚˜ì¤‘ì— ìˆ˜ì •í•˜ë˜ 
     {
         int min = Mathf.Max(0, dropCountRange.x);
         int max = Mathf.Max(min, dropCountRange.y);
-        return Random.Range(min, max + 1); // [min, max] ¹üÀ§¿¡¼­ ³­¼ö
+        return Random.Range(min, max + 1); // [min, max] ë²”ìœ„ì—ì„œ ë‚œìˆ˜
     }
 }

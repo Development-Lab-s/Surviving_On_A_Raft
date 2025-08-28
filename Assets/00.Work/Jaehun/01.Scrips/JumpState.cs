@@ -3,14 +3,14 @@ using UnityEngine;
 public class JumpState : IState
 {
     readonly EnemyControllFSM e;
-    float airTime;               // ¾ÈÀüÀåÄ¡: °øÁß¿¡ ³Ê¹« ¿À·¡ ÀÖÀ¸¸é º¹±Í
-    const float maxAir = 1.0f;   // ÃÖ´ë Ã¼°ø ½Ã°£
+    float airTime;               // ì•ˆì „ì¥ì¹˜: ê³µì¤‘ì— ë„ˆë¬´ ì˜¤ë˜ ìˆìœ¼ë©´ ë³µê·€
+    const float maxAir = 1.0f;   // ìµœëŒ€ ì²´ê³µ ì‹œê°„
 
     public JumpState(EnemyControllFSM e) => this.e = e;
 
     public void Enter()
     {
-        e.DoJump();   // rb.velocity.y = data.jumpForceY; + ÄğÅ¸ÀÓ ¼³Á¤
+        e.DoJump();   // rb.velocity.y = data.jumpForceY; + ì¿¨íƒ€ì„ ì„¤ì •
         airTime = 0f;
     }
 
@@ -19,14 +19,14 @@ public class JumpState : IState
         airTime += Time.deltaTime;
         if (e.IsGrounded() || airTime > maxAir)
         {
-            e.ChangeState(new ChaseState(e)); // ÂøÁö/½Ã°£ÃÊ°ú ¡æ Ãß°İ º¹±Í
+            e.ChangeState(new ChaseState(e)); // ì°©ì§€/ì‹œê°„ì´ˆê³¼ â†’ ì¶”ê²© ë³µê·€
             return;
         }
     }
 
     public void FixedTick()
     {
-        // °øÁß¿¡¼­µµ ¼öÆò ÀÌµ¿ À¯Áö(°£´Ü)
+        // ê³µì¤‘ì—ì„œë„ ìˆ˜í‰ ì´ë™ ìœ ì§€(ê°„ë‹¨)
         float dirX = e.DirToPlayerX();
         e.MoveX(dirX * e.data.moveSpeed);
     }

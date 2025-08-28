@@ -5,12 +5,12 @@ public class AttackState : IState
 
     public void Enter()
     {
-        e.StopX(); // Á¦ÀÚ¸®
-        if (e.atkCooldownTimer > 0f) return; // °ø°Ý ÄðÅ¸ÀÓ »óÅÂ¸é ±â´Ù¸®±â
+        e.StopX(); // ì œìžë¦¬
+        if (e.atkCooldownTimer > 0f) return; // ê³µê²© ì¿¨íƒ€ìž„ ìƒíƒœë©´ ê¸°ë‹¤ë¦¬ê¸°
 
-        // Attack Æ®¸®°Å ¡æ ¾Ö´Ï Áß°£ ÇÁ·¹ÀÓ¿¡ AnimationEvent(ÇÔ¼ö¸í: AE_DealDamage)
+        // Attack íŠ¸ë¦¬ê±° â†’ ì• ë‹ˆ ì¤‘ê°„ í”„ë ˆìž„ì— AnimationEvent(í•¨ìˆ˜ëª…: AE_DealDamage)
         if (e.anim) e.anim.SetTrigger("Attack");
-        else e.AE_DealDamage(); // ¾Ö´Ï ¾øÀ¸¸é Áï½Ã ÆÇÁ¤
+        else e.AE_DealDamage(); // ì• ë‹ˆ ì—†ìœ¼ë©´ ì¦‰ì‹œ íŒì •
 
         e.atkCooldownTimer = e.data.attackCooldown;
     }
@@ -20,12 +20,12 @@ public class AttackState : IState
         float dist = e.DistanceToPlayer();
         if (dist > e.data.attackRange)
         {
-            e.ChangeState(new ChaseState(e)); // ¸Ö¾îÁö¸é Ãß°Ý
+            e.ChangeState(new ChaseState(e)); // ë©€ì–´ì§€ë©´ ì¶”ê²©
             return;
         }
         if (e.atkCooldownTimer <= 0f && dist <= e.data.attackRange)
         {
-            e.ChangeState(new AttackState(e)); // Äð ³¡³ª¸é Àç°ø°Ý
+            e.ChangeState(new AttackState(e)); // ì¿¨ ëë‚˜ë©´ ìž¬ê³µê²©
         }
     }
 

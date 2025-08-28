@@ -29,15 +29,19 @@ internal class ChaseState : IState
         if (e.IsGrounded() && e.jumpCooldownTimer <= 0f && e.HasObstacleAhead())
         {
             e.ChangeState(new JumpState(e));
-            return;
         }
     }
 
     public void FixedTick()
     {
-        float dirX = e.DirToPlayerX(); // 왼:-1 / 오:+1
+        float dx = e.DirToPlayerX();
+        float dirX = Mathf.Abs(dx) < 0.1f ? 0 : Mathf.Sign(dx);
+
         e.MoveX(dirX * e.data.moveSpeed * chaseMul);
-        e.moveDir = (int)Mathf.Sign(dirX == 0 ? e.moveDir : dirX);
+        
+        if (dirX != 0) 
+            e.moveDir = (int)dirX;
+
     }
 
     public void Exit() { }

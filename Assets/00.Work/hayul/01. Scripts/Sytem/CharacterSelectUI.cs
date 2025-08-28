@@ -32,7 +32,6 @@ public class CharacterSelectUI : MonoBehaviour
     public Vector3 _bigScale = Vector3.one * 0.005f;
     public Vector3 _smallScale = Vector3.one * 0.002f;
     
-
     private void Start()
     {
         InitUI();
@@ -43,8 +42,6 @@ public class CharacterSelectUI : MonoBehaviour
         _currentIndex = (_currentIndex + 1) % slots.Count;
         InitUI();
     }
-    
-
 
     public void OnClickPrev()
     {

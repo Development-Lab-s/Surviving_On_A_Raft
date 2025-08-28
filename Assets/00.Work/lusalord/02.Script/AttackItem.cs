@@ -1,13 +1,11 @@
-using _00.Work.lusalord._02.Script.SO;
-using _00.Work.lusalord._02.Script.SO.AttackItem.ItemType;
+using _00.Work.lusalord._02.Script.SO.AttackItem;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _00.Work.lusalord._02.Script
 {
     public abstract class AttackItem : MonoBehaviour
     {
-        public AttackItemSO attackItemSo;
+        public AttackItemSo attackItemSo;
 
         [Header("Item Settings")]
         public string ItemName => attackItemSo.itemName;
