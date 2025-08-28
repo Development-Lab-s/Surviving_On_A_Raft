@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewCharacterStats", menuName = "Game/Character Stats")]
 public class CharacterStatsSO : ScriptableObject
 {
-    public Sprite characterImage; // 사진
+    //public Sprite characterImage; // 사진
     public string characterName; // 이름
     
     public string maxHp; // 체력
