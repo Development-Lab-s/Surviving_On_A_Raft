@@ -29,10 +29,5 @@ public class Test : MonoBehaviour
                 tilemap.SetTile(tilePosition, myTile);
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SpawnManager.Instance.SpawnPortal();
-        }
     }
 }
