@@ -1,4 +1,3 @@
-using System;
 using _00.Work.Nugusaeyo._Script.Enemy;
 using _00.Work.Resource.Manager;
 using UnityEngine;
@@ -11,10 +10,16 @@ public class FlyCost : MonoBehaviour
     private Collider2D _collider2D;
 
     private Costs _cost;
+    private int _costType = 0;
     private void Awake()
     {
         _cost = GetComponent<Costs>();
         _collider2D = GetComponent<Collider2D>();
+    }
+
+    private void OnEnable()
+    {
+        _costType = Random.Range(0, 5);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -24,9 +29,10 @@ public class FlyCost : MonoBehaviour
             Debug.Log("닿았따");
             _collider2D.enabled = false;
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(gameObject.transform.DOMove(_target, time).SetEase(Ease.InCubic));
+            sequence.Append(gameObject.transform.DOMove(_target, time).SetEase(Ease.InQuint));
             sequence.AppendCallback(() =>
             {
+                CostManager.instance.PlusCost(_costType, 1);
                 PoolManager.Instance.Push(_cost);
                 _collider2D.enabled = true;
                 Debug.Log("비행 끝");

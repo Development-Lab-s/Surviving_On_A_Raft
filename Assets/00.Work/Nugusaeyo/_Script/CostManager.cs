@@ -6,6 +6,7 @@ public class CostManager : MonoBehaviour
     public Action CostUpEvent;
 
     public int[] Costs { get; private set; } = new int[5];
+    
     static public CostManager instance;
 
     private void Awake()
@@ -20,10 +21,20 @@ public class CostManager : MonoBehaviour
         }
     }
 
-    public void GetCost(int costType, int value)
+    public void PlusCost(int costType, int value)
     {
-        Costs[costType] += IncreaseCost(value);
-        CostUpEvent?.Invoke();
+        if (costType < 999)
+        {
+            if (costType + value > 999)
+            {
+                Costs[costType] = IncreaseCost(999);
+            }
+            else
+            {
+                Costs[costType] += IncreaseCost(value);
+            }
+            CostUpEvent?.Invoke();
+        }
     }
 
     public void MinusCost(int costType, int value)
