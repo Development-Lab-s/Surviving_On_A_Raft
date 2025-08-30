@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1136fb3c675b189469f9e589b8c9b84f, type: 3}
+  m_Name: Heal
+  m_EditorClassIdentifier: 
+  itemName: "\uCE58\uC720"
+  itemIcon: {fileID: 6937817954938267909, guid: fb452a9fd8c98cc49bdf3842f9f4ada1, type: 3}
+  ability: "\uCCB4\uB825 \uD68C\uBCF5"
+  upgradeInfos:
+  - "1\uB2E8\uACC4"
+  - "2\uB2E8\uACC4"
+  - "3\uB2E8\uACC4"
+  - "4\uB2E8\uACC4"
+  - "5\uB2E8\uACC4"
