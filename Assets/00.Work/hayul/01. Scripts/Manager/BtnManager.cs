@@ -41,7 +41,6 @@ public class BtnManager : MonoBehaviour
         _passivePanel.SetActive(false);
     }
     
-
     public void RightBtn() // 패시프 판넬 키기
     {
         _passivePanel.SetActive(true);
