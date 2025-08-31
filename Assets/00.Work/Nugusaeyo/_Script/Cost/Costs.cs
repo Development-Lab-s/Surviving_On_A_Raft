@@ -1,4 +1,3 @@
-using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using UnityEngine;
 
@@ -7,7 +6,7 @@ namespace _00.Work.Nugusaeyo._Script.Enemy
     public class Costs : MonoBehaviour, IPoolable
     {
         private Rigidbody2D _rigidbody2D;
-        [SerializeField] private int costType;
+        
 
         private void Awake()
         {
@@ -25,7 +24,6 @@ namespace _00.Work.Nugusaeyo._Script.Enemy
         {
             _rigidbody2D.linearVelocity = Vector2.zero;
             gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
-            
         }
 
     }

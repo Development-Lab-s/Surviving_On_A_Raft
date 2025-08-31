@@ -41,6 +41,11 @@ public class CostManager : MonoBehaviour
     public void MinusCost(int costType, int value)
     {
         Costs[costType] -= IncreaseCost(value);
+        if (Costs[costType] < 0)
+        {
+            Debug.LogError($"코스트 {costType} 음수 돌파됨, 값 {Costs[costType]} 초과. 0으로 설정됨.");
+            Costs[costType] = 0;
+        }
         CostDownEvent?.Invoke();
     }
 

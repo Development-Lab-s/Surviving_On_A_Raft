@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea60f4b4084ee70498517f6af8ac9987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costType: 3
 --- !u!212 &8459255581874008179
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,7 +129,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6962853015845466023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +143,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 2
+  costType: 0
+  spriteList:
+  - {fileID: 2000703918757271117, guid: 7e0bc3cd9ed367c44bb3297ef8d633f8, type: 3}
+  - {fileID: -5971786586329499094, guid: a5983bd8c72fff347b8c8021f0168d88, type: 3}
+  - {fileID: -7977736183520543583, guid: 74c351a0bd8a55f4bb09c5c0681b558d, type: 3}
+  - {fileID: -7532488172391918402, guid: 6a06d7e77b45ed342adfae3d54fa296d, type: 3}
+  - {fileID: 7659989330960099890, guid: a5f26d2d04c56754baa1e3457d0de4ad, type: 3}
 --- !u!61 &3124993745265035939
 BoxCollider2D:
   m_ObjectHideFlags: 0
