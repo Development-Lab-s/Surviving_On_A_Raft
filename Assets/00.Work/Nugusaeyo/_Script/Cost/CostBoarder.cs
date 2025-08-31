@@ -39,12 +39,13 @@ public class CostBoarder : MonoBehaviour
 
     private void Start()
     {
-        CostManager.instance.CostUpEvent += ResetCostBoard;
-        ResetCostBoard();
+        CostManager.instance.CostUpEvent += CostUpBoard;
+        CostManager.instance.CostDownEvent += CostDownBoard;
+        CostUpBoard();
         ResetCostImg();
     }
 
-    public void ResetCostBoard()
+    private void CostUpBoard()
     {
         for (int i = 0; i < costText.Length; i++)
         {
@@ -58,6 +59,17 @@ public class CostBoarder : MonoBehaviour
                 _coroutines[i] = StartCoroutine(CostUp(i));
             }
             
+        }
+    }
+
+    private void CostDownBoard()
+    {
+        StopAllCoroutines();
+        for (int i = 0; i < costText.Length; i++)
+        {
+            int currentCost = CostManager.instance.Costs[i];
+            costText[i].text = currentCost.ToString();
+            costUi[i] = currentCost;
         }
     }
 

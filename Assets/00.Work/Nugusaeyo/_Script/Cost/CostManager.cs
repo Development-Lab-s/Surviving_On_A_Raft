@@ -4,6 +4,7 @@ using UnityEngine;
 public class CostManager : MonoBehaviour
 {
     public Action CostUpEvent;
+    public Action CostDownEvent;
 
     public int[] Costs { get; private set; } = new int[5];
     
@@ -40,7 +41,7 @@ public class CostManager : MonoBehaviour
     public void MinusCost(int costType, int value)
     {
         Costs[costType] -= IncreaseCost(value);
-        CostUpEvent?.Invoke();
+        CostDownEvent?.Invoke();
     }
 
     private int IncreaseCost(int value)
