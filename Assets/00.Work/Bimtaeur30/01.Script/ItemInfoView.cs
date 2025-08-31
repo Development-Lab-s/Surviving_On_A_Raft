@@ -33,26 +33,26 @@ public class ItemInfoView : MonoBehaviour
 
     public void ItemInfoViewMethod(ExItemSO ItemSO)
     {
-        if (PInput.isActiveAndEnabled == true)
-            return;
-        PInput.ChangeUIEnabled(true);
+        if (PInput.isFullscreenUIEnabled == false)
+        {
+            Sequence seq = DOTween.Sequence();
+            AnimateFocus(0.1f, 0.3f);
+            seq.Join(ItemInfo.DOAnchorPos(IIUPPos, 0.8f));
+            seq.Join(BackgroundGroup.DOFade(1f, 1f));
+            ItemImage.sprite = ItemSO.ItemImage;
+            ItemNameTxt.text = ItemSO.ItemName;
+            ItemDescriptionTxt.text = ItemSO.ItemDescription;
 
-        Sequence seq = DOTween.Sequence();
-        AnimateFocus(0.1f, 0.3f);
-        seq.Join(ItemInfo.DOAnchorPos(IIUPPos, 0.8f));
-        seq.Join(BackgroundGroup.DOFade(1f, 1f));
-        ItemImage.sprite = ItemSO.ItemImage;
-        ItemNameTxt.text = ItemSO.ItemName;
-        ItemDescriptionTxt.text = ItemSO.ItemDescription;
+            seq.AppendInterval(1f);
 
-        seq.AppendInterval(1f);
+            seq.Join(ButtonImage.DOFade(1f, 1f));
 
-        seq.Join(ButtonImage.DOFade(1f, 1f));
+            PInput.ChangeUIEnabled(true);
+        }
     }
 
     public void ItemInfoUnViewMethod()
     {
-        PInput.ChangeUIEnabled(false);
 
         Sequence seq = DOTween.Sequence();
         AnimateFocus(10f, 0.3f);
@@ -61,6 +61,9 @@ public class ItemInfoView : MonoBehaviour
         seq.AppendInterval(0f);
 
         seq.Join(ButtonImage.DOFade(0f, 1f));
+
+        PInput.ChangeUIEnabled(false);
+
     }
 
     public void AnimateFocus(float to, float duration)
