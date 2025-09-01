@@ -1,6 +1,3 @@
-using ItemTypeForward = _00.Work.Nugusaeyo._Script.Items.ItemTypes.ItemTypeForward;
-using UnityEngine;
-
 namespace _00.Work.lusalord._02.Script.Item
 {
     public class TestForwardItem : ItemType.ItemTypeForward
