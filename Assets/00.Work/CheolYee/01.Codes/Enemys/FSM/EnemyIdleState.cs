@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public class EnemyIdleState : EnemyGroundState
+    public class AirEnemyIdleState : EnemyGroundState
     {
         
         //아이들 상태
         
         private Coroutine _delayCoroutine = null;
         
-        public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
+        public AirEnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
         {
         }
 

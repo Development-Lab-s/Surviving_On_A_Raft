@@ -8,7 +8,7 @@ public class AttackState : IState
         e.StopX(); // 제자리
         if (e.atkCooldownTimer > 0f) return; // 공격 쿨타임 상태면 기다리기
 
-        // Attack 트리거 → 애니 중간 프레임에 AnimationEvent(함수명: AE_DealDamage)
+        // Attack 트리거 -> 애니 중간 프레임에 AnimationEvent(함수명: AE_DealDamage)
         if (e.anim) e.anim.SetTrigger("Attack");
         else e.AE_DealDamage(); // 애니 없으면 즉시 판정
 

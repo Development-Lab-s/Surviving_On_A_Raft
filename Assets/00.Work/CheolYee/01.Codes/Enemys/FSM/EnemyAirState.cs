@@ -2,7 +2,7 @@ using _00.Work.CheolYee._01.Codes.Enemy;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public class EnemyAirState : EnemyState
+    public class EnemyAirState : IState
     {
         public EnemyAirState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
         {
