@@ -15,6 +15,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
         private List<float> _childOffsets = new List<float>();
         protected List<GameObject> objects = new List<GameObject>();
         
+        
         protected virtual void Awake()
         {
             _spinItemSo = (SpinItemSo)attackItemSo;

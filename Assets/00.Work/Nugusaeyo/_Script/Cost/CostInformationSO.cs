@@ -1,9 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "New CostInformationSO", menuName = "SO/Cost/CostInformationSO", order = 0)]
-public class CostInformationSO : ScriptableObject
+namespace _00.Work.Nugusaeyo._Script.Enemy
 {
-    public Sprite costImg;
-    public string costName;
+    [CreateAssetMenu(fileName = "New CostSO", menuName = "SO/Cost", order = 0)]
+    public class CostInformationSO : ScriptableObject
+    {
+        public string name;
+        public Sprite sprite;
+    }
 }

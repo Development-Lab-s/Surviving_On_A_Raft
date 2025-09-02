@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public class EnemyAttackState : EnemyState
+    public class AirEnemyAttackState : IState
     {
-        public EnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
+        public AirEnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
         {
         }
 

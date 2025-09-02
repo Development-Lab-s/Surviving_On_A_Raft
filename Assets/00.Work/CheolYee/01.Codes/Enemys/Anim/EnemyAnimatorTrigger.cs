@@ -11,12 +11,12 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Anim
             _enemy = enemy;
         }
 
-        private void AnimationEnd()
+        public void AnimationEnd()
         {
             _enemy.AnimationEndTrigger();
         }
 
-        private void AttackCast()
+        public void AttackCast()
         {
             _enemy.Attack();
         }

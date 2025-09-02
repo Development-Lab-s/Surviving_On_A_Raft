@@ -10,6 +10,7 @@ namespace _00.Work.lusalord._02.Script.SO.AttackItem.ItemType
         public GameObject spinPrefab;
         public float spinSpeed;
         public int spinAmount;
+        public SpinItemSo nextSpinItem;
         
         public List<GameObject> spinItems = new List<GameObject>();
         // private void OnValidate()

@@ -1,3 +1,5 @@
+using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +8,13 @@ public class BtnManager : MonoBehaviour
     [SerializeField] private GameObject _activePanel;
     [SerializeField] private GameObject _passivePanel;
     [SerializeField] private GameObject _settingPanel;
+    private CanvasGroup _activeGroup;
+
+    private void Awake()
+    {
+        _activeGroup = _activePanel.GetComponent<CanvasGroup>();
+    }
+
     public void StartBtn()
     {
         SceneManager.LoadScene(1);
@@ -13,7 +22,10 @@ public class BtnManager : MonoBehaviour
 
     public void GuideBtn()
     {
-        _activePanel.SetActive(true);
+        _activeGroup.DOFade(1, 0.5f).OnComplete(() =>
+        {
+            _activeGroup.blocksRaycasts = true;
+        });
     }
 
     public void SettingBtn()
@@ -33,7 +45,10 @@ public class BtnManager : MonoBehaviour
     
     public void ActiveXBtn()
     {
-        _activePanel.SetActive(false);
+        _activeGroup.DOFade(0, 0.1f).OnComplete(() =>
+        {
+            _activeGroup.blocksRaycasts = false;
+        });
     }
     
     public void PassiveXBtn()
@@ -41,7 +56,6 @@ public class BtnManager : MonoBehaviour
         _passivePanel.SetActive(false);
     }
     
-
     public void RightBtn() // 패시프 판넬 키기
     {
         _passivePanel.SetActive(true);

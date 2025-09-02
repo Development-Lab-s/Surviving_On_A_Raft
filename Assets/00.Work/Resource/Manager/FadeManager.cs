@@ -45,7 +45,7 @@ namespace _00.Work.Resource.Manager
             }
             fadeImage.gameObject.SetActive(true);
             fadeImage.color = new Color(0,0,0,0);
-            fadeImage.DOFade(1f, fadeDuration).OnComplete(() =>
+            fadeImage.DOFade(5f, fadeDuration).OnComplete(() =>
             {
                 onFadeComplete?.Invoke();
                 FadeManager.Instance.FadeOut();

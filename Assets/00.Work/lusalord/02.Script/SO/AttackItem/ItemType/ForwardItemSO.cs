@@ -6,5 +6,4 @@ using UnityEngine;
 public class ForwardItemSO : AttackItemSo
 {
     public float coolTime;
-    public Vector2 size;
 }

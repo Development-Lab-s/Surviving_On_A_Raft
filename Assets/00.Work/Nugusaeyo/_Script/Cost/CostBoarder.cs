@@ -1,38 +1,83 @@
+using System;
+using System.Collections;
+using _00.Work.Nugusaeyo._Script.Enemy;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CostBoarder : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI[] costTexts;
-    [SerializeField] private Image[] costSprites;
-    [SerializeField] private CostInformationSO[] costInformationSO;
+    [SerializeField] private TextMeshProUGUI[] costText;
+    [SerializeField] private TextMeshProUGUI[] costName;
+    [SerializeField] private CostInformationSO[] costInformation;
+    [SerializeField] private Image[] costImg;
+    
+    private Coroutine[] _coroutines = new Coroutine[5];
+    private int[] costUi = new int[5];
+
+    private void Awake()
+    {
+        for (int i = 0; i < costName.Length; i++)
+        {
+            costName[i].text = costInformation[i].name + " : ";
+            costText[i].text = "0";
+            costUi[i] = 0;
+        }
+    }
+
+    private IEnumerator CostUp(int i)
+    {
+        WaitForSeconds delayTime = new  WaitForSeconds(0.05f);
+        Debug.Log($"Current Cost : {CostManager.instance.Costs[i]}");
+        while (CostManager.instance.Costs[i] > int.Parse(costText[i].text))
+        {
+            yield return delayTime;
+            costUi[i]++;
+            costText[i].text = costUi[i].ToString();
+        }
+    }
 
     private void Start()
     {
-        CostManager.instance.CostUpEvent += HandleCostUpEvent;
-        for (int i = 0; i < costTexts.Length; i++)
+        CostManager.instance.CostUpEvent += CostUpBoard;
+        CostManager.instance.CostDownEvent += CostDownBoard;
+        CostUpBoard();
+        ResetCostImg();
+    }
+
+    private void CostUpBoard()
+    {
+        for (int i = 0; i < costText.Length; i++)
         {
-            costSprites[i].sprite = costInformationSO[i].costImg;
+            if (CostManager.instance.Costs[i] != int.Parse(costText[i].text))
+            {
+                if (_coroutines[i] != null)
+                {
+                    StopCoroutine(_coroutines[i]);
+                    Debug.Log($"Coroutine {i} is not null");
+                }
+                _coroutines[i] = StartCoroutine(CostUp(i));
+            }
+            
         }
-        ResetBoard();
     }
 
-    private void HandleCostUpEvent()
+    private void CostDownBoard()
     {
-        ResetBoard();
-    }
-
-    private void OnDestroy()
-    {
-        CostManager.instance.CostUpEvent -= HandleCostUpEvent;
-    }
-
-    public void ResetBoard()
-    {
-        for (int i = 0; i < costTexts.Length; i++)
+        StopAllCoroutines();
+        for (int i = 0; i < costText.Length; i++)
         {
-            costTexts[i].text = $"{costInformationSO[i].costName} : {CostManager.instance.Costs[i]}";
+            int currentCost = CostManager.instance.Costs[i];
+            costText[i].text = currentCost.ToString();
+            costUi[i] = currentCost;
+        }
+    }
+
+    private void ResetCostImg()
+    {
+        for (int i = 0; i < costImg.Length; i++)
+        {
+            costImg[i].sprite = costInformation[i].sprite;
         }
     }
 }

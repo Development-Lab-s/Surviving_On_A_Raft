@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a33e9fe531e7b344927dfd474e66d6c, type: 3}
   m_Name: ForwardItemSO
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: "\uBC15\uBBFC\uCCA0\uADF8\uB294\uC2E0\uC774\uC57C"
   level: 0
   atkRate: 0
-  coolTime: 3
-  pos: {fileID: 0}
-  size: {x: 5, y: 5}
+  coolTime: 1
