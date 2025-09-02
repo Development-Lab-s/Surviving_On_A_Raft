@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public abstract class EnemyState
+    public abstract class IState
     {
         //에너미 상태가 가질 기본 요소를 담은 추상 클래스
         
@@ -13,7 +13,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
         protected bool IsEndTriggerCall; //상태가 끝났는지 알려주는 불값
 
         //상태 생성을 할 때 정의되어야 할 것들을 생성자에 담기
-        protected EnemyState(Enemy enemy, EnemyStateMachine stateMachine, string boolName)
+        protected IState(Enemy enemy, EnemyStateMachine stateMachine, string boolName)
         {
             Enemy = enemy;
             StateMachine = stateMachine;
