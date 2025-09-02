@@ -7,6 +7,7 @@ using DG.Tweening;
 
 public class ItemCreateUI : MonoBehaviour
 {
+    [Header("")]
     [SerializeField] private RectTransform MoveObejct;
     [SerializeField] private new Vector2 UpPos;
     [SerializeField] private new Vector2 DownPos;
@@ -23,19 +24,28 @@ public class ItemCreateUI : MonoBehaviour
     }
     public void ItemCreateUIView()
     {
-        if (PInput.isActiveAndEnabled == true)
-            return;
-        PInput.ChangeUIEnabled(true);
-
-        MoveObejct.DOAnchorPos(UpPos, 1f);
-        AnimateFocus(0.1f, 0.3f);
+        Debug.Log("»£√‚");
+        if (PInput.isFullscreenUIEnabled != true)
+        {
+            Debug.Log(1);
+            MoveObejct.DOAnchorPos(UpPos, 1f);
+            AnimateFocus(0.1f, 0.3f);
+            PInput.ChangeUIEnabled(true);
+            Debug.Log(2);
+        }
     }
 
     public void ItemCreateUIUnView()
     {
         MoveObejct.DOAnchorPos(DownPos, 0.5f);
         AnimateFocus(10f, 0.3f);
+
         PInput.ChangeUIEnabled(false);
+    }
+
+    public void ItemCreatePanelUIView()
+    {
+
     }
 
     public void AnimateFocus(float to, float duration)
