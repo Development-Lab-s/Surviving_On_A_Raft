@@ -15,5 +15,4 @@ MonoBehaviour:
   itemName: "\uBC15\uBBFC\uCCA0\uADF8\uB294\uC2E0\uC774\uC57C"
   level: 0
   atkRate: 0
-  coolTime: 3
-  size: {x: 5, y: 5}
+  coolTime: 1
