@@ -1,28 +1,26 @@
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
-using _00.Work.CheolYee._01.Codes.SO;
 using _00.Work.Resource.Manager;
 using UnityEngine;
-using IPoolable = _00.Work.Resource.SO.IPoolable;
 
 namespace _00.Work.CheolYee._01.Codes.Projectiles
 {
-    public class EnemyBullet : Projectile
+    public class PlayerBullet : Projectile
     {
         [Header("Bullet Settings")]
         [SerializeField] protected float lifeTime = 1.5f; //총알 지속시간
         [SerializeField] private DamageCaster damageCaster; //데미지를 넣을 담당 컴포넌트
         
-        private float _shotSpeed = 20f; //이동속도
+        private float _speed = 20f; //이동속도
         private float _damage; //데미지
         private float _knockBackPower; //넉백파워
         private Vector2 _direction; //방향
         
-        public override void Initialize(Transform firePos, Vector2 dir,  float damage, float knockbackPower, float shotSpeed)
+        public override void Initialize(Transform firePos, Vector2 mousePos, float damage, float knockbackPower, float shotSpeed)
         {
             _damage = damage; //데미지
             _knockBackPower = knockbackPower; //넉백량
-            _direction = dir.normalized;
-            _shotSpeed = shotSpeed;
+            _direction = mousePos.normalized;
+            _speed = shotSpeed;
             
             float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
             transform.SetPositionAndRotation(firePos.position, Quaternion.Euler(0, 0, angle));
@@ -30,7 +28,7 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
 
         private void FixedUpdate()
         {
-            RbCompo.linearVelocity = _direction * _shotSpeed; //방향으로 날아가기
+            RbCompo.linearVelocity = _direction * _speed; //방향으로 날아가기
             Timer += Time.fixedDeltaTime; //타이머 초세기
 
             if (Timer > lifeTime)
