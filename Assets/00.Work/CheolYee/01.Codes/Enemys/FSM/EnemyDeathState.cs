@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public class EnemyDeathState : EnemyState
+    public class EnemyDeathState : State
     {
         private readonly int _deadLayer = LayerMask.NameToLayer("DeadBody");
         private bool _isDeadEffect = false;

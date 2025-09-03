@@ -152,7 +152,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: GroundRangeEnemy
   firePos: {fileID: 8177674155862086495}
   projectilePrefab: {fileID: 3659094807772548393, guid: 8e415048a431aa647adcb492f7206b5c, type: 3}
-  projectileSpeed: 20
+  projectileSpeed: 10
 --- !u!1 &6971969674274893204
 GameObject:
   m_ObjectHideFlags: 0

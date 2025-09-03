@@ -23,7 +23,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         {
             _stateMachine.CurrentState.AnimationEndTrigger(); //애니메이션 종료 시 현재 상태에 맞는 엔드트리거 실행
         }
-        
+
         public void ResetItem() //풀에서 초기화 될 때
         {
             CanStateChangeable = true;
@@ -39,14 +39,14 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
             base.Awake();
 
             _stateMachine = new EnemyStateMachine(); //처음 생성되었을 시 설정해준다
-            
+
             //모든 상태 추가
             _stateMachine.AddState(EnemyBehaviourType.Air, new EnemyAirState(this, _stateMachine, "AIR"));
-            _stateMachine.AddState(EnemyBehaviourType.Idle, new EnemyIdleState(this, _stateMachine, "IDLE"));
-            _stateMachine.AddState(EnemyBehaviourType.Chase, new EnemyChaseState(this, _stateMachine, "CHASE"));
+            _stateMachine.AddState(EnemyBehaviourType.Idle, new FSM.EnemyIdleState(this, _stateMachine, "IDLE"));
+            _stateMachine.AddState(EnemyBehaviourType.Chase, new FSM.EnemyChaseState(this, _stateMachine, "CHASE"));
             _stateMachine.AddState(EnemyBehaviourType.Jump, new EnemyJumpState(this, _stateMachine, "JUMP"));
-            _stateMachine.AddState(EnemyBehaviourType.Attack, new EnemyAttackState(this, _stateMachine, "ATTACK"));
-            _stateMachine.AddState(EnemyBehaviourType.Death, new EnemyDeathState(this, _stateMachine, "DEATH"));
+            _stateMachine.AddState(EnemyBehaviourType.Attack, new FSM.EnemyAttackState(this, _stateMachine, "ATTACK"));
+            _stateMachine.AddState(EnemyBehaviourType.Death, new FSM.EnemyDeathState(this, _stateMachine, "DEATH"));
             //후 초기화
             _stateMachine.Initialize(EnemyBehaviourType.Idle, this);
         }
@@ -65,8 +65,8 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         {
             return Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsWall);
         }
-        
-        #if UNITY_EDITOR
+
+#if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             if (wallCheck != null)

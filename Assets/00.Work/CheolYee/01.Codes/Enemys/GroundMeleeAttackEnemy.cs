@@ -1,8 +1,7 @@
-using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using UnityEngine;
 
-namespace _00.Work.CheolYee._01.Codes.Enemy
+namespace _00.Work.CheolYee._01.Codes.Enemys
 {
     public class GroundMeleeAttackEnemy : GroundEnemy
     {

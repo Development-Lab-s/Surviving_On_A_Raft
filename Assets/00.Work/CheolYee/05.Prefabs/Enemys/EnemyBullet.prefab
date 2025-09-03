@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5707879535626110419}
   - component: {fileID: 6044163031519489196}
   - component: {fileID: 486127282443863785}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayer:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 1096
   speed: 10
   lifeTime: 1.5
   itemName: EnemyBullet
@@ -150,7 +150,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 1096
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
