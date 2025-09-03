@@ -36,20 +36,12 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (isFullscreenUIEnabled != true)
-            {
-                IIV.ItemInfoViewMethod(InventoryManager.Instance.ItemSlotList[IS.currentSlotsSelecting]);
-                isFullscreenUIEnabled = true;
-            }
+            IIV.ItemInfoViewMethod(InventoryManager.Instance.ItemSlotList[IS.currentSlotsSelecting]);
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (isFullscreenUIEnabled != true)
-            {
-                ICU.ItemCreateUIView();
-                isFullscreenUIEnabled = true;
-            }
+            ICU.ItemCreateUIView();
         }
     }
 }

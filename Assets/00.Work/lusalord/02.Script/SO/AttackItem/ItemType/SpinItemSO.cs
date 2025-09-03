@@ -3,13 +3,14 @@ using UnityEngine;
 
 namespace _00.Work.lusalord._02.Script.SO.AttackItem.ItemType
 {
-    [CreateAssetMenu(fileName = "SpinItemSO", menuName = "SO/SpinItemSO")]
+    [CreateAssetMenu(fileName = "SpinItemSO", menuName = "SO/Item/SpinItemSO")]
     public class SpinItemSo : AttackItemSo
     {
         public float spinRadius;
         public GameObject spinPrefab;
         public float spinSpeed;
         public int spinAmount;
+        public SpinItemSo nextSpinItem;
         
         public List<GameObject> spinItems = new List<GameObject>();
         // private void OnValidate()

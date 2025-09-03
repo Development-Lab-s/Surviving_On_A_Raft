@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/CheolYee/01.Codes/Enemys/AirEnemy.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/CheolYee/01.Codes/Enemys/AirMeleeAttackEnemy.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/CheolYee/01.Codes/Enemys/FSM/AirEnemy/AirEnemyAttackState.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/CheolYee/01.Codes/Enemys/FSM/AirEnemy/AirEnemyChaseState.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/CheolYee/01.Codes/Enemys/FSM/AirEnemy/AirEnemyDeathState.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/00.Work/Jaehun/01.Scrips/AttackState.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/00.Work/Jaehun/01.Scrips/EnemyControllFSM.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/00.Work/Jaehun/01.Scrips/EnemyData.cs" charset="UTF-8" />

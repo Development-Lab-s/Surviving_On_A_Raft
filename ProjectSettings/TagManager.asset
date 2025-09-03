@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Crash
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - Enemy
   - Projectile
   - DeadBody
-  - 
-  - 
+  - Skills
+  - Boss
   - 
   - 
   - Cost
@@ -25,7 +26,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Crash
   - 
   - 
   - 

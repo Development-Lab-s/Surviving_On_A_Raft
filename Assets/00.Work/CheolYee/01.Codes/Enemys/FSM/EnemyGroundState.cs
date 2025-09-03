@@ -1,8 +1,6 @@
-using _00.Work.CheolYee._01.Codes.Enemy;
-
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public abstract class EnemyGroundState : EnemyState
+    public abstract class EnemyGroundState : State
     {
         //땅에 있는 상태만 가져야 할 것들을 뭉탱이로 모아 추상으로 한번 더 묶기
         

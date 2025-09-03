@@ -1,5 +1,6 @@
 using _00.Work.CheolYee._01.Codes.Agents;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
+using _00.Work.CheolYee._01.Codes.Skills;
 using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,7 +17,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         [Header("Agent SO Data")]
         [field:SerializeField] public PlayerInputSo PlayerInput {get; private set;} //인풋SO
         public PlayerAnimator PlayerAnimatorComponent { get; private set; } //플레이어 애니메이션 담당
-
+        
         protected MeleeAttack AttackBehaviour; //공격을 할 수 있는가?
         
         

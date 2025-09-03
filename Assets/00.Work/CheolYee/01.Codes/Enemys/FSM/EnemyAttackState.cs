@@ -1,9 +1,8 @@
-using _00.Work.CheolYee._01.Codes.Enemy;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public class EnemyAttackState : EnemyState
+    public class EnemyAttackState : State
     {
         public EnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
         {

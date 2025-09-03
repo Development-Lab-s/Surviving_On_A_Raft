@@ -1,9 +1,8 @@
-using System;
 using _00.Work.CheolYee._01.Codes.Players;
+using _00.Work.CheolYee._01.Codes.Skills;
 using _00.Work.CheolYee._01.Codes.SO;
 using _00.Work.Resource.Manager;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _00.Work.CheolYee._01.Codes.Managers
 {
@@ -23,7 +22,10 @@ namespace _00.Work.CheolYee._01.Codes.Managers
 
         private void Start()
         {
-            Instantiate(skillUIPrefab, uiRoot);
+            SkillUI skillUI = Instantiate(skillUIPrefab, uiRoot).GetComponent<SkillUI>();
+            skillUI.Initialize(_currentSkillData.skillIcon, 
+                _currentSkillData.skillCooldown,
+                player);
         }
     }
 }

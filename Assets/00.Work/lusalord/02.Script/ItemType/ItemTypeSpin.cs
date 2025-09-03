@@ -14,6 +14,8 @@ namespace _00.Work.lusalord._02.Script.ItemType
         private float _radius = 0;
         private List<float> _childOffsets = new List<float>();
         protected List<GameObject> objects = new List<GameObject>();
+        private float time = 0;
+        
         
         protected virtual void Awake()
         {
@@ -39,8 +41,10 @@ namespace _00.Work.lusalord._02.Script.ItemType
             return spawnItem;
         }
 
+        
         private void Update()
         {
+            time += Time.deltaTime;
             _angle += SpinSpeed * Time.deltaTime;
 
             for (int i = 0; i < _childOffsets.Count; i++)
@@ -52,6 +56,13 @@ namespace _00.Work.lusalord._02.Script.ItemType
                     0);
             }
             transform.position = playerTrs.position;
+
+            if (time >= 3)
+            {
+                LevelUp();
+                Debug.Log("aaaaaaa");
+                time = 0;
+            }
         }
     }
 }
