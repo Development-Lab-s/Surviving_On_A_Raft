@@ -1,12 +1,12 @@
+using System;
 using System.Collections.Generic;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CostSpawner : MonoBehaviour
 {
-    public List<GameObject> spreadCost = new List<GameObject>();
-
     public void SpawnCost(Vector2 spawnPosition)
     {
         
@@ -19,7 +19,13 @@ public class CostSpawner : MonoBehaviour
             IPoolable cost = PoolManager.Instance.Pop($"ItemCost");
             cost.GameObject.transform.position = spawnPosition;
             Debug.Log($"Cost Spawned, Amount : {amount}");
+
         }
         
+    }
+
+    private void OnDisable()
+    {
+        SpawnCost(gameObject.transform.position);
     }
 }
