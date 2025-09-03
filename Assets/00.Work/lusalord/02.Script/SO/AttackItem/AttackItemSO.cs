@@ -8,7 +8,8 @@ namespace _00.Work.lusalord._02.Script.SO.AttackItem
     {
         public string itemName;
         public int level;
-
+        public float damage;
+        public float knockbackPower;
         public float atkRate;
         
         

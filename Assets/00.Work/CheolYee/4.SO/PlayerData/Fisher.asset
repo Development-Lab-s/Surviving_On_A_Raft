@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725b5cebf69c43bdafffa55b3f51d77f, type: 3}
   m_Name: Fisher
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 0}
-  skillDamage: 0
-  skillCooldown: 0
+  skillIcon: {fileID: 5088316998373936774, guid: c5459a4f7ba0b2445962dee734512c1c, type: 3}
+  skillPrefab: {fileID: 2763003540806301553, guid: 68b1e95bda62f0243bff68b2cb7627fd, type: 3}
+  skillRange: 2
+  skillKnockBackPower: 0
+  skillDamage: 200
+  skillCooldown: 60

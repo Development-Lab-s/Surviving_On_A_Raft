@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 6256244189807578598}
   - component: {fileID: 4826844728355000763}
   m_Layer: 7
-  m_Name: Bat
+  m_Name: AirMeleeAttackEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,6 +161,7 @@ Transform:
   - {fileID: 3422180881960620347}
   - {fileID: 5562479585878336055}
   - {fileID: 7965908492237005636}
+  - {fileID: 4754780241551822313}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3296565248739506408
@@ -253,28 +254,16 @@ MonoBehaviour:
   isDead: 0
   onDeath:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   enemyData: {fileID: 11400000, guid: bd7307e9d0f22634882ceb4d0ebe2611, type: 2}
-  detectRadius: 9
-  attackRadius: 1
+  detectRadius: 0
+  attackRadius: 1.12
   attackCooldown: 0
   knockbackPower: 0
   attackDamage: 0
   lastAttackTime: 0
   whatIsPlayer:
-    useTriggers: 1
+    useTriggers: 0
     useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
@@ -288,19 +277,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   targetTrm: {fileID: 0}
-  patrolStart: {fileID: 246690424152871918}
-  patrolEnd: {fileID: 0}
-  patrolDistance: 3
-  patrolSpeedMul: 0.8
-  patrolTurnWait: 0.25
-  bobAmplitude: 0.25
-  bobFrequency: 2
-  damageCaster: {fileID: 0}
-  radius: 0.8
-  offset: {x: 0.96, y: 0}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 64
+  damageCaster: {fileID: 903818732359869354}
 --- !u!1 &2929544364795631579
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +289,6 @@ GameObject:
   - component: {fileID: 3464395691939054326}
   - component: {fileID: 5004241334691278656}
   - component: {fileID: 7246740832447924850}
-  - component: {fileID: 4131367481989126931}
   - component: {fileID: 7544991580380927392}
   m_Layer: 0
   m_Name: Visual
@@ -413,18 +389,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4131367481989126931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2929544364795631579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09102cf2548ab2745966f541dfb7e7ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7544991580380927392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,3 +462,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5004241334691278656}
   blinkDuration: 0.1
+--- !u!1001 &6442822068733621169
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 246690424152871918}
+    m_Modifications:
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.556
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: damageRadius
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: whatIsTarget.layerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243269046706289747, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: m_Name
+      value: DamageCaster
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+--- !u!114 &903818732359869354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+  m_PrefabInstance: {fileID: 6442822068733621169}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7665cf162c4a1f8494bc6436365aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &4754780241551822313 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+  m_PrefabInstance: {fileID: 6442822068733621169}
+  m_PrefabAsset: {fileID: 0}
