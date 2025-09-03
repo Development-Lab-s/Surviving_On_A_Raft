@@ -41,6 +41,7 @@ public class ItemCreateUI : MonoBehaviour
             AnimateFocus(0.1f, 0.3f);
             PInput.ChangeUIEnabled(true);
             Debug.Log(2);
+
         }
     }
 

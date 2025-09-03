@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 8837f69ccb77cbf4299cf097f2e4abd0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6392545905585220541
+    second: Preview Pack 1 E_0
+  - first:
+      213: -5471688149412537808
+    second: Preview Pack 1 E_1
+  - first:
+      213: 67419970417661930
+    second: Preview Pack 1 E_2
+  - first:
+      213: 341381518551083983
+    second: Preview Pack 1 E_3
+  - first:
+      213: -6623559572283272100
+    second: Preview Pack 1 E_4
+  - first:
+      213: -2493661992320366047
+    second: Preview Pack 1 E_5
+  - first:
+      213: 4912653758583632442
+    second: Preview Pack 1 E_6
+  - first:
+      213: 7964447275533621243
+    second: Preview Pack 1 E_7
+  - first:
+      213: -1933164296029857242
+    second: Preview Pack 1 E_8
+  - first:
+      213: 4415974405491463908
+    second: Preview Pack 1 E_9
+  - first:
+      213: 7669550386892880956
+    second: Preview Pack 1 E_10
+  - first:
+      213: 817446850099338436
+    second: Preview Pack 1 E_11
+  - first:
+      213: -4043972916061959360
+    second: Preview Pack 1 E_12
+  - first:
+      213: -3884692420870736184
+    second: Preview Pack 1 E_13
+  - first:
+      213: 183145994610775369
+    second: Preview Pack 1 E_14
+  - first:
+      213: -11427052288390640
+    second: Preview Pack 1 E_15
+  - first:
+      213: 1946365704918820928
+    second: Preview Pack 1 E_16
+  - first:
+      213: 5407312663414167362
+    second: Preview Pack 1 E_17
+  - first:
+      213: -5477685342687649449
+    second: Preview Pack 1 E_18
+  - first:
+      213: 5834238630505677635
+    second: Preview Pack 1 E_19
+  - first:
+      213: -734935017354828139
+    second: Preview Pack 1 E_20
+  - first:
+      213: -3631387794750653934
+    second: Preview Pack 1 E_21
+  - first:
+      213: -2284478285031038722
+    second: Preview Pack 1 E_22
+  - first:
+      213: -7803735427575925373
+    second: Preview Pack 1 E_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Preview Pack 1 E_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 212
+        width: 60
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34417373e5d1947a0800000000000000
+      internalID: -6392545905585220541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 215
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a1d8c4e98a014b0800000000000000
+      internalID: -5471688149412537808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 200
+        width: 47
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7138b1b168fe000800000000000000
+      internalID: 67419970417661930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 221
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcbee12bea4dcb400800000000000000
+      internalID: 341381518551083983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_4
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 216
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c54da6189a36414a0800000000000000
+      internalID: -6623559572283272100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 217
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12a0ad541abb46dd0800000000000000
+      internalID: -2493661992320366047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 134
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a327dd8a0904d2440800000000000000
+      internalID: 4912653758583632442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_7
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 153
+        width: 34
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf752828996678e60800000000000000
+      internalID: 7964447275533621243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_8
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 148
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62a1caaa0550c25e0800000000000000
+      internalID: -1933164296029857242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_9
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 150
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e619803351b84d30800000000000000
+      internalID: 4415974405491463908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_10
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 149
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3cb5bd1177bf6a60800000000000000
+      internalID: 7669550386892880956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_11
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 135
+        width: 46
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ccdee24497285b00800000000000000
+      internalID: 817446850099338436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_12
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 80
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b83d80f0ce0e7c0800000000000000
+      internalID: -4043972916061959360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_13
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 93
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c6f85043dcc61ac0800000000000000
+      internalID: -3884692420870736184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_14
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 88
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9459fcecf4aaa8200800000000000000
+      internalID: 183145994610775369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_15
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 87
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a458f082767dff0800000000000000
+      internalID: -11427052288390640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_16
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 80
+        width: 42
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04860bcdb41e20b10800000000000000
+      internalID: 1946365704918820928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_17
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 84
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247d54cd732aa0b40800000000000000
+      internalID: 5407312663414167362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_18
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 19
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7512dbde33a5bf3b0800000000000000
+      internalID: -5477685342687649449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_19
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 28
+        width: 25
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34307229f1167f050800000000000000
+      internalID: 5834238630505677635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_20
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 27
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 596e19dde7cfcc5f0800000000000000
+      internalID: -734935017354828139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_21
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 19
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ab2346a08ba9dc0800000000000000
+      internalID: -3631387794750653934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_22
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 29
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef0a1ab7a17eb40e0800000000000000
+      internalID: -2284478285031038722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 1 E_23
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 4
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 385b43e79ff83b390800000000000000
+      internalID: -7803735427575925373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Preview Pack 1 E_0: -6392545905585220541
+      Preview Pack 1 E_1: -5471688149412537808
+      Preview Pack 1 E_10: 7669550386892880956
+      Preview Pack 1 E_11: 817446850099338436
+      Preview Pack 1 E_12: -4043972916061959360
+      Preview Pack 1 E_13: -3884692420870736184
+      Preview Pack 1 E_14: 183145994610775369
+      Preview Pack 1 E_15: -11427052288390640
+      Preview Pack 1 E_16: 1946365704918820928
+      Preview Pack 1 E_17: 5407312663414167362
+      Preview Pack 1 E_18: -5477685342687649449
+      Preview Pack 1 E_19: 5834238630505677635
+      Preview Pack 1 E_2: 67419970417661930
+      Preview Pack 1 E_20: -734935017354828139
+      Preview Pack 1 E_21: -3631387794750653934
+      Preview Pack 1 E_22: -2284478285031038722
+      Preview Pack 1 E_23: -7803735427575925373
+      Preview Pack 1 E_3: 341381518551083983
+      Preview Pack 1 E_4: -6623559572283272100
+      Preview Pack 1 E_5: -2493661992320366047
+      Preview Pack 1 E_6: 4912653758583632442
+      Preview Pack 1 E_7: 7964447275533621243
+      Preview Pack 1 E_8: -1933164296029857242
+      Preview Pack 1 E_9: 4415974405491463908
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
