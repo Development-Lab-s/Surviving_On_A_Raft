@@ -12,5 +12,11 @@ namespace _00.Work.lusalord._02.Script
         public int Level => attackItemSo.level;
         public float ItemRate => attackItemSo.atkRate;
         
+        
+        
+        public void LevelUp()
+        {
+            
+        }
     }
 }
