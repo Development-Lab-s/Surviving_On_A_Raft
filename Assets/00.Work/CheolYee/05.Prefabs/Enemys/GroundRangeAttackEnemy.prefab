@@ -152,7 +152,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: GroundRangeEnemy
   firePos: {fileID: 8177674155862086495}
   projectilePrefab: {fileID: 3659094807772548393, guid: 8e415048a431aa647adcb492f7206b5c, type: 3}
-  projectileSpeed: 20
+  projectileSpeed: 10
 --- !u!1 &6971969674274893204
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8177674155862086495}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FirePos
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -193,7 +193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298450757585145822}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: WallChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

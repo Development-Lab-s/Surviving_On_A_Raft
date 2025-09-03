@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: ecf95dc7df63e7c46975a37df0d9fad4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8999018681505021911
+    second: Preview Pack 4 F_0
+  - first:
+      213: 2188330640070809575
+    second: Preview Pack 4 F_1
+  - first:
+      213: -7931698909838120640
+    second: Preview Pack 4 F_2
+  - first:
+      213: 4887310533830864863
+    second: Preview Pack 4 F_3
+  - first:
+      213: -4214557517953969899
+    second: Preview Pack 4 F_4
+  - first:
+      213: -7175968775211076077
+    second: Preview Pack 4 F_5
+  - first:
+      213: -6765917949012600615
+    second: Preview Pack 4 F_6
+  - first:
+      213: 1242009589143440443
+    second: Preview Pack 4 F_7
+  - first:
+      213: -1454657587783828040
+    second: Preview Pack 4 F_8
+  - first:
+      213: 2605900877339538868
+    second: Preview Pack 4 F_9
+  - first:
+      213: -5159456974207419849
+    second: Preview Pack 4 F_10
+  - first:
+      213: 7860992238102467176
+    second: Preview Pack 4 F_11
+  - first:
+      213: -3808439585787232982
+    second: Preview Pack 4 F_12
+  - first:
+      213: -7205016005018837952
+    second: Preview Pack 4 F_13
+  - first:
+      213: -5807432708024152460
+    second: Preview Pack 4 F_14
+  - first:
+      213: -514442791576329057
+    second: Preview Pack 4 F_15
+  - first:
+      213: -1102591625739248210
+    second: Preview Pack 4 F_16
+  - first:
+      213: 2717465015444749297
+    second: Preview Pack 4 F_17
+  - first:
+      213: 7771483530899537757
+    second: Preview Pack 4 F_18
+  - first:
+      213: -3611771462472265373
+    second: Preview Pack 4 F_19
+  - first:
+      213: -8823615640090751111
+    second: Preview Pack 4 F_20
+  - first:
+      213: -5696965399834665613
+    second: Preview Pack 4 F_21
+  - first:
+      213: 7090718256238146686
+    second: Preview Pack 4 F_22
+  - first:
+      213: -5239989645718948875
+    second: Preview Pack 4 F_23
+  - first:
+      213: 5903233753753787324
+    second: Preview Pack 4 F_24
+  - first:
+      213: -2329949039482203214
+    second: Preview Pack 4 F_25
+  - first:
+      213: 2694215333782489888
+    second: Preview Pack 4 F_26
+  - first:
+      213: -1220597964253168303
+    second: Preview Pack 4 F_27
+  - first:
+      213: -5879575514257253182
+    second: Preview Pack 4 F_28
+  - first:
+      213: 3799102298144286903
+    second: Preview Pack 4 F_29
+  - first:
+      213: 251104291649146184
+    second: Preview Pack 4 F_30
+  - first:
+      213: -9193760621962273359
+    second: Preview Pack 4 F_31
+  - first:
+      213: -4058156504642121465
+    second: Preview Pack 4 F_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Preview Pack 4 F_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dff53edfcfe2ec70800000000000000
+      internalID: 8999018681505021911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 127
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e716847f138e5e10800000000000000
+      internalID: 2188330640070809575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_2
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 127
+        width: 14
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 049eebd8dd1fce190800000000000000
+      internalID: -7931698909838120640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 132
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdf6304590733d340800000000000000
+      internalID: 4887310533830864863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_4
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 133
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511d6e06442e285c0800000000000000
+      internalID: -4214557517953969899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_5
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 137
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 316bf3a3b66d96c90800000000000000
+      internalID: -7175968775211076077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 108
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d81aa50971aa12a0800000000000000
+      internalID: -6765917949012600615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 98
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3c068014218c3110800000000000000
+      internalID: 1242009589143440443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 107
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd715a81a400dbe0800000000000000
+      internalID: -1454657587783828040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_9
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 102
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b5b3b19a050a2420800000000000000
+      internalID: 2605900877339538868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_10
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 111
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73a747ac73de568b0800000000000000
+      internalID: -5159456974207419849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_11
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 105
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 862533e8acad71d60800000000000000
+      internalID: 7860992238102467176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_12
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 105
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2dbd9cef54b52bc0800000000000000
+      internalID: -3808439585787232982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_13
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 95
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04c19d30e14a20c90800000000000000
+      internalID: -7205016005018837952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_14
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 103
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e4c3d98bad76fa0800000000000000
+      internalID: -5807432708024152460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_15
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 75
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9425d6b1055cd8f0800000000000000
+      internalID: -514442791576329057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_16
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 67
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaddd7712cec2b0f0800000000000000
+      internalID: -1102591625739248210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 63
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fbb227a80066b520800000000000000
+      internalID: 2717465015444749297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_18
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 63
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5fb015a81bd9db60800000000000000
+      internalID: 7771483530899537757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_19
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 63
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3619279adf860edc0800000000000000
+      internalID: -3611771462472265373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_20
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 75
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f4fc923583c8580800000000000000
+      internalID: -8823615640090751111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_21
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 45
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37dd925172050f0b0800000000000000
+      internalID: -5696965399834665613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_22
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 43
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e74b3719faa476260800000000000000
+      internalID: 7090718256238146686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_23
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 42
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3723c0e21d747b0800000000000000
+      internalID: -5239989645718948875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_24
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 35
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbb179682df7ce150800000000000000
+      internalID: 5903233753753787324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_25
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 35
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b396e471bb5aafd0800000000000000
+      internalID: -2329949039482203214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_26
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 43
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02b048e4296c36520800000000000000
+      internalID: 2694215333782489888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15dff175e909f0fe0800000000000000
+      internalID: -1220597964253168303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_28
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 10
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc9c9a983d876ea0800000000000000
+      internalID: -5879575514257253182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b8a242696f19b430800000000000000
+      internalID: 3799102298144286903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_30
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84dc259d50a1c7300800000000000000
+      internalID: 251104291649146184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_31
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 10
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bdd6f9cc63396080800000000000000
+      internalID: -9193760621962273359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Preview Pack 4 F_32
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7019dd9f8288ea7c0800000000000000
+      internalID: -4058156504642121465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Preview Pack 4 F_0: 8999018681505021911
+      Preview Pack 4 F_1: 2188330640070809575
+      Preview Pack 4 F_10: -5159456974207419849
+      Preview Pack 4 F_11: 7860992238102467176
+      Preview Pack 4 F_12: -3808439585787232982
+      Preview Pack 4 F_13: -7205016005018837952
+      Preview Pack 4 F_14: -5807432708024152460
+      Preview Pack 4 F_15: -514442791576329057
+      Preview Pack 4 F_16: -1102591625739248210
+      Preview Pack 4 F_17: 2717465015444749297
+      Preview Pack 4 F_18: 7771483530899537757
+      Preview Pack 4 F_19: -3611771462472265373
+      Preview Pack 4 F_2: -7931698909838120640
+      Preview Pack 4 F_20: -8823615640090751111
+      Preview Pack 4 F_21: -5696965399834665613
+      Preview Pack 4 F_22: 7090718256238146686
+      Preview Pack 4 F_23: -5239989645718948875
+      Preview Pack 4 F_24: 5903233753753787324
+      Preview Pack 4 F_25: -2329949039482203214
+      Preview Pack 4 F_26: 2694215333782489888
+      Preview Pack 4 F_27: -1220597964253168303
+      Preview Pack 4 F_28: -5879575514257253182
+      Preview Pack 4 F_29: 3799102298144286903
+      Preview Pack 4 F_3: 4887310533830864863
+      Preview Pack 4 F_30: 251104291649146184
+      Preview Pack 4 F_31: -9193760621962273359
+      Preview Pack 4 F_32: -4058156504642121465
+      Preview Pack 4 F_4: -4214557517953969899
+      Preview Pack 4 F_5: -7175968775211076077
+      Preview Pack 4 F_6: -6765917949012600615
+      Preview Pack 4 F_7: 1242009589143440443
+      Preview Pack 4 F_8: -1454657587783828040
+      Preview Pack 4 F_9: 2605900877339538868
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

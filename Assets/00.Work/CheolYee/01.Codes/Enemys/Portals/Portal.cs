@@ -23,29 +23,27 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
         public string ItemName => poolName;
         public GameObject GameObject => gameObject;
 
-        private void Awake()
+        private void Start()
         {
-            spriteRenderer.color = PortalData.portalColor;
-            portalLight.color = PortalData.portalColor;
+            Initialize(PortalData, false);
         }
 
         public void Initialize(PortalDataSo portalData, bool left)
         {
             PortalData = portalData;
+            spriteRenderer.color = PortalData.portalColor;
+            portalLight.color = PortalData.portalColor;
+            
             _isLeft = left;
             if (_isLeft)
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
+            
+            OpenPortal(spawnTrm);
         }
 
-        private void Start()
-        {
-            Initialize(PortalData, true);
-            OpenPortal(transform);
-        }
-
-        public void OpenPortal(Transform portalTrm)
+        private void OpenPortal(Transform portalTrm)
         {
             transform.position = portalTrm.position;
             transform.localScale = Vector3.zero;

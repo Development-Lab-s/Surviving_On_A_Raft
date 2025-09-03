@@ -1,4 +1,4 @@
-using _00.Work.CheolYee._01.Codes.Enemy;
+using _00.Work.CheolYee._01.Codes.Enemys.FSM.AirEnemy;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
@@ -21,11 +21,11 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
             Debug.Log(hit ? "근거리 공격 성공!!!!!!!!!" : "근거리 공격 실패......");
         }
 
-        internal void Attack(AirMeleeDamage airMeleeDamage)
+        internal void Attack(AirMeleeAttackEnemy AirMeleeAttackEnemy)
         {
-            if (airMeleeDamage.damageCaster == null) return;
+            if (AirMeleeAttackEnemy.damageCaster == null) return;
 
-            bool hit = airMeleeDamage.damageCaster.CastDamage(airMeleeDamage.attackDamage, airMeleeDamage.knockbackPower);
+            bool hit = AirMeleeAttackEnemy.damageCaster.CastDamage(AirMeleeAttackEnemy.attackDamage, AirMeleeAttackEnemy.knockbackPower);
             Debug.Log(hit ? "공중 몬스터 공격 성공!!!!!!!!!" : "공중 몬스터 공격 실패......");
         }
     }

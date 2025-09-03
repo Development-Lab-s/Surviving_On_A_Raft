@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public class AirEnemyDeathState : IState
+    public class EnemyDeathState : State
     {
         private readonly int _deadLayer = LayerMask.NameToLayer("DeadBody");
         private bool _isDeadEffect = false;
         
-        public AirEnemyDeathState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
+        public EnemyDeathState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
         {
         }
 

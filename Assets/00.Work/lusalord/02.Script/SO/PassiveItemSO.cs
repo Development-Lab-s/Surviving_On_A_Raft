@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 namespace _00.Work.lusalord._02.Script.SO
 {
-    [CreateAssetMenu(fileName = "PassiveItem", menuName = "SO/ItemType/PassiveItem")]
+    [CreateAssetMenu(fileName = "PassiveItem", menuName = "SO/Item/PassiveItem")]
     public class PassiveItem : ScriptableObject
     {
         

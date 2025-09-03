@@ -1,11 +1,10 @@
-using _00.Work.CheolYee._01.Codes.Enemy;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public class AirEnemyChaseState : EnemyGroundState
+    public class EnemyChaseState : EnemyGroundState
     {
-        public AirEnemyChaseState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
+        public EnemyChaseState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
         {
         }
 
