@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
+  m_Name: SpinItemSOLv 5
+  m_EditorClassIdentifier: 
+  itemName: 
+  level: 1
+  atkRate: 0
+  spinRadius: 5
+  spinPrefab: {fileID: 3944626458033196950, guid: 70a2162174e371a43bd15009a0f61ec2, type: 3}
+  spinSpeed: 5
+  spinAmount: 5
+  nextSpinItem: {fileID: 11400000, guid: aa4e70b07557fdb4694cc7911ba4a0b6, type: 2}
+  spinItems: []
