@@ -41,15 +41,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
             return spawnItem;
         }
 
-        public void LevelUp()
-        {
-            var next = _spinItemSo.nextSpinItem;
-            if (!next)
-            {
-                return;
-            }
-            _spinItemSo = next;
-        }
+        
         private void Update()
         {
             time += Time.deltaTime;
