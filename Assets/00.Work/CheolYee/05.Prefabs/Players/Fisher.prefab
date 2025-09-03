@@ -1,5 +1,112 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &890265223308821271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4884152174618305221}
+  - component: {fileID: 6867759891746026425}
+  m_Layer: 6
+  m_Name: AutoProjectile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4884152174618305221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890265223308821271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4709152736142707137}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6867759891746026425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890265223308821271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fdb99f1dee447e5a8250dd53c7d50dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackItemSo: {fileID: 11400000, guid: 5f199ca710beefe4f9748d66771e38c9, type: 2}
+  detectionRadius: 4.89
+  enemyLayer:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 128
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+--- !u!1 &2408080744608517615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3403559097792007312}
+  - component: {fileID: 839917018313879229}
+  m_Layer: 6
+  m_Name: ProjectileItem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3403559097792007312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408080744608517615}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4709152736142707137}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &839917018313879229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408080744608517615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c13f4ade3649418dd5b7e3f58c087a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackItemSo: {fileID: 11400000, guid: 5f199ca710beefe4f9748d66771e38c9, type: 2}
+  playerInput: {fileID: 11400000, guid: d51e8f2d96eb24b468b2dada5926d59c, type: 2}
+  bulletCount: 3
 --- !u!1 &3304527419033307807
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,6 +145,7 @@ Transform:
   - {fileID: 5364442525684204745}
   - {fileID: 3213627291579394598}
   - {fileID: 7219599164415163436}
+  - {fileID: 4709152736142707137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2913705085557799158
@@ -80,10 +188,10 @@ CapsuleCollider2D:
   m_Material: {fileID: 6200000, guid: c5994d02aee8e7a41b4b49f66dfa680f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 264
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -171,6 +279,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSkillData: {fileID: 11400000, guid: ba863712454e7324980a54b6fa527aad, type: 2}
   firePos: {fileID: 121978743149266215}
+--- !u!1 &5674014747643266721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4709152736142707137}
+  m_Layer: 6
+  m_Name: ItemContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4709152736142707137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674014747643266721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3403559097792007312}
+  - {fileID: 4884152174618305221}
+  m_Father: {fileID: 5291641684532096188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7553026940530057295
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +708,18 @@ PrefabInstance:
     - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: boxSize.x
+      value: 5.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: boxSize.y
+      value: 4.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: casterType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: detectCount

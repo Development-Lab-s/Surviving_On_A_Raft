@@ -40,7 +40,6 @@ namespace _00.Work.CheolYee._01.Codes.Items
         private Collider2D FindNearEnemy()
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer.layerMask);
-            Debug.Log(hits.Length);
            
             if (hits.Length == 0) return null;
            

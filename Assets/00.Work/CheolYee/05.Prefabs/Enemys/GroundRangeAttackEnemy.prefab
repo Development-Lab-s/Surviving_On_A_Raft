@@ -162,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8177674155862086495}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FirePos
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -193,7 +193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298450757585145822}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: WallChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

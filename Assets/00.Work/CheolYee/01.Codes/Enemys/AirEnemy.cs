@@ -8,8 +8,8 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 {
     public class AirEnemy : Enemy, IPoolable
     {
-        public string ItemName => "AirEnemy";
 
+        [field: SerializeField] public string ItemName { get; private set; } = "AirEnemy";
         public GameObject GameObject => gameObject;
 
         private EnemyStateMachine _stateMachine; //FSM 머신 설정
