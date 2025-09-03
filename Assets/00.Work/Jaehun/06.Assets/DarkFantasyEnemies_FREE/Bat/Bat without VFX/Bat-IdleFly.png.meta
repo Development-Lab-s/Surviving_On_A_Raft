@@ -334,7 +334,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bat-IdleFly_0: -955609468180279937
+      Bat-IdleFly_1: 7037090841881935398
+      Bat-IdleFly_2: -494526330353641620
+      Bat-IdleFly_3: 8322023510716195758
+      Bat-IdleFly_4: 3033080782938990007
+      Bat-IdleFly_5: -4776982302197348774
+      Bat-IdleFly_6: 22136743747476918
+      Bat-IdleFly_7: 2099731416793016761
+      Bat-IdleFly_8: 1649958095654870360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
