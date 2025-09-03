@@ -1,9 +1,8 @@
-using System;
-using System.Collections;
 using _00.Work.CheolYee._01.Codes.Agents;
 using _00.Work.CheolYee._01.Codes.Enemys.Anim;
-using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.CheolYee._01.Codes.SO;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,24 +16,25 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         Jump = 3,
         Attack = 4,
         Death = 5,
+        Patrol = 6,
     }
-    
+
     public abstract class Enemy : Agent
     {
         public UnityEvent onDeath;
 
-        [Header("Enemy Settings")] 
-        public EnemyDataSo enemyData; 
-        
+        [Header("Enemy Settings")]
+        public EnemyDataSo enemyData;
+
         [Header("Attack Settings")]
         public float detectRadius; // 플레이어를 탐지하는 범위
         public float attackRadius; // 공격이 가능한 거리
-        
+
         [HideInInspector] public float attackCooldown; // 공격 쿨타임
         [HideInInspector] public float knockbackPower; // 넉백 힘
         [HideInInspector] public float attackDamage; // 공격 데미지
         [HideInInspector] public float lastAttackTime; //마지막 공격 시간
-        
+
         public ContactFilter2D whatIsPlayer; //플레이어를 탐지하는 필터
         public Transform targetTrm; //현재 타겟 위치
 
@@ -54,10 +54,10 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
             HealthComponent.Initialize(this, enemyData.maxHealth); //에너미 전용 체력 설정
             AttackSetting(enemyData); //에너미 전용 공격 설정
             MovementComponent.GetComponent<EnemyMovement>().Initialize(enemyData); //에너미 전용 무브먼트 설정
-            
+
             AnimatorTrigger = GetComponentInChildren<EnemyAnimatorTrigger>(); //자식에서 컴포넌트 찾기
             AnimatorTrigger.Initialize(this); //초기화
-            
+
         }
 
         private void OnEnable()
@@ -87,13 +87,13 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
 
         public abstract void SetDead();
-        
+
         //공격 메서드 (에너미 공격에 따라 따로 구현)
-        public virtual void Attack() {}
+        public virtual void Attack() { }
 
         //애니메이션 끝났을 때 호출되는 메서드 (상속받은 에너미에서 구현 필요)
         public abstract void AnimationEndTrigger();
-        
+
         #region DelayCallback routine
 
         // 일정 시간 후 callback을 실행해주는 코루틴 시작 함수
@@ -110,7 +110,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         }
 
         #endregion
-        
+
 #if UNITY_EDITOR
 
         private void OnDrawGizmos()

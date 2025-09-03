@@ -1,14 +1,17 @@
-using System.Collections;
 using _00.Work.CheolYee._01.Codes.Core;
+using System.Collections;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Agents
 {
     public class AgentMovement : MonoBehaviour
     {
+        [Header("Motor Options")]
+        [SerializeField] private bool motorControlsX = true; // 추가: X속도를 내부에서 제어할지
+
         [Header("References")]
         [field: SerializeField] public Rigidbody2D RbCompo { get; private set; } //다른곳에서 리지드바디를 가져오기 위함
-        
+
         [Header("Settings")]
         protected float MoveSpeed = 5f; //이동 속도
         protected float JumpForce = 7f; //점프력
@@ -49,7 +52,8 @@ namespace _00.Work.CheolYee._01.Codes.Agents
             CheckGround();
 
             if (_canMove == false) return;
-            MoveAgent();
+            if (motorControlsX)        // 토글 확인
+                MoveAgent();
         }
 
         private void CheckGround()

@@ -24,7 +24,7 @@ public class PatrolState : IState
         }
     }
 
-    public void FixedTick() // 초당 움직임. 그니까 FixedUpdate라 생각하면됨. 실제로 그게 맞음.
+    public void FixedTick() // 정해진 시간당 움직임. 그니까 FixedUpdate라 생각하면됨. 실제로 그게 맞음.
     {
         e.MoveX(e.moveDir * e.data.moveSpeed); // 움직임
 
