@@ -36343,6 +36343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 2582371047335539429, guid: 1e2276996ee3d744482d88c378c69256, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4826844728355000763, guid: 1e2276996ee3d744482d88c378c69256, type: 3}
       propertyPath: patrolEnd
       value: 

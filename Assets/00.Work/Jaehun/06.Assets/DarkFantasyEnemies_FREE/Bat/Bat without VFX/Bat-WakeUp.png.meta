@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bat-WakeUp_0: -4050778345494000673
+      Bat-WakeUp_1: -88695921673209687
+      Bat-WakeUp_10: 5094273727882498433
+      Bat-WakeUp_11: -9201611559319902821
+      Bat-WakeUp_12: -7376687697434040988
+      Bat-WakeUp_13: 4627126346126928963
+      Bat-WakeUp_14: 5263993374577511869
+      Bat-WakeUp_15: 6729410298874452860
+      Bat-WakeUp_2: -2291356068208840101
+      Bat-WakeUp_3: 6914229940882939354
+      Bat-WakeUp_4: 8073469086898407717
+      Bat-WakeUp_5: -2707541318519708097
+      Bat-WakeUp_6: -7928539036747898812
+      Bat-WakeUp_7: -1435221459344306688
+      Bat-WakeUp_8: 4840812318307214234
+      Bat-WakeUp_9: -691472580880114381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
