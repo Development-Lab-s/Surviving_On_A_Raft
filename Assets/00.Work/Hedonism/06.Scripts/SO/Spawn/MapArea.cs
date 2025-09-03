@@ -26,7 +26,7 @@ public class MapArea : MonoBehaviour
         {
             Debug.Log($"{mapName} 퇴장!");
 
-            SpawnManager.Instance.DespawnCurrentPortal();
+            SpawnManager.Instance.DespawnCurrentPortals();
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Portals;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
@@ -9,7 +10,7 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     [SerializeField] private List<Transform> spawnPoints; // 인스펙터에 프리팹들 넣기
 
     [SerializeField] private PoolItem _portalItemPrefab; // 풀링할 포탈
-    [SerializeField] private PortalDataSo portalData;      // 포탈 설정 데이터
+    [SerializeField] private PortalDataSo portalData;    // 포탈 설정 데이터
     [SerializeField] private Transform spawnPoint;       // 소환 위치
 
     private Transform currentSpawn;
@@ -19,15 +20,14 @@ public class SpawnManager : MonoSingleton<SpawnManager>
         Debug.Log(spawnPoints.Count);
     }
 
-    private Portal currentPortal; // 현재 활성화된 포탈 참조
+    //  여러 개의 포탈 관리용 리스트
+    private List<Portal> currentPortals = new List<Portal>();
 
-    /// <summary>
-    /// 특정 맵에 포탈 소환
-    /// </summary>
     public void SpawnPortalInMap(MapArea map)
     {
-        // 기존 포탈 삭제
-        DespawnCurrentPortal();
+        // 기존 포탈 전부 삭제
+        DespawnCurrentPortals();
+        ClearAllEnemies();
 
         if (map.portalSpawnPoints.Count == 0)
         {
@@ -35,32 +35,57 @@ public class SpawnManager : MonoSingleton<SpawnManager>
             return;
         }
 
-        // 랜덤 위치 선택
-        int index = Random.Range(0, map.portalSpawnPoints.Count);
-        Vector3 spawnPos = map.portalSpawnPoints[index].position;
+        // 랜덤하게 2개의 다른 위치 선택
+        List<int> indices = new List<int>();
+        while (indices.Count < 2)
+        {
+            int index = Random.Range(0, map.portalSpawnPoints.Count);
+            if (!indices.Contains(index))
+                indices.Add(index);
+        }
 
-        // 풀에서 포탈 꺼내기
-        Portal portal = PoolManager.Instance.Pop(_portalItemPrefab.poolName) as Portal;
-        portal.transform.position = spawnPos;
-        portal.Initialize(portalData, false);
+        // 포탈 2개 생성
+        foreach (int index in indices)
+        {
+            Vector3 spawnPos = map.portalSpawnPoints[index].position;
 
-        currentPortal = portal; // 현재 포탈 저장
+            Portal portal = PoolManager.Instance.Pop(_portalItemPrefab.poolName) as Portal;
+            portal.transform.position = spawnPos;
+            portal.Initialize(portalData, false);
 
-        Debug.Log($"{map.mapName} 에 포탈 생성! 위치: {spawnPos}");
+            currentPortals.Add(portal); // 리스트에 저장
+            Debug.Log($"{map.mapName} 에 포탈 생성! 위치: {spawnPos}");
+        }
     }
 
     /// <summary>
-    /// 현재 포탈 제거
+    /// 현재 활성화된 모든 포탈 제거
     /// </summary>
-    public void DespawnCurrentPortal()
+    public void DespawnCurrentPortals()
     {
-        if (currentPortal != null)
+        if (currentPortals.Count > 0)
         {
-            PoolManager.Instance.Push(currentPortal);
+            foreach (var portal in currentPortals)
+            {
+                PoolManager.Instance.Push(portal);
+            }
             Debug.Log("기존 포탈 제거 완료");
-            currentPortal = null;
+            currentPortals.Clear();
         }
     }
+
+    public void ClearAllEnemies()
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>(); // 씬에 있는 모든 Enemy 컴포넌트 검색
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy.TryGetComponent(out IPoolable pool))
+            {
+                PoolManager.Instance.Push(pool);
+            }
+        }
+    }
+
 
     public void StartCycle()
     {
@@ -83,8 +108,6 @@ public class SpawnManager : MonoSingleton<SpawnManager>
         spawnPoints.RemoveAt(randomIndex);
     }
 
-    
-
     private void MovePlayerTo(Vector3 pos)
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -94,35 +117,3 @@ public class SpawnManager : MonoSingleton<SpawnManager>
         }
     }
 }
-
-    // public void SpawnPortal()
-    // {
-    //     //나는 할거야 for문을 포탈이 랜덤으로 몇개 열리게에~ 그리고오 맵마다 배치할거야아
-    //     // ~ 들어간 맵에 있는 풀만 활성화 시킬 수 있어야데👍
-    //     //for()
-    //     // {
-
-    //     // }
-    //     // Portal portal = PoolManager.Instance.Pop(_portalItemPrefab.poolName) as Portal;
-    //     // portal.transform.position = spawnPoint.position;
-    //     // portal.Initialize(portalData, true);
-    // }
-
-
-    // public void SpawnPortalInMap(MapArea map)
-    // {
-    //     if (map.portalSpawnPoints.Count == 0)
-    //     {
-    //         Debug.LogWarning($"{map.mapName} 에 스폰포인트 없음");
-    //         return;
-    //     }
-
-    //     // 랜덤 위치 선택
-    //     int index = Random.Range(0, map.portalSpawnPoints.Count);
-    //     Vector3 spawnPos = map.portalSpawnPoints[index].position;
-
-    //     // 풀에서 포탈 꺼내기
-    //     Portal portal = PoolManager.Instance.Pop(_portalItemPrefab.poolName) as Portal;
-    //     portal.transform.position = spawnPos;
-    //     portal.Initialize(portalData, false);
-    // }
