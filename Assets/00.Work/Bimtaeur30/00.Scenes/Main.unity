@@ -384,6 +384,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95395215}
   m_CullTransparentMesh: 1
+--- !u!1 &117443367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117443368}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &117443368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117443367}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1686612131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &157690693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,7 +1183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &505579684
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1958,7 +1989,7 @@ GameObject:
   - component: {fileID: 1024693175}
   - component: {fileID: 1024693174}
   m_Layer: 0
-  m_Name: ItemCreater
+  m_Name: ItemCreaterSelectUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1976,8 +2007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492e925f17e7a5b4cb7a9513e56cd40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveObejct: {fileID: 505579684}
-  UpPos: {x: 0, y: 0}
+  MoveObejct: {fileID: 1918495355}
+  UpPos: {x: 0, y: 56}
   DownPos: {x: 0, y: -934}
   globalVolume: {fileID: 1531203223}
   PInput: {fileID: 406499246}
@@ -2610,7 +2641,7 @@ GameObject:
   - component: {fileID: 1302844802}
   - component: {fileID: 1302844801}
   m_Layer: 0
-  m_Name: ItemCreator
+  m_Name: ItemCreatorBars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2631,6 +2662,7 @@ MonoBehaviour:
   PageParent: {fileID: 1918495354}
   Page: {fileID: 3096370800439039163, guid: c562886ddcf6a764aacf2a67f15fdca7, type: 3}
   CreateBar: {fileID: 6635056857209424983, guid: 6eadba5025a223f4891244b093869f3f, type: 3}
+  pageList: []
 --- !u!4 &1302844802
 Transform:
   m_ObjectHideFlags: 0
@@ -3287,7 +3319,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1468931058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1302844801}
+        m_TargetAssemblyTypeName: ItemCreatetor, Assembly-CSharp
+        m_MethodName: FlipPage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1468931058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3562,6 +3606,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1577641335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1577641337}
+  - component: {fileID: 1577641336}
+  m_Layer: 0
+  m_Name: ItemCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1577641336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577641335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbb627d31ffca04684d6d33ed9258da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1577641337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577641335}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 916.29297, y: 440.44583, z: -8.43058}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1661272414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3781,7 +3869,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1662392456}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1302844801}
+        m_TargetAssemblyTypeName: ItemCreatetor, Assembly-CSharp
+        m_MethodName: FlipPage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1662392456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3973,7 +4073,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 117443368}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1686612132
@@ -4656,7 +4757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 56}
+  m_AnchoredPosition: {x: 0, y: -950}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1919477546
@@ -4964,8 +5065,9 @@ SceneRoots:
   - {fileID: 890361654}
   - {fileID: 1524551089}
   - {fileID: 1024693175}
-  - {fileID: 1148364111}
   - {fileID: 1302844802}
+  - {fileID: 1577641337}
+  - {fileID: 1148364111}
   - {fileID: 1531203224}
   - {fileID: 1919477548}
   - {fileID: 505374598}
