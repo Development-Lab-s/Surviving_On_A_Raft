@@ -11,7 +11,5 @@ namespace _00.Work.lusalord._02.Script.SO.AttackItem
         public float damage;
         public float knockbackPower;
         public float atkRate;
-        
-        
     }
 }

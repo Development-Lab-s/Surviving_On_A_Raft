@@ -7,7 +7,6 @@ namespace _00.Work.CheolYee._01.Codes.Items
     public abstract class ItemTypeProjectile : AttackItem
     {
         protected ProjectileItemSo CurrentProjectileSo;
-        protected GameObject ProjectilePrefab;
         protected float Damage;
         protected float KnockbackPower;
         protected float Speed;

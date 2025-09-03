@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6044163031519489196}
   - component: {fileID: 486127282443863785}
   m_Layer: 8
-  m_Name: PlayerBullit
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 8848993070067138329, guid: d62f0fec96b3bfd4c8e8a973e396b322, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,10 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934ff80feaee43418298a0583055b0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 1160
-  itemName: PlayerBullit
+  itemName: EnemyBullet
   lifeTime: 1.5
   damageCaster: {fileID: 6181935180572779290}
 --- !u!50 &6044163031519489196
@@ -149,10 +146,10 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1160
+    m_Bits: 1096
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -226,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: whatIsTarget.layerMask.m_Bits
-      value: 128
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6243269046706289747, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: m_Name

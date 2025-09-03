@@ -5,7 +5,6 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
 {
     public abstract class Projectile : MonoBehaviour, IPoolable
     {
-        [SerializeField] protected LayerMask targetLayer;
         [SerializeField] protected string itemName;
         public string ItemName => itemName;
         public GameObject GameObject => gameObject;

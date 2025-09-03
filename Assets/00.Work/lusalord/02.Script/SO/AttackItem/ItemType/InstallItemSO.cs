@@ -1,10 +1,30 @@
-using _00.Work.lusalord._02.Script.SO.AttackItem;
+using System;
+using _00.Work.CheolYee._01.Codes.Projectiles;
+using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "InstallItemSO", menuName = "SO/Item/InstallItemSO")]
-public class InstallItemSO : AttackItemSo
+namespace _00.Work.lusalord._02.Script.SO.AttackItem.ItemType
 {
-    public GameObject installItem;
-    public float range;
-    
+    [CreateAssetMenu(fileName = "InstallItemSO", menuName = "SO/Item/InstallItemSO")]
+    public class InstallItemSo : AttackItemSo
+    {
+        public float speed;
+        public int grenadeCount;
+        public GameObject installItem;
+
+        private void OnValidate()
+        {
+            if (installItem != null)
+            {
+                if (installItem.TryGetComponent(out Projectile projectile))
+                {
+                    itemName = projectile.ItemName;
+                }
+                else
+                {
+                    Debug.Log("얘는 발사체가 아닙니다.");
+                }
+            }
+        }
+    }
 }
