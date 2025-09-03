@@ -1,14 +1,15 @@
+using System;
 using UnityEngine;
 
 namespace _00.Work.lusalord._02.Script.ItemType
 {
     public abstract class ItemTypeInstall : AttackItem
     {
-        private GameObject _line;
+        private InstallItemSO _installItemSo;
 
-        protected virtual void SpawnInstall(Vector3 spawnPosition)
+        protected virtual void Awake()
         {
-            
+            _installItemSo = (InstallItemSO)attackItemSo;
         }
     }
 }

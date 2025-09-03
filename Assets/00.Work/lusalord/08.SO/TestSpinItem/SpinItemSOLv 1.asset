@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
-  m_Name: SpinItemSO
+  m_Name: SpinItemSOLv 1
   m_EditorClassIdentifier: 
-  itemName: "\uBCD1\uAC74\uC774\uBC14\uBCF4"
-  level: 0
+  itemName: 
+  level: 1
   atkRate: 0
-  spinRadius: 3
+  spinRadius: 5
   spinPrefab: {fileID: 3944626458033196950, guid: 70a2162174e371a43bd15009a0f61ec2, type: 3}
   spinSpeed: 5
-  spinAmount: 6
+  spinAmount: 1
+  nextSpinItem: {fileID: 11400000, guid: 0dbef59f59515f7418ca2a0354ce8d9b, type: 2}
   spinItems: []

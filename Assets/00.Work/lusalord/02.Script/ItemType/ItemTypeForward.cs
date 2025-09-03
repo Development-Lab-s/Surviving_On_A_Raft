@@ -20,8 +20,6 @@ namespace _00.Work.lusalord._02.Script.ItemType
 
             gameObject.name = _forwardItemSo.itemName;
             _coolTime = _forwardItemSo.coolTime;
-            
-            
         }
 
         protected virtual void Update()
