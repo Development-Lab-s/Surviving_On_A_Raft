@@ -2,18 +2,18 @@ using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public abstract class IState
+    public abstract class State
     {
         //에너미 상태가 가질 기본 요소를 담은 추상 클래스
         
-        protected Enemy Enemy; //이 상태를 가질 적
-        protected EnemyStateMachine StateMachine; //상태머신
+        protected readonly Enemy Enemy; //이 상태를 가질 적
+        protected readonly EnemyStateMachine StateMachine; //상태머신
 
         private readonly int _animBoolHash; //이 상태의 애니메이션 불값 해쉬
         protected bool IsEndTriggerCall; //상태가 끝났는지 알려주는 불값
 
         //상태 생성을 할 때 정의되어야 할 것들을 생성자에 담기
-        protected IState(Enemy enemy, EnemyStateMachine stateMachine, string boolName)
+        protected State(Enemy enemy, EnemyStateMachine stateMachine, string boolName)
         {
             Enemy = enemy;
             StateMachine = stateMachine;

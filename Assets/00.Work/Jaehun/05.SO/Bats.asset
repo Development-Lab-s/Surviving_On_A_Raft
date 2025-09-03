@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bats
   m_EditorClassIdentifier: 
   maxHealth: 70
-  moveSpeed: 6
+  moveSpeed: 2
   jumpForce: 0
   knockbackDuration: 0.1
   attackDamage: 15

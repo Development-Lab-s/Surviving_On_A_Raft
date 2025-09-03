@@ -1,16 +1,15 @@
-using _00.Work.CheolYee._01.Codes.Enemy;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
 {
-    public class AirEnemyIdleState : EnemyGroundState
+    public class EnemyIdleState : EnemyGroundState
     {
         
         //아이들 상태
         
         private Coroutine _delayCoroutine = null;
         
-        public AirEnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
+        public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
         {
         }
 

@@ -1,20 +1,19 @@
 using UnityEngine;
 
-namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
+namespace _00.Work.CheolYee._01.Codes.Enemys.FSM.AirEnemy
 {
-    public class EnemyAttackState : State
+    public class AirEnemyAttackState : State
     {
-        public EnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
+        public AirEnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName)
         {
         }
 
         public override void Enter()
         {
             base.Enter();
-            Enemy.MovementComponent.StopImmediately(); //움직임 멈추고
-            Enemy.Attack();
+            Enemy.MovementComponent.StopImmediately(true);
         }
-
+        
         public override void Exit()
         {
             Enemy.lastAttackTime = Time.time; //마지막 공격 시간 기록
