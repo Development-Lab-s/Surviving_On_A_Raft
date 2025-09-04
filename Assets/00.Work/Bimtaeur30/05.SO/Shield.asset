@@ -15,6 +15,9 @@ MonoBehaviour:
   ItemImage: {fileID: 21300000, guid: cea05765aba250243b5e913242143499, type: 3}
   ItemName: "\uBC29\uD328"
   ItemDescription: "\uACF5\uACA9\uC744 \uBAA8\uB450 \uB9C9\uC544\uBC84\uB824\uC694"
+  itemAttributes:
+  - "\uACF5\uACA9"
+  - "\uBC29\uC5B4"
   ItemIgdt:
   - Name: "\uCCA0"
     Amount: 5
