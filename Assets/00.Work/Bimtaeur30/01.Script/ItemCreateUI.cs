@@ -15,6 +15,8 @@ public class ItemCreateUI : MonoBehaviour
     [SerializeField] private PlayerInput PInput;
     private DepthOfField dof;  // FieldOfView override
 
+    private bool isUIEnabled = false;
+
     private void Start()
     {
         if (globalVolume.profile.TryGet(out DepthOfField depthOfField))
@@ -24,6 +26,13 @@ public class ItemCreateUI : MonoBehaviour
     }
     public void ItemCreateUIView()
     {
+        if (isUIEnabled == true)
+        {
+            ItemCreateUIUnView();
+            return;
+        }
+        isUIEnabled = true;
+
         Debug.Log("»£√‚");
         if (PInput.isFullscreenUIEnabled != true)
         {
@@ -32,11 +41,13 @@ public class ItemCreateUI : MonoBehaviour
             AnimateFocus(0.1f, 0.3f);
             PInput.ChangeUIEnabled(true);
             Debug.Log(2);
+
         }
     }
 
     public void ItemCreateUIUnView()
     {
+        isUIEnabled = false;
         MoveObejct.DOAnchorPos(DownPos, 0.5f);
         AnimateFocus(10f, 0.3f);
 

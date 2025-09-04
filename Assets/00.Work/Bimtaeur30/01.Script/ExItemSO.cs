@@ -14,5 +14,6 @@ public class ExItemSO : ScriptableObject
     public Sprite ItemImage;
     public string ItemName;
     public string ItemDescription;
+    public string[] itemAttributes;
     public List<Ingredient> ItemIgdt = new List<Ingredient>(); // 크기 3짜리 배열
 }

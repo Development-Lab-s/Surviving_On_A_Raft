@@ -36,7 +36,10 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            IIV.ItemInfoViewMethod(InventoryManager.Instance.ItemSlotList[IS.currentSlotsSelecting]);
+            if (IS.currentSlotsSelecting != -1)
+            {
+                IIV.ItemInfoViewMethod(InventoryManager.Instance.ItemSlotList[IS.currentSlotsSelecting]);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
