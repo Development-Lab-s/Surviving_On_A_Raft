@@ -26,6 +26,8 @@ public class ItemCreatetorBars : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             GameObject clonedBar = Instantiate(CreateBar, clonedPage.transform);
+            clonedBar.GetComponent<ItemBar>().MyItem = items[i];
+
             TextMeshProUGUI itemNameTxt = clonedBar.transform.Find("ItemNameTxt").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI itemDescriptionTxt = clonedBar.transform.Find("ItemDescriptionTxt").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI sourceCountTxt = clonedBar.transform.Find("SourceCountTxt").GetComponent<TextMeshProUGUI>();
