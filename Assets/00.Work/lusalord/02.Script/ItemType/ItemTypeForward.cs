@@ -1,20 +1,36 @@
+using System;
+using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _00.Work.lusalord._02.Script.ItemType
 {
     public abstract class ItemTypeForward : AttackItem
     {
-        public GameObject forwardPrefab;
-        public string itemName;
-        public float itemSpeed;
-    
-        private GameObject _forward;
+        [SerializeField] private DamageCaster damageCaster;
+        
+        private ForwardItemSO _forwardItemSo;
 
-        protected virtual void SpawnProjectile(Vector3 spawnPosition)
+        private float time = 0;
+
+        private float _coolTime = 3;
+        public Transform pos;
+        protected virtual void Awake()
         {
-            _forward = Instantiate(forwardPrefab, spawnPosition, Quaternion.identity);
-            _forward.name = itemName;
+            _forwardItemSo = (ForwardItemSO)attackItemSo;
+
+            gameObject.name = _forwardItemSo.itemName;
+            _coolTime = _forwardItemSo.coolTime;
+        }
+
+        protected virtual void Update()
+        {
+            time += Time.deltaTime;
+
+            if (_coolTime <= time)
+            {
+                damageCaster.CastDamage(10, 4);
+                time = 0;
+            }
         }
     }
 }

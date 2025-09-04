@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
@@ -21,6 +22,11 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
         
         public string ItemName => poolName;
         public GameObject GameObject => gameObject;
+
+        private void Start()
+        {
+            Initialize(PortalData, false);
+        }
 
         public void Initialize(PortalDataSo portalData, bool left)
         {

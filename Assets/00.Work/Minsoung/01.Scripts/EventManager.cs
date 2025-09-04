@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum GameEventType
@@ -21,6 +21,7 @@ public class EventManager : MonoBehaviour
     public List<IEvent> bigBadEventList = new List<IEvent>();
 
     [SerializeField] private float _cycle = 30f;
+    [SerializeField] private float _eventStartOffset = 10f;
     float _currentTime = 0;
 
     public static EventManager Instance { get; private set; }
@@ -32,7 +33,6 @@ public class EventManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
 
-            
             IEventBunlyu(); // Awake에서 IEvent 분류 함해줘 ㅇㅇ
         }
         else
@@ -74,31 +74,55 @@ public class EventManager : MonoBehaviour
             _currentTime -= _cycle;
             StartEvent();
         }
-
     }
 
     public void StartEvent()
     {
         bool goodEvent = Random.Range(0, 2) == 1; // 굿 이벤트 true? 그럼 삼항 연산자로 
 
-        System.Action eventAction = goodEvent ?
-            () => {
-                bool big = Random.Range(0, 2) == 1; // 여기 좋은 것 중에서도
-                if (big) BigGoodEvent(); // 큰거
-                else SmallGoodEvent(); // 작은거
-            }
-        :
-            () => {
-                bool big = Random.Range(0, 2) == 1; // 똑같이 나쁜 것 중에서도
-                if (big) BigBadEvent(); // 큰거
-                else SmallBadEvent(); // 작은거
-            };
-        eventAction();
+        GameEventType selectedEventType;
+
+        if (goodEvent)
+        {
+            bool big = Random.Range(0, 2) == 1; // 여기 좋은 것 중에서도
+            selectedEventType = big ? GameEventType.BigGood : GameEventType.SmallGood;
+        }
+        else
+        {
+            bool big = Random.Range(0, 2) == 1; // 똑같이 나쁜 것 중에서도
+            selectedEventType = big ? GameEventType.BigBad : GameEventType.SmallBad;
+        }
+
+        // UI를 먼저 보여주고, 오프셋 뒤에 실제 이벤트 실행
+        StartCoroutine(EventStartOffset(selectedEventType));
+    }
+
+    private IEnumerator EventStartOffset(GameEventType gameEventType)
+    {
+        EventUIManager.Instance.WhatEvent(gameEventType);
+
+        yield return new WaitForSeconds(_eventStartOffset);
+
+        switch (gameEventType)
+        {
+            case GameEventType.SmallGood:
+                SmallGoodEvent();
+                break;
+            case GameEventType.BigGood:
+                BigGoodEvent();
+                break;
+            case GameEventType.SmallBad:
+                SmallBadEvent();
+                break;
+            case GameEventType.BigBad:
+                BigBadEvent();
+                break;
+        }
     }
 
     private void SmallGoodEvent()
     {
-        print("작고 좋은");
+        print("작고 좋은 이벤트 실행");
         if (smallGoodEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, smallGoodEventList.Count); // List 크기까지 랜덤
@@ -109,7 +133,7 @@ public class EventManager : MonoBehaviour
 
     private void BigGoodEvent()
     {
-        print("크고 좋은");
+        print("크고 좋은 이벤트 실행");
         if (bigGoodEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, bigGoodEventList.Count);
@@ -120,7 +144,7 @@ public class EventManager : MonoBehaviour
 
     private void SmallBadEvent()
     {
-        print("작고 나쁜");
+        print("작고 나쁜 이벤트 실행");
         if (smallBadEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, smallBadEventList.Count);
@@ -131,7 +155,7 @@ public class EventManager : MonoBehaviour
 
     private void BigBadEvent()
     {
-        print("크고 나쁜");
+        print("크고 나쁜 이벤트 실행");
         if (bigBadEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, bigBadEventList.Count);

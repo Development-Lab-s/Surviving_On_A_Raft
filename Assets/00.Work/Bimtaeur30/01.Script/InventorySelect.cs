@@ -1,13 +1,13 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using DG.Tweening;
 using System.Linq;
 using DG.Tweening;
 
 public class InventorySelect : MonoBehaviour
 {
-    public int currentSlotsSelecting = -1; // -1ÀÌ¸é ¾Æ¹«°Íµµ ¼±ÅÃ ¾ÈÇÏ´ÂÁß
-    public int currentInvenSelecting = 1; // Ã·¿£ 1¹ø ÀÎº¥Åä¸®ºÎÅÍ
-    private int invenChangeWay = 1; // 1 == ¿ŞÂÊÀ¸·Î, -1 == ¿À¸¥ÂÊÀ¸·Î. Áï °¢°¢ ÀÎº¥Åä¸® ±³Ã¼ ¹øÈ£°¡ Ä¿Áö´ÂÁß(1), ÀÛ¾ÆÁö´ÂÁßÀÌ´Ù(2).
+    public int currentSlotsSelecting = -1; // -1ì´ë©´ ì•„ë¬´ê²ƒë„ ì„ íƒ ì•ˆí•˜ëŠ”ì¤‘
+    public int currentInvenSelecting = 1; // ì²¨ì—” 1ë²ˆ ì¸ë²¤í† ë¦¬ë¶€í„°
+    private int invenChangeWay = 1; // 1 == ì™¼ìª½ìœ¼ë¡œ, -1 == ì˜¤ë¥¸ìª½ìœ¼ë¡œ. ì¦‰ ê°ê° ì¸ë²¤í† ë¦¬ êµì²´ ë²ˆí˜¸ê°€ ì»¤ì§€ëŠ”ì¤‘(1), ì‘ì•„ì§€ëŠ”ì¤‘ì´ë‹¤(2).
     private bool invenChanging = false;
 
     public void SlotSelectMethod(int num)
@@ -26,12 +26,12 @@ public class InventorySelect : MonoBehaviour
                 RectTransform slotRect = InventoryManager.Instance.SlotList[i]
                     .GetComponent<RectTransform>();
 
-                if (num == i) // ¼±ÅÃµÈ ½½·Ô
+                if (num == i) // ì„ íƒëœ ìŠ¬ë¡¯
                 {
                     Vector2 targetPos = new Vector2(slotRect.anchoredPosition.x, 10);
                     slotRect.DOAnchorPos(targetPos, 0.2f);
                 }
-                else // ¼±ÅÃ ¾ÈµÈ ½½·Ô
+                else // ì„ íƒ ì•ˆëœ ìŠ¬ë¡¯
                 {
                     if (Mathf.Abs(slotRect.anchoredPosition.y) > 0.1f)
                     {
@@ -66,7 +66,7 @@ public class InventorySelect : MonoBehaviour
 
         var inventoryList = InventoryManager.Instance.InventoryFrameList;
 
-        // ¾ç ³¡ µµ´Ş ½Ã ¹æÇâ ¹İÀü
+        // ì–‘ ë ë„ë‹¬ ì‹œ ë°©í–¥ ë°˜ì „
         if (currentInvenSelecting <= 1)
             invenChangeWay = 1;
         else if (currentInvenSelecting >= inventoryList.Length)
