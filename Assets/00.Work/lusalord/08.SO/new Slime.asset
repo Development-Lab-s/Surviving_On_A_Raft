@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7308fb165a5fb3f42b49e868432c7060, type: 3}
-  m_Name: AttackItem
+  m_Script: {fileID: 11500000, guid: 4a183b0e7f7f4be0a21626664b9f3947, type: 3}
+  m_Name: new Slime
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  level: 1
-  maxLevel: 10
-  _damage: 0
-  _attackRange: 0
-  _attackCooldown: 0
+  maxHealth: 100000000
+  moveSpeed: 1.5
+  jumpForce: 20
+  knockbackDuration: 0.1
+  attackDamage: 10
+  attackCooldown: 1
+  knockbackPower: 0
