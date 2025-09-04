@@ -9,10 +9,12 @@ public class BtnManager : MonoBehaviour
     [SerializeField] private GameObject _passivePanel;
     [SerializeField] private GameObject _settingPanel;
     private CanvasGroup _activeGroup;
+    private CanvasGroup _settingGroup;
 
     private void Awake()
     {
         _activeGroup = _activePanel.GetComponent<CanvasGroup>();
+        _settingGroup = _settingPanel.GetComponent<CanvasGroup>();
     }
 
     public void StartBtn()
@@ -30,7 +32,10 @@ public class BtnManager : MonoBehaviour
 
     public void SettingBtn()
     {
-        _settingPanel.SetActive(true);
+        _settingGroup.DOFade(1, 0.5f).OnComplete(() =>
+        {
+            _settingGroup.blocksRaycasts = true;
+        });
     }
 
     public void ExitBtn()
@@ -40,7 +45,10 @@ public class BtnManager : MonoBehaviour
     
     public void SettingXBtn()
     {
-        _settingPanel.SetActive(false);
+        _settingGroup.DOFade(0, 0.1f).OnComplete(() =>
+        {
+            _settingGroup.blocksRaycasts = false;
+        });
     }
     
     public void ActiveXBtn()

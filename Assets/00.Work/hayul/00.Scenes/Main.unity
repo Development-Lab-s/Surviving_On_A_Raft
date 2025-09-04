@@ -2276,6 +2276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6138189310018442665, guid: 06115fb14a287cd48afbbefe528a361f, type: 3}
+      propertyPath: targetTrm
+      value: 
+      objectReference: {fileID: 1859742535}
     - target: {fileID: 7625470294587464396, guid: 06115fb14a287cd48afbbefe528a361f, type: 3}
       propertyPath: m_Name
       value: GroundMeleeAttackEnemy
@@ -2453,8 +2457,8 @@ Canvas:
   m_GameObject: {fileID: 537033579}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1686612130}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -16792,7 +16796,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
       propertyPath: groundCheckRadius.x
-      value: 1.15
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
+      propertyPath: groundCheckRadius.y
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
       propertyPath: <RbCompo>k__BackingField
@@ -17638,6 +17646,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3967959042513681405, guid: aa17a820b17ef2d4b8f16c25c3e8775b, type: 3}
+      propertyPath: poolList
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b171e62fd48d714fbf72a14ae98ee97, type: 2}
     - target: {fileID: 5563971709568318560, guid: aa17a820b17ef2d4b8f16c25c3e8775b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -35901,7 +35913,7 @@ SceneRoots:
   - {fileID: 1136023879}
   - {fileID: 2338340690404401467}
   - {fileID: 1178866820}
-  - {fileID: 1025985358}
   - {fileID: 1909933825}
   - {fileID: 162672398}
   - {fileID: 472254909}
+  - {fileID: 1025985358}
