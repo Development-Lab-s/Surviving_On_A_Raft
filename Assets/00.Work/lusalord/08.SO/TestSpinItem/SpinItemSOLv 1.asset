@@ -15,11 +15,12 @@ MonoBehaviour:
   itemName: 
   level: 1
   damage: 10
-  knockbackPower: 0
-  atkRate: 0
-  spinRadius: 5
+  knockbackPower: 1
+  atkRate: 100
+  spinRadius: 3
   spinPrefab: {fileID: 3944626458033196950, guid: 70a2162174e371a43bd15009a0f61ec2, type: 3}
   spinSpeed: 5
-  spinAmount: 5
+  spinAmount: 6
   nextSpinItem: {fileID: 11400000, guid: 0dbef59f59515f7418ca2a0354ce8d9b, type: 2}
   spinItems: []
+  isRotate: 0
