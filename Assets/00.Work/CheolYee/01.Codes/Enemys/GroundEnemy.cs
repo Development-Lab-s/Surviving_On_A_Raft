@@ -26,7 +26,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         public void ResetItem() //풀에서 초기화 될 때
         {
-            CanStateChangeable = true;
             isDead = false;
             targetTrm = GameManager.Instance.playerTransform;
             _stateMachine.ChangeState(EnemyBehaviourType.Idle);
@@ -42,11 +41,11 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
             //모든 상태 추가
             _stateMachine.AddState(EnemyBehaviourType.Air, new EnemyAirState(this, _stateMachine, "AIR"));
-            _stateMachine.AddState(EnemyBehaviourType.Idle, new FSM.EnemyIdleState(this, _stateMachine, "IDLE"));
-            _stateMachine.AddState(EnemyBehaviourType.Chase, new FSM.EnemyChaseState(this, _stateMachine, "CHASE"));
+            _stateMachine.AddState(EnemyBehaviourType.Idle, new EnemyIdleState(this, _stateMachine, "IDLE"));
+            _stateMachine.AddState(EnemyBehaviourType.Chase, new EnemyChaseState(this, _stateMachine, "CHASE"));
             _stateMachine.AddState(EnemyBehaviourType.Jump, new EnemyJumpState(this, _stateMachine, "JUMP"));
-            _stateMachine.AddState(EnemyBehaviourType.Attack, new FSM.EnemyAttackState(this, _stateMachine, "ATTACK"));
-            _stateMachine.AddState(EnemyBehaviourType.Death, new FSM.EnemyDeathState(this, _stateMachine, "DEATH"));
+            _stateMachine.AddState(EnemyBehaviourType.Attack, new EnemyAttackState(this, _stateMachine, "ATTACK"));
+            _stateMachine.AddState(EnemyBehaviourType.Death, new EnemyDeathState(this, _stateMachine, "DEATH"));
             //후 초기화
             _stateMachine.Initialize(EnemyBehaviourType.Idle, this);
         }
@@ -57,7 +56,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
             if (targetTrm != null && isDead == false)
             {
-                HandleSpriteFlip(targetTrm.position); //타겟 위치에 따라 자동 플립
+                HandleSpriteFlip(); //움직이는 방향에 따라 자동 플립
             }
         }
 

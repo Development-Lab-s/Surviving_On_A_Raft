@@ -1,13 +1,13 @@
 using _00.Work.CheolYee._01.Codes.Agents;
-using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
-using _00.Work.CheolYee._01.Codes.Skills;
+using _00.Work.CheolYee._01.Codes.Agents.Movements;
+using _00.Work.CheolYee._01.Codes.Core.Buffs;
+using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace _00.Work.CheolYee._01.Codes.Players
 {
-    public class Player : Agent
+    public class Player : Agent, IBuffable
     {
         //플레이어의 모든 컴포넌트를 관리하는 스크립트입니다.
         
@@ -16,26 +16,32 @@ namespace _00.Work.CheolYee._01.Codes.Players
         
         [Header("Agent SO Data")]
         [field:SerializeField] public PlayerInputSo PlayerInput {get; private set;} //인풋SO
-        public PlayerAnimator PlayerAnimatorComponent { get; private set; } //플레이어 애니메이션 담당
         
-        protected MeleeAttack AttackBehaviour; //공격을 할 수 있는가?
-        
-        
+        [Header("Buff Multi")]
+        [SerializeField] private float damageMulti;
+        [SerializeField] private float critChanceMulti;
+
+        private PlayerAnimator PlayerAnimatorComponent { get; set; } //플레이어 애니메이션 담당
 
         [Header("Attack Settings")]
-        public float damage;
-        public float attackDuration;
+        private float _damage;
+        public float CurrentDamage => _damage * damageMulti;
+        
+        private float _attackDuration;
+        public float CurrentAttackDuration => _attackDuration / damageMulti;
+
+        private int _critChance;
+        public int CriticalChance => (int)(critChanceMulti * _critChance);
+        
         public float knockbackPower; // 넉백 힘
-        [field:SerializeField] public DamageCaster DamageCaster { get; protected set; } //데미지 가하는 컴포넌트
         protected override void Awake()
         {
             base.Awake();
             PlayerAnimatorComponent = GetComponentInChildren<PlayerAnimator>(); //애니메이터 가져오기
 
-            damage = CharacterData.attack;
-            attackDuration = CharacterData.attackSpeed;
-
-            AttackBehaviour = new MeleeAttack(); //임시로 기본공격을 만들어둠
+            _damage = CharacterData.attack;
+            _attackDuration = CharacterData.attackSpeed;
+            _critChance = CharacterData.criticalChance;
 
             PlayerInput.OnJumpKeyPress += HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 등록
             MovementComponent.GetComponent<PlayerMovement>().Initialize(CharacterData); //캐릭터 데이터로 기본값 설정
@@ -53,10 +59,6 @@ namespace _00.Work.CheolYee._01.Codes.Players
             CalculateInAirTime(); //공중 시간 계산
             SetupMovementX(); //무브먼트 스크립트에 지속적으로 X값 전달
             UpdateAnimator(); //애니메이션 업데이트
-            if (Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                AttackBehaviour?.Attack(this);
-            }
         }
 
         private void FixedUpdate()
@@ -81,6 +83,18 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private void UpdateAnimator()
         {
             PlayerAnimatorComponent.HandleFlip(PlayerInput.Movement.x);
+        }
+
+        public void ApplyBuff(StatType stat, float buff)
+        {
+            if (stat == StatType.Damage) damageMulti = buff;
+            if (stat == StatType.CritChance) critChanceMulti = buff;
+        }
+
+        public void ResetBuff(StatType statType)
+        {
+            if (statType == StatType.Damage) damageMulti = 1f;
+            if (statType == StatType.CritChance) critChanceMulti = 1f;
         }
     }
 }

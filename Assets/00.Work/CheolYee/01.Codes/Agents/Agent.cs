@@ -4,9 +4,9 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 {
     public class Agent : MonoBehaviour
     {
-        //움직이는 생명체가 가질 기본 설정을 저장하고 있습니다.
+        //움직이는 생명체가 가질 기본 설정을 저장하고 있습니다.;
 
-        [Header("Settings")]
+        [Header("Settings")] 
         [SerializeField] private float extraGravity = 200f; //플레이어가 공중에 떠 있을 때 일정 시간 후 떨어지는 속도의 중력값
         [SerializeField] private float gravityDelay = 0.15f; //공중에 떠 있는 시간
 
@@ -55,27 +55,17 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         #region Flip Controller
 
-        // 캐릭터가 오른쪽을 보고 있는지 확인
-        private bool IsFacingRight()
-        {
-            // y축 회전값이 0이면 오른쪽을 보고 있는 것으로 간주
-            //Approximately: 약, 대략이라는 뜻으로, 1번값과 2번값의 부동소수점을 비교하여 근사하면 true,
-            //일정 이상으로 비슷하지 않으면 false를 반환한다.
-            return Mathf.Approximately(transform.eulerAngles.y, 0);
-        }
-
         // 타겟 위치에 따라 캐릭터의 방향(스프라이트)을 좌우 반전
-        protected void HandleSpriteFlip(Vector3 targetPosition)
+        protected void HandleSpriteFlip()
         {
-            var rb = MovementComponent.RbCompo;
             float vx = MovementComponent.RbCompo.linearVelocityX;
-            // 너무 느리게 움직일 땐 방향 유지
-            if (Mathf.Abs(vx) < 0.01f) return;
 
-            var t = SpriteRendererComponent.transform;
-            var s = t.localScale;
-            s.x = vx >= 0 ? Mathf.Abs(s.x) : -Mathf.Abs(s.x);
-            t.localScale = s;
+            if (Mathf.Abs(vx) < 0.01) return;
+
+            Vector3 s = transform.localScale;
+            float absX = Mathf.Abs(s.x);
+            s.x = vx >= 0 ? absX : -absX;
+            transform.localScale = s;
         }
 
         #endregion

@@ -8,8 +8,13 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public UnityEvent onHit;
         public UnityEvent onDeath;
 
+        [SerializeField] protected float healthMulti = 1f;
+        
         private float _maxHealth = 150f;
         private float _currentHealth;
+        
+        private float CurrentHealth { get => _currentHealth * healthMulti; 
+            set => _currentHealth = value * healthMulti; }
         
         private Agent _owner;
 
@@ -29,7 +34,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         {
             Debug.Assert(_owner != null, $"{nameof(_owner)} 의 체력이 초기화되지 않았습니다.");
             
-            _currentHealth -= amount;
+            CurrentHealth -= amount;
             onHit?.Invoke();
 
             if (kbPower > 0)
@@ -38,7 +43,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
                 _owner.MovementComponent.GetKnockBack(normal * -1, kbPower);
             }
             
-            if (_currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 onDeath?.Invoke();
             }

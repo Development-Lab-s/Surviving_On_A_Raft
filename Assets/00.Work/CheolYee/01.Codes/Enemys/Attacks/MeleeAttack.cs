@@ -1,6 +1,3 @@
-using _00.Work.CheolYee._01.Codes.Enemys.FSM.AirEnemy;
-using UnityEngine;
-
 namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
 {
     public class MeleeAttack
@@ -9,32 +6,23 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
         {
             if (enemy.damageCaster == null) return;
 
-            bool hit = enemy.damageCaster.CastDamage(enemy.attackDamage, enemy.knockbackPower);
-            Debug.Log(hit ? "근거리 공격 성공!!!!!!!!!" : "근거리 공격 실패......");
+            enemy.damageCaster.CastDamage(enemy.CurrentAttackDamage, 0);
         }
         
         public void Attack(BossEnemy enemy)
         {
             if (enemy.damageCaster == null) return;
 
-            bool hit = enemy.damageCaster.CastDamage(enemy.attackDamage, enemy.knockbackPower);
-            Debug.Log(hit ? "근거리 공격 성공!!!!!!!!!" : "근거리 공격 실패......");
+            enemy.damageCaster.CastDamage(enemy.CurrentAttackDamage, 
+                enemy.knockbackPower);
         }
 
-        public void Attack(Players.Player player)
+        internal void Attack(AirMeleeAttackEnemy airMeleeAttackEnemy)
         {
-            if (player.DamageCaster == null) return;
+            if (airMeleeAttackEnemy.damageCaster == null) return;
 
-            bool hit = player.DamageCaster.CastDamage(player.damage, player.knockbackPower);
-            Debug.Log(hit ? "근거리 공격 성공!!!!!!!!!" : "근거리 공격 실패......");
-        }
-
-        internal void Attack(AirMeleeAttackEnemy AirMeleeAttackEnemy)
-        {
-            if (AirMeleeAttackEnemy.damageCaster == null) return;
-
-            bool hit = AirMeleeAttackEnemy.damageCaster.CastDamage(AirMeleeAttackEnemy.attackDamage, AirMeleeAttackEnemy.knockbackPower);
-            Debug.Log(hit ? "공중 몬스터 공격 성공!!!!!!!!!" : "공중 몬스터 공격 실패......");
+            airMeleeAttackEnemy.damageCaster.CastDamage
+                (airMeleeAttackEnemy.CurrentAttackDamage, 0);
         }
     }
 }

@@ -21,7 +21,7 @@ public class SpinCaster : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        float weaponDamage = _player.damage * _spinItemSo.atkRate;
+        float weaponDamage = _player.CurrentDamage * _spinItemSo.atkRate;
         damageCaster.CastDamage(_spinItemSo.damage + weaponDamage, _spinItemSo.knockbackPower);
     }
 }

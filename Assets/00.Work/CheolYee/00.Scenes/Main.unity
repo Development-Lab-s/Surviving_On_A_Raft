@@ -16486,6 +16486,7 @@ GameObject:
   - component: {fileID: 1668631362}
   - component: {fileID: 1668631364}
   - component: {fileID: 1668631361}
+  - component: {fileID: 1668631366}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -16590,6 +16591,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1668631366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668631360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 0.1
+  Use2DDistance: 1
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    AmplitudeGain: 0.5
+    FrequencyGain: 3
+    Duration: 0.45
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1686612128
 GameObject:
   m_ObjectHideFlags: 0
@@ -16842,6 +16867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1969381096}
+  - component: {fileID: 1969381097}
   m_Layer: 0
   m_Name: StatManager
   m_TagString: Untagged
@@ -16864,6 +16890,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1969381097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969381095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7f42b80b674d7a86f7f3f652382e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2109352226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16951,7 +16989,7 @@ Transform:
   m_GameObject: {fileID: 2144156265}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36572,11 +36610,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 890265223308821271, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2408080744608517615, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3304527419033307807, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
       propertyPath: m_Name

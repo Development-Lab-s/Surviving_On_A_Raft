@@ -6,6 +6,9 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 {
     public class AgentMovement : MonoBehaviour
     {
+        [Header("Buff Settings")]
+        [SerializeField] protected float speedMultiplier = 1f;
+        
         [Header("Motor Options")]
         [SerializeField] private bool motorControlsX = true; // 추가: X속도를 내부에서 제어할지
 
@@ -13,6 +16,8 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         [field: SerializeField] public Rigidbody2D RbCompo { get; private set; } //다른곳에서 리지드바디를 가져오기 위함
 
         [Header("Settings")]
+        public float CurrnetMoveSpeed => MoveSpeed * speedMultiplier;
+
         protected float MoveSpeed = 5f; //이동 속도
         protected float JumpForce = 7f; //점프력
         protected float KnockBackDuration = 0.2f; //넉백 시간
@@ -65,7 +70,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         private void MoveAgent()
         {
-            RbCompo.linearVelocityX = _xMove * MoveSpeed;
+            RbCompo.linearVelocityX = _xMove * CurrnetMoveSpeed;
         }
 
         public void AddGravity(Vector2 force)
@@ -117,5 +122,6 @@ namespace _00.Work.CheolYee._01.Codes.Agents
             Gizmos.color = Color.white;
         }
 #endif
+        
     }
 }

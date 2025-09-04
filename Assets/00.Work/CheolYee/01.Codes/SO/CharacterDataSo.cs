@@ -11,7 +11,7 @@ namespace _00.Work.CheolYee._01.Codes.SO
         public float jumpForce = 50;
         public float attack = 10f;
         public float attackSpeed = 0.8f;
-        public float criticalChance = 0.5f;
+        public int criticalChance = 10;
         
         [Header("SkillData")]
         public PlayerSkillDataSo playerSkillData;

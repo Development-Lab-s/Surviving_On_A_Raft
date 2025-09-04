@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2786535681485035488}
   - component: {fileID: 5842406187857619276}
   - component: {fileID: 4659784783929107479}
+  - component: {fileID: 7927569367002128947}
   m_Layer: 8
   m_Name: ExplosionFeedback
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feedBacks:
+  - {fileID: 7927569367002128947}
   - {fileID: 5842406187857619276}
 --- !u!114 &5842406187857619276
 MonoBehaviour:
@@ -115,6 +117,19 @@ MonoBehaviour:
     DissipationDistance: 100
     PropagationSpeed: 343
   DefaultVelocity: {x: 0, y: -1, z: 0}
+--- !u!114 &7927569367002128947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680858953068550114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef6c82f34a4453abcfb80b9b5105594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectItem: {fileID: 11400000, guid: ae0778d654aa3a84b964ecdb9e56e2b0, type: 2}
 --- !u!1 &9021295688375307542
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +197,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   lifeTime: 5
-  torquePower: 5
+  torquePower: 20
   damageCaster: {fileID: 8387319819540146467}
   enemyLayer:
     useTriggers: 0
