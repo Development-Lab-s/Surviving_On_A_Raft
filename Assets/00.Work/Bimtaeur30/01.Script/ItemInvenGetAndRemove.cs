@@ -5,10 +5,23 @@ public class ItemInvenGetAndRemove : MonoBehaviour
 {
     [SerializeField] private ExItemSO[] itemSO;
     [SerializeField] private InventorySelect IS;
-    private void Start()
+    //private void Start()
+    //{
+    //    FindInventorySlot(itemSO[0]);
+    //    FindInventorySlot(itemSO[1]);
+    //}
+
+    public bool CanGetItem(ExItemSO itemSO)
     {
-        FindInventorySlot(itemSO[0]);
-        FindInventorySlot(itemSO[1]);
+        ExItemSO[] itemlist = InventoryManager.Instance.ItemSlotList;
+        for (int i = 0; i < itemlist.Length; i++)
+        {
+            if (itemlist[i] == null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     public void FindInventorySlot(ExItemSO itemSO)
     {
