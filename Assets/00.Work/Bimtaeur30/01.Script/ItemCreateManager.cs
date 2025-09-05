@@ -48,17 +48,20 @@ public class ItemCreateManager : MonoBehaviour
 
     public void CreateItem(ExItemSO Item)
     {
-        Dictionary<string, int> itemNeed = CheckCanCreateItem(Item);
-
-        if (itemNeed == null)
-            return;
-
-        for (int i = 0; i < itemNeed.Count; i++)
+        if (IIGAR.CanGetItem(Item))
         {
-            int ind = ItemNames.IndexOf(itemNeed.Keys.ElementAt(i));
-            CostManager.instance.MinusCost(ind, itemNeed.Values.ElementAt(i));
+            Dictionary<string, int> itemNeed = CheckCanCreateItem(Item);
+
+            if (itemNeed == null)
+                return;
+
+            for (int i = 0; i < itemNeed.Count; i++)
+            {
+                int ind = ItemNames.IndexOf(itemNeed.Keys.ElementAt(i));
+                CostManager.instance.MinusCost(ind, itemNeed.Values.ElementAt(i));
+            }
+            IIGAR.FindInventorySlot(Item);
         }
-        IIGAR.FindInventorySlot(Item);
     }
 
     public Dictionary<string, int> CheckCanCreateItem(ExItemSO Item)

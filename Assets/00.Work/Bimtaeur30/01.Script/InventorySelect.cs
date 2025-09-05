@@ -8,6 +8,7 @@ using TMPro;
 public class InventorySelect : MonoBehaviour
 {
     [SerializeField] private Color SlotSelectColor;
+    [SerializeField] private TextMeshProUGUI TypeTxt;
     public int currentSlotsSelecting = -1; // -1이면 아무것도 선택 안하는중
     public int currentInvenSelecting = 1; // 첨엔 1번 인벤토리부터
     private int invenChangeWay = 1; // 1 == 왼쪽으로, -1 == 오른쪽으로. 즉 각각 인벤토리 교체 번호가 커지는중(1), 작아지는중이다(2).
@@ -88,9 +89,15 @@ public class InventorySelect : MonoBehaviour
 
         // 양 끝 도달 시 방향 반전
         if (currentInvenSelecting <= 1)
+        {
+            TypeTxt.text = "페시브템";
             invenChangeWay = 1;
+        }
         else if (currentInvenSelecting >= inventoryList.Length)
+        {
             invenChangeWay = -1;
+            TypeTxt.text = "공격";
+        }
 
         float xOffset = 160 * invenChangeWay;
 
