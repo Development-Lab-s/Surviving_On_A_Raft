@@ -11,29 +11,33 @@ public class ItemInvenGetAndRemove : MonoBehaviour
     //    FindInventorySlot(itemSO[1]);
     //}
 
-    public bool CanGetItem(ExItemSO itemSO)
+
+    public bool FindInventorySlot(ExItemSO itemSO)
     {
-        ExItemSO[] itemlist = InventoryManager.Instance.ItemSlotList;
-        for (int i = 0; i < itemlist.Length; i++)
+        ItemType itemType = itemSO.ItemType;
+        int startSlot = 0;
+        int endSlot = 0;
+        if (itemType == ItemType.AttackItem)
         {
-            if (itemlist[i] == null)
-            {
-                return true;
-            }
+            startSlot = 0;
+            endSlot = 4;
         }
-        return false;
-    }
-    public void FindInventorySlot(ExItemSO itemSO)
-    {
+        else if (itemType == ItemType.PassiveItem)
+        {
+            startSlot = 5;
+            endSlot = 9;
+        }
+
         ExItemSO[] itemlist = InventoryManager.Instance.ItemSlotList;
-        for (int i = 0; i < itemlist.Length; i++)
+        for (int i = startSlot; i <= endSlot; i++)
         {
             if (itemlist[i] == null)
             {
                 GetItemToInventory(i, itemSO);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
 
