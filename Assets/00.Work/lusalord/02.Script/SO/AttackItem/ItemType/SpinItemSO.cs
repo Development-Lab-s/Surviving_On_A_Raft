@@ -10,9 +10,12 @@ namespace _00.Work.lusalord._02.Script.SO.AttackItem.ItemType
         public GameObject spinPrefab;
         public float spinSpeed;
         public int spinAmount;
+        public float rotateSpeed;
         
         public List<GameObject> spinItems = new List<GameObject>();
         public bool isRotate;
+        public bool rickRolling;
+        public bool flip;
 
     }
 }
