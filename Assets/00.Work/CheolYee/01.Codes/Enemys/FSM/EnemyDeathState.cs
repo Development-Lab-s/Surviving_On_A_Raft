@@ -20,7 +20,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
             Enemy.MovementComponent.StopImmediately();
             Enemy.isDead = true;
             _isDeadEffect = false;
-            Enemy.CanStateChangeable = false;
         }
 
         public override void Update()

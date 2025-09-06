@@ -1,11 +1,14 @@
 using _00.Work.CheolYee._01.Codes.Core;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _00.Work.CheolYee._01.Codes.Agents
 {
     public class AgentMovement : MonoBehaviour
     {
+        protected float SpeedMultiplier = 1f;
+        
         [Header("Motor Options")]
         [SerializeField] private bool motorControlsX = true; // 추가: X속도를 내부에서 제어할지
 
@@ -13,6 +16,8 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         [field: SerializeField] public Rigidbody2D RbCompo { get; private set; } //다른곳에서 리지드바디를 가져오기 위함
 
         [Header("Settings")]
+        public float CurrnetMoveSpeed => MoveSpeed * SpeedMultiplier;
+
         protected float MoveSpeed = 5f; //이동 속도
         protected float JumpForce = 7f; //점프력
         protected float KnockBackDuration = 0.2f; //넉백 시간
@@ -23,7 +28,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public readonly NotifyValue<bool> IsGround = new NotifyValue<bool>();
 
         private float _xMove; //x축 이동 저장
-        private bool _canMove = true; //움직일 수 있는가?
+        public bool canMove = true; //움직일 수 있는가?
         private Coroutine _kbCoroutine; //넉백 코루틴 저장 (최적화)
 
         public void SetMovement(float xMove) => _xMove = xMove;
@@ -51,7 +56,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         {
             CheckGround();
 
-            if (_canMove == false) return;
+            if (canMove == false) return;
             if (motorControlsX)        // 토글 확인
                 MoveAgent();
         }
@@ -65,7 +70,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         private void MoveAgent()
         {
-            RbCompo.linearVelocityX = _xMove * MoveSpeed;
+            RbCompo.linearVelocityX = _xMove * CurrnetMoveSpeed;
         }
 
         public void AddGravity(Vector2 force)
@@ -95,16 +100,10 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         private IEnumerator KnockBackCoroutine()
         {
-            _canMove = false; //움직이지 못하게 막아주고
+            canMove = false; //움직이지 못하게 막아주고
             yield return new WaitForSeconds(KnockBackDuration); //시간 대기
             RbCompo.linearVelocity = Vector2.zero;
-            _canMove = true;
-        }
-
-        public void ClearKnockBack()
-        {
-            RbCompo.linearVelocity = Vector2.zero;
-            _canMove = true;
+            canMove = true;
         }
 
         #endregion
@@ -117,5 +116,6 @@ namespace _00.Work.CheolYee._01.Codes.Agents
             Gizmos.color = Color.white;
         }
 #endif
+        
     }
 }

@@ -36,7 +36,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
             if (targetTrm != null && isDead == false)
             {
-                HandleSpriteFlip(targetTrm.position); //타겟 위치에 따라 자동 플립
+                HandleSpriteFlip(); //움직이는 방향에 따라 자동 플립
             }
         }
 
@@ -47,7 +47,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         public void ResetItem() //풀에서 초기화 될 때
         {
-            CanStateChangeable = true;
             isDead = false;
             targetTrm = GameManager.Instance.playerTransform;
             _stateMachine.ChangeState(EnemyBehaviourType.Idle);

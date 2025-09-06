@@ -1,4 +1,6 @@
 using _00.Work.CheolYee._01.Codes.Agents;
+using _00.Work.hayul._01._Scripts.Sytem;
+using _00.Work.Resource.Manager;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
@@ -14,6 +16,9 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
         public CasterType casterType = CasterType.Circle;
         public ContactFilter2D whatIsTarget;
         public int detectCount = 1;
+
+        [Header("Damage Text")] [SerializeField]
+        private DamageText damageText;
         
         [Header("Circle Type")]
         public float damageRadius;
@@ -31,6 +36,8 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
         public bool CastDamage(float damage, float kbPower)
         {
             int cnt;
+            DamageText text = PoolManager.Instance.Pop(damageText.ItemName) as DamageText;
+            text.SetText(damage, transform);
             switch (casterType)
             {
                 case CasterType.Circle:
@@ -44,7 +51,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, 
                                 direction.magnitude, whatIsTarget.layerMask);
                     
-                            agent.HealthComponent.TakeDamage(damage, hit.normal, hit.point, kbPower);
+                            agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower);
                         }
                     }
 
@@ -60,7 +67,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, 
                                 direction.magnitude, whatIsTarget.layerMask);
 
-                            agent.HealthComponent.TakeDamage(damage, hit.normal, hit.point, kbPower);
+                            agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower);
                         }
                     }
 
