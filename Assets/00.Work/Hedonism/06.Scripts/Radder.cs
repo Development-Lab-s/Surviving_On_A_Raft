@@ -38,9 +38,11 @@ public class Radder : MonoBehaviour
         Panel.gameObject.SetActive(false);
 
         // 여기서는 예시로 0번 자원 3개, 2번 자원 5개 필요하게 세팅
-         // 실제 게임에서는 랜덤 뽑기 로직을 따로 호출해주면 됨
-        needResources.Add((0, 3));
-        needResources.Add((2, 5));
+        // 실제 게임에서는 랜덤 뽑기 로직을 따로 호출해주면 됨
+        needResources.Add((0, 1));
+        needResources.Add((1, 0));
+        needResources.Add((2, 0));
+        
     }
 
     void Update()
@@ -123,6 +125,7 @@ public class Radder : MonoBehaviour
             {
                 Debug.Log("조건 충족! 자원 차감 후 다음 단계로 진행 가능!");
                 UseResources();
+                SpawnManager.Instance.StartCycle();
             }
             else
             {
