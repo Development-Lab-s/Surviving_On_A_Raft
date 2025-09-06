@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class ItemCreateUI : MonoBehaviour
 {
-    [Header("UI ¾Ö´Ï¸ÞÀÌ¼Ç ¼³Á¤")]
+    [Header("UI ì• ë‹ˆë©”ì´ì…˜ ì„¤ì •")]
     [SerializeField] private RectTransform MoveObject;
     [SerializeField] private Vector2 upPos;
     [SerializeField] private Vector2 downPos;
@@ -15,9 +15,9 @@ public class ItemCreateUI : MonoBehaviour
     [SerializeField] private PlayerInput PInput;
     [SerializeField] private CanvasGroup UICanvasGroup;
 
-    private DepthOfField dof; // DOF È¿°ú ÄÁÆ®·Ñ
+    private DepthOfField dof; // DOF íš¨ê³¼ ì»¨íŠ¸ë¡¤
     private bool isUIEnabled = false;
-    private Sequence currentSeq; // ÇöÀç ½ÇÇà ÁßÀÎ ½ÃÄö½º ÃßÀû
+    private Sequence currentSeq; // í˜„ìž¬ ì‹¤í–‰ ì¤‘ì¸ ì‹œí€€ìŠ¤ ì¶”ì 
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class ItemCreateUI : MonoBehaviour
 
     public void ItemCreateUIView()
     {
-        // ¾Ö´Ï¸ÞÀÌ¼Ç µµÁß¿£ ¹«½Ã
+        // ì• ë‹ˆë©”ì´ì…˜ ë„ì¤‘ì—” ë¬´ì‹œ
         if (currentSeq != null && currentSeq.IsActive() && currentSeq.IsPlaying())
             return;
 
@@ -52,14 +52,14 @@ public class ItemCreateUI : MonoBehaviour
                 isUIEnabled = true;
                 AnimateFocus(0.1f, 0.3f);
                 PInput.ChangeUIEnabled(true);
-                currentSeq = null; // ³¡³ª¸é ÃÊ±âÈ­
+                currentSeq = null; // ëë‚˜ë©´ ì´ˆê¸°í™”
             });
         }
     }
 
     public void ItemCreateUIUnView()
     {
-        // ¾Ö´Ï¸ÞÀÌ¼Ç µµÁß¿£ ¹«½Ã
+        // ì• ë‹ˆë©”ì´ì…˜ ë„ì¤‘ì—” ë¬´ì‹œ
         if (currentSeq != null && currentSeq.IsActive() && currentSeq.IsPlaying())
             return;
 
@@ -73,7 +73,7 @@ public class ItemCreateUI : MonoBehaviour
             isUIEnabled = false;
             AnimateFocus(10f, 0.3f);
             PInput.ChangeUIEnabled(false);
-            currentSeq = null; // ³¡³ª¸é ÃÊ±âÈ­
+            currentSeq = null; // ëë‚˜ë©´ ì´ˆê¸°í™”
         });
     }
 
@@ -81,7 +81,7 @@ public class ItemCreateUI : MonoBehaviour
     {
         if (dof != null)
         {
-            DOTween.Kill(dof); // ±âÁ¸ Æ®À© Á¦°Å
+            DOTween.Kill(dof); // ê¸°ì¡´ íŠ¸ìœˆ ì œê±°
             DOTween.To(() => dof.focusDistance.value,
                        x => dof.focusDistance.value = x,
                        to, duration).SetTarget(dof);

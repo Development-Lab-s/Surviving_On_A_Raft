@@ -17,5 +17,5 @@ MonoBehaviour:
   jumpForce: 30
   attack: 10
   attackSpeed: 0.8
-  criticalChance: 0.5
+  criticalChance: 10
   playerSkillData: {fileID: 11400000, guid: ba863712454e7324980a54b6fa527aad, type: 2}

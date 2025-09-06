@@ -26,17 +26,11 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
             _knockbackPower = knockbackPower;
             _speed = shotSpeed;
             transform.position = firePos.position;
-            int random = Random.Range(0, 2);
+            float xDir = Random.Range(-1f, 1f); // 좌우 랜덤
+            float yDir = Random.Range(0.8f, 1.2f); // 항상 위쪽으로 가게
+            Vector2 forceDir = new Vector2(xDir, yDir).normalized;
 
-            switch (random)
-            {
-                case 0:
-                    RbCompo.AddForce(firePos.right *_speed, ForceMode2D.Impulse);
-                    break;
-                case 1:
-                    RbCompo.AddForce(-firePos.right *_speed, ForceMode2D.Impulse);
-                    break;
-            }
+            RbCompo.AddForce(forceDir * _speed, ForceMode2D.Impulse);
             RbCompo.AddTorque(torquePower, ForceMode2D.Impulse);
         }
         

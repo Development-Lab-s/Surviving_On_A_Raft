@@ -32,7 +32,6 @@ namespace _00.Work.Resource.SO
             IPoolable item;
             if (_pool.Count == 0)
             {
-                Debug.Log($"새로 생성 {_prefab.name}");
                 GameObject gameObj = Object.Instantiate(_prefab, _parent);
                 gameObj.name = _poolable.ItemName;
                 item = gameObj.GetComponent<IPoolable>();

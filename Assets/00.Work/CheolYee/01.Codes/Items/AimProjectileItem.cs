@@ -1,4 +1,7 @@
+using System;
 using System.Collections;
+using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.CheolYee._01.Codes.Players;
 using _00.Work.CheolYee._01.Codes.Projectiles;
 using _00.Work.CheolYee._01.Codes.SO;
 using _00.Work.Resource.Manager;
@@ -10,7 +13,14 @@ namespace _00.Work.CheolYee._01.Codes.Items
     {
         [SerializeField] private PlayerInputSo playerInput;
         public float bulletCount = 1;
+
+        private Player _player;
         
+        private void Start()
+        {
+            _player = GameManager.Instance.playerTransform.gameObject.GetComponent<Player>();
+        }
+
         protected override void SpawnProjectile()
         {
             base.SpawnProjectile();
@@ -18,7 +28,7 @@ namespace _00.Work.CheolYee._01.Codes.Items
             
             Vector2 dir = playerInput.MousePosition - (Vector2)transform.position;
             if (projectile != null)
-                projectile.Initialize(transform, dir, Damage, KnockbackPower, Speed);
+                projectile.Initialize(transform, dir, Damage + _player.CurrentDamage, KnockbackPower, Speed);
         }
 
         private void Update()
