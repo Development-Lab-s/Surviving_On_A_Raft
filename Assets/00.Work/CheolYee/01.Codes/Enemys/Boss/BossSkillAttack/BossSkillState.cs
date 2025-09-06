@@ -10,18 +10,18 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack
         protected readonly BossSkillStateMachine SkillStateMachine; //상태머신
 
         private readonly int _skillAnimBoolHash; //이 상태의 애니메이션 불값 해쉬
-        protected bool IsEndTriggerCall; //상태가 끝났는지 알려주는 불값
+        protected bool IsSkillEndTriggerCall; //상태가 끝났는지 알려주는 불값
         
         protected float Cooldown;     //쿨타임
         private float _lastUseTime;   //마지막 발동 시간
 
         //상태 생성을 할 때 정의되어야 할 것들을 생성자에 담기
-        protected BossSkillState(BossEnemy bossEnemy, BossSkillStateMachine stateMachine, string skillName, int skillcooldown)
+        protected BossSkillState(BossEnemy bossEnemy, BossSkillStateMachine stateMachine, string skillName, int skillCoolDown)
         {
             BossEnemy = bossEnemy;
             SkillStateMachine = stateMachine;
             _skillAnimBoolHash = Animator.StringToHash(skillName);
-            Cooldown = skillcooldown;
+            Cooldown = skillCoolDown;
             _lastUseTime = -Cooldown; //시작 시 바로 사용가능
         }
 
@@ -31,19 +31,17 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack
         public virtual void Enter()
         {
             BossEnemy.AnimatorComponent.SetBool(_skillAnimBoolHash, true); //애니메이션 활성
-            IsEndTriggerCall = false; //시작이니 끝나지 않았다고 표시
+            IsSkillEndTriggerCall = false; //시작이니 끝나지 않았다고 표시
             _lastUseTime = Time.time;
-            BossEnemy.MovementComponent.canMove = false;
         }
 
         //상태가 끝나서 나갔을 때
         public virtual void Exit()
         {
             BossEnemy.AnimatorComponent.SetBool(_skillAnimBoolHash, false); //끝났으니 애니메이션 끄기
-            BossEnemy.MovementComponent.canMove = true;
         }
-        public bool IsAvailable() => Time.time >= _lastUseTime + Cooldown;
+        public bool IsAvailable() => Time.time >= _lastUseTime + Cooldown; //스킬이 사용할 수 있는가
         
-        public void SkillAnimationEndTrigger() => IsEndTriggerCall = true; //애니메이션이 끝났을 때 끝났으니 트리거 콜을 트루로 만들기
+        public void SkillAnimationEndTrigger() => IsSkillEndTriggerCall = true; //애니메이션이 끝났을 때 끝났으니 트리거 콜을 트루로 만들기
     }
 }

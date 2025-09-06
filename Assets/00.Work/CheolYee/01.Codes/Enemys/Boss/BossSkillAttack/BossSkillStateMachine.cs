@@ -9,7 +9,8 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack
         Skill1 = 1,
         Skill2 = 2,
         Skill3 = 3,
-        Skill4 = 4
+        Skill4 = 4,
+        Skill5 = 5
     }
     public class BossSkillStateMachine
     {
