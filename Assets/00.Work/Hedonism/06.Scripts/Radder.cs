@@ -11,6 +11,7 @@ public class Radder : MonoBehaviour
     [SerializeField] private Transform Panel;
     [Range(0f, 1f)] [SerializeField] private float alpha = 1f; // 투명도 조절 (0 = 완전투명, 1 = 불투명)
     public bool isRand { get; set; } = false;
+    private bool _isRadder = false;
 
     [SerializeField] List<Sprite> resourceList = new List<Sprite>();
     // 예시: 랜덤으로 뽑힌 자원 (타입, 필요 개수)
@@ -54,6 +55,7 @@ public class Radder : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            _isRadder = true;
             IsCanNext();
             ShowUI();
         }
@@ -63,6 +65,7 @@ public class Radder : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            _isRadder = true;
             if (!isRand)
             {
                 PickThreeResources();
@@ -80,6 +83,7 @@ public class Radder : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            _isRadder = false;
             Panel.gameObject.SetActive(false);
         }
     }
@@ -121,11 +125,15 @@ public class Radder : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (CheckResources())
+            if (CheckResources() && _isRadder)
             {
                 Debug.Log("조건 충족! 자원 차감 후 다음 단계로 진행 가능!");
                 UseResources();
                 SpawnManager.Instance.StartCycle();
+            }
+            else if (!_isRadder)
+            {
+                Debug.Log("이 사다리가 아니여");
             }
             else
             {
