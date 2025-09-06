@@ -51,7 +51,6 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
 
         private void DestroyBullet() // 풀에 반납
         {
-            Debug.Log("총알 반납");
             PoolManager.Instance.Push(this);
         }
     }
