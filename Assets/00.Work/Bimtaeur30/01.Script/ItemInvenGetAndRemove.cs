@@ -3,71 +3,96 @@ using UnityEngine.UI;
 
 public class ItemInvenGetAndRemove : MonoBehaviour
 {
-    [SerializeField] private ExItemSO[] itemSO;
     [SerializeField] private InventorySelect IS;
-    //private void Start()
-    //{
-    //    FindInventorySlot(itemSO[0]);
-    //    FindInventorySlot(itemSO[1]);
-    //}
 
-
-    public bool FindInventorySlot(ExItemSO itemSO)
+    // 아이템 업그레이드
+    public bool UpgradeItem(int slotIndex)
     {
-        ItemType itemType = itemSO.ItemType;
-        int startSlot = 0;
-        int endSlot = 0;
-        if (itemType == ItemType.AttackItem)
+        var playerItem = InventoryManager.Instance.ItemSlotList[slotIndex];
+        if (playerItem == null || playerItem.Level >= 5)
+            return false;
+
+        playerItem.Upgrade();
+        UpdateSlotUI(slotIndex);
+        Debug.Log(playerItem.Template.ItemName + " 레벨: " + playerItem.Level);
+        return true;
+    }
+
+    // 인벤토리에서 아이템 찾기 + 업그레이드
+    public bool FindInventorySlot(ExItemSO templateSO)
+    {
+        // 이미 인벤토리에 있는지 확인
+        for (int i = 0; i < InventoryManager.Instance.ItemSlotList.Length; i++)
         {
-            startSlot = 0;
-            endSlot = 4;
-        }
-        else if (itemType == ItemType.PassiveItem)
-        {
-            startSlot = 5;
-            endSlot = 9;
+            var playerItem = InventoryManager.Instance.ItemSlotList[i];
+            if (playerItem != null && playerItem.Template == templateSO)
+            {
+                return UpgradeItem(i);
+            }
         }
 
-        ExItemSO[] itemlist = InventoryManager.Instance.ItemSlotList;
+        // 슬롯 범위 설정
+        int startSlot = templateSO.ItemType == ItemType.AttackItem ? 0 : 5;
+        int endSlot = templateSO.ItemType == ItemType.AttackItem ? 4 : 9;
+
+        // 빈 슬롯에 추가
         for (int i = startSlot; i <= endSlot; i++)
         {
-            if (itemlist[i] == null)
+            if (InventoryManager.Instance.ItemSlotList[i] == null)
             {
-                GetItemToInventory(i, itemSO);
+                GetItemToInventory(i, templateSO);
                 return true;
             }
         }
+
+        // 슬롯 가득
         return false;
     }
 
-
-    public void GetItemToInventory(int num, ExItemSO itemSO)
+    // 아이템 획득
+    public void GetItemToInventory(int slotIndex, ExItemSO templateSO)
     {
-        if (InventoryManager.Instance.ItemSlotList[num] != null)
+        if (InventoryManager.Instance.ItemSlotList[slotIndex] != null)
             return;
 
-        InventoryManager.Instance.ItemSlotList[num] = itemSO;
-        Image visualImage = InventoryManager.Instance.SlotList[num].transform.Find("VisualImage").GetComponent<Image>();
-        visualImage.sprite = itemSO.ItemImage;
-        Color color = visualImage.color;
-        color.a = 1f;
-        visualImage.color = color;
+        InventoryManager.Instance.ItemSlotList[slotIndex] = new PlayerItem
+        {
+            Template = templateSO,
+            Level = 1
+        };
+        UpdateSlotUI(slotIndex);
     }
 
+    // 아이템 삭제
     public void RemoveItem()
     {
-        if (IS.currentSlotsSelecting == -1)
-            return;
-        if (InventoryManager.Instance.ItemSlotList[IS.currentSlotsSelecting] == null)
-            return;
+        int slotIndex = IS.currentSlotsSelecting;
+        if (slotIndex == -1) return;
 
-        InventoryManager.Instance.ItemSlotList[IS.currentSlotsSelecting] = null;
-        Image visualImage = InventoryManager.Instance.SlotList[IS.currentSlotsSelecting].transform.Find("VisualImage").GetComponent<Image>();
-        visualImage.sprite = null;
-        Color color = visualImage.color;
-        color.a = 0f;
-        visualImage.color = color;
+        var playerItem = InventoryManager.Instance.ItemSlotList[slotIndex];
+        if (playerItem == null) return;
+
+        InventoryManager.Instance.ItemSlotList[slotIndex] = null;
+        UpdateSlotUI(slotIndex);
 
         IS.SlotUnselectMethod();
+    }
+
+    // 슬롯 UI 갱신
+    private void UpdateSlotUI(int slotIndex)
+    {
+        var playerItem = InventoryManager.Instance.ItemSlotList[slotIndex];
+        Image img = InventoryManager.Instance.SlotList[slotIndex].transform.Find("VisualImage").GetComponent<Image>();
+
+        if (playerItem != null)
+        {
+            img.sprite = playerItem.Template.ItemImage;
+            img.color = new Color(1f, 1f, 1f, 1f);
+        }
+        else
+        {
+            img.sprite = null;
+            img.color = new Color(1f, 1f, 1f, 0f);
+        }
     }
 }
