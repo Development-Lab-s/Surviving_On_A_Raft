@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachineImpulseSource: {fileID: 4659784783929107479}
-  impulseForce: 0.05
+  impulseForce: 1
 --- !u!114 &4659784783929107479
 MonoBehaviour:
   m_ObjectHideFlags: 0

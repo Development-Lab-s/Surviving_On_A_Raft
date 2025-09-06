@@ -9,7 +9,7 @@ namespace _00.Work.CheolYee._01.Codes.Core.FeedBacks
         [SerializeField] private float impulseForce = 0.1f;
         public override void CreateFeedback()
         {
-            cinemachineImpulseSource.GenerateImpulse();
+            cinemachineImpulseSource.GenerateImpulse(impulseForce);
         }
 
         public override void FinishFeedback()

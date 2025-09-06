@@ -17,30 +17,38 @@ namespace _00.Work.CheolYee._01.Codes.Players
         [Header("Agent SO Data")]
         [field:SerializeField] public PlayerInputSo PlayerInput {get; private set;} //인풋SO
         
-        [Header("Buff Multi")]
-        [SerializeField] private float damageMulti;
-        [SerializeField] private float critChanceMulti;
+        private float _damageMulti = 1;
+        private float _critChanceMulti = 1;
 
         private PlayerAnimator PlayerAnimatorComponent { get; set; } //플레이어 애니메이션 담당
 
         [Header("Attack Settings")]
         private float _damage;
-        public float CurrentDamage => _damage * damageMulti;
-        
-        private float _attackDuration;
-        public float CurrentAttackDuration => _attackDuration / damageMulti;
+        public float CurrentDamage
+        {
+            get
+            {
+                if (IsCritical())
+                {
+                    IsCrit = true;
+                    return _damage * _damageMulti * 2;
+                }
 
-        private int _critChance;
-        public int CriticalChance => (int)(critChanceMulti * _critChance);
+                IsCrit = false;
+                return _damage * _damageMulti;
+            }
+        }
+
+        public bool IsCrit { get; private set; }
         
-        public float knockbackPower; // 넉백 힘
+        private int _critChance;
+        private int CriticalChance => (int)(_critChanceMulti * _critChance);
         protected override void Awake()
         {
             base.Awake();
             PlayerAnimatorComponent = GetComponentInChildren<PlayerAnimator>(); //애니메이터 가져오기
 
             _damage = CharacterData.attack;
-            _attackDuration = CharacterData.attackSpeed;
             _critChance = CharacterData.criticalChance;
 
             PlayerInput.OnJumpKeyPress += HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 등록
@@ -65,6 +73,12 @@ namespace _00.Work.CheolYee._01.Codes.Players
         {
             ApplyExtraGravity(); //추가 중력 적용
         }
+        
+        public bool IsCritical()
+        {
+            int roll = Random.Range(0, 100);
+            return roll < CriticalChance;
+        }
 
         private void HandleJumpKeyPress() //점프키 눌렀을 때 실행
         {
@@ -87,14 +101,14 @@ namespace _00.Work.CheolYee._01.Codes.Players
 
         public void ApplyBuff(StatType stat, float buff)
         {
-            if (stat == StatType.Damage) damageMulti = buff;
-            if (stat == StatType.CritChance) critChanceMulti = buff;
+            if (stat == StatType.Damage) _damageMulti = buff;
+            if (stat == StatType.CritChance) _critChanceMulti = buff;
         }
 
         public void ResetBuff(StatType statType)
         {
-            if (statType == StatType.Damage) damageMulti = 1f;
-            if (statType == StatType.CritChance) critChanceMulti = 1f;
+            if (statType == StatType.Damage) _damageMulti = 1f;
+            if (statType == StatType.CritChance) _critChanceMulti = 1f;
         }
     }
 }

@@ -1,3 +1,5 @@
+using _00.Work.CheolYee._01.Codes.Enemys.Boss;
+
 namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
 {
     public class MeleeAttack

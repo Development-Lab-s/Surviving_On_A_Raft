@@ -8,18 +8,18 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Movements
     {
         private void Start()
         {
-            speedMultiplier = StatManager.Instance.GetEnemyBuff(StatType.MoveSpeed);
+            SpeedMultiplier = StatManager.Instance.GetEnemyBuff(StatType.MoveSpeed);
             StatManager.Instance.OnEnemyBuff += ApplyBuff;
             StatManager.Instance.OnResetEnemyBuff += ResetBuff;
         }
         public void ApplyBuff(StatType stat, float buff)
         {
-            if (stat == StatType.MoveSpeed) speedMultiplier = buff;
+            if (stat == StatType.MoveSpeed) SpeedMultiplier = buff;
         }
 
         public void ResetBuff(StatType statType)
         {
-            if (statType == StatType.MoveSpeed) speedMultiplier = 1f; 
+            if (statType == StatType.MoveSpeed) SpeedMultiplier = 1f; 
         }
 
         public void Initialize(EnemyDataSo data)

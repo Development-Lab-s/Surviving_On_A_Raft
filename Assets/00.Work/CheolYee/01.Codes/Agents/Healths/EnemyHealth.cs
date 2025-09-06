@@ -9,19 +9,19 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Healths
     {
         private void Start()
         {
-            healthMulti = StatManager.Instance.GetEnemyBuff(StatType.Health);
+            HealthMulti = StatManager.Instance.GetEnemyBuff(StatType.Health);
             StatManager.Instance.OnEnemyBuff += ApplyBuff;
             StatManager.Instance.OnResetEnemyBuff += ResetBuff;
         }
         
         public void ApplyBuff(StatType stat, float buff)
         {
-            if (stat == StatType.Health) healthMulti = buff;
+            if (stat == StatType.Health) HealthMulti = buff;
         }
 
         public void ResetBuff(StatType statType)
         {
-            if (statType == StatType.Health) healthMulti = 1f;
+            if (statType == StatType.Health) HealthMulti = 1f;
         }
     }
 }

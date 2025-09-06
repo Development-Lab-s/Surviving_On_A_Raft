@@ -44,7 +44,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, 
                                 direction.magnitude, whatIsTarget.layerMask);
                     
-                            agent.HealthComponent.TakeDamage(damage, hit.normal, hit.point, kbPower);
+                            agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower);
                         }
                     }
 
@@ -60,7 +60,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, 
                                 direction.magnitude, whatIsTarget.layerMask);
 
-                            agent.HealthComponent.TakeDamage(damage, hit.normal, hit.point, kbPower);
+                            agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower);
                         }
                     }
 

@@ -14,12 +14,12 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Movements
         }
         public void ApplyBuff(StatType stat, float buff)
         {
-            if (stat == StatType.MoveSpeed) speedMultiplier = buff;
+            if (stat == StatType.MoveSpeed) SpeedMultiplier = buff;
         }
 
         public void ResetBuff(StatType statType)
         {
-            if (statType == StatType.MoveSpeed) speedMultiplier = 1f; 
+            if (statType == StatType.MoveSpeed) SpeedMultiplier = 1f; 
         }
         
         public void Initialize(CharacterDataSo characterData) //캐릭터 무브먼트 초기값 설정

@@ -1,3 +1,4 @@
+using _00.Work.CheolYee._01.Codes.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,19 +9,17 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public UnityEvent onHit;
         public UnityEvent onDeath;
 
-        [SerializeField] protected float healthMulti = 1f;
+        protected float HealthMulti = 1f;
         
         private float _maxHealth = 150f;
         private float _currentHealth;
-        
-        private float CurrentHealth { get => _currentHealth * healthMulti; 
-            set => _currentHealth = value * healthMulti; }
-        
+
         private Agent _owner;
 
         public void Initialize(Agent owner, float health)
         {
-            _maxHealth = health;
+            HealthMulti = StatManager.Instance.GetEnemyBuff(StatType.Health);
+            _maxHealth = health * HealthMulti;
             _owner = owner;
             ResetHealth();
         }
@@ -30,11 +29,11 @@ namespace _00.Work.CheolYee._01.Codes.Agents
             _currentHealth = _maxHealth;
         }
 
-        public void TakeDamage(float amount, Vector2 normal, Vector2 point, float kbPower)
+        public void TakeDamage(float amount, Vector2 normal, float kbPower)
         {
             Debug.Assert(_owner != null, $"{nameof(_owner)} 의 체력이 초기화되지 않았습니다.");
             
-            CurrentHealth -= amount;
+            _currentHealth -= amount;
             onHit?.Invoke();
 
             if (kbPower > 0)
@@ -43,7 +42,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
                 _owner.MovementComponent.GetKnockBack(normal * -1, kbPower);
             }
             
-            if (CurrentHealth <= 0)
+            if (_currentHealth <= 0)
             {
                 onDeath?.Invoke();
             }
