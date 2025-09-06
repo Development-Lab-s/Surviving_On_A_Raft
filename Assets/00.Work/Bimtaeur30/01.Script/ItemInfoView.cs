@@ -12,6 +12,7 @@ public class ItemInfoView : MonoBehaviour
     [SerializeField] private Image ItemImage;
     [SerializeField] private TextMeshProUGUI ItemNameTxt;
     [SerializeField] private TextMeshProUGUI ItemDescriptionTxt;
+    [SerializeField] private TextMeshProUGUI ItemLevelTxt; // Level 표시 추가
     [SerializeField] private Image ButtonImage;
 
     [SerializeField] private Vector2 IIUPPos;
@@ -21,7 +22,7 @@ public class ItemInfoView : MonoBehaviour
 
     [SerializeField] private PlayerInput PInput;
 
-    private DepthOfField dof;  // FieldOfView override
+    private DepthOfField dof;
 
     private void Start()
     {
@@ -31,20 +32,23 @@ public class ItemInfoView : MonoBehaviour
         }
     }
 
-    public void ItemInfoViewMethod(ExItemSO ItemSO)
+    // PlayerItem 기준으로 표시
+    public void ItemInfoViewMethod(PlayerItem playerItem)
     {
-        if (PInput.isFullscreenUIEnabled == false)
+
+        if (!PInput.isFullscreenUIEnabled)
         {
             Sequence seq = DOTween.Sequence();
             AnimateFocus(0.1f, 0.3f);
             seq.Join(ItemInfo.DOAnchorPos(IIUPPos, 0.8f));
             seq.Join(BackgroundGroup.DOFade(1f, 1f));
-            ItemImage.sprite = ItemSO.ItemImage;
-            ItemNameTxt.text = ItemSO.ItemName;
-            ItemDescriptionTxt.text = ItemSO.ItemDescription;
+
+            ItemImage.sprite = playerItem.Template.ItemImage;
+            ItemNameTxt.text = playerItem.Template.ItemName;
+            ItemDescriptionTxt.text = playerItem.Template.ItemDescription;
+            ItemLevelTxt.text = "Level: " + playerItem.Level; // 레벨 표시
 
             seq.AppendInterval(1f);
-
             seq.Join(ButtonImage.DOFade(1f, 1f));
 
             PInput.ChangeUIEnabled(true);
@@ -53,17 +57,14 @@ public class ItemInfoView : MonoBehaviour
 
     public void ItemInfoUnViewMethod()
     {
-
         Sequence seq = DOTween.Sequence();
         AnimateFocus(10f, 0.3f);
         seq.Join(ItemInfo.DOAnchorPos(IIDownPos, 0.8f));
         seq.Join(BackgroundGroup.DOFade(0f, 1f));
         seq.AppendInterval(0f);
-
         seq.Join(ButtonImage.DOFade(0f, 1f));
 
         PInput.ChangeUIEnabled(false);
-
     }
 
     public void AnimateFocus(float to, float duration)

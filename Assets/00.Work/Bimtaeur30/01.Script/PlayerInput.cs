@@ -13,35 +13,46 @@ public class PlayerInput : MonoBehaviour
     {
         isFullscreenUIEnabled = value;
     }
+
     private void Update()
     {
-        for (int i = 0; i <= InventoryManager.Instance.SlotCount * InventoryManager.Instance.InvenCount - 1; i++)
+        // 1. 숫자키로 슬롯 선택
+        for (int i = 0; i < InventoryManager.Instance.SlotCount * InventoryManager.Instance.InvenCount; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha0 + i))
             {
                 IS.SlotSelectMethod(i);
-
             }
         }
 
+        // 2. R키 → 인벤토리 전환
         if (Input.GetKeyDown(KeyCode.R))
         {
             IS.ChangeInvenSelecting();
         }
 
+        // 3. E키 → 선택 슬롯 아이템 삭제
         if (Input.GetKeyDown(KeyCode.E))
         {
             IIGAR.RemoveItem();
         }
 
+        // 4. Q키 → 선택 슬롯 아이템 정보 보기
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (IS.currentSlotsSelecting != -1)
+            int selectedSlot = IS.currentSlotsSelecting;
+            if (selectedSlot != -1)
             {
-                IIV.ItemInfoViewMethod(InventoryManager.Instance.ItemSlotList[IS.currentSlotsSelecting]);
+                var playerItem = InventoryManager.Instance.ItemSlotList[selectedSlot];
+                if (playerItem != null)
+                {
+                    IIV.ItemInfoViewMethod(playerItem);
+                    Debug.Log("aaaaaaaa");
+                }
             }
         }
 
+        // 5. Tab키 → 아이템 생성 UI 열기
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ICU.ItemCreateUIView();
