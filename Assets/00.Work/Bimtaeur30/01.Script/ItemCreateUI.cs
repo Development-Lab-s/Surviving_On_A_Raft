@@ -7,13 +7,17 @@ using DG.Tweening;
 
 public class ItemCreateUI : MonoBehaviour
 {
-    [Header("")]
-    [SerializeField] private RectTransform MoveObejct;
-    [SerializeField] private new Vector2 UpPos;
-    [SerializeField] private new Vector2 DownPos;
+    [Header("UI 애니메이션 설정")]
+    [SerializeField] private RectTransform MoveObject;
+    [SerializeField] private Vector2 upPos;
+    [SerializeField] private Vector2 downPos;
     [SerializeField] private Volume globalVolume;
     [SerializeField] private PlayerInput PInput;
-    private DepthOfField dof;  // FieldOfView override
+    [SerializeField] private CanvasGroup UICanvasGroup;
+
+    private DepthOfField dof; // DOF 효과 컨트롤
+    private bool isUIEnabled = false;
+    private Sequence currentSeq; // 현재 실행 중인 시퀀스 추적
 
     private void Start()
     {
@@ -22,39 +26,65 @@ public class ItemCreateUI : MonoBehaviour
             dof = depthOfField;
         }
     }
+
     public void ItemCreateUIView()
     {
-        Debug.Log("호출");
+        // 애니메이션 도중엔 무시
+        if (currentSeq != null && currentSeq.IsActive() && currentSeq.IsPlaying())
+            return;
+
+        if (isUIEnabled == true)
+        {
+            ItemCreateUIUnView();
+            return;
+        }
+
         if (PInput.isFullscreenUIEnabled != true)
         {
-            Debug.Log(1);
-            MoveObejct.DOAnchorPos(UpPos, 1f);
-            AnimateFocus(0.1f, 0.3f);
-            PInput.ChangeUIEnabled(true);
-            Debug.Log(2);
+            MoveObject.gameObject.SetActive(true);
+
+            currentSeq = DOTween.Sequence();
+            currentSeq.Join(MoveObject.DOAnchorPos(upPos, 0.3f));
+            currentSeq.Join(UICanvasGroup.DOFade(1f, 0.5f));
+
+            currentSeq.OnComplete(() =>
+            {
+                isUIEnabled = true;
+                AnimateFocus(0.1f, 0.3f);
+                PInput.ChangeUIEnabled(true);
+                currentSeq = null; // 끝나면 초기화
+            });
         }
     }
 
     public void ItemCreateUIUnView()
     {
-        MoveObejct.DOAnchorPos(DownPos, 0.5f);
-        AnimateFocus(10f, 0.3f);
+        // 애니메이션 도중엔 무시
+        if (currentSeq != null && currentSeq.IsActive() && currentSeq.IsPlaying())
+            return;
 
-        PInput.ChangeUIEnabled(false);
-    }
+        currentSeq = DOTween.Sequence();
+        currentSeq.Join(MoveObject.DOAnchorPos(downPos, 0.5f));
+        currentSeq.Join(UICanvasGroup.DOFade(0f, 0.2f));
 
-    public void ItemCreatePanelUIView()
-    {
-
+        currentSeq.OnComplete(() =>
+        {
+            MoveObject.gameObject.SetActive(false);
+            isUIEnabled = false;
+            AnimateFocus(10f, 0.3f);
+            PInput.ChangeUIEnabled(false);
+            currentSeq = null; // 끝나면 초기화
+        });
     }
 
     public void AnimateFocus(float to, float duration)
     {
         if (dof != null)
         {
+            DOTween.Kill(dof); // 기존 트윈 제거
             DOTween.To(() => dof.focusDistance.value,
                        x => dof.focusDistance.value = x,
-                       to, duration);
+                       to, duration).SetTarget(dof);
         }
     }
 }

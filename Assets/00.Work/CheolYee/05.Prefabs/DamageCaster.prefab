@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7665cf162c4a1f8494bc6436365aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterType: 0
   whatIsTarget:
     useTriggers: 0
     useLayerMask: 1
@@ -58,5 +59,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  damageRadius: 0.91
   detectCount: 1
+  damageText: {fileID: 1371830326581525486, guid: ef78fc6192466b84b886e7e0d29748d1, type: 3}
+  damageRadius: 0.91
+  boxSize: {x: 0, y: 0}
