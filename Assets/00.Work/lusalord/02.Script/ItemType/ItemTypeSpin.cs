@@ -13,7 +13,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
         private Vector3 _startDir;
         private float _radius = 0;
         private List<float> _childOffsets = new List<float>();
-        protected List<GameObject> objects = new List<GameObject>();
+        public List<GameObject> objects = new List<GameObject>();
         private float time = 0;
         
         
@@ -54,6 +54,13 @@ namespace _00.Work.lusalord._02.Script.ItemType
                     _radius * Mathf.Cos(childAngle), 
                     _radius * Mathf.Sin(childAngle), 
                     0);
+                
+                Vector3 pos = new Vector3(
+                    _radius * Mathf.Cos(childAngle),
+                    _radius * Mathf.Sin(childAngle),
+                    0);
+                
+                transform.GetChild(i).localPosition = pos;
             }
             transform.position = playerTrs.position;
 
