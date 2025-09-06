@@ -16,7 +16,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        // 1. ¼ıÀÚÅ°·Î ½½·Ô ¼±ÅÃ
+        // 1. ìˆ«ìí‚¤ë¡œ ìŠ¬ë¡¯ ì„ íƒ
         for (int i = 0; i < InventoryManager.Instance.SlotCount * InventoryManager.Instance.InvenCount; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha0 + i))
@@ -25,19 +25,19 @@ public class PlayerInput : MonoBehaviour
             }
         }
 
-        // 2. RÅ° ¡æ ÀÎº¥Åä¸® ÀüÈ¯
+        // 2. Rí‚¤ â†’ ì¸ë²¤í† ë¦¬ ì „í™˜
         if (Input.GetKeyDown(KeyCode.R))
         {
             IS.ChangeInvenSelecting();
         }
 
-        // 3. EÅ° ¡æ ¼±ÅÃ ½½·Ô ¾ÆÀÌÅÛ »èÁ¦
+        // 3. Eí‚¤ â†’ ì„ íƒ ìŠ¬ë¡¯ ì•„ì´í…œ ì‚­ì œ
         if (Input.GetKeyDown(KeyCode.E))
         {
             IIGAR.RemoveItem();
         }
 
-        // 4. QÅ° ¡æ ¼±ÅÃ ½½·Ô ¾ÆÀÌÅÛ Á¤º¸ º¸±â
+        // 4. Qí‚¤ â†’ ì„ íƒ ìŠ¬ë¡¯ ì•„ì´í…œ ì •ë³´ ë³´ê¸°
         if (Input.GetKeyDown(KeyCode.Q))
         {
             int selectedSlot = IS.currentSlotsSelecting;
@@ -52,7 +52,7 @@ public class PlayerInput : MonoBehaviour
             }
         }
 
-        // 5. TabÅ° ¡æ ¾ÆÀÌÅÛ »ı¼º UI ¿­±â
+        // 5. Tabí‚¤ â†’ ì•„ì´í…œ ìƒì„± UI ì—´ê¸°
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ICU.ItemCreateUIView();
