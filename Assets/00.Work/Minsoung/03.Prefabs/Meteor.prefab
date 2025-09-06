@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3512616281115532153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.311396, y: 28.729755, z: 0}
+  m_LocalPosition: {x: 55.701103, y: 28.936989, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -134,7 +134,7 @@ MonoBehaviour:
     m_Bits: 1048576
   damageCaster: {fileID: 2455174340696550269}
   damage: 50
-  _eventSO: {fileID: 11400000, guid: 1c04ef59520fe7541bab703bbf170adc, type: 2}
+  eventSO: {fileID: 11400000, guid: 1c04ef59520fe7541bab703bbf170adc, type: 2}
 --- !u!58 &-2071306060661009639
 CircleCollider2D:
   m_ObjectHideFlags: 0
