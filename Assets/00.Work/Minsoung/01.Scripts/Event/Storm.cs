@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using UnityEngine;
 
@@ -19,16 +18,33 @@ public class Storm : MonoBehaviour
 
     private bool _end = false;
 
-
-
+    private float _stormDir = 1f;
+    private float _rand1 = 0;
+    private float _rand2 = 0;
 
     private Animator _animator;
     private Rigidbody2D _rb;
+    private SpriteRenderer _sr;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        _animator.speed = 0f;
+        
+        StartCoroutine(StormSprite());
+    }
+
+    private IEnumerator StormSprite()
+    {
+        _sr.enabled = false;
+        yield return new WaitForSeconds(0.2f);
+        _sr.enabled = true;
+        _animator.speed = 1f;
     }
 
     private void Airing()
@@ -36,6 +52,7 @@ public class Storm : MonoBehaviour
         _animator.SetBool(_airingHash, true);
         StartCoroutine(AirLifeTime());
         StartCoroutine(DotDamage());
+        StartCoroutine(StormRandomMove());
     }
 
     private IEnumerator AirLifeTime()
@@ -64,13 +81,19 @@ public class Storm : MonoBehaviour
         }
     }
 
-    /*private IEnumerator StormRandomMove()
+    private void FixedUpdate()
     {
-        while (true)
-        {
-            _rb.linearVelocityX =
-        }
-    }*/
+        _rb.linearVelocity = Vector2.right * speed * _stormDir;
+    }
+
+    private IEnumerator StormRandomMove()
+    {
+        _rand1 = Random.Range(0.1f,1.5f);
+        _stormDir *= -1;
+        yield return new WaitForSeconds(_rand1);
+        if(!_end)
+            StartCoroutine(StormRandomMove());
+    }
 
     private void StormDestroy()
     {
