@@ -1466,6 +1466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyItem: {fileID: 0}
+  CreateBtn: {fileID: 1157567690905118468}
+  CreateBtn_Disabled: {fileID: 7187919253914260113}
 --- !u!1 &6764649267408558560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3926512483307134842
 RectTransform:
   m_ObjectHideFlags: 0
