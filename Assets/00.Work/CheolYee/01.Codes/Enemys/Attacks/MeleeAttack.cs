@@ -10,14 +10,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
 
             enemy.damageCaster.CastDamage(enemy.CurrentAttackDamage, 0);
         }
-        
-        public void Attack(BossEnemy enemy)
-        {
-            if (enemy.damageCaster == null) return;
-
-            enemy.damageCaster.CastDamage(enemy.CurrentAttackDamage, 
-                enemy.knockbackPower);
-        }
 
         internal void Attack(AirMeleeAttackEnemy airMeleeAttackEnemy)
         {

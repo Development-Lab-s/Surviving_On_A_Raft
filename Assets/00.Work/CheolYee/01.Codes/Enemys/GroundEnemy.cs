@@ -13,22 +13,22 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         [SerializeField] private LayerMask whatIsWall; //뭐가 벽이냐?
         [field: SerializeField] public string ItemName { get; private set; } = "GroundEnemy";
         public GameObject GameObject => gameObject; //다른곳에서 오브젝트 쉽게 가져오도록 만들기
-        private EnemyStateMachine _stateMachine; //FSM 머신 설정
+        protected EnemyStateMachine StateMachine; //FSM 머신 설정
         public override void SetDead() //죽은 상태로 만들기
         {
-            _stateMachine.ChangeState(EnemyBehaviourType.Death);
+            StateMachine.ChangeState(EnemyBehaviourType.Death);
         }
 
         public override void AnimationEndTrigger() //애니메이션이 끝났을 떄
         {
-            _stateMachine.CurrentState.AnimationEndTrigger(); //애니메이션 종료 시 현재 상태에 맞는 엔드트리거 실행
+            StateMachine.CurrentState.AnimationEndTrigger(); //애니메이션 종료 시 현재 상태에 맞는 엔드트리거 실행
         }
 
         public void ResetItem() //풀에서 초기화 될 때
         {
             isDead = false;
             targetTrm = GameManager.Instance.playerTransform;
-            _stateMachine.ChangeState(EnemyBehaviourType.Idle);
+            StateMachine.ChangeState(EnemyBehaviourType.Idle);
             HealthComponent.ResetHealth();
             gameObject.layer = EnemyLayer;
         }
@@ -37,22 +37,21 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         {
             base.Awake();
 
-            _stateMachine = new EnemyStateMachine(); //처음 생성되었을 시 설정해준다
+            StateMachine = new EnemyStateMachine(); //처음 생성되었을 시 설정해준다
 
             //모든 상태 추가
-            _stateMachine.AddState(EnemyBehaviourType.Air, new EnemyAirState(this, _stateMachine, "AIR"));
-            _stateMachine.AddState(EnemyBehaviourType.Idle, new EnemyIdleState(this, _stateMachine, "IDLE"));
-            _stateMachine.AddState(EnemyBehaviourType.Chase, new EnemyChaseState(this, _stateMachine, "CHASE"));
-            _stateMachine.AddState(EnemyBehaviourType.Jump, new EnemyJumpState(this, _stateMachine, "JUMP"));
-            _stateMachine.AddState(EnemyBehaviourType.Attack, new EnemyAttackState(this, _stateMachine, "ATTACK"));
-            _stateMachine.AddState(EnemyBehaviourType.Death, new EnemyDeathState(this, _stateMachine, "DEATH"));
+            StateMachine.AddState(EnemyBehaviourType.Air, new EnemyAirState(this, StateMachine, "AIR"));
+            StateMachine.AddState(EnemyBehaviourType.Idle, new EnemyIdleState(this, StateMachine, "IDLE"));
+            StateMachine.AddState(EnemyBehaviourType.Chase, new EnemyChaseState(this, StateMachine, "CHASE"));
+            StateMachine.AddState(EnemyBehaviourType.Jump, new EnemyJumpState(this, StateMachine, "JUMP"));
+            StateMachine.AddState(EnemyBehaviourType.Death, new EnemyDeathState(this, StateMachine, "DEATH"));
             //후 초기화
-            _stateMachine.Initialize(EnemyBehaviourType.Idle, this);
+            StateMachine.Initialize(EnemyBehaviourType.Idle, this);
         }
 
         private void Update()
         {
-            _stateMachine.CurrentState.Update(); //현재 상태에 맞는 업데이트 구문을 실행
+            StateMachine.CurrentState.Update(); //현재 상태에 맞는 업데이트 구문을 실행
 
             if (targetTrm != null && isDead == false)
             {

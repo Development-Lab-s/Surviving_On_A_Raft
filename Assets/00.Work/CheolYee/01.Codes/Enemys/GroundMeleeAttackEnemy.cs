@@ -1,4 +1,5 @@
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
+using _00.Work.CheolYee._01.Codes.Enemys.FSM;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys
@@ -13,6 +14,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         protected override void Awake()
         {
             base.Awake();
+            StateMachine.AddState(EnemyBehaviourType.Attack, new EnemyAttackState(this, StateMachine, "ATTACK"));
             _attackBehaviour = new MeleeAttack();
         }
 

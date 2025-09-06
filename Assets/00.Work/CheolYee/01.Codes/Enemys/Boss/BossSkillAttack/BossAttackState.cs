@@ -1,6 +1,6 @@
 using _00.Work.CheolYee._01.Codes.Enemys.FSM;
 
-namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM
+namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack
 {
     public class BossAttackState : State
     {
@@ -11,22 +11,10 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM
             _boss = enemy as BossEnemy;
         }
 
-        public override void Enter()
-        {
-            base.Enter();
-            Enemy.MovementComponent.StopImmediately();
-            _boss.SkillStateMachine.CurrentState.Enter();
-        }
-
         public override void Update()
         {
             base.Update();
-            
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
+            _boss.TryUseSkill();
         }
     }
 }

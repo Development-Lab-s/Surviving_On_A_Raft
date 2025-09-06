@@ -40,7 +40,6 @@ public class CostBoarder : MonoBehaviour
     private IEnumerator CostUp(int i)
     {
         WaitForSeconds delayTime = new  WaitForSeconds(0.05f);
-        Debug.Log($"Current Cost : {CostManager.instance.Costs[i]}");
         while (CostManager.instance.Costs[i] > int.Parse(costText[i].text))
         {
             yield return delayTime;
