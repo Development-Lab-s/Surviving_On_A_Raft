@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class BossHealthTesr : MonoBehaviour
 {
-    [SerializeField] private Image fill; // 위의 Fill(Image)
+    [SerializeField] private Image fill; // 위의 Fill이미지
     [SerializeField] private int maxHp = 1000;
     [SerializeField] private int curHp = 1000;
     [SerializeField] private int playerAtk = 25;
@@ -26,7 +26,7 @@ public class BossHealthTesr : MonoBehaviour
 
     void UpdateBar()
     {
-        fill.fillAmount = (float)curHp / maxHp; // 오른쪽→왼쪽으로 매끄럽게 깎임
+        fill.fillAmount = (float)curHp / maxHp; // 오른쪽→왼쪽으로 매끄럽게 깎이게 만듦
     }
 }
 
