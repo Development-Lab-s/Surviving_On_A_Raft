@@ -30,10 +30,11 @@ namespace _00.Work.Resource.Manager
                 Debug.LogError($"Item {item.name} does not implement IPoolable.");
                 return;
             }
-        
+
             Pool pool = new Pool(poolable, transform, count);
             _pools.Add(poolable.ItemName, pool); //이름을 기반으로 딕셔너리에 추가한다.
         }
+
 
         public IPoolable Pop(string itemName)
         {
