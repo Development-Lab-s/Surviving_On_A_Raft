@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 using System.Linq;
-using DG.Tweening;
 using TMPro;
 
 public class InventorySelect : MonoBehaviour
@@ -11,7 +10,6 @@ public class InventorySelect : MonoBehaviour
     private int invenChangeWay = 1; // 1 == 왼쪽으로, -1 == 오른쪽으로. 즉 각각 인벤토리 교체 번호가 커지는중(1), 작아지는중이다(2).
     private bool invenChanging = false;
     [SerializeField] private TextMeshProUGUI invenTypeTxt;
-
     public void SlotSelectMethod(int num)
     {
         if (InventoryManager.Instance.ItemSlotList[num] == null)
@@ -24,7 +22,6 @@ public class InventorySelect : MonoBehaviour
         else if (currentInvenSelecting * 5 - 1 >= num && currentInvenSelecting * 5 - 5 <= num)
         {
             currentSlotsSelecting = num;
-
             for (int i = 0; i <= InventoryManager.Instance.SlotCount * InventoryManager.Instance.InvenCount - 1; i++)
             {
                 RectTransform slotRect = InventoryManager.Instance.SlotList[i]
@@ -36,7 +33,6 @@ public class InventorySelect : MonoBehaviour
                     Vector2 targetPos = new Vector2(slotRect.anchoredPosition.x, 10);
                     slotRect.DOAnchorPos(targetPos, 0.2f);
                     slotCg.DOFade(1f, 0.2f);
-
                 }
                 else // 선택 안된 슬롯
                 {

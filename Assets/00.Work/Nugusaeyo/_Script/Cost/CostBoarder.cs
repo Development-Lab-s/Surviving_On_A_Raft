@@ -15,8 +15,20 @@ public class CostBoarder : MonoBehaviour
     private Coroutine[] _coroutines = new Coroutine[5];
     private int[] costUi = new int[5];
 
+    public static CostBoarder Instance;
+
+    public Transform costGoalPos;
+    
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         for (int i = 0; i < costName.Length; i++)
         {
             costName[i].text = costInformation[i].name + " : ";
