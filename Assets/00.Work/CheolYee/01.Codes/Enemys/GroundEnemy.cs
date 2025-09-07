@@ -49,14 +49,14 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
             StateMachine.Initialize(EnemyBehaviourType.Idle, this);
         }
 
-        private void Update()
+        protected virtual void Update()
         {
-            StateMachine.CurrentState.Update(); //현재 상태에 맞는 업데이트 구문을 실행
-
             if (targetTrm != null && isDead == false)
             {
                 HandleSpriteFlip(); //움직이는 방향에 따라 자동 플립
             }
+            
+            StateMachine.CurrentState.Update(); //현재 상태에 맞는 업데이트 구문을 실행
         }
 
         public bool IsWallDetected() //전방에 레이를 쏴 감지되었는지 판별

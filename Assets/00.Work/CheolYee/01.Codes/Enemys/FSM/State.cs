@@ -35,6 +35,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
             Enemy.AnimatorComponent.SetBool(_animBoolHash, false); //끝났으니 애니메이션 끄기
         }
         
-        public void AnimationEndTrigger() => IsEndTriggerCall = true; //애니메이션이 끝났을 때 끝났으니 트리거 콜을 트루로 만들기
+        public virtual void AnimationEndTrigger() => IsEndTriggerCall = true; //애니메이션이 끝났을 때 끝났으니 트리거 콜을 트루로 만들기
     }
 }
