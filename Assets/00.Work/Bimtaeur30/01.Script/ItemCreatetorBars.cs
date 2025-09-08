@@ -29,11 +29,21 @@ public class ItemCreatetorBars : MonoBehaviour
         {
             GameObject clonedBar = Instantiate(CreateBar, clonedPage.transform);
             clonedBar.GetComponent<ItemBar>().MyItem = items[i];
-
             TextMeshProUGUI itemNameTxt = clonedBar.transform.Find("ItemNameTxt").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI itemDescriptionTxt = clonedBar.transform.Find("ItemDescriptionTxt").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI sourceCountTxt = clonedBar.transform.Find("SourceCountTxt").GetComponent<TextMeshProUGUI>();
             Image itemImage = clonedBar.transform.Find("IconBaseImage").transform.Find("Image").GetComponent<Image>();
+            GameObject MeatBallDes = clonedBar.transform.Find("MeatballDes").gameObject;
+            TextMeshProUGUI AtTxt = MeatBallDes.transform.Find("AtTxt").GetComponent<TextMeshProUGUI>();
+            if (items[i].ItemType == ItemType.AttackItem)
+            {
+                AtTxt.text = "분류: 공격템";
+            }
+            else if (items[i].ItemType == ItemType.PassiveItem)
+            {
+                AtTxt.text = "분류: 패시브템";
+            }
+            MeatBallDes.SetActive(false);
             itemNameTxt.text = items[i].ItemName;
             itemDescriptionTxt.text = items[i].ItemDescription;
             int sourceCount = items[i].ItemIgdt.Count;
