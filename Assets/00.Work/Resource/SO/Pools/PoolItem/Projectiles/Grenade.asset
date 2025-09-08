@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808b3eaf175ccb04b91aa8bd44b8d567, type: 3}
   m_Name: Grenade
   m_EditorClassIdentifier: 
-  poolName: EnemyBullet
-  prefab: {fileID: 3659094807772548393, guid: 8e415048a431aa647adcb492f7206b5c, type: 3}
+  poolName: Grenade
+  prefab: {fileID: 9021295688375307542, guid: d6e6f81dbaa5bd7409de5a751b5c5f4a, type: 3}
   count: 10

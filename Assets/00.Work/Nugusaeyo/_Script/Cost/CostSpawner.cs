@@ -12,20 +12,11 @@ public class CostSpawner : MonoBehaviour
         
         int amount = Random.Range(0, 3);
         
-        
-        
         for (int i = 0; i < amount; i++)
         {
             IPoolable cost = PoolManager.Instance.Pop($"ItemCost");
             cost.GameObject.transform.position = spawnPosition;
             Debug.Log($"Cost Spawned, Amount : {amount}");
-
         }
-        
-    }
-
-    private void OnDisable()
-    {
-        SpawnCost(gameObject.transform.position);
     }
 }

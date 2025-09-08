@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Items.SO
 {
-    [CreateAssetMenu(fileName = "NewProjectileItem", menuName = "SO/ProjectileItemSO")]
+    [CreateAssetMenu(fileName = "NewProjectileItem", menuName = "SO/Item/ProjectileItemSO")]
     public class ProjectileItemSo : AttackItemSo
     {
         public float speed;

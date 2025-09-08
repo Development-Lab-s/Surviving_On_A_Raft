@@ -7,30 +7,35 @@ namespace _00.Work.lusalord._02.Script.ItemType
     public abstract class ItemTypeSpin : AttackItem
     {
         private SpinItemSo _spinItemSo;
-        protected float SpinSpeed => _spinItemSo.spinSpeed;
-        [SerializeField] private Transform playerTrs;
-        private float _angle = 0;
+        private Transform _playerTrs;
+        private float _angle;
         private Vector3 _startDir;
-        private float _radius = 0;
-        private List<float> _childOffsets = new List<float>();
-        public List<GameObject> objects = new List<GameObject>();
-        private float time = 0;
+        private float _radius;
+        private readonly List<float> _childOffsets = new();
+        public List<GameObject> objects = new();
+        private int _flip;
         
         
         protected virtual void Awake()
         {
             _spinItemSo = (SpinItemSo)attackItemSo;
             _radius = _spinItemSo.spinRadius;
-            
+            _playerTrs = GameObject.Find("Player").GetComponent<Transform>();
             gameObject.name = _spinItemSo.itemName;
             for (int i = 1; i < _spinItemSo.spinAmount + 1; i++)
             {
                 float angle = i * (2f * Mathf.PI / _spinItemSo.spinAmount);
                 _childOffsets.Add(angle);
-                Spawn(angle);
+                Spawn();
+            }
+
+            if (_spinItemSo.flip)
+            {
+                _flip = 180;
             }
         }
-        public GameObject Spawn(float angle)
+
+        private GameObject Spawn()
         {
             GameObject spawnItem = Instantiate(_spinItemSo.spinPrefab, transform);
             objects.Add(spawnItem);
@@ -44,32 +49,32 @@ namespace _00.Work.lusalord._02.Script.ItemType
         
         private void Update()
         {
-            time += Time.deltaTime;
-            _angle += SpinSpeed * Time.deltaTime;
+            _angle += _spinItemSo.spinSpeed * Time.deltaTime;
+            
 
             for (int i = 0; i < _childOffsets.Count; i++)
             {
                 float childAngle = _childOffsets[i] + _angle;
+                Transform child = transform.GetChild(i);
+
                 transform.GetChild(i).localPosition = new Vector3(
                     _radius * Mathf.Cos(childAngle), 
                     _radius * Mathf.Sin(childAngle), 
                     0);
-                
-                Vector3 pos = new Vector3(
-                    _radius * Mathf.Cos(childAngle),
-                    _radius * Mathf.Sin(childAngle),
-                    0);
-                
-                transform.GetChild(i).localPosition = pos;
-            }
-            transform.position = playerTrs.position;
 
-            if (time >= 3)
-            {
-                LevelUp();
-                Debug.Log("aaaaaaa");
-                time = 0;
+                if (_spinItemSo.isRotate)
+                {
+                    Vector3 dir = _playerTrs.position - child.position;
+                    float angleToPlayer = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                    child.rotation = Quaternion.AngleAxis(angleToPlayer + (90 + _flip), Vector3.forward);
+                }
+
+                if (_spinItemSo.rickRolling)
+                {
+                    objects[i].transform.Rotate(0, 0, _spinItemSo.rotateSpeed);
+                }
             }
+            transform.position = _playerTrs.position;
         }
     }
 }

@@ -1,11 +1,17 @@
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemInvenGetAndRemove : MonoBehaviour
 {
     [SerializeField] private InventorySelect IS;
+    [SerializeField] private RectTransform UpgradeUI;
+    [SerializeField] private TextMeshProUGUI UpgradeTxt;
 
     // 아이템 업그레이드
+    private Sequence upgradeSeq;
+
     public bool UpgradeItem(int slotIndex)
     {
         var playerItem = InventoryManager.Instance.ItemSlotList[slotIndex];
@@ -14,9 +20,24 @@ public class ItemInvenGetAndRemove : MonoBehaviour
 
         playerItem.Upgrade();
         UpdateSlotUI(slotIndex);
+
         Debug.Log(playerItem.Template.ItemName + " 레벨: " + playerItem.Level);
+
+        UpgradeUI.anchoredPosition = new Vector2(1200, -450);
+        UpgradeTxt.text = $"{playerItem.Template.ItemName}(이)가 {playerItem.Level}레벨로 업그레이드되었습니다!";
+
+        // 기존 시퀀스 있으면 제거
+        upgradeSeq?.Kill();
+
+        upgradeSeq = DOTween.Sequence();
+        upgradeSeq.Append(UpgradeUI.DOAnchorPosX(713, 1f))
+                  .AppendInterval(5f)
+                  .Append(UpgradeUI.DOAnchorPosX(1200, 1f));
+
         return true;
     }
+
+
 
     // 인벤토리에서 아이템 찾기 + 업그레이드
     public bool FindInventorySlot(ExItemSO templateSO)

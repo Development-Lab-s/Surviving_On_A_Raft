@@ -1,8 +1,10 @@
 using _00.Work.CheolYee._01.Codes.Agents;
 using _00.Work.CheolYee._01.Codes.Enemys.Anim;
 using _00.Work.CheolYee._01.Codes.SO;
-using System;
 using System.Collections;
+using _00.Work.CheolYee._01.Codes.Agents.Movements;
+using _00.Work.CheolYee._01.Codes.Core.Buffs;
+using _00.Work.CheolYee._01.Codes.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,23 +18,25 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         Jump = 3,
         Attack = 4,
         Death = 5,
-        Patrol = 6,
     }
 
-    public abstract class Enemy : Agent
+    public abstract class Enemy : Agent, IBuffable
     {
         public UnityEvent onDeath;
 
         [Header("Enemy Settings")]
         public EnemyDataSo enemyData;
 
-        [Header("Attack Settings")]
+        [Header("Attack Settings")] 
+        public float damageMulti; //공격력 배율
         public float detectRadius; // 플레이어를 탐지하는 범위
         public float attackRadius; // 공격이 가능한 거리
-
+        
+        public float CurrentAttackDamage => _attackDamage * damageMulti; //배율 적용된 공격 데미지
+        
+        private float _attackDamage; // 공격 데미지
         [HideInInspector] public float attackCooldown; // 공격 쿨타임
         [HideInInspector] public float knockbackPower; // 넉백 힘
-        [HideInInspector] public float attackDamage; // 공격 데미지
         [HideInInspector] public float lastAttackTime; //마지막 공격 시간
 
         public ContactFilter2D whatIsPlayer; //플레이어를 탐지하는 필터
@@ -40,9 +44,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         protected int EnemyLayer; //자신의 레이어 ID
         private Collider2D[] _playerCollider; //탐지한 오브젝트 저장용
-
-        public bool CanStateChangeable { get; set; } = true; //상태 변환이 가능한지 여부
-
         private EnemyAnimatorTrigger AnimatorTrigger { get; set; }
 
         protected override void Awake()
@@ -65,6 +66,13 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
             StartCoroutine(MaskChange());
         }
 
+        private void Start()
+        {
+            damageMulti = StatManager.Instance.GetEnemyBuff(StatType.Damage);
+            StatManager.Instance.OnEnemyBuff += ApplyBuff;
+            StatManager.Instance.OnResetEnemyBuff += ResetBuff;
+        }
+
         private IEnumerator MaskChange()
         {
             SpriteRendererComponent.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
@@ -72,11 +80,22 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
             SpriteRendererComponent.maskInteraction = SpriteMaskInteraction.None;
         }
 
+
+        public void ApplyBuff(StatType stat, float buff)
+        {
+            if (stat == StatType.Damage) damageMulti = buff;
+        }
+
+        public void ResetBuff(StatType statType)
+        {
+            if (statType == StatType.Damage) damageMulti = 1f;
+        }
+
         private void AttackSetting(EnemyDataSo data)
         {
             attackCooldown = data.attackCooldown;
             knockbackPower = data.knockbackPower;
-            attackDamage = data.attackDamage;
+            _attackDamage = data.attackDamage;
         }
 
         public Collider2D GetPlayerInRange() //감지 범위 안에 플레이어가 있는가 검사
@@ -93,23 +112,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         //애니메이션 끝났을 때 호출되는 메서드 (상속받은 에너미에서 구현 필요)
         public abstract void AnimationEndTrigger();
-
-        #region DelayCallback routine
-
-        // 일정 시간 후 callback을 실행해주는 코루틴 시작 함수
-        public Coroutine DelayCallBack(float time, Action callback)
-        {
-            return StartCoroutine(DelayCallBackCoroutine(time, callback));
-        }
-
-        // 지정된 시간 후 callback 호출하는 실제 코루틴
-        private IEnumerator DelayCallBackCoroutine(float time, Action callback)
-        {
-            yield return new WaitForSeconds(time); // time초 대기
-            callback?.Invoke(); // null 체크 후 callback 실행
-        }
-
-        #endregion
 
 #if UNITY_EDITOR
 

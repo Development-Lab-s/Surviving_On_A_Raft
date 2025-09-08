@@ -27,7 +27,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM.AirEnemy
             // 접근 + 살짝 상하
             Vector2 target = Enemy.targetTrm.transform.position;
             target.y += Mathf.Sin((Time.time + _seed) * BobFrequency) * BobAmplitude;
-            MoveTowardsSmooth(target, Enemy.enemyData.moveSpeed * 1.1f);
+            MoveTowardsSmooth(target, Enemy.MovementComponent.CurrnetMoveSpeed * 1.1f);
             
             if (Enemy.lastAttackTime + Enemy.attackCooldown < Time.time && dist < Enemy.attackRadius)
             {

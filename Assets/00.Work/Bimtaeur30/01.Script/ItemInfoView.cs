@@ -12,7 +12,7 @@ public class ItemInfoView : MonoBehaviour
     [SerializeField] private Image ItemImage;
     [SerializeField] private TextMeshProUGUI ItemNameTxt;
     [SerializeField] private TextMeshProUGUI ItemDescriptionTxt;
-    [SerializeField] private TextMeshProUGUI ItemLevelTxt; // Level Ç¥½Ã Ãß°¡
+    [SerializeField] private TextMeshProUGUI ItemLevelTxt; // Level í‘œì‹œ ì¶”ê°€
     [SerializeField] private Image ButtonImage;
 
     [SerializeField] private Vector2 IIUPPos;
@@ -32,7 +32,7 @@ public class ItemInfoView : MonoBehaviour
         }
     }
 
-    // PlayerItem ±âÁØÀ¸·Î Ç¥½Ã
+    // PlayerItem ê¸°ì¤€ìœ¼ë¡œ í‘œì‹œ
     public void ItemInfoViewMethod(PlayerItem playerItem)
     {
 
@@ -46,7 +46,7 @@ public class ItemInfoView : MonoBehaviour
             ItemImage.sprite = playerItem.Template.ItemImage;
             ItemNameTxt.text = playerItem.Template.ItemName;
             ItemDescriptionTxt.text = playerItem.Template.ItemDescription;
-            ItemLevelTxt.text = "Level: " + playerItem.Level; // ·¹º§ Ç¥½Ã
+            ItemLevelTxt.text = "Level: " + playerItem.Level; // ë ˆë²¨ í‘œì‹œ
 
             seq.AppendInterval(1f);
             seq.Join(ButtonImage.DOFade(1f, 1f));

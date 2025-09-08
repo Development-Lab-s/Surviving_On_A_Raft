@@ -12,45 +12,44 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         [field: SerializeField] public string ItemName { get; private set; } = "AirEnemy";
         public GameObject GameObject => gameObject;
 
-        private EnemyStateMachine _stateMachine; //FSM 머신 설정
+        protected EnemyStateMachine StateMachine; //FSM 머신 설정
 
         protected override void Awake()
         {
             base.Awake();
-            _stateMachine = new EnemyStateMachine();
+            StateMachine = new EnemyStateMachine();
 
-            _stateMachine.AddState(EnemyBehaviourType.Idle, new AirEnemyIdleState(this, _stateMachine,"IDLE"));
-            _stateMachine.AddState(EnemyBehaviourType.Chase, new AirEnemyChaseState(this, _stateMachine, "CHASE"));
-            _stateMachine.AddState(EnemyBehaviourType.Attack, new AirEnemyAttackState(this, _stateMachine, "ATTACK"));
-            _stateMachine.AddState(EnemyBehaviourType.Death, new EnemyDeathState(this, _stateMachine, "DEATH"));
+            StateMachine.AddState(EnemyBehaviourType.Idle, new AirEnemyIdleState(this, StateMachine,"IDLE"));
+            StateMachine.AddState(EnemyBehaviourType.Chase, new AirEnemyChaseState(this, StateMachine, "CHASE"));
+            StateMachine.AddState(EnemyBehaviourType.Attack, new AirEnemyAttackState(this, StateMachine, "ATTACK"));
+            StateMachine.AddState(EnemyBehaviourType.Death, new EnemyDeathState(this, StateMachine, "DEATH"));
 
-            _stateMachine.Initialize(EnemyBehaviourType.Idle, this);
+            StateMachine.Initialize(EnemyBehaviourType.Idle, this);
         }
         public override void SetDead() //죽은 상태로 만들기
         {
-            _stateMachine.ChangeState(EnemyBehaviourType.Death);
+            StateMachine.ChangeState(EnemyBehaviourType.Death);
         }
         private void Update()
         {
-            _stateMachine.CurrentState.Update(); //현재 상태에 맞는 업데이트 구문을 실행
+            StateMachine.CurrentState.Update(); //현재 상태에 맞는 업데이트 구문을 실행
 
             if (targetTrm != null && isDead == false)
             {
-                HandleSpriteFlip(targetTrm.position); //타겟 위치에 따라 자동 플립
+                HandleSpriteFlip(); //움직이는 방향에 따라 자동 플립
             }
         }
 
         public override void AnimationEndTrigger() //애니메이션이 끝났을 떄
         {
-            _stateMachine.CurrentState.AnimationEndTrigger(); //애니메이션 종료 시 현재 상태에 맞는 엔드트리거 실행
+            StateMachine.CurrentState.AnimationEndTrigger(); //애니메이션 종료 시 현재 상태에 맞는 엔드트리거 실행
         }
 
         public void ResetItem() //풀에서 초기화 될 때
         {
-            CanStateChangeable = true;
             isDead = false;
             targetTrm = GameManager.Instance.playerTransform;
-            _stateMachine.ChangeState(EnemyBehaviourType.Idle);
+            StateMachine.ChangeState(EnemyBehaviourType.Idle);
             HealthComponent.ResetHealth();
             gameObject.layer = EnemyLayer;
         }
