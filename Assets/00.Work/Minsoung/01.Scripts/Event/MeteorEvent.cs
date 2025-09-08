@@ -34,7 +34,7 @@ public class MeteorEvent : MonoBehaviour, IEvent
         for (int i = 0; i < num; i++)
         {
             _rand = Random.Range(1f, 3f);
-            _posision = mainCam.ViewportToWorldPoint(new Vector2(_rand, 1));
+            _posision = mainCam.ViewportToWorldPoint(new Vector2(_rand, 3));
             yield return new WaitForSeconds(1f);
             Instantiate(meteor);
             meteor.transform.position = _posision;
