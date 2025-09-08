@@ -10,6 +10,8 @@ namespace _00.Work.lusalord._02.Script.ItemType
         
         private ForwardItemSO _forwardItemSo;
 
+        public Animator attackAnimator;
+
         private float time = 0;
 
         private float _coolTime = 3;
@@ -29,6 +31,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
             if (_coolTime <= time)
             {
                 damageCaster.CastDamage(10, 4);
+                
                 time = 0;
             }
         }

@@ -58,7 +58,6 @@ public class FlyCost : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("닿았따");
         _collider2D.enabled = false;
         _isFollow = true;
         _rigidbody2D.gravityScale = 0;

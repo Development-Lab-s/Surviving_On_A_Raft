@@ -26,7 +26,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         [Header("Enemy Settings")]
         public EnemyDataSo enemyData;
-        public bool isBoss;
 
         [Header("Attack Settings")] 
         public float damageMulti; //공격력 배율

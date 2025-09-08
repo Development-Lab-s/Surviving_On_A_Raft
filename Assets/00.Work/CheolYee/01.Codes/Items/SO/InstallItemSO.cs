@@ -1,9 +1,8 @@
-using System;
 using _00.Work.CheolYee._01.Codes.Projectiles;
-using Unity.VisualScripting;
+using _00.Work.lusalord._02.Script.SO.AttackItem;
 using UnityEngine;
 
-namespace _00.Work.lusalord._02.Script.SO.AttackItem.ItemType
+namespace _00.Work.CheolYee._01.Codes.Items.SO
 {
     [CreateAssetMenu(fileName = "InstallItemSO", menuName = "SO/Item/InstallItemSO")]
     public class InstallItemSo : AttackItemSo
