@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _00.Work.lusalord._02.Script.SO.AttackItem
@@ -10,6 +11,14 @@ namespace _00.Work.lusalord._02.Script.SO.AttackItem
         public int level;
         public float damage;
         public float knockbackPower;
-        public float atkRate;
+
+        public AttackItemSo nextLevel;
+
+        public bool IsLevelUpPossible()
+        {
+            return nextLevel != null;
+        }
+
+        protected abstract void OnValidate();
     }
 }

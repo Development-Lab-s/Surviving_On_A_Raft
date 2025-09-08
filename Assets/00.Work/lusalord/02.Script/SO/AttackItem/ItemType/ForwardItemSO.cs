@@ -6,4 +6,8 @@ using UnityEngine;
 public class ForwardItemSO : AttackItemSo
 {
     public float coolTime;
+    protected override void OnValidate()
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -7,18 +7,17 @@ namespace _00.Work.lusalord._02.Script.ItemType
     public abstract class ItemTypeSpin : AttackItem
     {
         private SpinItemSo _spinItemSo;
-        [SerializeField] private Transform playerTrs;
         private float _angle;
         private Vector3 _startDir;
         private float _radius;
         private readonly List<float> _childOffsets = new();
         public List<GameObject> objects = new();
-        private float _time;
         private int _flip;
         
         
-        protected virtual void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _spinItemSo = (SpinItemSo)attackItemSo;
             _radius = _spinItemSo.spinRadius;
             
@@ -36,7 +35,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
             }
         }
 
-        private GameObject Spawn()
+        private void Spawn()
         {
             GameObject spawnItem = Instantiate(_spinItemSo.spinPrefab, transform);
             objects.Add(spawnItem);
@@ -44,13 +43,11 @@ namespace _00.Work.lusalord._02.Script.ItemType
                 _radius * Mathf.Cos(_angle),
                 _radius* Mathf.Sin(_angle),
                 0);
-            return spawnItem;
         }
 
         
         private void Update()
         {
-            _time += Time.deltaTime;
             _angle += _spinItemSo.spinSpeed * Time.deltaTime;
             
 
@@ -66,7 +63,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
 
                 if (_spinItemSo.isRotate)
                 {
-                    Vector3 dir = playerTrs.position - child.position;
+                    Vector3 dir = Player.gameObject.transform.position - child.position;
                     float angleToPlayer = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                     child.rotation = Quaternion.AngleAxis(angleToPlayer + (90 + _flip), Vector3.forward);
                 }
@@ -76,7 +73,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
                     objects[i].transform.Rotate(0, 0, _spinItemSo.rotateSpeed);
                 }
             }
-            transform.position = playerTrs.position;
+            transform.position = Player.gameObject.transform.position;
         }
     }
 }
