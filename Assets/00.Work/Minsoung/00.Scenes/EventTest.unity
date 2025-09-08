@@ -2240,7 +2240,6 @@ MonoBehaviour:
   - {fileID: 2607028738829351562, guid: 5b8b3aafa62f1cf448cc1335f9be6812, type: 3}
   - {fileID: 7616955682454233091, guid: 5ed41105aad227c47b47e3928475c912, type: 3}
   - {fileID: 4625892876095699983, guid: 5c737d01583c95f4cbd7ba9d25e95b8c, type: 3}
-  mainCam: {fileID: 0}
   eventSO: {fileID: 11400000, guid: 1c04ef59520fe7541bab703bbf170adc, type: 2}
   num: 7
 --- !u!1 &615751903
@@ -15972,6 +15971,7 @@ Transform:
   m_Children:
   - {fileID: 1042788217}
   - {fileID: 495762293}
+  - {fileID: 1467673535}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &897068571
@@ -29551,6 +29551,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1467673534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467673535}
+  - component: {fileID: 1467673536}
+  m_Layer: 0
+  m_Name: StormEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1467673535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467673534}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 897068570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1467673536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467673534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6a95b32282c8d48b2359419ee4adc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <eventType>k__BackingField: 3
+  stormPre: {fileID: 2579505833687174825, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
+  eventSO: {fileID: 11400000, guid: 1c04ef59520fe7541bab703bbf170adc, type: 2}
+  num: 5
 --- !u!1 &1545435884
 GameObject:
   m_ObjectHideFlags: 0
@@ -49618,67 +49666,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!1001 &2145072496
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523254874504938272, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2579505833687174825, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: m_Name
-      value: Storm (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8596198848720916311, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
-      propertyPath: lifeTime
-      value: 1000
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7a8898e90d89d6242ac1ab75430134d2, type: 3}
 --- !u!1001 &2338340690404401467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49760,4 +49747,3 @@ SceneRoots:
   - {fileID: 1049330492}
   - {fileID: 897068570}
   - {fileID: 615751905}
-  - {fileID: 2145072496}
