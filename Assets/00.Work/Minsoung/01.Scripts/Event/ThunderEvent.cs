@@ -12,16 +12,12 @@ public class ThunderEvent : MonoBehaviour, IEvent
     [field: SerializeField] public GameEventType eventType { get; private set; }
 
     [field:SerializeField] private GameObject[] thunder;
-    [SerializeField] private Camera mainCam;
     [SerializeField] private CameraEventSO eventSO;
     [SerializeField] private int num = 5;
     private int _rand;
     private Vector2 _posision;
 
-    private void Start()
-    {
-        mainCam = Camera.main;
-    }
+
 
     [ContextMenu("알로알로 ㄹㅊㄱ")]
     public void StartEvent()
