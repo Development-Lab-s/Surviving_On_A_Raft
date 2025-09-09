@@ -16,7 +16,7 @@ MonoBehaviour:
   level: 3
   damage: 15
   knockbackPower: 0
-  atkRate: 80
+  atkRate: 0.8
   spinRadius: 4
   spinPrefab: {fileID: 3599668503528672686, guid: ee8d816bd8ffa704998ded5459be9448, type: 3}
   spinSpeed: 5
