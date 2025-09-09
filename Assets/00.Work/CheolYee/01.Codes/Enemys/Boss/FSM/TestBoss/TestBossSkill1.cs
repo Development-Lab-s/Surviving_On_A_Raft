@@ -1,3 +1,4 @@
+using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
 using _00.Work.CheolYee._01.Codes.Projectiles;
 using _00.Work.Resource.Manager;
@@ -13,17 +14,21 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
         private readonly float _range;
 
         //생성자 안에 원하는거 넣어서 받아오기 가능
-        public TestBossSkill1(Enemy enemy, 
-            string animBoolName, 
-            float coolDown, 
-            GameObject skillPrefab, 
+        public TestBossSkill1(Enemy enemy,
+            string animBoolName,
+            float coolDown,
+            GameObject skillPrefab,
             Transform firePos,
-            float range) 
+            float range)
             : base(enemy, animBoolName, coolDown)
         {
             _skillPrefab = skillPrefab;
             _firePos = firePos;
             _range = range;
+        }
+
+        public TestBossSkill1(Enemy enemy, string animBoolName, float coolDown, DamageCaster skill1Caster, object skill1FirePos, float skill1Range) : base(enemy, animBoolName, coolDown)
+        {
         }
 
         public override void OnAnimationCast()
@@ -37,16 +42,16 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
                 Vector2 dir = Enemy.targetTrm.position - _firePos.position;
                 projectile.Initialize(_firePos, dir, Enemy.CurrentAttackDamage, 0, 10);
             }
-            
+
             LastAttackTime = Time.time; //마지막 어택 시간 기록 (쿨타임)
         }
-        
+
         //스킬을 사용할 수 있는가? (로버라이딩해서 사용)
         public override bool CanUse()
         {
             //쿨타임 로직 (반드시 필요)
             if (Time.time < LastAttackTime + CoolDown) return false;
-            
+
             //거리 감지
             float dist = Vector3.Distance(Enemy.transform.position, Enemy.targetTrm.position);
             Debug.Log(dist > _range);
