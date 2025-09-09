@@ -16,7 +16,8 @@ MonoBehaviour:
   level: 0
   damage: 20
   knockbackPower: 10
-  atkRate: 3
+  nextLevel: {fileID: 0}
   speed: 5
+  cooldown: 4
   grenadeCount: 2
   installItem: {fileID: 9021295688375307542, guid: d6e6f81dbaa5bd7409de5a751b5c5f4a, type: 3}

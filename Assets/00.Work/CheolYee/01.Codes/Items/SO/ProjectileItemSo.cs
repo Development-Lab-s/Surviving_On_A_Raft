@@ -9,13 +9,22 @@ namespace _00.Work.CheolYee._01.Codes.Items.SO
     public class ProjectileItemSo : AttackItemSo
     {
         public float speed;
+        public float cooldown;
         public GameObject projectilePrefab;
 
-        private void OnValidate()
+        protected override void OnValidate()
         {
-            if (projectilePrefab != null && projectilePrefab.TryGetComponent(out Projectile projectile))
+            if (projectilePrefab != null)
             {
-                itemName = projectile.ItemName;
+                if (projectilePrefab.TryGetComponent(out Projectile spinCaster))
+                {
+                    itemName = spinCaster.gameObject.name;
+                }
+                else
+                {
+                    projectilePrefab = null;
+                    Debug.Log("얘는 발사체가 아닙니다.");
+                }
             }
         }
     }

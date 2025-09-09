@@ -10,17 +10,20 @@ namespace _00.Work.CheolYee._01.Codes.Items
         protected float Damage;
         protected float KnockbackPower;
         protected float Speed;
-        protected float Cooldown;
+        protected float Cooldown => _coolDown / (1f + Player.CurrentAttackSpeed);
 
         protected float LastSpawnTime;
+
+        private float _coolDown;
         
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             CurrentProjectileSo = (ProjectileItemSo)attackItemSo;
             Damage = CurrentProjectileSo.damage;
             KnockbackPower = CurrentProjectileSo.knockbackPower;
             Speed = CurrentProjectileSo.speed;
-            Cooldown = CurrentProjectileSo.atkRate;
+            _coolDown = CurrentProjectileSo.cooldown;
         }
 
         protected virtual void SpawnProjectile()

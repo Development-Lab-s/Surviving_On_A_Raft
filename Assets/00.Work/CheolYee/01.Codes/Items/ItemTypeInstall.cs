@@ -11,19 +11,22 @@ namespace _00.Work.CheolYee._01.Codes.Items
         protected float Damage;
         protected float KnockbackPower;
         protected float Speed;
-        protected float Cooldown;
+        protected float Cooldown => _cooldown / (1f+ Player.CurrentAttackSpeed);
         protected int GrenadeCount;
         
         protected float LastSpawnTime;
 
-        protected virtual void Awake()
+        private float _cooldown;
+        
+        protected override void Awake()
         {
+            base.Awake();
             InstallItemSo = (InstallItemSo)attackItemSo;
             Damage = InstallItemSo.damage;
             KnockbackPower = InstallItemSo.knockbackPower;
             Speed = InstallItemSo.speed;
             GrenadeCount = InstallItemSo.grenadeCount;
-            Cooldown = InstallItemSo.atkRate;
+            _cooldown = InstallItemSo.cooldown;
         }
         
         protected virtual void SpawnProjectile()
