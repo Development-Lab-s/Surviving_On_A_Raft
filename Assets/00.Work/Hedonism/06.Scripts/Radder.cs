@@ -16,7 +16,6 @@ public class Radder : MonoBehaviour
     public bool nextKey { get; set; } = false;
     public bool isNext { get; set; } = false;
 
-
     [SerializeField] List<Sprite> resourceList = new List<Sprite>();
     // 예시: 랜덤으로 뽑힌 자원 (타입, 필요 개수)
     private List<(int type, int value)> needResources = new();
@@ -24,7 +23,6 @@ public class Radder : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image imageUI1;
     [SerializeField] private UnityEngine.UI.Image imageUI2;
     [SerializeField] private UnityEngine.UI.Image imageUI3;
-
 
     void Start()
     {
@@ -44,8 +42,7 @@ public class Radder : MonoBehaviour
 
         Panel.gameObject.SetActive(false);
 
-        // 여기서는 예시로 0번 자원 3개, 2번 자원 5개 필요하게 세팅
-        // 실제 게임에서는 랜덤 뽑기 로직을 따로 호출해주면 됨
+        // 여기서는 예시로 0번 자원 1개 필요하게 세팅
         needResources.Add((0, 1));
         needResources.Add((1, 0));
         needResources.Add((2, 0));
@@ -61,11 +58,9 @@ public class Radder : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             _isRadder = true;
-            IsCanNext();
             ShowUI();
         }
     }
-
 
     void OnTriggerExit2D(Collider2D collision)
     {
@@ -108,36 +103,26 @@ public class Radder : MonoBehaviour
 
     private void IsCanNext()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        // F키 입력 처리
+        if (isNext && Input.GetKeyDown(KeyCode.F))
         {
-            if (nextKey)
+            isNext = false;
+            if (CheckResources())
             {
-                if (CheckResources() && _isRadder)
-                {
-                    Debug.Log("조건 충족! 자원 차감 후 다음 단계로 진 가능!");
-                    UseResources();
-                    SpawnManager.Instance.StartCycle();
-                    _isRadder = false;
+                Debug.Log("조건 충족! 자원 차감 후 다음 단계로 진행 가능!");
+                UseResources();
+                SpawnManager.Instance.StartCycle();
 
-                    _isRadder = true;
-                    if (!isRand)
-                    {
-                        PickThreeResources();
-                        isRand = true;
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                else if (!_isRadder)
+                // 자원 차감 후 리소스 UI 표시
+                if (!isRand)
                 {
-                    Debug.Log("이 사다리가 아니여");
+                    PickThreeResources();
+                    isRand = true;
                 }
-                else
-                {
-                    Debug.Log("자원이 부족합니다!");
-                }
+            }
+            else
+            {
+                Debug.Log("자원이 부족합니다!");
             }
         }
     }
@@ -171,9 +156,10 @@ public class Radder : MonoBehaviour
 
     private void ShowUI()
     {
+        // nextKey가 true일 때만 Radder 패널 표시
         if (nextKey)
+        {
             Panel.gameObject.SetActive(true);
-        else
-            Panel.gameObject.SetActive(false);
+        }
     }
 }

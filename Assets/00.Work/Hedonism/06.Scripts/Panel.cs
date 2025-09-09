@@ -10,6 +10,7 @@ public class Panel : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image imageUI1;
     [SerializeField] private UnityEngine.UI.Image imageUI2;
     [SerializeField] private UnityEngine.UI.Image imageUI3;
+    private bool canRand = true;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class Panel : MonoBehaviour
             if (!radder.nextKey)
             {
                 radder.nextKey = true;
+                radder.isNext = true;
                 mapPanel.gameObject.SetActive(false);
             }
         }
@@ -34,7 +36,11 @@ public class Panel : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            ViewMap();
+            if (canRand)
+            {
+                ViewMap();
+                canRand = false;
+            }
         }
     }
 
