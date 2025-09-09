@@ -20,5 +20,9 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Anim
         {
             _enemy.Attack();
         }
+        public void SpawnPhase2Boss()
+        {
+            if (_enemy is SmallSlime s) s.AnimEvent_SpawnBossAndDespawnSelf();
+        }
     }
 }
