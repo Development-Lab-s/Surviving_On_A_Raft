@@ -19,11 +19,14 @@ namespace _00.Work.CheolYee._01.Codes.Players
         
         private float _damageMulti = 1;
         private float _critChanceMulti = 1;
+        private float _attackSpeedMulti = 1;
 
         private PlayerAnimator PlayerAnimatorComponent { get; set; } //플레이어 애니메이션 담당
 
         [Header("Attack Settings")]
         private float _damage;
+        private float _attackSpeed;
+        public float CurrentAttackSpeed => _attackSpeedMulti * _attackSpeed;
         public float CurrentDamage
         {
             get
@@ -42,7 +45,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         public bool IsCrit { get; private set; }
         
         private int _critChance;
-        private int CriticalChance => (int)(_critChanceMulti * _critChance);
+        public int CurrentCriticalChance => (int)(_critChanceMulti * _critChance);
         protected override void Awake()
         {
             base.Awake();
@@ -50,6 +53,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
 
             _damage = CharacterData.attack;
             _critChance = CharacterData.criticalChance;
+            _attackSpeed = CharacterData.attackSpeed;
 
             PlayerInput.OnJumpKeyPress += HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 등록
             MovementComponent.GetComponent<PlayerMovement>().Initialize(CharacterData); //캐릭터 데이터로 기본값 설정
@@ -77,7 +81,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         public bool IsCritical()
         {
             int roll = Random.Range(0, 100);
-            return roll < CriticalChance;
+            return roll < CurrentCriticalChance;
         }
 
         private void HandleJumpKeyPress() //점프키 눌렀을 때 실행
@@ -103,12 +107,14 @@ namespace _00.Work.CheolYee._01.Codes.Players
         {
             if (stat == StatType.Damage) _damageMulti = buff;
             if (stat == StatType.CritChance) _critChanceMulti = buff;
+            if (stat == StatType.AttackSpeed) _attackSpeedMulti = buff;
         }
 
         public void ResetBuff(StatType statType)
         {
             if (statType == StatType.Damage) _damageMulti = 1f;
             if (statType == StatType.CritChance) _critChanceMulti = 1f;
+            if (statType == StatType.AttackSpeed) _attackSpeedMulti = 1f;
         }
     }
 }

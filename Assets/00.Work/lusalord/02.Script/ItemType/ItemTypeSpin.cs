@@ -7,7 +7,6 @@ namespace _00.Work.lusalord._02.Script.ItemType
     public abstract class ItemTypeSpin : AttackItem
     {
         private SpinItemSo _spinItemSo;
-        private Transform _playerTrs;
         private float _angle;
         private Vector3 _startDir;
         private float _radius;
@@ -16,11 +15,12 @@ namespace _00.Work.lusalord._02.Script.ItemType
         private int _flip;
         
         
-        protected virtual void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _spinItemSo = (SpinItemSo)attackItemSo;
             _radius = _spinItemSo.spinRadius;
-            _playerTrs = GameObject.Find("Player").GetComponent<Transform>();
+            
             gameObject.name = _spinItemSo.itemName;
             for (int i = 1; i < _spinItemSo.spinAmount + 1; i++)
             {
@@ -35,7 +35,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
             }
         }
 
-        private GameObject Spawn()
+        private void Spawn()
         {
             GameObject spawnItem = Instantiate(_spinItemSo.spinPrefab, transform);
             objects.Add(spawnItem);
@@ -43,7 +43,6 @@ namespace _00.Work.lusalord._02.Script.ItemType
                 _radius * Mathf.Cos(_angle),
                 _radius* Mathf.Sin(_angle),
                 0);
-            return spawnItem;
         }
 
         
@@ -64,7 +63,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
 
                 if (_spinItemSo.isRotate)
                 {
-                    Vector3 dir = _playerTrs.position - child.position;
+                    Vector3 dir = Player.gameObject.transform.position - child.position;
                     float angleToPlayer = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                     child.rotation = Quaternion.AngleAxis(angleToPlayer + (90 + _flip), Vector3.forward);
                 }
@@ -74,7 +73,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
                     objects[i].transform.Rotate(0, 0, _spinItemSo.rotateSpeed);
                 }
             }
-            transform.position = _playerTrs.position;
+            transform.position = Player.gameObject.transform.position;
         }
     }
 }

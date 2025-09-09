@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcabfa983f18428bb0ca703f80e75a5f, type: 3}
   m_Name: NewProjectileItem
   m_EditorClassIdentifier: 
-  itemName: PlayerBullit
+  itemName: PlayerBullet
   level: 0
   damage: 10
   knockbackPower: 4
-  atkRate: 1
+  nextLevel: {fileID: 0}
   speed: 10
+  cooldown: 4
   projectilePrefab: {fileID: 3659094807772548393, guid: bb8a61aa84a95c9408af3566418a7f29, type: 3}
