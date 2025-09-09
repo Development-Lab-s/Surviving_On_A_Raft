@@ -7,11 +7,13 @@ namespace _00.Work.CheolYee._01.Codes.Items.SO
     [CreateAssetMenu(fileName = "InstallItemSO", menuName = "SO/Item/InstallItemSO")]
     public class InstallItemSo : AttackItemSo
     {
+        [Header("Install Item")]
         public float speed;
+        public float cooldown;
         public int grenadeCount;
         public GameObject installItem;
 
-        private void OnValidate()
+        protected override void OnValidate()
         {
             if (installItem != null)
             {
@@ -21,6 +23,7 @@ namespace _00.Work.CheolYee._01.Codes.Items.SO
                 }
                 else
                 {
+                    installItem = null;
                     Debug.Log("얘는 발사체가 아닙니다.");
                 }
             }
