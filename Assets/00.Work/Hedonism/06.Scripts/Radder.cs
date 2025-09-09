@@ -50,7 +50,7 @@ public class Radder : MonoBehaviour
 
     void Update()
     {
-        IsCanNext();
+        
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -101,12 +101,12 @@ public class Radder : MonoBehaviour
         imageUI3.sprite = picked[2];
     }
 
-    private void IsCanNext()
+    public void IsCanNext()
     {
         // F키 입력 처리
-        if (isNext && Input.GetKeyDown(KeyCode.F))
+        // if (isNext && Input.GetKeyDown(KeyCode.F))
         {
-            isNext = false;
+            // isNext = false;
             if (CheckResources())
             {
                 Debug.Log("조건 충족! 자원 차감 후 다음 단계로 진행 가능!");
