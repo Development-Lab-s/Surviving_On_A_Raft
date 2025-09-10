@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TsunamiEvent : MonoBehaviour
 {
+    public UnityEvent tsunamiEndingEvent;
+    
     [SerializeField] private Image tsunamiImage;
     [SerializeField] private Image backTsunamiImage;
     private TsunamiTimer _tsunamiTimer;
@@ -52,6 +55,7 @@ public class TsunamiEvent : MonoBehaviour
         {
             Debug.Log("죽엇따");
             _currentWaveHeight = 1f;
+            tsunamiEndingEvent?.Invoke();
         }
         else if (CurrentTsunamiLevel + 1 == MiniMapStageUp.Instance.CurrentFloor)
         {

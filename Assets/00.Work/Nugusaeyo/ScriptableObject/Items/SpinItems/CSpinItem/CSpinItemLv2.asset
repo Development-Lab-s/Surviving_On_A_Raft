@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
   m_Name: CSpinItemLv2
   m_EditorClassIdentifier: 
-  itemName: IceSpikeSpin
-  level: 1
-  damage: 8
+  id: 0
+  itemName: CSpinItem
+  level: 2
+  damage: 0
   knockbackPower: 0
-  atkRate: 0.2
-  spinRadius: 6
+  nextLevel: {fileID: 11400000, guid: a9924f003ef67d44291d50a70d371df6, type: 2}
+  spinRadius: 7
   spinPrefab: {fileID: 3599668503528672686, guid: a79afe841cae3704e94361ed3ed1904d, type: 3}
   spinSpeed: 4
   spinAmount: 7
   rotateSpeed: 0
-  spinItems: []
   isRotate: 1
   rickRolling: 0
   flip: 1
