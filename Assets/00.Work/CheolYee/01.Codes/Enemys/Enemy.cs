@@ -26,7 +26,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         [Header("Enemy Settings")]
         public EnemyDataSo enemyData;
-        public bool isBoss;
 
         [Header("Attack Settings")] 
         public float damageMulti; //공격력 배율
@@ -87,7 +86,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
             if (stat == StatType.Damage) damageMulti = buff;
         }
 
-        public void ResetBuff(StatType statType)
+        public void ResetBuff(StatType statType, float buff)
         {
             if (statType == StatType.Damage) damageMulti = 1f;
         }

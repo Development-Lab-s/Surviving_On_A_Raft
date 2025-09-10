@@ -9,10 +9,20 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public UnityEvent onHit;
         public UnityEvent onDeath;
 
-        protected float HealthMulti = 1f;
+        public float HealthMulti { get; set; } = 1f;
         
         private float _maxHealth = 150f;
         private float _currentHealth;
+
+        public float CurrentHealth
+        {
+            get => _currentHealth * HealthMulti;
+            set
+            { 
+                _currentHealth += value;
+                _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth * HealthMulti);
+            }
+        }
 
         private Agent _owner;
 
@@ -29,11 +39,11 @@ namespace _00.Work.CheolYee._01.Codes.Agents
             _currentHealth = _maxHealth;
         }
 
-        public void TakeDamage(float amount, Vector2 normal, float kbPower)
+        public void TakeDamage(float amount, Vector2 normal, float kbPower, Agent attacker = null)
         {
             Debug.Assert(_owner != null, $"{nameof(_owner)} 의 체력이 초기화되지 않았습니다.");
             
-            _currentHealth -= amount;
+            CurrentHealth -= amount;
             onHit?.Invoke();
 
             if (kbPower > 0)
@@ -42,7 +52,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
                 _owner.MovementComponent.GetKnockBack(normal * -1, kbPower);
             }
             
-            if (_currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
                 onDeath?.Invoke();
             }

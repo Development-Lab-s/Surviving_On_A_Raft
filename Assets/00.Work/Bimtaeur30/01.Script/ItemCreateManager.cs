@@ -53,13 +53,14 @@ public class ItemCreateManager : MonoBehaviour
             if (itemNeed == null)
                 return;
 
-            for (int i = 0; i < itemNeed.Count; i++)
+        bool isInvenEmpty = IIGAR.FindInventorySlot(Item);
+        for (int i = 0; i < itemNeed.Count; i++)
             {
-                if (IIGAR.FindInventorySlot(Item) == true)
+                if (isInvenEmpty)
                 {
                     int ind = ItemNames.IndexOf(itemNeed.Keys.ElementAt(i));
                     CostManager.instance.MinusCost(ind, itemNeed.Values.ElementAt(i));
-                    return;
+                    //return;
                 }
             }
             //IIGAR.FindInventorySlot(Item);

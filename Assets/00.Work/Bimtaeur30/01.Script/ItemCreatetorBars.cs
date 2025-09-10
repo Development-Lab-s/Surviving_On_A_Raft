@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using System;
+using UnityEngine.UI;
 
 public class ItemCreatetorBars : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ItemCreatetorBars : MonoBehaviour
     private int currentPage = 0;
 
     public List<GameObject> pageList = new List<GameObject>();
+    public List<ItemBar> barList = new List<ItemBar>();
 
     private void Start()
     {
@@ -27,13 +29,25 @@ public class ItemCreatetorBars : MonoBehaviour
         {
             GameObject clonedBar = Instantiate(CreateBar, clonedPage.transform);
             clonedBar.GetComponent<ItemBar>().MyItem = items[i];
-
             TextMeshProUGUI itemNameTxt = clonedBar.transform.Find("ItemNameTxt").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI itemDescriptionTxt = clonedBar.transform.Find("ItemDescriptionTxt").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI sourceCountTxt = clonedBar.transform.Find("SourceCountTxt").GetComponent<TextMeshProUGUI>();
+            Image itemImage = clonedBar.transform.Find("IconBaseImage").transform.Find("Image").GetComponent<Image>();
+            GameObject MeatBallDes = clonedBar.transform.Find("MeatballDes").gameObject;
+            TextMeshProUGUI AtTxt = MeatBallDes.transform.Find("AtTxt").GetComponent<TextMeshProUGUI>();
+            if (items[i].ItemType == ItemType.AttackItem)
+            {
+                AtTxt.text = "분류: 공격템";
+            }
+            else if (items[i].ItemType == ItemType.PassiveItem)
+            {
+                AtTxt.text = "분류: 패시브템";
+            }
+            MeatBallDes.SetActive(false);
             itemNameTxt.text = items[i].ItemName;
             itemDescriptionTxt.text = items[i].ItemDescription;
             int sourceCount = items[i].ItemIgdt.Count;
+            itemImage.sprite = items[i].ItemImage;
             for (int j = 0; j < sourceCount; j++)
             {
                 sourceCountTxt.text = sourceCountTxt.text + " " + items[i].ItemIgdt[j].Name + "(" + items[i].ItemIgdt[j].Amount + ")";
@@ -45,10 +59,10 @@ public class ItemCreatetorBars : MonoBehaviour
                 clonedPage.transform.name = "Page_0" + pageList.Count;
                 pageList.Add(clonedPage);
             }
+
+            barList.Add(clonedBar.GetComponent<ItemBar>());
         }
     }
-
-
     public void FlipPage(int direction)
     {
         if (direction != 1 && direction != -1)

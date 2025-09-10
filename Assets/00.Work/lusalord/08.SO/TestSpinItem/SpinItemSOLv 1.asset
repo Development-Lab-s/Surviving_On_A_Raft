@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
   m_Name: SpinItemSOLv 1
   m_EditorClassIdentifier: 
-  itemName: 
+  id: 0
+  itemName: Square
   level: 1
   damage: 10
   knockbackPower: 5
-  atkRate: 100
+  nextLevel: {fileID: 11400000, guid: c93067303b664664892568180c1c0078, type: 2}
   spinRadius: 3
   spinPrefab: {fileID: 3944626458033196950, guid: 70a2162174e371a43bd15009a0f61ec2, type: 3}
   spinSpeed: 10
   spinAmount: 3
   rotateSpeed: 100
-  spinItems: []
   isRotate: 1
   rickRolling: 0
   flip: 0

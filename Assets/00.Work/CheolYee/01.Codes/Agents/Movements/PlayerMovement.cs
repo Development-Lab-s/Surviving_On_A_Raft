@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using _00.Work.CheolYee._01.Codes.Core.Buffs;
 using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.CheolYee._01.Codes.SO;
@@ -14,12 +13,12 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Movements
         }
         public void ApplyBuff(StatType stat, float buff)
         {
-            if (stat == StatType.MoveSpeed) SpeedMultiplier = buff;
+            if (stat == StatType.MoveSpeed) SpeedMultiplier += buff;
         }
 
-        public void ResetBuff(StatType statType)
+        public void ResetBuff(StatType statType, float buff)
         {
-            if (statType == StatType.MoveSpeed) SpeedMultiplier = 1f; 
+            if (statType == StatType.MoveSpeed) SpeedMultiplier -= buff; 
         }
         
         public void Initialize(CharacterDataSo characterData) //캐릭터 무브먼트 초기값 설정

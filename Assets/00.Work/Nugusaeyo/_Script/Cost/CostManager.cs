@@ -1,5 +1,7 @@
+using NUnit.Framework;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CostManager : MonoBehaviour
 {
@@ -7,7 +9,7 @@ public class CostManager : MonoBehaviour
     public Action CostDownEvent;
 
     public int[] Costs { get; private set; } = new int[5];
-    
+    public List<string> CostNames = new List<string> { "구리", "강철", "황금", "보석", "마석" };
     static public CostManager instance;
 
     private void Awake()
