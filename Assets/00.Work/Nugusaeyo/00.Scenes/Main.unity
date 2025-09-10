@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7046e5e38c0bec04489901c59f424ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackItemSo: {fileID: 11400000, guid: 483a654e2819d444f9a0883d67262db3, type: 2}
+  attackItemSo: {fileID: 11400000, guid: 2daa010b1bd2b764f971c27e7882410e, type: 2}
   objects: []
 --- !u!1 &157819917
 GameObject:
@@ -1006,6 +1006,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 890265223308821271, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2408080744608517615, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3304527419033307807, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
       propertyPath: m_Name
       value: Player
