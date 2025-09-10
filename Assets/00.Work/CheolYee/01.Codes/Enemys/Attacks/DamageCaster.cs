@@ -33,7 +33,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
             _resultArray = new Collider2D[detectCount];
         }
 
-        public void CastDamage(float damage, float kbPower, Agent attacker = null)
+        public bool CastDamage(float damage, float kbPower, Agent attacker = null)
         {
             int cnt;
             
@@ -54,10 +54,11 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                                 direction.magnitude, whatIsTarget.layerMask);
                     
                             agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower, attacker);
+                            return true;
                         }
                     }
 
-                    return;
+                    return false;
                 case CasterType.Box:
                     cnt = Physics2D.OverlapBox(transform.position, boxSize, 0f, whatIsTarget, _resultArray);
 
@@ -73,13 +74,14 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                                 direction.magnitude, whatIsTarget.layerMask);
 
                             agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower, attacker);
+                            return true;
                         }
                     }
 
-                    return;
+                    return false;
 
                 default:
-                    return;
+                    return false;
             }
         }
         

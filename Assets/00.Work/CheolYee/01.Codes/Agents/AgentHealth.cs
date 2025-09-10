@@ -7,7 +7,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
     public class AgentHealth : MonoBehaviour
     {
         public UnityEvent onHit;
-        public UnityEvent<Agent> onDeath;
+        public UnityEvent onDeath;
 
         public float HealthMulti { get; set; } = 1f;
         
@@ -54,7 +54,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
             
             if (CurrentHealth <= 0)
             {
-                onDeath?.Invoke(attacker);
+                onDeath?.Invoke();
             }
         }
     }
