@@ -12,7 +12,7 @@ public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
 
     [SerializeField] private PlayerInputSo playerInputSo;
     [SerializeField] private Image[] mapImages;
-    [SerializeField] private List<Sprite> mapSprites;
+    [SerializeField] private List<MapDataSo> mapData;
     [SerializeField] private List<Image> outlines;
 
     int random;
@@ -45,8 +45,9 @@ public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
                 foreach (var outline in outlines)
                 {
                     outline.enabled = false;
-                }                   
-                    outlines[++currentSelectIndex].enabled = true;
+                }
+                currentSelectIndex = Mathf.Clamp(++currentSelectIndex, 0, 2);    
+                outlines[currentSelectIndex].enabled = true;
             }
 
             if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
@@ -55,10 +56,9 @@ public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
                 {
                     outline.enabled = false;
                 }
-                    outlines[--currentSelectIndex].enabled = true;
+                currentSelectIndex = Mathf.Clamp(--currentSelectIndex, 0, 2);
+                outlines[currentSelectIndex].enabled = true;
             }
-
-            Mathf.Clamp(currentSelectIndex, 0, 2);
         }
     }
 
@@ -91,29 +91,13 @@ public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
         selectIndex.Clear();
         IsFirst = true;
     }
-
-    // private void RandomMapImages()
-    // {
-    //     IsFirst = false;
-    //     RandomIndex(random);
-    //     for (int i = 0; i < mapImages.Length; i++)
-    //     {
-    //         mapImages[i].sprite = mapSprites[selectIndex[i]];
-    //     }
-    //     foreach (var outline in outlines)
-    //     {
-    //         outline.enabled = false;
-    //     }
-    //     outlines[currentSelectIndex].enabled = true;
-    // }
-
     private void RandomMapImages()
     {
         IsFirst = false;
         RandomIndex(mapImages.Length);
         for (int i = 0; i < mapImages.Length; i++)
         {
-            mapImages[i].sprite = mapSprites[selectIndex[i]];
+            mapImages[i].sprite = mapData[selectIndex[i]].mapIcon;
         }
         foreach (var outline in outlines)
         {
@@ -123,31 +107,17 @@ public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
     }
 
 
-    // private void RandomIndex(int randomIndex)
-    // {
-    //     if (selectIndex.Count == 3) return;
-
-        //     random = Random.Range(0, mapSprites.Count);
-        //     if (selectIndex.Contains(randomIndex))
-        //     {
-        //         RandomIndex(random);
-        //     }
-        //     else
-        //     {
-        //         selectIndex.Add(random);
-        //         RandomIndex(random);
-        //     }
-        // }
-
-
     private void RandomIndex(int randomIndex)
     {
+
+        if (randomIndex == 0) return;
         selectIndex.Clear();
 
         List<int> tempList = new List<int>();
+        
         while (tempList.Count < randomIndex)
         {
-            int rand = Random.Range(0, mapSprites.Count);
+            int rand = Random.Range(0, mapData.Count);
             if (!tempList.Contains(rand))
             {
                 tempList.Add(rand);
