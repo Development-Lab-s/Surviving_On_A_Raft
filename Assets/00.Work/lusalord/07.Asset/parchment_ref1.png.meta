@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fc0db37b45a509d4ebd71ae72bc55687
+guid: 3b6234259f70d20439dcee38afb3efc3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4050377470985101273
-    second: "\uC81C\uBAA9\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694_-003_0"
+      213: -850449694266366367
+    second: parchment_ref1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 463, y: 0, z: 452, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SoundScroll
+      name: parchment_ref1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1200
-        height: 60
+        width: 1090
+        height: 1130
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 43, y: 20, z: 40, w: 20}
+      border: {x: 473, y: 0, z: 447, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9dfdf4c99d4d53830800000000000000
-      internalID: 4050377470985101273
+      spriteID: 166e9e942889234f0800000000000000
+      internalID: -850449694266366367
       vertices: []
       indices: 
       edges: []
@@ -125,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 30f76672f23b52044a6e487dbba62190
-    internalID: 0
+    spriteID: 0f2fabdb91da8764d90403998fb7ed48
+    internalID: 1821831568
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SoundScroll: 4050377470985101273
+      parchment_ref1_0: -850449694266366367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
