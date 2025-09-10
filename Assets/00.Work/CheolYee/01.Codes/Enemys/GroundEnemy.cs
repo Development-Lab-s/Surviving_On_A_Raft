@@ -55,7 +55,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
             {
                 HandleSpriteFlip(); //움직이는 방향에 따라 자동 플립
             }
-            
+
             StateMachine.CurrentState.Update(); //현재 상태에 맞는 업데이트 구문을 실행
         }
 
@@ -65,7 +65,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         }
 
 #if UNITY_EDITOR
-        private void OnDrawGizmosSelected()
+        protected virtual void OnDrawGizmosSelected()
         {
             if (wallCheck != null)
             {

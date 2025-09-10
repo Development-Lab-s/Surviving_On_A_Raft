@@ -126,13 +126,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3670565394795873268}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.031, z: 0}
   m_LocalScale: {x: 1.3111, y: 1.3111, z: 1.3111}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 423276152782348699}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7304139480794382996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7733066345313412090}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.56, y: -4.05, z: -0.059067}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
@@ -355,7 +355,7 @@ Transform:
   - {fileID: 1771568289639841368}
   - {fileID: 8476692158154014599}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8771441853815547866
 Rigidbody2D:
   serializedVersion: 5
@@ -473,6 +473,8 @@ MonoBehaviour:
   skill2Prefab: {fileID: 0}
   skill2FirePos: {fileID: 8476692158154014599}
   skill2Range: 9
+  afterSkillDelay: 3
+  nextSkillAllowedTime: 0
 --- !u!1 &7980812750708314471
 GameObject:
   m_ObjectHideFlags: 0

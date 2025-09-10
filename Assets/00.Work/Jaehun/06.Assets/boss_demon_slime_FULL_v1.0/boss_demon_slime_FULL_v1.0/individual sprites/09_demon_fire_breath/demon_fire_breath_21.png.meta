@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      demon_fire_breath_21_0: 4180270317482058508
+      demon_fire_breath_21_1: -5808518671972541501
+      demon_fire_breath_21_2: 4184941737817091792
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

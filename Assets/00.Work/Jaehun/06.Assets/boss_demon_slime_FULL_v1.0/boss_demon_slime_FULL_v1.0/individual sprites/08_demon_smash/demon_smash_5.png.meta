@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      demon_smash_5_0: -4284058806981073246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

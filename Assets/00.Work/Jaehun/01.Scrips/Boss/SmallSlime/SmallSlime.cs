@@ -23,6 +23,7 @@ public class SmallSlime : GroundEnemy
     [SerializeField] private Transform bossSpawnPoint;       // 없으면 본인 위치 사용
     [SerializeField] private bool inheritFacing = true;      // 스몰 슬라임의 좌우 방향 계승 여부
 
+
     private bool _bossSpawned;  // 소환은 한번만 하기 위함.
     private Vector2 _spawnPos;
 
