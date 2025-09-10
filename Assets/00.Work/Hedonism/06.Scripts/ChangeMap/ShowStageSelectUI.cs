@@ -18,6 +18,7 @@ public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
     int random;
     List<int> selectIndex = new List<int>();
     private bool IsFirst = true;
+    private bool IsResourceUI = false;
 
     [SerializeField] private int currentSelectIndex = 0;
 
@@ -26,6 +27,7 @@ public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
         base.Awake();
 
         IsFirst = true;
+        IsResourceUI = false;
         mapUI.SetActive(false);
     }
 
@@ -62,14 +64,21 @@ public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
 
     private void IsPay()
     {
-
+        int selectedIndex = selectIndex[currentSelectIndex];
+        Debug.Log(selectedIndex);
+        IsResourceUI = true;
+        mapUI.SetActive(false);
+        //자원 ui 활성화
     }
 
     public void ShowMaps(Vector3 pos)
     {
-        mapUI.SetActive(true);
-        mapUI.transform.position = pos;
-        if (IsFirst) RandomMapImages();
+        if (!IsResourceUI)
+        {
+            mapUI.SetActive(true);
+            mapUI.transform.position = pos;
+            if (IsFirst) RandomMapImages();
+        }
     }
 
     public void CloseMapUI()
