@@ -36,7 +36,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
             if (targetTrm != null && isDead == false)
             {
-                HandleSpriteFlip(); //움직이는 방향에 따라 자동 플립
+                HandleSpriteFlip(targetTrm.position); //움직이는 방향에 따라 자동 플립
             }
         }
 

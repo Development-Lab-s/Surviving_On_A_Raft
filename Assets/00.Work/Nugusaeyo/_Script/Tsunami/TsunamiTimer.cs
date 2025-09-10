@@ -18,7 +18,7 @@ public class TsunamiTimer : MonoBehaviour
 
     private void Awake()
     {
-        _currentTime = 0f;
+        _currentTime = timerTime;
     }
 
     private void Update()
@@ -32,17 +32,17 @@ public class TsunamiTimer : MonoBehaviour
             timerTime++;
         }
         
-        _currentTime += Time.deltaTime;
+        _currentTime -= Time.deltaTime;
         
         timerText.text = $"{(int)(_currentTime / 60):D1}:{(int)(_currentTime % 60):D2}";
             
         fill.color = gradient.Evaluate(_currentTime / timerTime);
         fill.fillAmount = Mathf.Lerp(fill.fillAmount, _currentTime / timerTime, Time.deltaTime * 5f);
 
-        if (fill.fillAmount >= 1)
+        if (fill.fillAmount <= 0)
         {
             TsunamiAction?.Invoke();
-            _currentTime = 0;
+            _currentTime = timerTime;
         }
     }
 }

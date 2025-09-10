@@ -12,40 +12,42 @@ public class InventorySelect : MonoBehaviour
     [SerializeField] private TextMeshProUGUI invenTypeTxt;
     public void SlotSelectMethod(int num)
     {
-        if (InventoryManager.Instance.ItemSlotList[num] == null)
-            return;
-        if (currentSlotsSelecting == num)
+        if (num < 1 || num > InventoryManager.Instance.SlotCount) return;
+
+        // 실제 슬롯 인덱스 계산
+        int slotIndex = (currentInvenSelecting - 1) * InventoryManager.Instance.SlotCount + (num - 1);
+
+        if (currentSlotsSelecting == slotIndex)
         {
             SlotUnselectMethod();
             return;
         }
-        else if (currentInvenSelecting * 5 - 1 >= num && currentInvenSelecting * 5 - 5 <= num)
-        {
-            currentSlotsSelecting = num;
-            for (int i = 0; i <= InventoryManager.Instance.SlotCount * InventoryManager.Instance.InvenCount - 1; i++)
-            {
-                RectTransform slotRect = InventoryManager.Instance.SlotList[i]
-                    .GetComponent<RectTransform>();
 
-                CanvasGroup slotCg = InventoryManager.Instance.SlotList[i].transform.Find("SelectImage").gameObject.GetComponent<CanvasGroup>();
-                if (num == i) // 선택된 슬롯
+        currentSlotsSelecting = slotIndex;
+
+        for (int i = 0; i < InventoryManager.Instance.SlotCount * InventoryManager.Instance.InvenCount; i++)
+        {
+            RectTransform slotRect = InventoryManager.Instance.SlotList[i].GetComponent<RectTransform>();
+            CanvasGroup slotCg = InventoryManager.Instance.SlotList[i].transform.Find("SelectImage").GetComponent<CanvasGroup>();
+
+            if (i == slotIndex) // 선택된 슬롯
+            {
+                Vector2 targetPos = new Vector2(slotRect.anchoredPosition.x, 10);
+                slotRect.DOAnchorPos(targetPos, 0.2f);
+                slotCg.DOFade(1f, 0.2f);
+            }
+            else // 선택 안된 슬롯
+            {
+                if (Mathf.Abs(slotRect.anchoredPosition.y) > 0.1f)
                 {
-                    Vector2 targetPos = new Vector2(slotRect.anchoredPosition.x, 10);
-                    slotRect.DOAnchorPos(targetPos, 0.2f);
-                    slotCg.DOFade(1f, 0.2f);
-                }
-                else // 선택 안된 슬롯
-                {
-                    if (Mathf.Abs(slotRect.anchoredPosition.y) > 0.1f)
-                    {
-                        Vector2 originPos = new Vector2(slotRect.anchoredPosition.x, -60);
-                        slotRect.DOAnchorPos(originPos, 0.2f);
-                        slotCg.DOFade(0f, 0.2f);
-                    }
+                    Vector2 originPos = new Vector2(slotRect.anchoredPosition.x, -60);
+                    slotRect.DOAnchorPos(originPos, 0.2f);
+                    slotCg.DOFade(0f, 0.2f);
                 }
             }
         }
     }
+
 
     public void SlotUnselectMethod()
     {
