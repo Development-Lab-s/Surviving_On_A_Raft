@@ -1,4 +1,7 @@
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
+using _00.Work.CheolYee._01.Codes.Projectiles;
+using _00.Work.Resource.Manager;
+using _00.Work.Resource.SO;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
@@ -8,6 +11,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
         private readonly GameObject _armPrefab;
         private readonly Transform _spawnPos;
         private readonly float _range;
+        private readonly float _shotSpeed;
 
         public ArmAttackSkill(
             Enemy enemy,
@@ -15,12 +19,14 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
             float coolDown,
             GameObject armPrefab,
             Transform spawnPos,
-            float range
+            float range,
+            float shotSpeed
         ) : base(enemy, animBoolName, coolDown)
         {
             _armPrefab = armPrefab;
             _spawnPos = spawnPos;
             _range = range;
+            _shotSpeed = shotSpeed;
         }
 
         // 공격 발동 (Animation Event에서 호출됨)
@@ -28,21 +34,12 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
         {
             Debug.Log("보스 팔 공격 발동!");
 
-            // 팔 프리팹 생성
-            GameObject arm = Object.Instantiate(_armPrefab, _spawnPos.position, _spawnPos.rotation);
-
-            // 팔 Animator 트리거 실행
-            Animator armAnim = arm.GetComponent<Animator>();
-            if (armAnim)
+            string poolName = _armPrefab.GetComponent<IPoolable>().ItemName;
+            Projectile arms = PoolManager.Instance.Pop(poolName) as Projectile;
+            if (arms)
             {
-                armAnim.SetTrigger("ArmAttack"); // 팔 애니메이션 실행
-            }
-
-            // 팔 방향 -> 플레이어 바라보도록
-            if (Enemy.targetTrm != null)
-            {
-                Vector3 dir = (Enemy.targetTrm.position - _spawnPos.position).normalized;
-                arm.transform.right = dir; // 오른쪽 기준
+                Vector2 dir = Enemy.targetTrm.position - _spawnPos.position;
+                arms.Initialize(_spawnPos, dir, Enemy.CurrentAttackDamage, 0, _shotSpeed);
             }
 
             LastAttackTime = Time.time;

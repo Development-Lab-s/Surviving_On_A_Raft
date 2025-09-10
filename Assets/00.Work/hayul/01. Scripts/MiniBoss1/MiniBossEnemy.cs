@@ -17,6 +17,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss
         [SerializeField] private GameObject armPrefab;       // 팔 프리팹
         [SerializeField] private Transform armSpawnPoint;    // 팔 생성 위치
         [SerializeField] private float armRange;
+        [SerializeField] private float armShotSpeed;
 
         private BossAttackState _bossAttackState;
 
@@ -34,7 +35,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss
 
             // 스킬 2 팔 발사
             _bossAttackState.AddSkill(SkillType.Skill2, new ArmAttackSkill(
-                this, "ArmAttack", armAttackCooldown, armPrefab, armSpawnPoint, armRange));
+                this, "ArmAttack", armAttackCooldown, armPrefab, armSpawnPoint, armRange, armShotSpeed));
         }
 
         public override void Attack()
