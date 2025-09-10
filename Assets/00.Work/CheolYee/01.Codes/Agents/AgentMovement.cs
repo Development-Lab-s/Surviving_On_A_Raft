@@ -1,14 +1,13 @@
 using _00.Work.CheolYee._01.Codes.Core;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _00.Work.CheolYee._01.Codes.Agents
 {
     public class AgentMovement : MonoBehaviour
     {
-        protected float SpeedMultiplier = 1f;
-        
+        public float SpeedMultiplier { get; set; } = 1f;
+
         [Header("Motor Options")]
         [SerializeField] private bool motorControlsX = true; // 추가: X속도를 내부에서 제어할지
 
@@ -18,7 +17,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         [Header("Settings")]
         public float CurrnetMoveSpeed => MoveSpeed * SpeedMultiplier;
 
-        protected float MoveSpeed = 5f; //이동 속도
+        public float MoveSpeed { get; set; } = 5f; //이동 속도
         protected float JumpForce = 7f; //점프력
         protected float KnockBackDuration = 0.2f; //넉백 시간
         [SerializeField] protected LayerMask groundLayer; //땅 레이어
@@ -30,6 +29,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         private float _xMove; //x축 이동 저장
         public bool canMove = true; //움직일 수 있는가?
         private Coroutine _kbCoroutine; //넉백 코루틴 저장 (최적화)
+        private bool _canBeKnocked = true; //넉백 가능한지 (쿨타임)
 
         public void SetMovement(float xMove) => _xMove = xMove;
 
@@ -88,6 +88,11 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         public void GetKnockBack(Vector3 direction, float power)
         {
+            if (!_canBeKnocked) return;
+            
+            if (direction.y > 0.5f) direction.y = 0.1f;
+            if (direction.y < -0.5f) direction.y = -0.1f;
+            
             Vector3 difference = direction * (power * RbCompo.mass);
             RbCompo.AddForce(difference, ForceMode2D.Impulse);
             if (_kbCoroutine != null)
@@ -100,10 +105,12 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         private IEnumerator KnockBackCoroutine()
         {
-            canMove = false; //움직이지 못하게 막아주고
-            yield return new WaitForSeconds(KnockBackDuration); //시간 대기
+            _canBeKnocked = false;
+            canMove = false;
+            yield return new WaitForSeconds(KnockBackDuration);
             RbCompo.linearVelocity = Vector2.zero;
             canMove = true;
+            _canBeKnocked = true;
         }
 
         #endregion

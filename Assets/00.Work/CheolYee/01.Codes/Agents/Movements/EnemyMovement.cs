@@ -17,7 +17,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Movements
             if (stat == StatType.MoveSpeed) SpeedMultiplier = buff;
         }
 
-        public void ResetBuff(StatType statType)
+        public void ResetBuff(StatType statType, float buff)
         {
             if (statType == StatType.MoveSpeed) SpeedMultiplier = 1f; 
         }

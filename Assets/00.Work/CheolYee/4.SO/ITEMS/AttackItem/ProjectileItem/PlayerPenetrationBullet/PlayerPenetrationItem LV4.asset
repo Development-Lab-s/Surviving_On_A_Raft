@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcabfa983f18428bb0ca703f80e75a5f, type: 3}
+  m_Name: PlayerPenetrationItem LV4
+  m_EditorClassIdentifier: 
+  itemName: PlayerPenetrationBullet
+  level: 0
+  damage: 8
+  knockbackPower: 4
+  nextLevel: {fileID: 11400000, guid: ee2f74a349e9814438d4a531e357f4aa, type: 2}
+  speed: 10
+  cooldown: 7
+  projectilePrefab: {fileID: 7166892614536515626, guid: 9ab07fc1bf50cff4ca51b5a85879f189, type: 3}

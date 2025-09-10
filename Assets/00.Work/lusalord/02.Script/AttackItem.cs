@@ -17,11 +17,18 @@ namespace _00.Work.lusalord._02.Script
         protected virtual void Awake()
         {
             Player = GetComponentInParent<Player>();
+            gameObject.SetActive(false);
         }
 
-        public void LevelUp()
+        public void LevelUp(int id)
         {
-            
+            if (id == attackItemSo.id)
+            {
+                attackItemSo = attackItemSo.TryAttackItemLevelUp();
+                ApplySetting();
+            }
         }
+
+        public abstract void ApplySetting();
     }
 }

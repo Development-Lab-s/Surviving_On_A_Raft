@@ -13,8 +13,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
         private readonly List<float> _childOffsets = new();
         public List<GameObject> objects = new();
         private int _flip;
-        
-        
+
         protected override void Awake()
         {
             base.Awake();
@@ -22,7 +21,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
             _radius = _spinItemSo.spinRadius;
             
             gameObject.name = _spinItemSo.itemName;
-            for (int i = 1; i < _spinItemSo.spinAmount + 1; i++)
+            for (int i = 0; i < _spinItemSo.spinAmount; i++)
             {
                 float angle = i * (2f * Mathf.PI / _spinItemSo.spinAmount);
                 _childOffsets.Add(angle);
@@ -33,6 +32,41 @@ namespace _00.Work.lusalord._02.Script.ItemType
             {
                 _flip = 180;
             }
+        }
+
+        public override void ApplySetting()
+        {
+            _spinItemSo = (SpinItemSo)attackItemSo;
+            _radius = _spinItemSo.spinRadius;
+
+            gameObject.name = _spinItemSo.itemName;
+
+            // 기존 childOffsets 초기화 후 새롭게 계산
+            _childOffsets.Clear();
+
+            // 현재 아이템 개수와 spinAmount 맞추기
+            while (objects.Count < _spinItemSo.spinAmount)
+            {
+                Spawn();
+            }
+            while (objects.Count > _spinItemSo.spinAmount)
+            {
+                Destroy(objects[objects.Count - 1]);
+                objects.RemoveAt(objects.Count - 1);
+            }
+
+            // 각 아이템을 균등하게 다시 배치
+            for (int i = 0; i < _spinItemSo.spinAmount; i++)
+            {
+                float angle = i * (2f * Mathf.PI / _spinItemSo.spinAmount);
+                _childOffsets.Add(angle);
+            }
+
+            if (_spinItemSo.flip)
+            {
+                _flip = 180;
+            }
+
         }
 
         private void Spawn()

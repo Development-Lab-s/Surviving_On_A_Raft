@@ -26,6 +26,15 @@ namespace _00.Work.CheolYee._01.Codes.Items
             _coolDown = CurrentProjectileSo.cooldown;
         }
 
+        public override void ApplySetting()
+        {
+            CurrentProjectileSo = (ProjectileItemSo)attackItemSo;
+            Damage = CurrentProjectileSo.damage;
+            KnockbackPower = CurrentProjectileSo.knockbackPower;
+            Speed = CurrentProjectileSo.speed;
+            _coolDown = CurrentProjectileSo.cooldown;
+        }
+
         protected virtual void SpawnProjectile()
         {
             LastSpawnTime = Time.time;
