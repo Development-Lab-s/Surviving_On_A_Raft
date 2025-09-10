@@ -28,7 +28,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
 
         public override void OnAnimationCast()
         {
-            Debug.LogError("공격 발사ㅏㅏㅏㅏㅏ2222");
             //공격 로직 예시 (투사체)
             string poolName = _skillPrefab.GetComponent<IPoolable>().ItemName;
             Projectile projectile = PoolManager.Instance.Pop(poolName) as Projectile;

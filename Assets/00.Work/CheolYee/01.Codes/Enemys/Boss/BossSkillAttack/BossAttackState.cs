@@ -23,18 +23,8 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack
             var selected = SelectSkill();
             if (selected.HasValue)
             {
-                Debug.LogError("상태변환" + selected.Value);
                 _skillStateMachine.ChangeState(selected.Value);
             }
-            /*else
-            {
-                Debug.LogError("상태 없음");
-                // 선택된 스킬이 없으면 기본 공격 스킬을 실행하도록 설계 가능 (예: Skill1)
-                if (_skillStateMachine.TryGetState(SkillType.Skill1, out var _))
-                    _skillStateMachine.ChangeState(SkillType.Skill1);
-                else
-                    Debug.LogWarning("[BossAttackState] No skill to execute.");
-            }*/
         }
 
         public override void Update()
@@ -55,7 +45,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack
             }
         }
 
-        // 애니메이터의 AttackCast 이벤트가 들어왔을 때(Enemy.Attack()가 호출되면)
+        //애니메이터의 AttackCast 이벤트가 들어왔을 때(Enemy.Attack()가 호출되면)
         public void OnAnimationCast()
         {
             _skillStateMachine.OnAnimationCast();
@@ -74,7 +64,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack
             {
                 var st = kv.Value;
                 // 기본 CanUse + 거리 조건(스킬마다 오버라이드 가능)
-                Debug.Log(st.CanUse());
                 if (st.CanUse())
                 {
                     // 스킬 스테이트에서 거리 체크를 내부에서 하도록 재설계해도 된다.

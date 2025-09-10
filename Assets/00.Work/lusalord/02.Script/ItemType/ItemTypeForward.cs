@@ -25,6 +25,12 @@ namespace _00.Work.lusalord._02.Script.ItemType
             _coolTime = _forwardItemSo.coolTime;
         }
 
+        public override void ApplySetting()
+        {
+            _forwardItemSo = (ForwardItemSO)attackItemSo;
+            _coolTime = _forwardItemSo.coolTime;
+        }
+
         protected virtual void Update()
         {
             _timer += Time.deltaTime;
