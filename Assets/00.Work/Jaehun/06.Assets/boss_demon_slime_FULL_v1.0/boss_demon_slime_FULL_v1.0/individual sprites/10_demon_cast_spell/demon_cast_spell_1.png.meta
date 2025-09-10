@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      demon_cast_spell_1_0: 6292931187062757065
+      demon_cast_spell_1_1: 1182713635814235787
+      demon_cast_spell_1_2: 5614668168377143961
+      demon_cast_spell_1_3: -5160697727316762448
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      demon_smash_6_0: 6979606792167091119
+      demon_smash_6_1: -8576248260794325801
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

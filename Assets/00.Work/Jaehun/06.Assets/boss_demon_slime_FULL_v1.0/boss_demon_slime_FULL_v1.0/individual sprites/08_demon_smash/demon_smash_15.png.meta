@@ -534,7 +534,24 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      demon_smash_15_0: -1362159985189304405
+      demon_smash_15_1: 3639578606666034814
+      demon_smash_15_10: 180713247181464567
+      demon_smash_15_11: -5343612628796843757
+      demon_smash_15_12: 2580540871749953581
+      demon_smash_15_13: -4905986038915675472
+      demon_smash_15_14: 4798495283759742004
+      demon_smash_15_15: -49655140230772833
+      demon_smash_15_16: -6089806809243056553
+      demon_smash_15_2: 1953475054759098509
+      demon_smash_15_3: 8579851489030618672
+      demon_smash_15_4: -8016003187485101276
+      demon_smash_15_5: -5045789642062095840
+      demon_smash_15_6: -7082767262998829930
+      demon_smash_15_7: 6412641158747309188
+      demon_smash_15_8: 5588765020181961095
+      demon_smash_15_9: 5390489938011551075
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
