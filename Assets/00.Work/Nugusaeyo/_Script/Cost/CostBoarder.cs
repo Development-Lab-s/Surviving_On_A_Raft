@@ -71,7 +71,6 @@ public class CostBoarder : MonoBehaviour
                 if (_coroutines[i] != null)
                 {
                     StopCoroutine(_coroutines[i]);
-                    Debug.Log($"Coroutine {i} is not null");
                 }
                 _coroutines[i] = StartCoroutine(CostUp(i));
             }

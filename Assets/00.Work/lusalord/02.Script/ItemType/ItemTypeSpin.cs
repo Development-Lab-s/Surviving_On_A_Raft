@@ -7,22 +7,21 @@ namespace _00.Work.lusalord._02.Script.ItemType
     public abstract class ItemTypeSpin : AttackItem
     {
         private SpinItemSo _spinItemSo;
-        private Transform _playerTrs;
         private float _angle;
         private Vector3 _startDir;
         private float _radius;
         private readonly List<float> _childOffsets = new();
         public List<GameObject> objects = new();
         private int _flip;
-        
-        
-        protected virtual void Awake()
+
+        protected override void Awake()
         {
+            base.Awake();
             _spinItemSo = (SpinItemSo)attackItemSo;
             _radius = _spinItemSo.spinRadius;
-            _playerTrs = GameObject.Find("Player").GetComponent<Transform>();
+            
             gameObject.name = _spinItemSo.itemName;
-            for (int i = 1; i < _spinItemSo.spinAmount + 1; i++)
+            for (int i = 0; i < _spinItemSo.spinAmount; i++)
             {
                 float angle = i * (2f * Mathf.PI / _spinItemSo.spinAmount);
                 _childOffsets.Add(angle);
@@ -35,7 +34,42 @@ namespace _00.Work.lusalord._02.Script.ItemType
             }
         }
 
-        private GameObject Spawn()
+        public override void ApplySetting()
+        {
+            _spinItemSo = (SpinItemSo)attackItemSo;
+            _radius = _spinItemSo.spinRadius;
+
+            gameObject.name = _spinItemSo.itemName;
+
+            // 기존 childOffsets 초기화 후 새롭게 계산
+            _childOffsets.Clear();
+
+            // 현재 아이템 개수와 spinAmount 맞추기
+            while (objects.Count < _spinItemSo.spinAmount)
+            {
+                Spawn();
+            }
+            while (objects.Count > _spinItemSo.spinAmount)
+            {
+                Destroy(objects[objects.Count - 1]);
+                objects.RemoveAt(objects.Count - 1);
+            }
+
+            // 각 아이템을 균등하게 다시 배치
+            for (int i = 0; i < _spinItemSo.spinAmount; i++)
+            {
+                float angle = i * (2f * Mathf.PI / _spinItemSo.spinAmount);
+                _childOffsets.Add(angle);
+            }
+
+            if (_spinItemSo.flip)
+            {
+                _flip = 180;
+            }
+
+        }
+
+        private void Spawn()
         {
             GameObject spawnItem = Instantiate(_spinItemSo.spinPrefab, transform);
             objects.Add(spawnItem);
@@ -43,7 +77,6 @@ namespace _00.Work.lusalord._02.Script.ItemType
                 _radius * Mathf.Cos(_angle),
                 _radius* Mathf.Sin(_angle),
                 0);
-            return spawnItem;
         }
 
         
@@ -64,7 +97,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
 
                 if (_spinItemSo.isRotate)
                 {
-                    Vector3 dir = _playerTrs.position - child.position;
+                    Vector3 dir = Player.gameObject.transform.position - child.position;
                     float angleToPlayer = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                     child.rotation = Quaternion.AngleAxis(angleToPlayer + (90 + _flip), Vector3.forward);
                 }
@@ -74,7 +107,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
                     objects[i].transform.Rotate(0, 0, _spinItemSo.rotateSpeed);
                 }
             }
-            transform.position = _playerTrs.position;
+            transform.position = Player.gameObject.transform.position;
         }
     }
 }

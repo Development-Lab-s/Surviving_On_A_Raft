@@ -86,7 +86,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
             if (stat == StatType.Damage) damageMulti = buff;
         }
 
-        public void ResetBuff(StatType statType)
+        public void ResetBuff(StatType statType, float buff)
         {
             if (statType == StatType.Damage) damageMulti = 1f;
         }

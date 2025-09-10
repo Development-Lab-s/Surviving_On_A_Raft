@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -17,11 +18,16 @@ namespace _00.Work.Resource.Manager
             base.Awake();
             if (Instance == this)
             {
-                DontDestroyOnLoad(this.gameObject);
+                DontDestroyOnLoad(gameObject);
             }
         }
 
-        public void FadeOut(System.Action onComplete = null)
+        private void Start()
+        {
+            FadeOut();
+        }
+
+        public void FadeOut(Action onComplete = null)
         {
             if (fadeImage == null)
             {

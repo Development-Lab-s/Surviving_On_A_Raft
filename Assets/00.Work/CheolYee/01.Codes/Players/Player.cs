@@ -4,6 +4,7 @@ using _00.Work.CheolYee._01.Codes.Core.Buffs;
 using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _00.Work.CheolYee._01.Codes.Players
 {
@@ -17,13 +18,16 @@ namespace _00.Work.CheolYee._01.Codes.Players
         [Header("Agent SO Data")]
         [field:SerializeField] public PlayerInputSo PlayerInput {get; private set;} //인풋SO
         
-        private float _damageMulti = 1;
-        private float _critChanceMulti = 1;
+        public float damageMulti = 1;
+        public float critChanceMulti = 1;
+        public float attackSpeedMulti = 1;
 
         private PlayerAnimator PlayerAnimatorComponent { get; set; } //플레이어 애니메이션 담당
 
         [Header("Attack Settings")]
         private float _damage;
+        private float _attackSpeed;
+        public float CurrentAttackSpeed => attackSpeedMulti * _attackSpeed;
         public float CurrentDamage
         {
             get
@@ -31,18 +35,18 @@ namespace _00.Work.CheolYee._01.Codes.Players
                 if (IsCritical())
                 {
                     IsCrit = true;
-                    return _damage * _damageMulti * 2;
+                    return _damage * damageMulti * 2;
                 }
 
                 IsCrit = false;
-                return _damage * _damageMulti;
+                return _damage * damageMulti;
             }
         }
 
         public bool IsCrit { get; private set; }
         
         private int _critChance;
-        private int CriticalChance => (int)(_critChanceMulti * _critChance);
+        public int CurrentCriticalChance => (int)(critChanceMulti * _critChance);
         protected override void Awake()
         {
             base.Awake();
@@ -50,6 +54,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
 
             _damage = CharacterData.attack;
             _critChance = CharacterData.criticalChance;
+            _attackSpeed = CharacterData.attackSpeed;
 
             PlayerInput.OnJumpKeyPress += HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 등록
             MovementComponent.GetComponent<PlayerMovement>().Initialize(CharacterData); //캐릭터 데이터로 기본값 설정
@@ -77,7 +82,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         public bool IsCritical()
         {
             int roll = Random.Range(0, 100);
-            return roll < CriticalChance;
+            return roll < CurrentCriticalChance;
         }
 
         private void HandleJumpKeyPress() //점프키 눌렀을 때 실행
@@ -101,14 +106,16 @@ namespace _00.Work.CheolYee._01.Codes.Players
 
         public void ApplyBuff(StatType stat, float buff)
         {
-            if (stat == StatType.Damage) _damageMulti = buff;
-            if (stat == StatType.CritChance) _critChanceMulti = buff;
+            if (stat == StatType.Damage) damageMulti += buff;
+            if (stat == StatType.CritChance) critChanceMulti += buff;
+            if (stat == StatType.AttackSpeed) attackSpeedMulti += buff;
         }
 
-        public void ResetBuff(StatType statType)
+        public void ResetBuff(StatType statType, float buff)
         {
-            if (statType == StatType.Damage) _damageMulti = 1f;
-            if (statType == StatType.CritChance) _critChanceMulti = 1f;
+            if (statType == StatType.Damage) damageMulti -= buff;
+            if (statType == StatType.CritChance) critChanceMulti -= buff;
+            if (statType == StatType.AttackSpeed) attackSpeedMulti -= buff;
         }
     }
 }

@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour
     public int SlotCount = 5; // 슬롯 개수
     public int InvenCount = 2;
 
-    private int currentInvenCount = -1;
+    private int currentInvenCount = 0;
 
     private void Awake()
     {
@@ -51,6 +51,7 @@ public class InventoryManager : MonoBehaviour
                 // 초기 슬롯은 비어있음
                 ItemSlotList[currentInvenCount] = null;
             }
+            currentInvenCount = 0;
         }
     }
 }

@@ -10,6 +10,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         [SerializeField] private float extraGravity = 200f; //플레이어가 공중에 떠 있을 때 일정 시간 후 떨어지는 속도의 중력값
         [SerializeField] private float gravityDelay = 0.15f; //공중에 떠 있는 시간
 
+        private bool _isFacingRight = true;
         public AgentMovement MovementComponent { get; private set; } //이동 담당
         public AgentHealth HealthComponent { get; private set; } //체력 담당
 
@@ -56,16 +57,21 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         #region Flip Controller
 
         // 타겟 위치에 따라 캐릭터의 방향(스프라이트)을 좌우 반전
-        protected void HandleSpriteFlip()
+        public void HandleSpriteFlip(Vector3 targetPosition)
         {
-            float vx = MovementComponent.RbCompo.linearVelocityX;
+            //만약에 타겟(마우스, 플레이어 등 움직이는 것)의 x좌표가 자신보다 크다면(오른쪽에 있다면)
+            float dir = targetPosition.x - transform.position.x;
 
-            if (Mathf.Abs(vx) < 0.01) return;
-
-            Vector3 s = transform.localScale;
-            float absX = Mathf.Abs(s.x);
-            s.x = vx >= 0 ? absX : -absX;
-            transform.localScale = s;
+            if (dir > 0.1 && !_isFacingRight) // 타겟이 오른쪽에 있음
+            {
+                transform.eulerAngles = Vector3.zero; // 오른쪽 바라봄
+                _isFacingRight = true;
+            }
+            else if (dir < -0.1 && _isFacingRight) // 타겟이 왼쪽에 있음
+            {
+                transform.eulerAngles = new Vector3(0, 180f, 0); // 왼쪽 바라봄
+                _isFacingRight = false;
+            }
         }
 
         #endregion
