@@ -62,6 +62,10 @@ PrefabInstance:
       propertyPath: laser
       value: 
       objectReference: {fileID: 5994474897641510601}
+    - target: {fileID: 7641731564943226342, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
+      propertyPath: damageRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.77
@@ -80,15 +84,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

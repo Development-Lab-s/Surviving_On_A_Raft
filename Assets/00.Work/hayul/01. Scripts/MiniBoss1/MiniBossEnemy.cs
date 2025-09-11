@@ -46,12 +46,6 @@ namespace _00.Work.hayul._01._Scripts.MiniBoss1
             _bossAttackState?.OnAnimationCast();
         }
 
-        protected override void Update()
-        {
-            base.Update();
-            _bossAttackState.Update();
-        }
-
         public override void AnimationEndTrigger()
         {
             // 기본: 현재 State의 AnimationEndTrigger 호출 (기존 구현 유지)

@@ -24,13 +24,18 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
         private float _coolTime;
         private float _timer;
 
-        public void Initialize(float damage, float knockback, float cooltime)
+        public void Initialize(float damage, float knockback, float cooltime, Vector2 dir)
         {
             _damage = damage;
             _knockback = knockback;
             _coolTime = cooltime;
+            
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+
             StartCoroutine(LifeTimeRoutine());
         }
+
 
         private IEnumerator LifeTimeRoutine()
         {

@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 43229365}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.12, y: 1.02, z: -0.0233667}
+  m_LocalPosition: {x: -0.215, y: 0.939, z: -0.0233667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36492,6 +36492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Firepos
       objectReference: {fileID: 0}
+    - target: {fileID: 8055482708383366172, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
+      propertyPath: attackItemSo
+      value: 
+      objectReference: {fileID: 11400000, guid: e1a0d4d895fe2184da07ac169abf8037, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -36921,13 +36925,14 @@ MonoBehaviour:
   extraGravity: 200
   gravityDelay: 0.15
   isDead: 0
+  isFliping: 0
   onDeath:
     m_PersistentCalls:
       m_Calls: []
   enemyData: {fileID: 11400000, guid: c4679f2a2b988c643933967e8d248c7d, type: 2}
   damageMulti: 1
   detectRadius: 0
-  attackRadius: 11
+  attackRadius: 20
   attackCooldown: 0
   knockbackPower: 0
   lastAttackTime: 0
@@ -36952,11 +36957,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   <ItemName>k__BackingField: MiniBoss1
-  skill1Cooldown: 400
+  skill1Cooldown: 10
   skill1Prefab: {fileID: 1367622691017992015, guid: 47528f8395854af44933244fef8dc88a, type: 3}
   skill1FirePos: {fileID: 43229366}
-  skill1Range: 5
-  armAttackCooldown: 5
+  skill1Range: 20
+  skill1Lifetime: 5
+  armAttackCooldown: 4
   armPrefab: {fileID: 3659094807772548393, guid: f326cc06cc0c4bf4ba70c0f058a573b4, type: 3}
   armSpawnPoint: {fileID: 1573824604}
   armRange: 7

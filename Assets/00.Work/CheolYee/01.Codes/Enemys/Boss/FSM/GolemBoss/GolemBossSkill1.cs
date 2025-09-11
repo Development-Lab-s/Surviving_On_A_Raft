@@ -28,6 +28,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
             _firePos = firePos;
             _range = range;
             _lifeTime = lifeTime;
+            
         }
 
         public override void OnAnimationCast()
@@ -39,15 +40,16 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
 
             if (laser != null)
             {
-                laser.Initialize(Enemy.CurrentAttackDamage, Enemy.knockbackPower, _lifeTime);
-                // 플레이어 방향으로 팔 회전
-                if (Enemy.targetTrm != null)
-                {
-                    Vector3 dir = (Enemy.targetTrm.position - _firePos.position).normalized;
-                    laser.transform.right = dir;
-                }
+                Enemy.isFliping = true;
+                laser.transform.position = _firePos.position;
+                
+                Vector3 dir = (Enemy.targetTrm.position - _firePos.position).normalized;
+                laser.Initialize(Enemy.CurrentAttackDamage, Enemy.knockbackPower, _lifeTime, dir);
             }
 
+
+
+            LastAttackTime = Time.time; //마지막 어택 시간 기록 (쿨타임)
         }
 
         public override void Update()
@@ -58,8 +60,9 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
 
             if (_timer > _lifeTime)
             {
+                _timer = 0;
+                Enemy.isFliping = false;
                 AnimationEndTrigger();
-                LastAttackTime = Time.time; //마지막 어택 시간 기록 (쿨타임)
             }
         }
 

@@ -38,8 +38,9 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
             Projectile projectile = PoolManager.Instance.Pop(poolName) as Projectile;
             if (projectile)
             {
-                Vector2 dir = Enemy.targetTrm.position - _firePos.position;
+                Vector2 dir = (_firePos.right) * Mathf.Sign(Enemy.transform.localScale.x);
                 projectile.Initialize(_firePos, dir, Enemy.CurrentAttackDamage, 0, 10);
+
             }
 
             LastAttackTime = Time.time; //마지막 어택 시간 기록 (쿨타임)
