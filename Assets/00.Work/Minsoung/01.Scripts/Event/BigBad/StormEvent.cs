@@ -4,9 +4,10 @@ using _00.Work.Resource.Manager;
 using DG.Tweening;
 using UnityEngine;
 
-public class StormEvent : MonoBehaviour
+public class StormEvent : MonoBehaviour, IEvent
 {
     [field: SerializeField] public GameEventType eventType { get; private set; }
+    [field: SerializeField] public string eventEffectText { get; private set; }
 
     [SerializeField] private GameObject stormPre;
     [SerializeField] private CameraEventSO eventSO;
@@ -23,6 +24,7 @@ public class StormEvent : MonoBehaviour
     public void StartEvent()
     {
         StartCoroutine(CreateThunder());
+        
     }
 
     private IEnumerator CreateThunder()
@@ -38,4 +40,9 @@ public class StormEvent : MonoBehaviour
             
         }
     }
+    public void StartEventEffectText()
+    {
+        EventUIManager.Instance.SetEventTextEffect(eventEffectText);
+    }
+
 }

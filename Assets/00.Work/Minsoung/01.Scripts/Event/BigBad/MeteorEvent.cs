@@ -6,12 +6,15 @@ using UnityEngine;
 public class MeteorEvent : MonoBehaviour, IEvent
 {
     [field: SerializeField] public GameEventType eventType { get; private set; }
+    [field: SerializeField] public string eventEffectText { get; private set; }
+
+
     [SerializeField] private GameObject meteor;
     [SerializeField] private Camera mainCam;
     [SerializeField] private CameraEventSO eventSO;
     [SerializeField] private int num = 5;
     private float _rand;
-    private Vector2 _posision;
+    private Vector2 _position;
 
 
     private void Start()
@@ -26,7 +29,8 @@ public class MeteorEvent : MonoBehaviour, IEvent
     [ContextMenu("메테오 ㄹㅊㄱ")]
     public void StartEvent()
     {
-        StartCoroutine(CreateMeteor()); 
+        StartCoroutine(CreateMeteor());
+        
     }
 
     private IEnumerator CreateMeteor()
@@ -34,12 +38,17 @@ public class MeteorEvent : MonoBehaviour, IEvent
         for (int i = 0; i < num; i++)
         {
             _rand = Random.Range(1f, 3f);
-            _posision = mainCam.ViewportToWorldPoint(new Vector2(_rand, 3));
+            _position = mainCam.ViewportToWorldPoint(new Vector3(_rand, 3f, 10f));
+
+            GameObject newMeteor = Instantiate(meteor, _position, Quaternion.identity);
             yield return new WaitForSeconds(1f);
-            Instantiate(meteor);
-            meteor.transform.position = _posision;
 
 
         }
+    }
+
+    public void StartEventEffectText()
+    {
+        EventUIManager.Instance.SetEventTextEffect(eventEffectText);
     }
 }

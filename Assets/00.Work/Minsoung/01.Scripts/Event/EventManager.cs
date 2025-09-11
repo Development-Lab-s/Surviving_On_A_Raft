@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum GameEventType
 {
@@ -24,6 +26,9 @@ public class EventManager : MonoBehaviour
     [SerializeField] private float _eventStartOffset = 10f;
     float _currentTime = 0;
 
+    public float CurrentEventDuration { get; private set; }
+
+
     public static EventManager Instance { get; private set; }
 
     private void Awake()
@@ -31,14 +36,18 @@ public class EventManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-
-            IEventBunlyu(); // Awake에서 IEvent 분류 함해줘 ㅇㅇ
+            
         }
         else
         {
             Destroy(this.gameObject);
         }
+        IEventBunlyu(); // Awake에서 IEvent 분류 함해줘 ㅇㅇ
+
+    }
+    private void Start()
+    {
+        EventUIManager.Instance.SetEventTextEffect("djdjdj");
     }
 
     private void IEventBunlyu() // 이벤트들 타입별로 분류
@@ -74,6 +83,7 @@ public class EventManager : MonoBehaviour
             _currentTime -= _cycle;
             StartEvent();
         }
+        
     }
 
     public void StartEvent()
@@ -94,73 +104,77 @@ public class EventManager : MonoBehaviour
         }
 
         // UI를 먼저 보여주고, 오프셋 뒤에 실제 이벤트 실행
-        StartCoroutine(EventStartOffset(selectedEventType));
+        EventStartOffset(selectedEventType);
     }
 
-    private IEnumerator EventStartOffset(GameEventType gameEventType)
+    private void EventStartOffset(GameEventType gameEventType)
     {
         EventUIManager.Instance.WhatEvent(gameEventType);
-
-        yield return new WaitForSeconds(_eventStartOffset);
-
+        
         switch (gameEventType)
         {
             case GameEventType.SmallGood:
-                SmallGoodEvent();
+                StartCoroutine(SmallGoodEvent());
                 break;
             case GameEventType.BigGood:
-                BigGoodEvent();
+                StartCoroutine(BigGoodEvent());
                 break;
             case GameEventType.SmallBad:
-                SmallBadEvent();
+                StartCoroutine(SmallBadEvent());
                 break;
             case GameEventType.BigBad:
-                BigBadEvent();
+                StartCoroutine(BigBadEvent());
                 break;
         }
     }
 
-    private void SmallGoodEvent()
+    private IEnumerator SmallGoodEvent()
     {
         print("작고 좋은 이벤트 실행");
         if (smallGoodEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, smallGoodEventList.Count); // List 크기까지 랜덤
+            smallGoodEventList[randomIndex].StartEventEffectText(); // 부제목? 효과 띄어주기
+            yield return new WaitForSeconds(_eventStartOffset);
             smallGoodEventList[randomIndex].StartEvent(); // 이벤트 ㄹㅊㄱ
-            print("작고 좋은" + randomIndex); // 디버깅용민 엌
+            
+            
         }
     }
 
-    private void BigGoodEvent()
+    private IEnumerator BigGoodEvent()
     {
         print("크고 좋은 이벤트 실행");
         if (bigGoodEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, bigGoodEventList.Count);
+            bigGoodEventList[randomIndex].StartEventEffectText();
+            yield return new WaitForSeconds(_eventStartOffset);
             bigGoodEventList[randomIndex].StartEvent();
-            print("크고 좋은" + randomIndex); // 디버깅용민 엌
         }
     }
 
-    private void SmallBadEvent()
+    private IEnumerator SmallBadEvent()
     {
         print("작고 나쁜 이벤트 실행");
         if (smallBadEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, smallBadEventList.Count);
+            smallBadEventList[randomIndex].StartEventEffectText();
+            yield return new WaitForSeconds(_eventStartOffset);
             smallBadEventList[randomIndex].StartEvent();
-            print("작고 나쁜" + randomIndex); // 디버깅용민 엌
         }
     }
 
-    private void BigBadEvent()
+    private IEnumerator BigBadEvent()
     {
         print("크고 나쁜 이벤트 실행");
         if (bigBadEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, bigBadEventList.Count);
+            bigBadEventList[randomIndex].StartEventEffectText();
+            yield return new WaitForSeconds(_eventStartOffset);
             bigBadEventList[randomIndex].StartEvent();
-            print("크고 나쁜" + randomIndex); // 디버깅용민 엌
         }
     }
 }

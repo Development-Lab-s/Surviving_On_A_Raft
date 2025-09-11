@@ -9,8 +9,9 @@ namespace _00.Work.CheolYee._01.Codes.SO
     {
         public Action OnJumpKeyPress;
         public Action OnSkillKeyPress;
+        public Action OnFkeyPress;
         
-        public Vector2 Movement {get; private set;}
+        public Vector2 Movement { get; private set; }
         public Vector2 MousePosition {get; private set;}
         
         private Controls _controls;
@@ -49,6 +50,11 @@ namespace _00.Work.CheolYee._01.Codes.SO
         public void OnSkill(InputAction.CallbackContext context)
         {
             if (context.performed) OnSkillKeyPress?.Invoke();
+        }
+
+        public void OnFkey(InputAction.CallbackContext context)
+        {
+            if (context.performed) OnFkeyPress?.Invoke();
         }
     }
 }

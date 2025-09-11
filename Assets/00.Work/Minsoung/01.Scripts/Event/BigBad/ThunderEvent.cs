@@ -10,6 +10,7 @@ using UnityEngine;
 public class ThunderEvent : MonoBehaviour, IEvent
 {
     [field: SerializeField] public GameEventType eventType { get; private set; }
+    [field: SerializeField] public string eventEffectText { get; private set; }
 
     [field:SerializeField] private GameObject[] thunder;
     [SerializeField] private CameraEventSO eventSO;
@@ -40,5 +41,9 @@ public class ThunderEvent : MonoBehaviour, IEvent
             thunderPrefab.GameObject.transform.DOScale(new Vector3(1, 1, 1), 0.5f).SetEase(Ease.OutQuart);
 
         }
+    }
+    public void StartEventEffectText()
+    {
+        EventUIManager.Instance.SetEventTextEffect(eventEffectText);
     }
 }

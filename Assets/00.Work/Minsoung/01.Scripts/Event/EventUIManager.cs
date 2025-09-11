@@ -12,7 +12,7 @@ public class EventUIManager : MonoBehaviour
     [field: SerializeField] private List<string> smallBadMessage = new List<string>();
     [field: SerializeField] private List<string> BigBadMessage = new List<string>();
 
-    private TypewriterByCharacter _eventText;
+    private TypewriterByCharacter[] _eventText;
     public static EventUIManager Instance { get; private set; }
 
     private void Awake()
@@ -20,7 +20,6 @@ public class EventUIManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -30,7 +29,12 @@ public class EventUIManager : MonoBehaviour
 
     private void Start()
     {
-        _eventText = GetComponentInChildren<TypewriterByCharacter>();
+        _eventText = GetComponentsInChildren<TypewriterByCharacter>();
+        
+        foreach (var i in _eventText)
+        {
+            Debug.Log(i);
+        }
     }
 
     public void WhatEvent(GameEventType gameEventType)
@@ -96,9 +100,14 @@ public class EventUIManager : MonoBehaviour
 
     private void SetEventText(string text)
     {
-        _eventText.ShowText(text);
-        print("되고 있다고 !!");
-        
+        Debug.Log(text);
+        _eventText[0].ShowText(text);
+    }
+
+    public void SetEventTextEffect(string text)
+    {
+        Debug.Log(text);
+        _eventText[1].ShowText(text);
     }
 
     public void OnTypingComplete()
@@ -111,7 +120,8 @@ public class EventUIManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         if (_eventText != null)
         {
-            _eventText.StartDisappearingText();
+            _eventText[0].StartDisappearingText();
+            _eventText[1].StartDisappearingText();
         }
     }
 }
