@@ -10,7 +10,6 @@ public class PlayerMapTracker : MonoBehaviour
         if (map != null)
         {
             CurrentMap = map;
-            Debug.Log($"플레이어가 {map.mapName} 에 입장");
             SpawnManager.Instance.SpawnPortalInMap(map);
         }
     }
