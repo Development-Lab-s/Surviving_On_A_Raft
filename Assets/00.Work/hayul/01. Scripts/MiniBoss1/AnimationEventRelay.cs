@@ -1,4 +1,5 @@
 using _00.Work.CheolYee._01.Codes.Enemys.Boss;
+using _00.Work.hayul._01._Scripts.MiniBoss1;
 using UnityEngine;
 
 public class AnimationEventRelay : MonoBehaviour
