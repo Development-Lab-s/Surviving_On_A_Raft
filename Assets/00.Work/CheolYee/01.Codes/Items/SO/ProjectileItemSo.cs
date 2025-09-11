@@ -1,6 +1,7 @@
 using System;
 using _00.Work.CheolYee._01.Codes.Projectiles;
 using _00.Work.lusalord._02.Script.SO.AttackItem;
+using _00.Work.Resource.SO;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Items.SO
@@ -16,9 +17,9 @@ namespace _00.Work.CheolYee._01.Codes.Items.SO
         {
             if (projectilePrefab != null)
             {
-                if (projectilePrefab.TryGetComponent(out Projectile spinCaster))
+                if (projectilePrefab.TryGetComponent(out Projectile projectile))
                 {
-                    itemName = spinCaster.gameObject.name;
+                    itemName = projectile.GetComponent<IPoolable>().ItemName;
                 }
                 else
                 {

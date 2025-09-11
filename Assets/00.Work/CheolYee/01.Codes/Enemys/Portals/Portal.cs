@@ -23,11 +23,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
         public string ItemName => poolName;
         public GameObject GameObject => gameObject;
 
-        private void Start()
-        {
-            Initialize(PortalData, false);
-        }
-
         public void Initialize(PortalDataSo portalData, bool left)
         {
             PortalData = portalData;

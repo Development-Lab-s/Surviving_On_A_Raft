@@ -16,7 +16,6 @@ public class CostSpawner : MonoBehaviour
         {
             IPoolable cost = PoolManager.Instance.Pop($"ItemCost");
             cost.GameObject.transform.position = spawnPosition;
-            Debug.Log($"Cost Spawned, Amount : {amount}");
         }
     }
 }

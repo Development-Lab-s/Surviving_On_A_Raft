@@ -2,7 +2,7 @@ using _00.Work.Resource.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _00._Work._02._Scripts.Buttons
+namespace _00.Work.Resource.Codes
 {
     public class MenuUIBtn : MonoBehaviour
     {

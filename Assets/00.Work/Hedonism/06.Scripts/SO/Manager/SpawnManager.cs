@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Portals;
+using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using UnityEngine;
@@ -11,13 +12,11 @@ public class SpawnManager : MonoSingleton<SpawnManager>
 
     [SerializeField] private PoolItem _portalItemPrefab; // 풀링할 포탈
     [SerializeField] private PortalDataSo portalData;    // 포탈 설정 데이터
-    [SerializeField] private Transform spawnPoint;       // 소환 위치
-
-    private Transform currentSpawn;
+    private Transform _playerTrm;
 
     void Start()
     {
-        Debug.Log(spawnPoints.Count);
+        _playerTrm = GameManager.Instance.playerTransform;
     }
 
     //  여러 개의 포탈 관리용 리스트
@@ -31,7 +30,6 @@ public class SpawnManager : MonoSingleton<SpawnManager>
 
         if (map.portalSpawnPoints.Count == 0)
         {
-            Debug.LogWarning($"{map.mapName}에는 포탈 스폰포인트가 없습니다!");
             return;
         }
 
@@ -54,7 +52,6 @@ public class SpawnManager : MonoSingleton<SpawnManager>
             portal.Initialize(portalData, false);
 
             currentPortals.Add(portal); // 리스트에 저장
-            Debug.Log($"{map.mapName} 에 포탈 생성! 위치: {spawnPos}");
         }
     }
 
@@ -87,33 +84,14 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     }
 
 
-    public void StartCycle()
+    public void StartCycle(int index)
     {
-        Debug.Log(spawnPoints.Count);
-        if (spawnPoints.Count == 0)
-        {
-            Debug.Log("모든 스폰포인트를 다 사용했습니다!");
-            return;
-        }
-
-        // 랜덤 인덱스 선택
-        int randomIndex = Random.Range(0, spawnPoints.Count);
-        currentSpawn = spawnPoints[randomIndex];
-
         // 플레이어 이동
-        MovePlayerTo(currentSpawn.position);
-        Debug.Log($"인덱스: {randomIndex}, 포지션: {currentSpawn.position}");
-
-        // 사용한 스폰포인트 제거
-        spawnPoints.RemoveAt(randomIndex);
+        MovePlayerTo(index);
     }
 
-    private void MovePlayerTo(Vector3 pos)
+    private void MovePlayerTo(int index)
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-            player.transform.position = pos;
-        }
+        _playerTrm.position = spawnPoints[index].transform.position;
     }
 }

@@ -1,9 +1,8 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using _00.Work.Resource.Manager;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace _00.Work.CheolYee._01.Codes.Managers
 {
@@ -21,8 +20,8 @@ namespace _00.Work.CheolYee._01.Codes.Managers
         [SerializeField] private float enemyGrowthPerSecond = 1; //1초
         public event Action<StatType, float> OnEnemyBuff;
         public event Action<StatType, float> OnPlayerBuff;
-        public event Action<StatType> OnResetEnemyBuff;
-        public event Action<StatType> OnResetPlayerBuff;
+        public event Action<StatType, float> OnResetEnemyBuff;
+        public event Action<StatType, float> OnResetPlayerBuff;
 
         private readonly Dictionary<StatType, float> _enemyBuffMultipliers = new();
         
@@ -93,19 +92,19 @@ namespace _00.Work.CheolYee._01.Codes.Managers
         ///<summary>
         ///플레이어 버프 초기화 (스텟 타입)
         ///</summary>
-        public void ResetPlayer(StatType type)
+        public void ResetPlayer(StatType type, float buff)
         {
-            OnResetPlayerBuff?.Invoke(type);
+            OnResetPlayerBuff?.Invoke(type, buff);
         }
         ///<summary>
         ///적 버프 초기화 (스텟 타입)
         ///</summary>
-        public void ResetEnemies(StatType stat)
+        public void ResetEnemies(StatType stat, float buff)
         {
             if (_enemyBuffMultipliers.ContainsKey(stat))
                 _enemyBuffMultipliers.Remove(stat);
     
-            OnResetEnemyBuff?.Invoke(stat);
+            OnResetEnemyBuff?.Invoke(stat, buff);
         }
         
         private IEnumerator GrowthRoutine()
@@ -118,13 +117,13 @@ namespace _00.Work.CheolYee._01.Codes.Managers
         {
             BuffEnemies(stats, multi);
             yield return new WaitForSeconds(time);
-            ResetEnemies(stats);
+            ResetEnemies(stats, multi);
         }
         private IEnumerator PlayerBuffRoutine(StatType stats, float multi, float time)
         {
             BuffPlayer(stats, multi);
             yield return new WaitForSeconds(time);
-            ResetPlayer(stats);
+            ResetPlayer(stats, multi);
         }
         private void BuffEnemies(StatType stats, float multi)
         {
