@@ -1,17 +1,17 @@
 ﻿using _00.Work.CheolYee._01.Codes.Managers;
 using UnityEngine;
 
-public class PlayerDamageUpEvent : MonoBehaviour, IEvent
+public class PlayerCritChanceZeroEvent : MonoBehaviour, IEvent
 {
     [field: SerializeField] public GameEventType eventType { get; private set; }
     [field: SerializeField] public string eventEffectText { get; private set; }
 
     [field: SerializeField] public float EventDuration { get; private set; }
 
-    [ContextMenu("나 엄청 츠요이")]
+    [ContextMenu("나 운이 메이요")]
     public void StartEvent()
     {
-        StatManager.Instance.PlayerBuffInTime(StatType.Damage, 1.5f, EventDuration);
+        StatManager.Instance.PlayerBuffInTime(StatType.CritChance, 0f, EventDuration);
     }
 
     public void StartEventEffectText()

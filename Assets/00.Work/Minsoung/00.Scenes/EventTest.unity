@@ -2450,6 +2450,102 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &313135095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 313135096}
+  - component: {fileID: 313135097}
+  m_Layer: 0
+  m_Name: PlayerHealthUpEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &313135096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313135095}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1510529953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &313135097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313135095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6921e27863e4474c82e8a8ed479a2ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <eventType>k__BackingField: 0
+  <eventEffectText>k__BackingField: "\uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC774
+    20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  <EventDuration>k__BackingField: 15
+--- !u!1 &352337594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 352337595}
+  - component: {fileID: 352337596}
+  m_Layer: 0
+  m_Name: PlayerHealthDownEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &352337595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352337594}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1030154639}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &352337596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352337594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42fad82ac6a8ef64b8df8c253a9daf6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <eventType>k__BackingField: 3
+  <eventEffectText>k__BackingField: "\uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC774
+    20% \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  <EventDuration>k__BackingField: 15
 --- !u!1 &495762292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,6 +3116,54 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &785160965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 785160966}
+  - component: {fileID: 785160967}
+  m_Layer: 0
+  m_Name: PlayerCritChanceZeroEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &785160966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785160965}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1401323889}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &785160967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785160965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1511512bb461d814b836dccb94641ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <eventType>k__BackingField: 0
+  <eventEffectText>k__BackingField: "\uD50C\uB808\uC774\uC5B4\uC758 \uD06C\uB9AC\uD2F0\uCEEC\uC774
+    \uBC1C\uB3D9 \uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
+  <EventDuration>k__BackingField: 15
 --- !u!1 &790550014
 GameObject:
   m_ObjectHideFlags: 0
@@ -16576,6 +16720,7 @@ Transform:
   - {fileID: 1030154639}
   - {fileID: 1714710136}
   - {fileID: 1510529953}
+  - {fileID: 1401323889}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &897068571
@@ -16654,6 +16799,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1024796715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024796716}
+  - component: {fileID: 1024796717}
+  m_Layer: 0
+  m_Name: EnemyHealthDownEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024796716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024796715}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1714710136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024796717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024796715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2798fe3130f1a94b841165b8118524c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <eventType>k__BackingField: 1
+  <eventEffectText>k__BackingField: "\uC801\uC758 \uC2A4\uD53C\uB4DC\uAC00 25% \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  <EventDuration>k__BackingField: 15
 --- !u!1 &1025985356
 GameObject:
   m_ObjectHideFlags: 0
@@ -16770,6 +16962,7 @@ Transform:
   - {fileID: 1042788217}
   - {fileID: 495762293}
   - {fileID: 1467673535}
+  - {fileID: 352337595}
   m_Father: {fileID: 897068570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1031502806
@@ -29763,9 +29956,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e3e626f630ea640921725bb3089f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <eventType>k__BackingField: 0
+  <eventType>k__BackingField: 1
   <eventEffectText>k__BackingField: "\uD50C\uB808\uC774\uC5B4\uC758 \uC2A4\uD53C\uB4DC\uAC00
-    50% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    40% \uC99D\uAC00\uD569\uB2C8\uB2E4."
   <EventDuration>k__BackingField: 20
 --- !u!1 &1063247810
 GameObject:
@@ -30707,6 +30900,39 @@ MonoBehaviour:
   <eventEffectText>k__BackingField: "\uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uAC00
     20% \uAC10\uC18C\uD569\uB2C8\uB2E4."
   <EventDuration>k__BackingField: 10
+--- !u!1 &1401323888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401323889}
+  m_Layer: 0
+  m_Name: SmallBad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1401323889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401323888}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 785160966}
+  - {fileID: 1721353360}
+  m_Father: {fileID: 897068570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1467673534
 GameObject:
   m_ObjectHideFlags: 0
@@ -30786,6 +31012,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1310974509}
+  - {fileID: 2063431508}
+  - {fileID: 313135096}
   m_Father: {fileID: 897068570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!213 &1517356872
@@ -31392,11 +31620,59 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2063431508}
   - {fileID: 598370289}
   - {fileID: 1050456742}
+  - {fileID: 1024796716}
   m_Father: {fileID: 897068570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1721353359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721353360}
+  - component: {fileID: 1721353361}
+  m_Layer: 0
+  m_Name: PlayerSpeedDownEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1721353360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721353359}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1401323889}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1721353361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721353359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8908f59a102a5d478d0a3bd233559d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <eventType>k__BackingField: 2
+  <eventEffectText>k__BackingField: "\uD50C\uB808\uC774\uC5B4\uC758 \uC774\uB3D9\uC18D\uB3C4\uAC00
+    10% \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  <EventDuration>k__BackingField: 15
 --- !u!4 &1859742535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5291641684532096188, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
@@ -31427,12 +31703,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063431507}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1714710136}
+  m_Father: {fileID: 1510529953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2063431509
 MonoBehaviour:
@@ -31446,9 +31722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256e29066a8349d44a85e0f84c5f984a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <eventType>k__BackingField: 1
+  <eventType>k__BackingField: 0
   <eventEffectText>k__BackingField: "\uD50C\uB808\uC774\uC5B4\uC758 \uACF5\uACA9\uB825\uC774
-    50% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
   <EventDuration>k__BackingField: 15
 --- !u!1001 &2109352226
 PrefabInstance:
