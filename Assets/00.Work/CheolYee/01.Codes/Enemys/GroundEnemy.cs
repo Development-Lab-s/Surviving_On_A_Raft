@@ -16,6 +16,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         protected EnemyStateMachine StateMachine; //FSM 머신 설정
         public override void SetDead() //죽은 상태로 만들기
         {
+            base.SetDead();
             StateMachine.ChangeState(EnemyBehaviourType.Death);
         }
 

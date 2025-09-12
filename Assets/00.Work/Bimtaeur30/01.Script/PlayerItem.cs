@@ -3,12 +3,15 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerItem
 {
-    public ExItemSO Template;  // SO ÂüÁ¶
-    public int Level = 1;      // ÇÃ·¹ÀÌ¾î Àü¿ë ·¹º§
+    public ExItemSO Template;  // SO ì°¸ì¡°
+    public int Level = 1;      // í”Œë ˆì´ì–´ ì „ìš© ë ˆë²¨
 
     public void Upgrade()
     {
         if (Level < 5)
+        {
+            Template.Upgrade();
             Level++;
+        }
     }
 }

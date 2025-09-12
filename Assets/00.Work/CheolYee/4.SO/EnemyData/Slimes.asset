@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Slimes
   m_EditorClassIdentifier: 
   maxHealth: 100
-  moveSpeed: 2
+  moveSpeed: 1.2
   jumpForce: 20
   knockbackDuration: 0.1
   attackDamage: 10

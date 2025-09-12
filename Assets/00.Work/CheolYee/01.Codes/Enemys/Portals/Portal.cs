@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using _00.Work.Hedonism._06.Scripts.SO.Manager;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using DG.Tweening;
@@ -22,6 +22,11 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
         
         public string ItemName => poolName;
         public GameObject GameObject => gameObject;
+        
+        private void Start()
+        {
+            Initialize(PortalData, true);
+        }
 
         public void Initialize(PortalDataSo portalData, bool left)
         {
@@ -59,14 +64,22 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
             while (_closePortal == false)
             {
                 float spawnTime = PortalData.GetRandomSpawnTime();
-                int randomListIndex = PortalData.GetRandomListIndex();
-                
-                Enemy enemy = PoolManager.Instance.Pop(PortalData.enemies[randomListIndex].poolName) as Enemy;
-                if (enemy != null)
+                if (SpawnManager.Instance.CanSpawn())
                 {
-                    enemy.transform.position = spawnTrm.position;
-                    if (_isLeft) enemy.MovementComponent.SetMovement(PortalData.launchForce);
-                    else enemy.MovementComponent.SetMovement(-PortalData.launchForce);
+                    int randomListIndex = PortalData.GetRandomListIndex();
+                    
+                    Enemy enemy = PoolManager.Instance.Pop(PortalData.enemies[randomListIndex].poolName) as Enemy;
+                    if (enemy != null)
+                    {
+                        
+                        enemy.transform.position = spawnTrm.position;
+                        if (_isLeft) enemy.MovementComponent.SetMovement(PortalData.launchForce);
+                        else enemy.MovementComponent.SetMovement(-PortalData.launchForce);
+                        yield return new WaitForSeconds(spawnTime);
+                    }
+                }
+                else
+                {
                     yield return new WaitForSeconds(spawnTime);
                 }
             }

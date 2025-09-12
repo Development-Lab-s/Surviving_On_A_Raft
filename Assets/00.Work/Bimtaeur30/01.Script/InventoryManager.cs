@@ -8,11 +8,11 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance { get; private set; }
 
     [SerializeField] private GameObject InvenSlotPrefab;
-    public PlayerItem[] ItemSlotList;            // ÀÌÁ¦ PlayerItem ¹è¿­
+    public PlayerItem[] ItemSlotList;            // ì´ì œ PlayerItem ë°°ì—´
     public GameObject[] InventoryFrameList;
     public List<GameObject> SlotList = new List<GameObject>();
 
-    public int SlotCount = 5; // ½½·Ô °³¼ö
+    public int SlotCount = 5; // ìŠ¬ë¡¯ ê°œìˆ˜
     public int InvenCount = 2;
 
     private int currentInvenCount = 0;
@@ -48,7 +48,7 @@ public class InventoryManager : MonoBehaviour
 
                 SlotList.Add(clonedSlot);
 
-                // ÃÊ±â ½½·ÔÀº ºñ¾îÀÖÀ½
+                // ì´ˆê¸° ìŠ¬ë¡¯ì€ ë¹„ì–´ìˆìŒ
                 ItemSlotList[currentInvenCount] = null;
             }
             currentInvenCount = 0;

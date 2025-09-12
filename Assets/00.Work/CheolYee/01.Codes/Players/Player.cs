@@ -24,6 +24,8 @@ namespace _00.Work.CheolYee._01.Codes.Players
 
         private PlayerAnimator PlayerAnimatorComponent { get; set; } //플레이어 애니메이션 담당
 
+        private bool _setDead;
+
         [Header("Attack Settings")]
         private float _damage;
         private float _attackSpeed;
@@ -70,8 +72,11 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private void Update()
         {
             CalculateInAirTime(); //공중 시간 계산
-            SetupMovementX(); //무브먼트 스크립트에 지속적으로 X값 전달
-            UpdateAnimator(); //애니메이션 업데이트
+            if (!_setDead)
+            {
+                SetupMovementX(); //무브먼트 스크립트에 지속적으로 X값 전달
+                UpdateAnimator(); //애니메이션 업데이트
+            }
         }
 
         private void FixedUpdate()
@@ -101,9 +106,18 @@ namespace _00.Work.CheolYee._01.Codes.Players
 
         private void UpdateAnimator()
         {
+            PlayerAnimatorComponent.SetJump(!MovementComponent.IsGround.Value); //이동 전달
+            PlayerAnimatorComponent.MovePlayer(Mathf.Abs(PlayerInput.Movement.x));
             PlayerAnimatorComponent.HandleFlip(PlayerInput.Movement.x);
         }
 
+        public void SetDead()
+        {
+            _setDead = true;
+            MovementComponent.StopImmediately();
+            PlayerAnimatorComponent.SetDead(true);
+        }
+        
         public void ApplyBuff(StatType stat, float buff)
         {
             if (stat == StatType.Damage) damageMulti += buff;

@@ -7,7 +7,6 @@ namespace _00.Work.CheolYee._01.Codes.Managers
     public class GameManager : MonoSingleton<GameManager>
     {
         public Transform playerTransform;
-
         protected override void Awake()
         {
             base.Awake();

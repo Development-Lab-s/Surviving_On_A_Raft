@@ -205,7 +205,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   enemyData: {fileID: 11400000, guid: bd7307e9d0f22634882ceb4d0ebe2611, type: 2}
-  isBoss: 0
   damageMulti: 0
   detectRadius: 0
   attackRadius: 4.39
@@ -230,7 +229,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: BatRange
   firePos: {fileID: 1697647709106382990}
   projectilePrefab: {fileID: 3659094807772548393, guid: 8e415048a431aa647adcb492f7206b5c, type: 3}
-  projectileSpeed: 10
+  projectileSpeed: 5
 --- !u!1 &2929544364795631579
 GameObject:
   m_ObjectHideFlags: 0

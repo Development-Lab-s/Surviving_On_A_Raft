@@ -14,22 +14,15 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         private float _maxHealth = 150f;
         private float _currentHealth;
 
-        public float CurrentHealth
-        {
-            get => _currentHealth * HealthMulti;
-            set
-            { 
-                _currentHealth += value;
-                _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth * HealthMulti);
-            }
-        }
+        public float CurrentHealth => _currentHealth;
+        public float MaxHealth => _maxHealth * HealthMulti;
 
         private Agent _owner;
 
         public void Initialize(Agent owner, float health)
         {
             HealthMulti = StatManager.Instance.GetEnemyBuff(StatType.Health);
-            _maxHealth = health * HealthMulti;
+            _maxHealth = health;
             _owner = owner;
             ResetHealth();
         }
@@ -37,13 +30,21 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public void ResetHealth()
         {
             _currentHealth = _maxHealth;
+            ApplyHealth();
+        }
+
+        protected void ApplyHealth()
+        {
+            _currentHealth *= HealthMulti;
+            _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth * HealthMulti);
         }
 
         public void TakeDamage(float amount, Vector2 normal, float kbPower, Agent attacker = null)
         {
             Debug.Assert(_owner != null, $"{nameof(_owner)} 의 체력이 초기화되지 않았습니다.");
             
-            CurrentHealth -= amount;
+            _currentHealth -= amount;
+            _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth * HealthMulti);
             onHit?.Invoke();
 
             if (kbPower > 0)

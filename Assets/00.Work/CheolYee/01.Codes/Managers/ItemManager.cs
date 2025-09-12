@@ -20,10 +20,12 @@ namespace _00.Work.CheolYee._01.Codes.Managers
         {
             if (attackItems[id].gameObject.activeSelf)
             {
+                Debug.Log("업글");
                 attackItems[id].LevelUp(id);                
             }
             else
             {
+                Debug.Log("처음생성");
                 attackItems[id].gameObject.SetActive(true);
             }
         }
@@ -40,19 +42,6 @@ namespace _00.Work.CheolYee._01.Codes.Managers
             {
                 passiveItems[id].gameObject.SetActive(true);
                 passiveItems[id].ApplyBuff();
-            }
-        }
-
-        private void Update()
-        {
-            if (Keyboard.current.nKey.wasPressedThisFrame)
-            {
-                CreateAttackItem(0);
-            }
-
-            if (Keyboard.current.vKey.wasPressedThisFrame)
-            {
-                CreatePassiveItem(0);
             }
         }
     }

@@ -14,3 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapIndex: 5
   mapIcon: {fileID: -855298285791758126, guid: 13e623e65a22b7848b8a51b764e47d8a, type: 3}
+  resourceDatas:
+  - resourceIndex: 0
+    resourceName: "\uAC15\uCCA0"
+    resourceIcon: {fileID: 5088316998373936774, guid: 38df5ddcd48f46f4586ae0e632e1fef7, type: 3}
+    resourceAmount: 200
+  - resourceIndex: 0
+    resourceName: "\uB8E8\uBE44"
+    resourceIcon: {fileID: 5088316998373936774, guid: 9b9e5b9e22f5a544291fe52a2e8ba2d7, type: 3}
+    resourceAmount: 200
+  - resourceIndex: 0
+    resourceName: "\uCCA0"
+    resourceIcon: {fileID: 5088316998373936774, guid: c5459a4f7ba0b2445962dee734512c1c, type: 3}
+    resourceAmount: 200

@@ -1,8 +1,22 @@
+using System.Collections.Generic;
+using _00.Work.Nugusaeyo._Script.Enemy;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewMapDataSo", menuName = "SO/MapData")]
-public class MapDataSo : ScriptableObject
+namespace _00.Work.Nugusaeyo._Script.SO
 {
-    public int mapIndex;
-    public Sprite mapIcon;
+    [CreateAssetMenu(fileName = "NewMapDataSo", menuName = "SO/MapData")]
+    public class MapDataSo : ScriptableObject
+    {
+        public int mapIndex;
+        public Sprite mapIcon;
+        public List<ResourceData> resourceDatas;
+    }
+
+    [System.Serializable]
+    public class ResourceData
+    {
+        public int resourceIndex;
+        public CostInformationSO resourceData;
+        public int resourceAmount;
+    }
 }

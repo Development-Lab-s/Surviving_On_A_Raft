@@ -14,12 +14,20 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Healths
         
         public void ApplyBuff(StatType stat, float buff)
         {
-            if (stat == StatType.Health) HealthMulti += buff;
+            if (stat == StatType.Health)
+            {
+                HealthMulti += buff;
+                ApplyHealth();
+            }
         }
 
         public void ResetBuff(StatType statType, float buff)
         {
-            if (statType == StatType.Health) HealthMulti -= buff;
+            if (statType == StatType.Health)
+            {
+                HealthMulti -= buff;
+                ApplyHealth();
+            }
         }
     }
 }

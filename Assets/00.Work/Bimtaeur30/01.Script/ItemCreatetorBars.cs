@@ -37,11 +37,11 @@ public class ItemCreatetorBars : MonoBehaviour
             TextMeshProUGUI AtTxt = MeatBallDes.transform.Find("AtTxt").GetComponent<TextMeshProUGUI>();
             if (items[i].ItemType == ItemType.AttackItem)
             {
-                AtTxt.text = "ºĞ·ù: °ø°İÅÛ";
+                AtTxt.text = "ë¶„ë¥˜: ê³µê²©í…œ";
             }
             else if (items[i].ItemType == ItemType.PassiveItem)
             {
-                AtTxt.text = "ºĞ·ù: ÆĞ½ÃºêÅÛ";
+                AtTxt.text = "ë¶„ë¥˜: íŒ¨ì‹œë¸Œí…œ";
             }
             MeatBallDes.SetActive(false);
             itemNameTxt.text = items[i].ItemName;
@@ -76,6 +76,6 @@ public class ItemCreatetorBars : MonoBehaviour
 
         pageList[currentPage].SetActive(false);
         pageList[next].SetActive(true);
-        currentPage = next; // ¡ç ÇöÀç ÆäÀÌÁö ¾÷µ¥ÀÌÆ® ÇÊ¿ä!
+        currentPage = next; // â† í˜„ì¬ í˜ì´ì§€ ì—…ë°ì´íŠ¸ í•„ìš”!
     }
 }

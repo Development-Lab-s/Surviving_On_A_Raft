@@ -1,129 +1,220 @@
-using System;
 using System.Collections.Generic;
+using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.CheolYee._01.Codes.MapUI;
 using _00.Work.CheolYee._01.Codes.SO;
+using _00.Work.Hedonism._06.Scripts.SO.Manager;
+using _00.Work.Nugusaeyo._Script.Cost;
+using _00.Work.Nugusaeyo._Script.SO;
 using _00.Work.Resource.Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
-public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
+
+namespace _00.Work.Hedonism._06.Scripts.ChangeMap
 {
-    [field: SerializeField] public GameObject mapUI { get; private set; }
-
-    [SerializeField] private PlayerInputSo playerInputSo;
-    [SerializeField] private Image[] mapImages;
-    [SerializeField] private List<MapDataSo> mapData;
-    [SerializeField] private List<Image> outlines;
-
-    int random;
-    List<int> selectIndex = new List<int>();
-    private bool IsFirst = true;
-    private bool IsResourceUI = false;
-
-    [SerializeField] private int currentSelectIndex = 0;
-
-    protected override void Awake()
+    public enum StageSelectState
     {
-        base.Awake();
-
-        IsFirst = true;
-        IsResourceUI = false;
-        mapUI.SetActive(false);
+        None,
+        MapSelect,     // 맵 3개 선택 화면
+        ResourceCheck, // 재료 요구사항 화면
+        Finished       // 최종 확정
     }
 
-    void Start()
+    public class ShowStageSelectUI : MonoSingleton<ShowStageSelectUI>
     {
-        playerInputSo.OnFkeyPress += IsPay;
-    }
+        [field: SerializeField] public GameObject MapUI { get; private set; }
+        [field: SerializeField] public MapResourceUI ResourceUI { get; private set; }
 
-    void Update()
-    {
-        if (mapUI.activeSelf)
+        [SerializeField] private PlayerInputSo playerInputSo;
+        [SerializeField] private Image[] mapImages;
+        [SerializeField] private List<MapDataSo> mapData;
+        [SerializeField] private List<Image> outlines;
+
+        private List<ShowRadderUI> _allLadders = new(); // 모든 사다리 등록 리스트
+
+        private ShowRadderUI _currentEntrance; // 현재 조작 중인 사다리
+        private int _currentSelectIndex;
+        private int _lastChosenIndex = -1; // 이전에 선택된 맵
+        private List<int> _selectIndex = new();
+
+        protected override void Awake()
         {
-            if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
+            base.Awake();
+            Initialize();
+        }
+
+        public void Initialize()
+        {
+            MapUI.SetActive(false);
+            ResourceUI.gameObject.SetActive(false);
+        }
+
+        void Start()
+        {
+            playerInputSo.OnFkeyPress += MapSelect;
+        }
+
+        void Update()
+        {
+            if (MapUI.activeSelf)
             {
-                foreach (var outline in outlines)
+                if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
                 {
-                    outline.enabled = false;
+                    foreach (var outline in outlines) outline.enabled = false;
+                    _currentSelectIndex = Mathf.Clamp(++_currentSelectIndex, 0, 2);
+                    outlines[_currentSelectIndex].enabled = true;
                 }
-                currentSelectIndex = Mathf.Clamp(++currentSelectIndex, 0, 2);    
-                outlines[currentSelectIndex].enabled = true;
-            }
 
-            if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
-            {
-                foreach (var outline in outlines)
+                if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
                 {
-                    outline.enabled = false;
+                    foreach (var outline in outlines) outline.enabled = false;
+                    _currentSelectIndex = Mathf.Clamp(--_currentSelectIndex, 0, 2);
+                    outlines[_currentSelectIndex].enabled = true;
                 }
-                currentSelectIndex = Mathf.Clamp(--currentSelectIndex, 0, 2);
-                outlines[currentSelectIndex].enabled = true;
             }
         }
-    }
 
-    private void IsPay()
-    {
-        int selectedIndex = selectIndex[currentSelectIndex];
-        Debug.Log(selectedIndex);
-        IsResourceUI = true;
-        mapUI.SetActive(false);
-        //자원 ui 활성화
-    }
-
-    public void ShowMaps(Vector3 pos)
-    {
-        if (!IsResourceUI)
+        private void MapSelect()
         {
-            mapUI.SetActive(true);
-            mapUI.transform.position = pos;
-            if (IsFirst) RandomMapImages();
-        }
-    }
+            if (_currentEntrance == null) return;
 
-    public void CloseMapUI()
-    {
-        mapUI.SetActive(false);
-    }
-
-    public void ResetMapUI()
-    {
-        selectIndex.Clear();
-        IsFirst = true;
-    }
-    private void RandomMapImages()
-    {
-        IsFirst = false;
-        RandomIndex(mapImages.Length);
-        for (int i = 0; i < mapImages.Length; i++)
-        {
-            mapImages[i].sprite = mapData[selectIndex[i]].mapIcon;
-        }
-        foreach (var outline in outlines)
-        {
-            outline.enabled = false;
-        }
-        outlines[currentSelectIndex].enabled = true;
-    }
-
-
-    private void RandomIndex(int randomIndex)
-    {
-
-        if (randomIndex == 0) return;
-        selectIndex.Clear();
-
-        List<int> tempList = new List<int>();
-        
-        while (tempList.Count < randomIndex)
-        {
-            int rand = Random.Range(0, mapData.Count);
-            if (!tempList.Contains(rand))
+            if (_currentEntrance.State == StageSelectState.ResourceCheck)
             {
-                tempList.Add(rand);
+                int selectedIndex = _selectIndex[_currentSelectIndex];
+
+                SpawnManager.Instance.StartCycle(selectedIndex);
+
+                _lastChosenIndex = selectedIndex; //이번에 선택된 맵 저장
+
+                _currentEntrance.MarkUsed();
+                ResetAllLadders();
+            }
+
+            if (_currentEntrance.State == StageSelectState.ResourceCheck)
+            {
+                int selectedIndex = _selectIndex[_currentSelectIndex];
+
+                // 지불 가능 여부 체크
+                foreach (ResourceData resource in mapData[selectedIndex].resourceDatas)
+                {
+                    if (!CostManager.Instance.IsPaid(resource.resourceIndex, resource.resourceAmount))
+                    {
+                        Debug.Log("지불할 수 없습니다.");
+                        return;
+                    }
+                }
+
+                // 지불
+                foreach (ResourceData resource in mapData[selectedIndex].resourceDatas)
+                {
+                    CostManager.Instance.MinusCost(resource.resourceIndex, resource.resourceAmount);
+                }
+
+                Debug.Log("맵 생성 완료!");
+
+                SpawnManager.Instance.StartCycle(_selectIndex[_currentSelectIndex]);
+                
+                _currentEntrance.MarkUsed(); // 사다리 상태 확정
+                ResetAllLadders();
             }
         }
 
-        selectIndex = tempList;
+        public void ShowMaps(ShowRadderUI entrance)
+        {
+            if (entrance.State == StageSelectState.Finished) return; 
+
+            _currentEntrance = entrance;
+            
+            switch (entrance.State)
+            {
+                case StageSelectState.None:
+                    // 처음 접근: 맵 선택 UI
+                    _currentEntrance.SetState(StageSelectState.MapSelect);
+                    MapUI.SetActive(true);
+                    ResourceUI.gameObject.SetActive(false);
+                    RandomMapImages();
+                    break;
+
+                case StageSelectState.MapSelect:
+                    // 이미 맵 선택 중이던 사다리: 맵 UI 복구
+                    MapUI.SetActive(true);
+                    ResourceUI.gameObject.SetActive(false);
+                    break;
+
+                case StageSelectState.ResourceCheck:
+                    // 이미 자원 요구사항 단계였던 사다리: Resource UI 복구
+                    MapUI.SetActive(false);
+                    ResourceUI.gameObject.SetActive(true);
+
+                    int selectedIndex = _selectIndex[_currentSelectIndex];
+                    ResourceUI.ShowRequirements(mapData[selectedIndex]);
+                    break;
+            }
+        }
+
+        public void CloseMapUI()
+        {
+            MapUI.SetActive(false);
+            ResourceUI.gameObject.SetActive(false);
+            _currentEntrance = null;
+        }
+
+        public void ResetMapUI()
+        {
+            _selectIndex.Clear();
+            _currentEntrance = null;
+        }
+
+        private void RandomMapImages()
+        {
+            RandomIndex(mapImages.Length);
+            for (int i = 0; i < mapImages.Length; i++)
+            {
+                mapImages[i].sprite = mapData[_selectIndex[i]].mapIcon;
+            }
+            foreach (var outline in outlines) outline.enabled = false;
+            outlines[_currentSelectIndex].enabled = true;
+        }
+
+        private void RandomIndex(int count)
+        {
+            if (count == 0) return;
+            _selectIndex.Clear();
+
+            List<int> tempList = new List<int>();
+            int safety = 0;
+
+            while (tempList.Count < count && safety < 1000)
+            {
+                int rand = Random.Range(0, mapData.Count);
+
+                // 직전 선택 맵은 제외
+                if (rand == _lastChosenIndex) { safety++; continue; }
+
+                if (!tempList.Contains(rand))
+                    tempList.Add(rand);
+            }
+
+            _selectIndex = tempList;
+        }
+
+        // 사다리 등록
+        public void RegisterLadder(ShowRadderUI ladder)
+        {
+            if (!_allLadders.Contains(ladder))
+                _allLadders.Add(ladder);
+        }
+
+        // 씬 전환 시 전체 초기화
+        public void ResetAllLadders()
+        {
+            foreach (var ladder in _allLadders)
+            {
+                ladder.ResetLadder();
+            }
+
+            ResetMapUI();
+        }
     }
 }

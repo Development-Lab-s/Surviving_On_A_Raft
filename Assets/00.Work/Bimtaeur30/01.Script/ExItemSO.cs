@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using _00.Work.CheolYee._01.Codes.Items.PassiveItems;
+using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.lusalord._02.Script.SO.AttackItem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +16,8 @@ public enum ItemType
 [System.Serializable]
 public class Ingredient
 {
-    public string Name;   // ¿Á∑· ¿Ã∏ß
-    public int Amount;    // « ø‰ ºˆ∑Æ
+    public string Name;   // Ïû¨Î£å Ïù¥Î¶Ñ
+    public int Amount;    // ÌïÑÏöî ÏàòÎüâ
 }
 
 [CreateAssetMenu(fileName = "ExItemSO", menuName = "SO/ExItemSO")]
@@ -31,15 +34,53 @@ public class ExItemSO : ScriptableObject
         set => _itemLevel = Mathf.Clamp(value, 1, 5);
     }
 
+    public string ItemName
+    {
+        get
+        {
+            if (ItemType == ItemType.AttackItem) return attackItem.itemName;
+            if (ItemType == ItemType.PassiveItem) return passiveItem.itemName;
+            return null;
+        }
+    }
 
-    public Sprite ItemImage;
-    public string ItemName;
-    [TextArea] public string ItemDescription;   // ¿ŒΩ∫∆Â≈Õø°º≠ ø©∑Ø ¡Ÿ ¿‘∑¬ ∆Ì«œ∞‘
+    public Sprite ItemImage
+    {
+        get
+        {
+            if (ItemType == ItemType.AttackItem) return attackItem.icon;
+            if (ItemType == ItemType.PassiveItem) return passiveItem.icon;
+            return null;
+        }
+    }
+
+    public string ItemDescription
+    {
+        get
+        {
+            if (ItemType == ItemType.AttackItem) return attackItem.desc;
+            if (ItemType == ItemType.PassiveItem) return passiveItem.desc;
+            return null;
+        }
+    }
+
+    public AttackItemSo attackItem;
+    public PassiveItemSo passiveItem;
     public string[] itemAttributes;
-    public List<Ingredient> ItemIgdt = new List<Ingredient>(); // ¿ŒΩ∫∆Â≈Õø° ∫∏¿”!
+    public List<Ingredient> ItemIgdt = new List<Ingredient>(); // Ïù∏Ïä§ÌéôÌÑ∞Ïóê Î≥¥ÏûÑ!
 
     private void OnEnable()
     {
         ItemLevel = 1;
+    }
+
+    public void Upgrade()
+    {
+        if (ItemType == ItemType.AttackItem)
+        {
+            ItemManager.Instance.CreateAttackItem(attackItem.id);
+        }
+
+        if (ItemType == ItemType.PassiveItem) ItemManager.Instance.CreatePassiveItem(passiveItem.id);
     }
 }

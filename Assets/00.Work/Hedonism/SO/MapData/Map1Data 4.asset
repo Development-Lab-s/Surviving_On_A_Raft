@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7f414bb5f6b3e4f81cffb64d3fc654, type: 3}
   m_Name: Map1Data 4
   m_EditorClassIdentifier: 
-  mapIndex: 3
-  mapIcon: {fileID: 5088316998373936774, guid: 5b9257260d1f3b04584764c72e7f80b3, type: 3}
+  mapIndex: 4
+  mapIcon: {fileID: -855298285791758126, guid: 74868b78318e9964898b9e35bf1140da, type: 3}
+  resourceDatas:
+  - resourceIndex: 1
+    resourceData: {fileID: 11400000, guid: a16bbb5a68a0934468aaec639fa96ed7, type: 2}
+    resourceAmount: 200
+  - resourceIndex: 3
+    resourceData: {fileID: 11400000, guid: 09381e86dc371cf4696cd4cd1c62f0eb, type: 2}
+    resourceAmount: 200

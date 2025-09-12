@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using _00.Work.Nugusaeyo._Script.Cost;
 using _00.Work.Nugusaeyo._Script.Enemy;
 using TMPro;
 using UnityEngine;
@@ -31,7 +32,7 @@ public class CostBoarder : MonoBehaviour
         }
         for (int i = 0; i < costName.Length; i++)
         {
-            costName[i].text = costInformation[i].name + " : ";
+            costName[i].text = costInformation[i].costName + " : ";
             costText[i].text = "0";
             costUi[i] = 0;
         }
@@ -40,7 +41,7 @@ public class CostBoarder : MonoBehaviour
     private IEnumerator CostUp(int i)
     {
         WaitForSeconds delayTime = new  WaitForSeconds(0.05f);
-        while (CostManager.instance.Costs[i] > int.Parse(costText[i].text))
+        while (CostManager.Instance.Costs[i] > int.Parse(costText[i].text))
         {
             yield return delayTime;
             costUi[i]++;
@@ -50,23 +51,23 @@ public class CostBoarder : MonoBehaviour
 
     private void Start()
     {
-        CostManager.instance.CostUpEvent += CostUpBoard;
-        CostManager.instance.CostDownEvent += CostDownBoard;
+        CostManager.Instance.CostUpEvent += CostUpBoard;
+        CostManager.Instance.CostDownEvent += CostDownBoard;
         CostUpBoard();
         ResetCostImg();
     }
 
     private void OnDestroy()
     {
-        CostManager.instance.CostUpEvent -= CostUpBoard;
-        CostManager.instance.CostDownEvent -= CostDownBoard;
+        CostManager.Instance.CostUpEvent -= CostUpBoard;
+        CostManager.Instance.CostDownEvent -= CostDownBoard;
     }
 
     private void CostUpBoard()
     {
         for (int i = 0; i < costText.Length; i++)
         {
-            if (CostManager.instance.Costs[i] != int.Parse(costText[i].text))
+            if (CostManager.Instance.Costs[i] != int.Parse(costText[i].text))
             {
                 if (_coroutines[i] != null)
                 {
@@ -83,7 +84,7 @@ public class CostBoarder : MonoBehaviour
         StopAllCoroutines();
         for (int i = 0; i < costText.Length; i++)
         {
-            int currentCost = CostManager.instance.Costs[i];
+            int currentCost = CostManager.Instance.Costs[i];
             costText[i].text = currentCost.ToString();
             costUi[i] = currentCost;
         }
