@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
   m_Name: ASpinItemLv1
   m_EditorClassIdentifier: 
-  itemName: "\uD45C\uCC3D"
+  id: 0
+  itemName: ASpinItem
   level: 1
   damage: 10
   knockbackPower: 0
-  atkRate: 0.7
+  nextLevel: {fileID: 11400000, guid: 92006600110d4ad4195e0e4b30f0d2b9, type: 2}
   spinRadius: 3
   spinPrefab: {fileID: 3599668503528672686, guid: ee8d816bd8ffa704998ded5459be9448, type: 3}
   spinSpeed: 5
   spinAmount: 3
   rotateSpeed: 20
-  spinItems: []
   isRotate: 0
   rickRolling: 1
   flip: 0

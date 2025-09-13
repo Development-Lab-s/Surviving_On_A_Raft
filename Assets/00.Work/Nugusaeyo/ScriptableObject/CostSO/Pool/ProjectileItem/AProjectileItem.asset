@@ -9,16 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ed7fb9aedb64474aa2688419fc3aa24, type: 3}
-  m_Name: PassiveItem
+  m_Script: {fileID: 11500000, guid: 808b3eaf175ccb04b91aa8bd44b8d567, type: 3}
+  m_Name: AProjectileItem
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  level: 0
-  id: 0
-  criticalChance: 0
-  hp: 0
-  speed: 0
-  atk: 0
-  atkSpeed: 0
-  nextLevelPassiveItem: {fileID: 0}
+  poolName: Knife
+  prefab: {fileID: 3149612778032154149, guid: 077c7becde2a6a14facaaccb1b51ca9e, type: 3}
+  count: 5
