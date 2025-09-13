@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.CheolYee._01.Codes.Players;
 using _00.Work.Resource.SO;
@@ -19,22 +20,27 @@ public class Bubble : MonoBehaviour, IPoolable
 
     private void Start()
     {
-        _player = GameManager.Instance.playerTransform.gameObject.GetComponent<Player>();
+        _player = GameManager.Instance.playerTransform.GetComponent<Player>();
     }
 
     public void ResetItem()
     {
         _particleSys.Pause();
+        StopAllCoroutines();
     }
 
-    public void Play()
+    public void StartBubble()
+    {
+        StartCoroutine(BubbleBubble());
+    }
+
+    public IEnumerator BubbleBubble()
     {
         _particleSys.Play();
-    }
-
-    private void Update()
-    {
+        yield return new WaitForSeconds(1f);
         transform.position = GameManager.Instance.playerTransform.position;
-        _player.HealthComponent.CurrentHealth--;
+        _player.HealthComponent.CurrentHealth -= 2;
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(BubbleBubble());
     }
 }

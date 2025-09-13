@@ -19,15 +19,20 @@ public class BigTsunami : MonoBehaviour
     public void TsunamiUp()
     {
         gameObject.SetActive(true);
-        bigTsunami.rectTransform.DOAnchorPos(new Vector2(0, 0), 1.2f).SetEase(Ease.InOutQuint);
+        bigTsunami.rectTransform.DOAnchorPos(new Vector3(0, bigTsunami.rectTransform.sizeDelta.y, 0), 1.2f).SetEase(Ease.InOutQuint);
         _bubble = PoolManager.Instance.Pop("BubbleParticle") as Bubble;
-        _bubble.Play();
+        _bubble.StartBubble();
     }
 
     public void TsunamiEnd()
     {
         gameObject.SetActive(false);
-        bigTsunami.rectTransform.anchoredPosition = new Vector2(0, -bigTsunami.rectTransform.anchoredPosition.y);
-        PoolManager.Instance.Push(_bubble);
+        bigTsunami.rectTransform.anchoredPosition = new Vector2(0, 0);
+        if (_bubble != null)
+        {
+            _bubble.StopAllCoroutines();
+            PoolManager.Instance.Push(_bubble);
+            _bubble = null;
+        }
     }
 }

@@ -6,32 +6,33 @@ using UnityEngine.UI;
 public class TsunamiEvent : MonoBehaviour
 {
     public UnityEvent tsunamiEndingEvent;
+    public UnityEvent tsunamiSafe;
     
     [SerializeField] private Image tsunamiImage;
     [SerializeField] private Image backTsunamiImage;
-    private TsunamiTimer _tsunamiTimer;
-    private MiniMapStageUp _miniMapStageUp;
+    public TsunamiTimer TsunamiTimer { get; private set; }
+    public MiniMapStageUp MiniMapStageUp { get; private set; }
     private float _currentWaveHeight;
     public int CurrentTsunamiLevel { get; private set; }
 
     private void Awake()
     {
-        _tsunamiTimer = GetComponent<TsunamiTimer>();
-        _miniMapStageUp = GetComponent<MiniMapStageUp>();
+        TsunamiTimer = GetComponent<TsunamiTimer>();
+        MiniMapStageUp = GetComponent<MiniMapStageUp>();
         CurrentTsunamiLevel = 0;
     }
 
     private void Start()
     {
-        _tsunamiTimer.TsunamiAction += HandleTsunamiAction;
-        _miniMapStageUp.FloorChanged += HandleFloorChanged;
+        TsunamiTimer.TsunamiAction += HandleTsunamiAction;
+        MiniMapStageUp.FloorChanged += HandleFloorChanged;
         _currentWaveHeight = 0.3f;
     }
 
     private void OnDestroy()
     {
-        _tsunamiTimer.TsunamiAction -= HandleTsunamiAction;
-        _miniMapStageUp.FloorChanged -= HandleFloorChanged;
+        TsunamiTimer.TsunamiAction -= HandleTsunamiAction;
+        MiniMapStageUp.FloorChanged -= HandleFloorChanged;
     }
 
     private void HandleTsunamiAction()
@@ -43,24 +44,35 @@ public class TsunamiEvent : MonoBehaviour
     {
         if (CurrentTsunamiLevel + 1 < MiniMapStageUp.Instance.CurrentFloor)
         {
-            Debug.Log("아무 일도 없엇따");
-            _currentWaveHeight = 0.0f;
+            _currentWaveHeight = 0f;
         }
+        else if (CurrentTsunamiLevel + 1 == MiniMapStageUp.Instance.CurrentFloor)
+        {
+            _currentWaveHeight = 0.3f;
+        }
+        else
+        {
+            _currentWaveHeight = 1f;
+            return;
+        }
+        tsunamiSafe?.Invoke();
     }
 
     private void TsunamiUp()
     {
         CurrentTsunamiLevel++;
-        if (CurrentTsunamiLevel == MiniMapStageUp.Instance.CurrentFloor)
+        if (CurrentTsunamiLevel >= MiniMapStageUp.Instance.CurrentFloor)
         {
-            Debug.Log("죽엇따");
             _currentWaveHeight = 1f;
             tsunamiEndingEvent?.Invoke();
         }
         else if (CurrentTsunamiLevel + 1 == MiniMapStageUp.Instance.CurrentFloor)
         {
-            Debug.Log("조금 일이 있엇따");
             _currentWaveHeight = 0.3f;
+        }
+        else
+        {
+            _currentWaveHeight = 0f;
         }
     }
 
