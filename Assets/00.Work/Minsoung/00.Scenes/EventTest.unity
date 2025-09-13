@@ -30184,6 +30184,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063247810}
   m_CullTransparentMesh: 1
+--- !u!1 &1094659700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094659701}
+  - component: {fileID: 1094659702}
+  m_Layer: 0
+  m_Name: EnemyAttackSpeedDownEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1094659701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094659700}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1510529953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1094659702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094659700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c07701d359aa24ca8abb66b126ae06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <eventType>k__BackingField: 0
+  <eventEffectText>k__BackingField: "\uC801\uC758 \uACF5\uACA9\uC18D\uB3C4\uAC00
+    20% \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  <EventDuration>k__BackingField: 20
 --- !u!114 &1108047467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30900,6 +30948,54 @@ MonoBehaviour:
   <eventEffectText>k__BackingField: "\uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uAC00
     20% \uAC10\uC18C\uD569\uB2C8\uB2E4."
   <EventDuration>k__BackingField: 10
+--- !u!1 &1318360616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1318360617}
+  - component: {fileID: 1318360618}
+  m_Layer: 0
+  m_Name: PlayerAttackSpeedDownEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1318360617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318360616}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1401323889}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1318360618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318360616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e2c9b96f9f19264790e38f00542ad44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <eventType>k__BackingField: 0
+  <eventEffectText>k__BackingField: "\uD50C\uB808\uC774\uC5B4\uC758 \uACF5\uACA9\uC18D\uB3C4\uAC00
+    20% \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  <EventDuration>k__BackingField: 20
 --- !u!1 &1401323888
 GameObject:
   m_ObjectHideFlags: 0
@@ -30931,6 +31027,7 @@ Transform:
   m_Children:
   - {fileID: 785160966}
   - {fileID: 1721353360}
+  - {fileID: 1318360617}
   m_Father: {fileID: 897068570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1467673534
@@ -31014,6 +31111,7 @@ Transform:
   - {fileID: 1310974509}
   - {fileID: 2063431508}
   - {fileID: 313135096}
+  - {fileID: 1094659701}
   m_Father: {fileID: 897068570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!213 &1517356872
