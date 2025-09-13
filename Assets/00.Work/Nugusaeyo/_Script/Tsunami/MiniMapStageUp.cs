@@ -9,7 +9,7 @@ public class MiniMapStageUp : MonoBehaviour
     public Action FloorChanged;
     
     [SerializeField] private Image castleImage;
-    [SerializeField] private int maxTowerFloor;
+    public int maxTowerFloor;
     private int _castleFloor;
     private int _currentFloorSliced;
     public int CurrentFloor { get; private set; }
@@ -35,17 +35,8 @@ public class MiniMapStageUp : MonoBehaviour
         CurrentFloor = 1;
     }
 
-    private void Update()
-    {
-        if (Keyboard.current.mKey.wasPressedThisFrame)
-        {
-            CastleViewUp();
-        }
-    }
-
     public void CastleViewUp()
     {
-        //castleImage.rectTransform.position += new Vector3(0, _castleFloor, 0);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(castleImage.rectTransform.DOScale(new Vector3(0.7f, 0.7f, 0), 0.3f).SetEase(Ease.InOutCubic));
         sequence.Append(castleImage.rectTransform.DOScale(new Vector3(1f, 1f, 0), 1f).SetEase(Ease.InSine));
@@ -53,5 +44,10 @@ public class MiniMapStageUp : MonoBehaviour
         _currentFloorSliced -= _castleFloor;
         CurrentFloor++;
         FloorChanged?.Invoke();
+    }
+
+    public void SetCurrentLevel(int level)
+    {
+        CurrentFloor = level;
     }
 }
