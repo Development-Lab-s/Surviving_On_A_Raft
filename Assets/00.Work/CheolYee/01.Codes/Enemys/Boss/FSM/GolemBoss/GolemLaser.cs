@@ -11,6 +11,20 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
         [SerializeField] private DamageCaster damageCaster;
         public string ItemName => gameObject.name;
         public GameObject GameObject => gameObject;
+        private Vector3 _moveDirection = Vector3.right;
+        
+        public void SetMoveDirection(Vector3 dir)
+        {
+            _moveDirection = dir.normalized;
+
+            // transform 회전으로 방향 맞춤 (플립 X)
+            if (dir == Vector3.left)
+                transform.rotation = Quaternion.Euler(0, 180, 0); // 왼쪽
+            else
+                transform.rotation = Quaternion.identity; // 오른쪽
+        }
+
+
         public void ResetItem()
         {
             _damage = 0;
@@ -24,18 +38,13 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
         private float _coolTime;
         private float _timer;
 
-        public void Initialize(float damage, float knockback, float cooltime, Vector2 dir)
+        public void Initialize(float damage, float knockback, float cooltime)
         {
             _damage = damage;
             _knockback = knockback;
             _coolTime = cooltime;
-            
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
-
             StartCoroutine(LifeTimeRoutine());
         }
-
 
         private IEnumerator LifeTimeRoutine()
         {
