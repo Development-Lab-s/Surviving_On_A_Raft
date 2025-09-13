@@ -1,4 +1,5 @@
 using System;
+using _00.Work.CheolYee._01.Codes.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -32,7 +33,7 @@ public class MiniMapStageUp : MonoBehaviour
     {
         _castleFloor = 450 / maxTowerFloor;
         _currentFloorSliced = (int)castleImage.rectTransform.anchoredPosition.y - _castleFloor;
-        CurrentFloor = 1;
+        CurrentFloor = GameManager.Instance.currentLevel;
     }
 
     public void CastleViewUp()

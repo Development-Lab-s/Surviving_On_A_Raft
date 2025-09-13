@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Portals;
 using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.Hedonism._06.Scripts.ChangeMap;
+using _00.Work.Nugusaeyo._Script.Tsunami;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using UnityEngine;
@@ -14,7 +16,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
         [SerializeField] private List<Transform> spawnPoints; // 인스펙터에 프리팹들 넣기
 
         [SerializeField] private PoolItem portalItemPrefab; // 풀링할 포탈
-        [SerializeField] private PortalDataSo portalData;    // 포탈 설정 데이터
+        [SerializeField] private List<PortalDataSo> portalData;    // 포탈 설정 데이터
         [SerializeField] private int maxSpawnCount;    //최대 스폰 카운트
         private Transform _playerTrm;
 
@@ -64,12 +66,13 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             foreach (int index in indices)
             {
                 Vector3 spawnPos = map.portalSpawnPoints[index].position;
+                bool left = map.portalSpawnPoints[index].GetComponent<PortalSpawn>().isLeft;
 
                 Portal portal = PoolManager.Instance.Pop(portalItemPrefab.poolName) as Portal;
                 if (portal != null)
                 {
                     portal.transform.position = spawnPos;
-                    portal.Initialize(portalData, false);
+                    portal.Initialize(portalData[GameManager.Instance.currentLevel], left);
 
                     _currentPortals.Add(portal); // 리스트에 저장
                 }
@@ -115,6 +118,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
 
         private void OnFirstStart(int index)
         {
+            ShowStageSelectUI.Instance.lastChosenIndex = index;
             FadeManager.Instance.FadeIn();
             _playerTrm.position = spawnPoints[index].transform.position;
         }
@@ -124,6 +128,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             FadeManager.Instance.FadeIn();
             yield return new WaitForSeconds(0.5f);
             _playerTrm.position = spawnPoints[index].transform.position;
+            TsunamiEventManager.Instance.LadderInteracted(GameManager.Instance.currentLevel);
         }
     }
 }

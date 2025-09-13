@@ -13,7 +13,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
         public float launchForce, minTime, maxTime; // 튀나가는 속도
         
         public Color portalColor; //포탈 색
-        
         public int GetRandomListIndex() => Random.Range(0, enemies.Count); //리스트 랜덤 인덱스 가져오기
         public float GetRandomSpawnTime() => Random.Range(minTime, maxTime); //랜덤 시간초 가져오기
         

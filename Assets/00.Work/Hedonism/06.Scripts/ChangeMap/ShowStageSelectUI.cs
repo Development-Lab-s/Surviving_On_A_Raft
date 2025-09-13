@@ -8,6 +8,7 @@ using _00.Work.Nugusaeyo._Script.SO;
 using _00.Work.Resource.Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -35,7 +36,7 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
 
         private ShowRadderUI _currentEntrance; // 현재 조작 중인 사다리
         private int _currentSelectIndex;
-        private int _lastChosenIndex = -1; // 이전에 선택된 맵
+       [HideInInspector] public int lastChosenIndex; // 이전에 선택된 맵
         private List<int> _selectIndex = new();
 
         protected override void Awake()
@@ -117,7 +118,10 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
                 StatManager.Instance.ResetGrowthMultipliers(); //적 성장 초기화;
                 SpawnManager.Instance.StartCycle(selectedIndex);
 
-                _lastChosenIndex = selectedIndex; // 이번에 선택된 맵 저장
+                GameManager.Instance.currentLevel++;
+                
+
+                lastChosenIndex = selectedIndex; // 이번에 선택된 맵 저장
                 _currentEntrance.MarkUsed(); // 사다리 상태 확정
                 ResetAllLadders();
             }
@@ -194,7 +198,7 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
                 int rand = Random.Range(0, mapData.Count);
 
                 // 직전 선택 맵은 제외
-                if (rand == _lastChosenIndex) { safety++; continue; }
+                if (rand == lastChosenIndex) { safety++; continue; }
 
                 if (!tempList.Contains(rand))
                     tempList.Add(rand);

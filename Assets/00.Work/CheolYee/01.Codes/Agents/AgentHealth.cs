@@ -15,10 +15,9 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         private Dictionary<string, float> _healthMultipliers = new();
 
         public float CurrentHealth => _currentHealth;
+        
         public float MaxHealth => _maxHealth * TotalMultiplier;
-
-        private float _realMaxHealth;
-        private float _realHealthMulti;
+        
 
         private Agent _owner;
 
@@ -35,7 +34,6 @@ namespace _00.Work.CheolYee._01.Codes.Agents
                 float result = 1f;
                 foreach (var kv in _healthMultipliers)
                     result += kv.Value;
-                _realHealthMulti = result;
                 return result;
             }
         }
@@ -58,7 +56,6 @@ namespace _00.Work.CheolYee._01.Codes.Agents
             float ratio = _currentHealth / MaxHealth; // 현재 비율 유지
             _currentHealth = MaxHealth * ratio;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
-            _realMaxHealth = MaxHealth;
         }
         
 

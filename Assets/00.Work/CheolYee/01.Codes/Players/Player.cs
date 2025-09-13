@@ -101,7 +101,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private void HandleJumpKeyPress() //점프키 눌렀을 때 실행
         {
             //만약 바닥에 닿은 상태거나 코요테 타임 내라면 점프
-            if (MovementComponent.IsGround.Value)
+            if (MovementComponent.IsGround.Value && !_setDead)
             {
                 MovementComponent.Jump(); //점프해라
             }
@@ -115,7 +115,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private void UpdateAnimator()
         {
             PlayerAnimatorComponent.SetJump(!MovementComponent.IsGround.Value); //이동 전달
-            PlayerAnimatorComponent.MovePlayer(Mathf.Abs(PlayerInput.Movement.x));
+            PlayerAnimatorComponent.MovePlayer(Mathf.Abs(MovementComponent.RbCompo.linearVelocityX));
             PlayerAnimatorComponent.HandleFlip(PlayerInput.Movement.x);
         }
 

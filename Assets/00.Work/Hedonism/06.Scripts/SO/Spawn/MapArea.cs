@@ -20,14 +20,7 @@ public class MapArea : MonoBehaviour
         }
     }
 
-    private bool _isQuitting;
-
-    private void OnApplicationQuit()
-    {
-        _isQuitting = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
+    /*private void OnTriggerExit2D(Collider2D other)
     {
         if (_isQuitting) return; // 종료 중 이벤트 무시
 
@@ -35,5 +28,5 @@ public class MapArea : MonoBehaviour
         {
             SpawnManager.Instance?.DespawnCurrentPortals();
         }
-    }
+    }*/
 }

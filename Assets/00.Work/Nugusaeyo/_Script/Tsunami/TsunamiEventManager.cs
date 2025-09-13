@@ -1,27 +1,15 @@
-using System;
+using _00.Work.Resource.Manager;
 using UnityEngine;
 
-public class TsunamiEventManager : MonoBehaviour
+namespace _00.Work.Nugusaeyo._Script.Tsunami
 {
-    [SerializeField] private TsunamiEvent tsunamiEvent;
-    
-    public static TsunamiEventManager Instance;
-
-    private void Awake()
+    public class TsunamiEventManager : MonoSingleton<TsunamiEventManager>
     {
-        if (Instance == null)
+        [SerializeField] private TsunamiEvent tsunamiEvent;
+        public void LadderInteracted(int currentLevel)
         {
-            Instance = this;
+            tsunamiEvent.MiniMapStageUp.SetCurrentLevel(currentLevel);
+            tsunamiEvent.MiniMapStageUp.CastleViewUp();
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void LadderInteracted(int currentLevel)
-    {
-        tsunamiEvent.MiniMapStageUp.SetCurrentLevel(currentLevel);
-        tsunamiEvent.MiniMapStageUp.CastleViewUp();
     }
 }
