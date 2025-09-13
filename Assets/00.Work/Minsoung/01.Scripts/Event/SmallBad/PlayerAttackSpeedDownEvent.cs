@@ -11,7 +11,7 @@ public class PlayerAttackSpeedDownEvent : MonoBehaviour, IEvent
     [ContextMenu("나 공격 오소이")]
     public void StartEvent()
     {
-        StatManager.Instance.PlayerBuffInTime(StatType.AttackSpeed, 0.8f, EventDuration);
+        StatManager.Instance.PlayerBuffInTime(StatType.AttackSpeed, -0.2f, EventDuration);
     }
 
     public void StartEventEffectText()

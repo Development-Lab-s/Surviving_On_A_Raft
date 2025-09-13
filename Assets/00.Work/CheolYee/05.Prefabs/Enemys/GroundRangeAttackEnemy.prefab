@@ -666,8 +666,73 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5720234776790311391, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8799300786314521959}
   m_SourcePrefab: {fileID: 100100000, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
+--- !u!1 &3445547779159445878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5720234776790311391, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
+  m_PrefabInstance: {fileID: 6968001334863949993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8799300786314521959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445547779159445878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167735c109064e1abe31ff0ecbeadfdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2291740086414047139}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.Core.FeedBacks.FeedbackSystem,
+          Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7398772371791448833}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.Core.FeedBacks.FeedbackSystem,
+          Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3523428926472254203}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.Enemys.GroundEnemy,
+          Assembly-CSharp
+        m_MethodName: SetDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &6269520612239464537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4013445642851887344, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}

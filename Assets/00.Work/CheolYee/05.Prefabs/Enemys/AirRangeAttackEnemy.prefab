@@ -461,16 +461,81 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1612430656498645225, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5720234776790311391, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8836254361975434060}
   m_SourcePrefab: {fileID: 100100000, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
 --- !u!4 &4398924490396728011 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4013445642851887344, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
   m_PrefabInstance: {fileID: 774198058125251131}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5034138386914767844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5720234776790311391, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
+  m_PrefabInstance: {fileID: 774198058125251131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8836254361975434060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5034138386914767844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167735c109064e1abe31ff0ecbeadfdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4074729564718771083}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.Core.FeedBacks.FeedbackSystem,
+          Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7575017023932998293}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.Core.FeedBacks.FeedbackSystem,
+          Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6815632796419205561}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.Enemys.AirEnemy, Assembly-CSharp
+        m_MethodName: SetDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2711995396513671631
 PrefabInstance:
   m_ObjectHideFlags: 0

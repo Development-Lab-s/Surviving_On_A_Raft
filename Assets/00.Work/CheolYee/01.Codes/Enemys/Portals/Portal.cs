@@ -16,7 +16,8 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
         [SerializeField] private Light2D portalLight;
         [SerializeField] private string poolName;
         [SerializeField] private Transform spawnTrm;
-
+        [SerializeField] private float startDelay = 5;
+        
         private bool _closePortal;
         private bool _isLeft;
         
@@ -61,6 +62,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
 
         private IEnumerator SummonCoroutine()
         {
+            yield return new WaitForSeconds(startDelay);
             while (_closePortal == false)
             {
                 float spawnTime = PortalData.GetRandomSpawnTime();

@@ -11,7 +11,7 @@ public class PlayerCritChanceUpEvent : MonoBehaviour, IEvent
     [ContextMenu("나 가끔 츠요이")]
     public void StartEvent()
     {
-        StatManager.Instance.PlayerBuffInTime(StatType.CritChance, 1.5f, EventDuration);
+        StatManager.Instance.PlayerBuffInTime(StatType.CritChance, 0.5f, EventDuration);
     }
 
     public void StartEventEffectText()

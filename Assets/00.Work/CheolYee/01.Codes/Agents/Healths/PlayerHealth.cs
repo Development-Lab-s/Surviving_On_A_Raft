@@ -12,12 +12,12 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Healths
             StatManager.Instance.OnResetPlayerBuff += ResetBuff;
         }
         
+        
         public void ApplyBuff(StatType stat, float buff)
         {
             if (stat == StatType.Health)
             {
-                HealthMulti += buff;
-                ApplyHealth();
+                AddMultiplier("Event", buff);
             }
         }
 
@@ -25,8 +25,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Healths
         {
             if (statType == StatType.Health)
             {
-                HealthMulti -= buff;
-                ApplyHealth();
+                RemoveMultiplier("Event");
             }
         }
     }

@@ -25,10 +25,6 @@ public class EventUIManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
-
-    private void Start()
-    {
         _eventText = GetComponentsInChildren<TypewriterByCharacter>();
         
         foreach (var i in _eventText)

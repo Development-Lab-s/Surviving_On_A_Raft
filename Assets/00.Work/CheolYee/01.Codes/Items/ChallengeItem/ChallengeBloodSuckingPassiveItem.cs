@@ -12,7 +12,6 @@ namespace _00.Work.CheolYee._01.Codes.Items.ChallengeItem
         public override void CancelBuff()
         {
             Player.MovementComponent.SpeedMultiplier -= PassiveItemSo.speedMulti;
-            Player.HealthComponent.HealthMulti += PassiveItemSo.hpMulti;
         }
     }
 }

@@ -11,7 +11,7 @@ public class PlayerDamageUpEvent : MonoBehaviour, IEvent
     [ContextMenu("나 약간 츠요이")]
     public void StartEvent()
     {
-        StatManager.Instance.PlayerBuffInTime(StatType.Damage, 1.2f, EventDuration);
+        StatManager.Instance.PlayerBuffInTime(StatType.Damage, 0.2f, EventDuration);
     }
 
     public void StartEventEffectText()

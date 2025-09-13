@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using _00.Work.CheolYee._01.Codes.Items.PassiveItems;
+using _00.Work.CheolYee._01.Codes.Items.PicupItem;
 using _00.Work.lusalord._02.Script;
 using _00.Work.Resource.Manager;
+using _00.Work.Resource.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +17,9 @@ namespace _00.Work.CheolYee._01.Codes.Managers
         
         [Header("PassiveItems")] 
         public List<PassiveItem> passiveItems;
+        
+        [Header("PickupItems")]
+        public List<PickupItem> pickupItems;
 
         public void CreateAttackItem(int id)
         {
@@ -42,6 +47,18 @@ namespace _00.Work.CheolYee._01.Codes.Managers
             {
                 passiveItems[id].gameObject.SetActive(true);
                 passiveItems[id].ApplyBuff();
+            }
+        }
+
+
+        public void CreateRandomPickupItem(Transform spawnPos)
+        {
+            int index = UnityEngine.Random.Range(0, 100);
+
+            if (index < 10)
+            {
+                PickupItem healthItem =  PoolManager.Instance.Pop(pickupItems[0].name) as PickupItem;
+                if (healthItem != null) healthItem.Initialize(spawnPos);
             }
         }
     }

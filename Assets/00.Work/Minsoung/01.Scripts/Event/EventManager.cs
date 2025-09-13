@@ -45,10 +45,6 @@ public class EventManager : MonoBehaviour
         IEventBunlyu(); // Awake에서 IEvent 분류 함해줘 ㅇㅇ
 
     }
-    private void Start()
-    {
-        EventUIManager.Instance.SetEventTextEffect("djdjdj");
-    }
 
     private void IEventBunlyu() // 이벤트들 타입별로 분류
     {

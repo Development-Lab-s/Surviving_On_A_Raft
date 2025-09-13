@@ -109,6 +109,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         public virtual void SetDead()
         {
+            ItemManager.Instance.CreateRandomPickupItem(transform);
             SpawnManager.Instance.RemoveEnemy(this);
         }
 

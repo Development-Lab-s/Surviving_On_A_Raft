@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Portals;
@@ -23,7 +24,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
         void Start()
         {
             _playerTrm = GameManager.Instance.playerTransform;
-            StartCycle(Random.Range(0, spawnPoints.Count));
+            OnFirstStart(Random.Range(0, spawnPoints.Count));
         }
 
         public bool CanSpawn()
@@ -109,11 +110,19 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
         public void StartCycle(int index)
         {
             // 플레이어 이동
-            MovePlayerTo(index);
+            StartCoroutine(MovePlayerTo(index));
         }
 
-        private void MovePlayerTo(int index)
+        private void OnFirstStart(int index)
         {
+            FadeManager.Instance.FadeIn();
+            _playerTrm.position = spawnPoints[index].transform.position;
+        }
+
+        private IEnumerator MovePlayerTo(int index)
+        {
+            FadeManager.Instance.FadeIn();
+            yield return new WaitForSeconds(0.5f);
             _playerTrm.position = spawnPoints[index].transform.position;
         }
     }

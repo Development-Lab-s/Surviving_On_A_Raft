@@ -1,3 +1,4 @@
+using System;
 using _00.Work.CheolYee._01.Codes.Agents;
 using _00.Work.CheolYee._01.Codes.Agents.Movements;
 using _00.Work.CheolYee._01.Codes.Core.Buffs;
@@ -5,6 +6,7 @@ using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace _00.Work.CheolYee._01.Codes.Players
 {
@@ -61,6 +63,12 @@ namespace _00.Work.CheolYee._01.Codes.Players
             PlayerInput.OnJumpKeyPress += HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 등록
             MovementComponent.GetComponent<PlayerMovement>().Initialize(CharacterData); //캐릭터 데이터로 기본값 설정
             HealthComponent.Initialize(this, CharacterData.health); //체력 컴포넌트에 오너 설정, 체력 설정
+        }
+
+        private void Start()
+        {
+            StatManager.Instance.OnPlayerBuff += ApplyBuff;
+            StatManager.Instance.OnResetPlayerBuff += ResetBuff;
         }
 
         private void OnDestroy()

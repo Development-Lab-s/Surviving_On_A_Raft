@@ -278,7 +278,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   enemyData: {fileID: 11400000, guid: dcd0d07e9d419c345b3f782b9446404d, type: 2}
-  isBoss: 0
   damageMulti: 0
   detectRadius: 0
   attackRadius: 2
@@ -554,16 +553,82 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1612430656498645225, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5720234776790311391, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6770306110962136320}
   m_SourcePrefab: {fileID: 100100000, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
 --- !u!4 &1769687320412810967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4013445642851887344, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
   m_PrefabInstance: {fileID: 3404068971466540583}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6944539120351668216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5720234776790311391, guid: 6df1077f8d1c4bb40a5133532f328c96, type: 3}
+  m_PrefabInstance: {fileID: 3404068971466540583}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6770306110962136320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6944539120351668216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167735c109064e1abe31ff0ecbeadfdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8742557656099914958}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.Core.FeedBacks.FeedbackSystem,
+          Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8335545283494100395}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.Core.FeedBacks.FeedbackSystem,
+          Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6138189310018442665}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.Enemys.GroundEnemy,
+          Assembly-CSharp
+        m_MethodName: SetDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &7241054125492536970
 PrefabInstance:
   m_ObjectHideFlags: 0

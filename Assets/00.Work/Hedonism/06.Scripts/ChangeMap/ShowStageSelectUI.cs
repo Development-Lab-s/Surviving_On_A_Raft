@@ -79,18 +79,19 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
         {
             if (_currentEntrance == null) return;
 
-            if (_currentEntrance.State == StageSelectState.ResourceCheck)
+            // 1단계: 맵 선택 상태일 때 - ResourceCheck로 전환
+            if (_currentEntrance.State == StageSelectState.MapSelect)
             {
+                _currentEntrance.SetState(StageSelectState.ResourceCheck);
+                MapUI.SetActive(false);
+                ResourceUI.gameObject.SetActive(true);
+
                 int selectedIndex = _selectIndex[_currentSelectIndex];
-
-                SpawnManager.Instance.StartCycle(selectedIndex);
-
-                _lastChosenIndex = selectedIndex; //이번에 선택된 맵 저장
-
-                _currentEntrance.MarkUsed();
-                ResetAllLadders();
+                ResourceUI.ShowRequirements(mapData[selectedIndex]);
+                return;
             }
 
+            // 2단계: 재료 확인 상태일 때 - 지불 및 맵 확정
             if (_currentEntrance.State == StageSelectState.ResourceCheck)
             {
                 int selectedIndex = _selectIndex[_currentSelectIndex];
@@ -105,7 +106,7 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
                     }
                 }
 
-                // 지불
+                // 지불 처리
                 foreach (ResourceData resource in mapData[selectedIndex].resourceDatas)
                 {
                     CostManager.Instance.MinusCost(resource.resourceIndex, resource.resourceAmount);
@@ -113,12 +114,15 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
 
                 Debug.Log("맵 생성 완료!");
 
-                SpawnManager.Instance.StartCycle(_selectIndex[_currentSelectIndex]);
-                
+                StatManager.Instance.ResetGrowthMultipliers(); //적 성장 초기화;
+                SpawnManager.Instance.StartCycle(selectedIndex);
+
+                _lastChosenIndex = selectedIndex; // 이번에 선택된 맵 저장
                 _currentEntrance.MarkUsed(); // 사다리 상태 확정
                 ResetAllLadders();
             }
         }
+
 
         public void ShowMaps(ShowRadderUI entrance)
         {
