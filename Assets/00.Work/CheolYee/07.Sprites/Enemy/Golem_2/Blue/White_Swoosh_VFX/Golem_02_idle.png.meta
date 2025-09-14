@@ -809,7 +809,35 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem_02_idle_0: -6415743003545851477
+      Golem_02_idle_1: 7122138408952064164
+      Golem_02_idle_10: -2988683469314431605
+      Golem_02_idle_11: -4355139723428979337
+      Golem_02_idle_12: -385610289647139004
+      Golem_02_idle_13: -2493343156971516495
+      Golem_02_idle_14: 7276317321190724333
+      Golem_02_idle_15: 3103693179992213493
+      Golem_02_idle_16: 6453272445420561400
+      Golem_02_idle_17: 6296559678389667052
+      Golem_02_idle_18: 5150804363469996377
+      Golem_02_idle_19: 6315180884653135604
+      Golem_02_idle_2: 3693807445688820747
+      Golem_02_idle_20: 7036299839043513527
+      Golem_02_idle_21: 4785568119141177610
+      Golem_02_idle_22: 142945590974191402
+      Golem_02_idle_23: 3543539471505383893
+      Golem_02_idle_24: 847862381038841850
+      Golem_02_idle_25: 2666422955766812631
+      Golem_02_idle_26: -3701923036198483948
+      Golem_02_idle_27: -4224552003692457850
+      Golem_02_idle_3: 6925297979082039439
+      Golem_02_idle_4: 642530067596304582
+      Golem_02_idle_5: 3380940359499570812
+      Golem_02_idle_6: -6236333266329782575
+      Golem_02_idle_7: -6196997323651737575
+      Golem_02_idle_8: 3915275481816456038
+      Golem_02_idle_9: 325569699902450326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

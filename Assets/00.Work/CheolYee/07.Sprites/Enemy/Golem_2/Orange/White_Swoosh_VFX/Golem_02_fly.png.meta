@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem_02_fly_0: -2256915433703821195
+      Golem_02_fly_1: 1972168366629636657
+      Golem_02_fly_10: -1876028857597242175
+      Golem_02_fly_11: 6995215944303311657
+      Golem_02_fly_12: 1840390073898060725
+      Golem_02_fly_13: -4470622061263219823
+      Golem_02_fly_14: -5225807405391427972
+      Golem_02_fly_15: 1139101853026919372
+      Golem_02_fly_2: 4866210524603807842
+      Golem_02_fly_3: -781693159973997950
+      Golem_02_fly_4: 3685006279191087106
+      Golem_02_fly_5: 5893307359350698755
+      Golem_02_fly_6: -4549530859809310796
+      Golem_02_fly_7: 2148716159285170054
+      Golem_02_fly_8: -8509957634677065747
+      Golem_02_fly_9: 6531977615720613108
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
