@@ -459,7 +459,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem_02_hurt_0: -8009103020270241293
+      Golem_02_hurt_1: 817800569320839145
+      Golem_02_hurt_10: -1236534466504090948
+      Golem_02_hurt_11: 5096698457729176609
+      Golem_02_hurt_12: -5969904557183135280
+      Golem_02_hurt_13: -1802797053248442559
+      Golem_02_hurt_2: -4263707560263295450
+      Golem_02_hurt_3: -6453820270789444007
+      Golem_02_hurt_4: 2684783939321734364
+      Golem_02_hurt_5: -4517838497693143649
+      Golem_02_hurt_6: 2018349763782833593
+      Golem_02_hurt_7: 1077553152690264450
+      Golem_02_hurt_8: 6538180425026990375
+      Golem_02_hurt_9: -4005449807764840641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

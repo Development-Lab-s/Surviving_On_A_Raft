@@ -384,7 +384,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Golem_02_teleport_2_0: 4836705805950271565
+      Golem_02_teleport_2_1: -6105335255139354770
+      Golem_02_teleport_2_10: -8191408669643366782
+      Golem_02_teleport_2_2: 8542474344836111683
+      Golem_02_teleport_2_3: 7389593928385029272
+      Golem_02_teleport_2_4: -6753439723778347173
+      Golem_02_teleport_2_5: -893843691840348267
+      Golem_02_teleport_2_6: 6203242558973789197
+      Golem_02_teleport_2_7: 3453482432861923257
+      Golem_02_teleport_2_8: 4829412594406419694
+      Golem_02_teleport_2_9: 8648756898257370486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
