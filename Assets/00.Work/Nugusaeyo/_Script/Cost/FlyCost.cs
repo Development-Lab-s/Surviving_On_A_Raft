@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
-using _00.Work.CheolYee._01.Codes.Agents;
+using _00.Work.Nugusaeyo._Script.Cost;
 using _00.Work.Nugusaeyo._Script.Enemy;
 using _00.Work.Resource.Manager;
 using UnityEngine;
-using DG.Tweening;
 using Random = UnityEngine.Random;
 
 public class FlyCost : MonoBehaviour
@@ -56,7 +54,7 @@ public class FlyCost : MonoBehaviour
         _isFollow = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D()
     {
         _collider2D.enabled = false;
         _isFollow = true;
@@ -67,15 +65,22 @@ public class FlyCost : MonoBehaviour
     {
         if (_isFollow)
         {
-            Vector3 target = Camera.main.ScreenToWorldPoint(CostBoarder.Instance.costGoalPos.transform.position);
-            transform.position = Vector3.Lerp(transform.position, target, _itemSpeed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, target) < 2f)
+            if (Camera.main != null)
             {
-                CostManager.instance.PlusCost(costType, 1);
-                PoolManager.Instance.Push(_cost);
-                _collider2D.enabled = true;
-                _isFollow = false;
-                _rigidbody2D.gravityScale = 1f;
+                Vector3 target = Camera.main.ScreenToWorldPoint(CostBoarder.Instance.costGoalPos.transform.position);
+                transform.position = Vector3.Lerp(transform.position, target, _itemSpeed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, target) < 2f)
+                {
+                    if (CostManager.Instance != null)
+                    {
+                        CostManager.Instance.PlusCost(costType, 1);
+                        if (PoolManager.Instance != null) PoolManager.Instance.Push(_cost);
+                    }
+
+                    _collider2D.enabled = true;
+                    _isFollow = false;
+                    _rigidbody2D.gravityScale = 1f;
+                }
             }
         }
     }

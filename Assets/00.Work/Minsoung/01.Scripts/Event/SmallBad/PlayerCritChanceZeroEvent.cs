@@ -11,7 +11,7 @@ public class PlayerCritChanceZeroEvent : MonoBehaviour, IEvent
     [ContextMenu("나 운이 메이요")]
     public void StartEvent()
     {
-        StatManager.Instance.PlayerBuffInTime(StatType.CritChance, 0f, EventDuration);
+        StatManager.Instance.PlayerBuffInTime(StatType.CritChance, -100, EventDuration);
     }
 
     public void StartEventEffectText()

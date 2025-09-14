@@ -1,97 +1,143 @@
+using System.Collections;
 using System.Collections.Generic;
+using _00.Work.CheolYee._01.Codes.Core.Cameras;
 using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Portals;
 using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.Hedonism._06.Scripts.ChangeMap;
+using _00.Work.Nugusaeyo._Script.Tsunami;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using UnityEngine;
 
-public class SpawnManager : MonoSingleton<SpawnManager>
+namespace _00.Work.Hedonism._06.Scripts.SO.Manager
 {
-    [SerializeField] private List<Transform> spawnPoints; // 인스펙터에 프리팹들 넣기
-
-    [SerializeField] private PoolItem _portalItemPrefab; // 풀링할 포탈
-    [SerializeField] private PortalDataSo portalData;    // 포탈 설정 데이터
-    private Transform _playerTrm;
-
-    void Start()
+    public class SpawnManager : MonoSingleton<SpawnManager>
     {
-        _playerTrm = GameManager.Instance.playerTransform;
-    }
+        [SerializeField] private List<Transform> spawnPoints; // 인스펙터에 프리팹들 넣기
 
-    //  여러 개의 포탈 관리용 리스트
-    private List<Portal> currentPortals = new List<Portal>();
+        [SerializeField] private PoolItem portalItemPrefab; // 풀링할 포탈
+        [SerializeField] private List<PortalDataSo> portalData;    // 포탈 설정 데이터
+        [SerializeField] private int maxSpawnCount;    //최대 스폰 카운트
+        private Transform _playerTrm;
 
-    public void SpawnPortalInMap(MapArea map)
-    {
-        // 기존 포탈 전부 삭제
-        DespawnCurrentPortals();
-        ClearAllEnemies();
 
-        if (map.portalSpawnPoints.Count == 0)
+        public List<Enemy> Enemys { get; set; } = new();
+
+        void Start()
         {
-            return;
+            _playerTrm = GameManager.Instance.playerTransform;
+            OnFirstStart(Random.Range(0, spawnPoints.Count));
         }
 
-        // 랜덤하게 2개의 다른 위치 선택
-        List<int> indices = new List<int>();
-        while (indices.Count < 2)
+        public void MaxSpawnCountChange(int value)
         {
-            int index = Random.Range(0, map.portalSpawnPoints.Count);
-            if (!indices.Contains(index))
-                indices.Add(index);
+            maxSpawnCount = value;
         }
 
-        // 포탈 2개 생성
-        foreach (int index in indices)
+        public bool CanSpawn()
         {
-            Vector3 spawnPos = map.portalSpawnPoints[index].position;
-
-            Portal portal = PoolManager.Instance.Pop(_portalItemPrefab.poolName) as Portal;
-            portal.transform.position = spawnPos;
-            portal.Initialize(portalData, false);
-
-            currentPortals.Add(portal); // 리스트에 저장
+            return Enemys?.Count < maxSpawnCount;
         }
-    }
 
-    /// <summary>
-    /// 현재 활성화된 모든 포탈 제거
-    /// </summary>
-    public void DespawnCurrentPortals()
-    {
-        if (currentPortals.Count > 0)
+        public void RemoveEnemy(Enemy enemy)
         {
-            foreach (var portal in currentPortals)
+            Enemys.Remove(enemy);
+        }
+
+        //  여러 개의 포탈 관리용 리스트
+        private readonly List<Portal> _currentPortals = new List<Portal>();
+
+        public void SpawnPortalInMap(MapArea map)
+        {
+            // 기존 포탈 전부 삭제
+            DespawnCurrentPortals();
+            ClearAllEnemies();
+            maxSpawnCount = portalData[GameManager.Instance.currentLevel - 1].enemyCount;
+            
+            if (map.portalSpawnPoints.Count == 0)
             {
-                PoolManager.Instance.Push(portal);
+                return;
             }
-            Debug.Log("기존 포탈 제거 완료");
-            currentPortals.Clear();
-        }
-    }
 
-    public void ClearAllEnemies()
-    {
-        Enemy[] enemies = FindObjectsOfType<Enemy>(); // 씬에 있는 모든 Enemy 컴포넌트 검색
-        foreach (Enemy enemy in enemies)
-        {
-            if (enemy.TryGetComponent(out IPoolable pool))
+            // 랜덤하게 2개의 다른 위치 선택
+            List<int> indices = new List<int>();
+            while (indices.Count < map.portalSpawnCount)
             {
-                PoolManager.Instance.Push(pool);
+                int index = Random.Range(0, map.portalSpawnPoints.Count);
+                if (!indices.Contains(index))
+                    indices.Add(index);
+            }
+
+            // 포탈 2개 생성
+            foreach (int index in indices)
+            {
+                
+                Vector3 spawnPos = map.portalSpawnPoints[index].position;
+                bool left = map.portalSpawnPoints[index].GetComponent<PortalSpawn>().isLeft;
+
+                Portal portal = PoolManager.Instance.Pop(portalItemPrefab.poolName) as Portal;
+                if (portal != null)
+                {
+                    portal.transform.position = spawnPos;
+                    portal.Initialize(portalData[GameManager.Instance.currentLevel -1], left);
+
+                    _currentPortals.Add(portal); // 리스트에 저장
+                }
             }
         }
-    }
+
+        /// <summary>
+        /// 현재 활성화된 모든 포탈 제거
+        /// </summary>
+        public void DespawnCurrentPortals()
+        {
+            if (_currentPortals.Count > 0)
+            {
+                foreach (var portal in _currentPortals)
+                {
+                    PoolManager.Instance?.Push(portal);
+                }
+                Debug.Log("기존 포탈 제거 완료");
+                _currentPortals.Clear();
+            }
+        }
+
+        public void ClearAllEnemies()
+        {
+            Enemys.Clear();
+            
+            Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None); // 씬에 있는 모든 Enemy 컴포넌트 검색
+            foreach (Enemy enemy in enemies)
+            {
+                if (enemy.TryGetComponent(out IPoolable pool))
+                {
+                    PoolManager.Instance.Push(pool);
+                }
+            }
+        }
 
 
-    public void StartCycle(int index)
-    {
-        // 플레이어 이동
-        MovePlayerTo(index);
-    }
+        public void StartCycle(int index)
+        {
+            // 플레이어 이동
+            StartCoroutine(MovePlayerTo(index));
+        }
 
-    private void MovePlayerTo(int index)
-    {
-        _playerTrm.position = spawnPoints[index].transform.position;
+        private void OnFirstStart(int index)
+        {
+            ShowStageSelectUI.Instance.lastChosenIndex = index;
+            FadeManager.Instance.FadeIn();
+            _playerTrm.position = spawnPoints[index].transform.position;
+        }
+
+        private IEnumerator MovePlayerTo(int index)
+        {
+            FadeManager.Instance.FadeIn();
+            yield return new WaitForSeconds(0.5f);
+            _playerTrm.position = spawnPoints[index].transform.position;
+            CamDampingSetting.Instance.WarpPlayer(_playerTrm.position);
+            TsunamiEventManager.Instance.LadderInteracted(GameManager.Instance.currentLevel);
+        }
     }
 }

@@ -131,7 +131,7 @@ MonoBehaviour:
   colliderTime: 2.8
   whatIsgroundCheck:
     serializedVersion: 2
-    m_Bits: 1048576
+    m_Bits: 1048584
   damageCaster: {fileID: 2455174340696550269}
   damage: 50
   eventSO: {fileID: 11400000, guid: 1c04ef59520fe7541bab703bbf170adc, type: 2}
@@ -148,7 +148,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1048576
+    m_Bits: 1048584
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -20,7 +20,6 @@ public class Storm : MonoBehaviour
 
     private float _stormDir = 1f;
     private float _rand1 = 0;
-    private float _rand2 = 0;
 
     private Animator _animator;
     private Rigidbody2D _rb;
@@ -83,7 +82,7 @@ public class Storm : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.linearVelocity = Vector2.right * speed * _stormDir;
+        _rb.linearVelocity = Vector2.right * (speed * _stormDir);
     }
 
     private IEnumerator StormRandomMove()

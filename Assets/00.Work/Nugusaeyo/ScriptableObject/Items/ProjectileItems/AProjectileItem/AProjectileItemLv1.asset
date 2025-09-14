@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcabfa983f18428bb0ca703f80e75a5f, type: 3}
   m_Name: AProjectileItemLv1
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: Knife
+  id: 2
+  itemName: "\uB2E8\uAC80"
+  desc: "\uB9C8\uC6B0\uC2A4 \uBC29\uD5A5\uC73C\uB85C \uB2E8\uAC80\uC744 \uB0A0\uB9BD\uB2C8\uB2E4.\n\uAE30\uBCF8
+    \uACF5\uACA9\uB825: 5"
+  icon: {fileID: -2489603379309750059, guid: 99052b91f167dbc4fada0959145def9a, type: 3}
   level: 1
-  damage: -2
+  damage: 5
   knockbackPower: 5
   nextLevel: {fileID: 11400000, guid: 8844d107b41fb7d478f09fd77d6245b9, type: 2}
   speed: 6
   cooldown: 6
   projectilePrefab: {fileID: 3149612778032154149, guid: 077c7becde2a6a14facaaccb1b51ca9e, type: 3}
+  bulletCount: 1

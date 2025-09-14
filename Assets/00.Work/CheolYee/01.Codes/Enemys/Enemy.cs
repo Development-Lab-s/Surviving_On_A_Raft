@@ -5,6 +5,7 @@ using System.Collections;
 using _00.Work.CheolYee._01.Codes.Agents.Movements;
 using _00.Work.CheolYee._01.Codes.Core.Buffs;
 using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.Hedonism._06.Scripts.SO.Manager;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -63,6 +64,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         private void OnEnable()
         {
+            SpawnManager.Instance.Enemys.Add(this);
             StartCoroutine(MaskChange());
         }
 
@@ -105,7 +107,12 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         }
 
 
-        public abstract void SetDead();
+        public virtual void SetDead()
+        {
+            ItemManager.Instance.CreateRandomPickupItem(transform);
+            GameManager.Instance.player.BloodSucking();
+            SpawnManager.Instance.RemoveEnemy(this);
+        }
 
         //공격 메서드 (에너미 공격에 따라 따로 구현)
         public virtual void Attack() { }

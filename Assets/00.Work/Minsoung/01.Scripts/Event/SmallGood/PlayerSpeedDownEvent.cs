@@ -11,7 +11,7 @@ public class PlayerSpeedDownEvent : MonoBehaviour, IEvent
     [ContextMenu("나 약간 오소이")]
     public void StartEvent()
     {
-        StatManager.Instance.PlayerBuffInTime(StatType.MoveSpeed, 0.9f, EventDuration);
+        StatManager.Instance.PlayerBuffInTime(StatType.MoveSpeed, -0.1f, EventDuration);
     }
 
     public void StartEventEffectText()

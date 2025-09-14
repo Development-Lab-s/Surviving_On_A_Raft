@@ -11,7 +11,7 @@ public class PlayerSpeedUpEvent : MonoBehaviour, IEvent
     [ContextMenu("나 엄청 패스트")]
     public void StartEvent()
     {
-        StatManager.Instance.PlayerBuffInTime(StatType.MoveSpeed, 1.4f, EventDuration);
+        StatManager.Instance.PlayerBuffInTime(StatType.MoveSpeed, 0.4f, EventDuration);
     }
 
     public void StartEventEffectText()

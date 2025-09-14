@@ -1,3 +1,4 @@
+using System;
 using _00.Work.CheolYee._01.Codes.Agents;
 using _00.Work.CheolYee._01.Codes.Agents.Movements;
 using _00.Work.CheolYee._01.Codes.Core.Buffs;
@@ -5,6 +6,7 @@ using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace _00.Work.CheolYee._01.Codes.Players
 {
@@ -23,6 +25,8 @@ namespace _00.Work.CheolYee._01.Codes.Players
         public float attackSpeedMulti = 1;
 
         private PlayerAnimator PlayerAnimatorComponent { get; set; } //플레이어 애니메이션 담당
+
+        private bool _setDead;
 
         [Header("Attack Settings")]
         private float _damage;
@@ -47,6 +51,17 @@ namespace _00.Work.CheolYee._01.Codes.Players
         
         private int _critChance;
         public int CurrentCriticalChance => (int)(critChanceMulti * _critChance);
+        
+        public bool HaveBloodSuckingItem { get; set; }
+        public float BloodSuckingHealMultiplier { get; set; }
+
+        public void BloodSucking()
+        {
+            if (HaveBloodSuckingItem)
+            {
+                HealthComponent.HealPer(BloodSuckingHealMultiplier);
+            }
+        }
         protected override void Awake()
         {
             base.Awake();
@@ -61,6 +76,12 @@ namespace _00.Work.CheolYee._01.Codes.Players
             HealthComponent.Initialize(this, CharacterData.health); //체력 컴포넌트에 오너 설정, 체력 설정
         }
 
+        private void Start()
+        {
+            StatManager.Instance.OnPlayerBuff += ApplyBuff;
+            StatManager.Instance.OnResetPlayerBuff += ResetBuff;
+        }
+
         private void OnDestroy()
         {
             PlayerInput.OnJumpKeyPress -= HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 해제
@@ -70,8 +91,11 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private void Update()
         {
             CalculateInAirTime(); //공중 시간 계산
-            SetupMovementX(); //무브먼트 스크립트에 지속적으로 X값 전달
-            UpdateAnimator(); //애니메이션 업데이트
+            if (!_setDead)
+            {
+                SetupMovementX(); //무브먼트 스크립트에 지속적으로 X값 전달
+                UpdateAnimator(); //애니메이션 업데이트
+            }
         }
 
         private void FixedUpdate()
@@ -88,7 +112,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private void HandleJumpKeyPress() //점프키 눌렀을 때 실행
         {
             //만약 바닥에 닿은 상태거나 코요테 타임 내라면 점프
-            if (MovementComponent.IsGround.Value)
+            if (MovementComponent.IsGround.Value && !_setDead)
             {
                 MovementComponent.Jump(); //점프해라
             }
@@ -101,9 +125,18 @@ namespace _00.Work.CheolYee._01.Codes.Players
 
         private void UpdateAnimator()
         {
+            PlayerAnimatorComponent.SetJump(!MovementComponent.IsGround.Value); //이동 전달
+            PlayerAnimatorComponent.MovePlayer(Mathf.Abs(MovementComponent.RbCompo.linearVelocityX));
             PlayerAnimatorComponent.HandleFlip(PlayerInput.Movement.x);
         }
 
+        public void SetDead()
+        {
+            _setDead = true;
+            MovementComponent.StopImmediately();
+            PlayerAnimatorComponent.SetDead(true);
+        }
+        
         public void ApplyBuff(StatType stat, float buff)
         {
             if (stat == StatType.Damage) damageMulti += buff;

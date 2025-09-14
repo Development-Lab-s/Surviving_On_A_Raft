@@ -11,7 +11,7 @@ public class PlayerHealthDownEvent : MonoBehaviour, IEvent
     [ContextMenu("나 엄청 츠요이")]
     public void StartEvent()
     {
-        StatManager.Instance.PlayerBuffInTime(StatType.Health, 0.8f, EventDuration);
+        StatManager.Instance.PlayerBuffInTime(StatType.Health, -0.2f, EventDuration);
     }
 
     public void StartEventEffectText()

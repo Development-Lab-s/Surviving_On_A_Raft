@@ -1,4 +1,5 @@
 using System;
+using _00.Work.Nugusaeyo._Script.Tsunami;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

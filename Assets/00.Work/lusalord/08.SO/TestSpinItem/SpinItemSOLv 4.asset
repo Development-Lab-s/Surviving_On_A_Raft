@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: SpinItemSOLv 4
   m_EditorClassIdentifier: 
   id: 0
-  itemName: Square
+  itemName: "\uD68C\uC804 \uCE7C\uB0A0"
+  desc: "4\uAC1C\uC758 \uCE7C\uB0A0\uC774 \uD68C\uC804\uD558\uBA70 \uC801\uC744 \uACF5\uACA9\uD569\uB2C8\uB2E4.\n\uAE30\uBCF8
+    \uACF5\uACA9\uB825 40"
+  icon: {fileID: -5636343253877202797, guid: e1c737438debb2e4da16bd305001a55a, type: 3}
   level: 4
-  damage: 1000
+  damage: 40
   knockbackPower: 5
-  nextLevel: {fileID: 0}
-  spinRadius: 3
+  nextLevel: {fileID: 11400000, guid: c27867fe6775739428a2d8bee2b09388, type: 2}
+  spinRadius: 4
   spinPrefab: {fileID: 3944626458033196950, guid: 70a2162174e371a43bd15009a0f61ec2, type: 3}
-  spinSpeed: 15
-  spinAmount: 10
+  spinSpeed: 12
+  spinAmount: 4
   rotateSpeed: 100
   isRotate: 1
   rickRolling: 0
