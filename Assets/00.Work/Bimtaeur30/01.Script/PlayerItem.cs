@@ -11,7 +11,6 @@ public class PlayerItem
         if (Level < 5)
         {
             Template.Upgrade();
-            Level++;
         }
     }
 }

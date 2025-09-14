@@ -12,14 +12,14 @@ namespace _00.Work.CheolYee._01.Codes.Items.SO
         public float speed;
         public float cooldown;
         public GameObject projectilePrefab;
+        public int bulletCount = 1;
 
         protected override void OnValidate()
         {
             if (projectilePrefab != null)
             {
-                if (projectilePrefab.TryGetComponent(out Projectile projectile))
+                if (projectilePrefab.TryGetComponent(out Projectile _))
                 {
-                    itemName = projectile.GetComponent<IPoolable>().ItemName;
                 }
                 else
                 {

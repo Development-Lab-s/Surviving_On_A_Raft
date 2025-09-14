@@ -110,6 +110,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         public virtual void SetDead()
         {
             ItemManager.Instance.CreateRandomPickupItem(transform);
+            GameManager.Instance.player.BloodSucking();
             SpawnManager.Instance.RemoveEnemy(this);
         }
 

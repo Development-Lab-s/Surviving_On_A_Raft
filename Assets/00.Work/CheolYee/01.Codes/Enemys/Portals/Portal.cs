@@ -41,7 +41,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
 
         private void OpenPortal(Transform portalTrm)
         {
-            transform.position = portalTrm.position;
+            transform.position = portalTrm.position + Vector3.up;
             transform.localScale = Vector3.zero;
             
             Color transparentColor = PortalData.portalColor;

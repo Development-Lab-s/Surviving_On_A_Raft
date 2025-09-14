@@ -1,3 +1,4 @@
+using _00.Work.Bimtaeur30._01.Script;
 using _00.Work.CheolYee._01.Codes.Managers;
 using DG.Tweening;
 using TMPro;
@@ -16,11 +17,26 @@ public class ItemInvenGetAndRemove : MonoBehaviour
     public bool UpgradeItem(int slotIndex)
     {
         var playerItem = InventoryManager.Instance.ItemSlotList[slotIndex];
-        if (playerItem == null || playerItem.Level >= 5)
+        
+        if (playerItem == null) return false;
+        
+        
+        if (playerItem.Level >= 5)
             return false;
 
         playerItem.Upgrade();
         UpdateSlotUI(slotIndex);
+
+        if (playerItem.Template.ItemType == ItemType.AttackItem)
+        {
+            ItemCreatetorBars.Instance.UpdateAttackItemUI(playerItem.Template.attackItem.id);
+            playerItem.Level = ItemManager.Instance.GetAttackItem(playerItem.Template.attackItem.id).level;
+        }
+        else
+        {
+            ItemCreatetorBars.Instance.UpdatePassiveItemUI(playerItem.Template.passiveItem.id);
+            playerItem.Level = ItemManager.Instance.GetPassiveItem(playerItem.Template.passiveItem.id).level;
+        }
 
         Debug.Log(playerItem.Template.ItemName + " 레벨: " + playerItem.Level);
 
@@ -47,7 +63,7 @@ public class ItemInvenGetAndRemove : MonoBehaviour
         for (int i = 0; i < InventoryManager.Instance.ItemSlotList.Length; i++)
         {
             var playerItem = InventoryManager.Instance.ItemSlotList[i];
-            if (playerItem != null && playerItem.Template == templateSO)
+            if (playerItem != null && playerItem.Template.ItemName == templateSO.ItemName)
             {
                 return UpgradeItem(i);
             }
@@ -96,6 +112,11 @@ public class ItemInvenGetAndRemove : MonoBehaviour
         if (playerItem == null) return;
 
         InventoryManager.Instance.ItemSlotList[slotIndex] = null;
+        if (playerItem.Template.ItemType == ItemType.AttackItem) 
+            ItemManager.Instance.DeleteAttackItem(playerItem.Template.attackItem.id);
+        else
+            ItemManager.Instance.DeletePassiveItem(playerItem.Template.passiveItem.id);
+            
         UpdateSlotUI(slotIndex);
 
         IS.SlotUnselectMethod();

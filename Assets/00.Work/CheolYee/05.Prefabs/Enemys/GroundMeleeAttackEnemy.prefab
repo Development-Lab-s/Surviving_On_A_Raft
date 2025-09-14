@@ -280,7 +280,7 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: dcd0d07e9d419c345b3f782b9446404d, type: 2}
   damageMulti: 0
   detectRadius: 0
-  attackRadius: 2
+  attackRadius: 1.59
   attackCooldown: 0
   knockbackPower: 0
   lastAttackTime: 0
@@ -716,7 +716,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.12
+      value: 0.697
       objectReference: {fileID: 0}
     - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: m_LocalPosition.y
@@ -753,6 +753,10 @@ PrefabInstance:
     - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: damageRadius
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: whatIsTarget.layerMask.m_Bits

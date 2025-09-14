@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: AddHealth LV 1
   m_EditorClassIdentifier: 
   id: 0
-  itemName: "\uBC29\uD0C4\uBCF5"
-  icon: {fileID: 5088316998373936774, guid: 9b9e5b9e22f5a544291fe52a2e8ba2d7, type: 3}
-  desc: "\uC5B4\uCA50\uC9C0 \uCCB4\uB825\uC774 \uB298\uC5B4\uB0A0 \uAC83 \uAC19\uC740
-    \uAE30\uBD84\uC774 \uB4ED\uB2C8\uB2E4."
   level: 1
+  itemName: "\uAD6C\uAE09 \uD0A4\uD2B8"
+  icon: {fileID: 21300000, guid: c32636c2288626c4cb8736c76da53e49, type: 3}
+  desc: "\uCCB4\uB825\uC774 \uC77C\uC815\uB7C9 \uC0C1\uC2B9\uD569\uB2C8\uB2E4.\n\uCCB4\uB825
+    \uC99D\uAC00\uB7C9: 20%"
   criticalChanceMulti: 0
-  hpMulti: 0.5
+  hpMulti: 0.2
   speedMulti: 0
   damageMulti: 0
   atkSpeedMulti: 0

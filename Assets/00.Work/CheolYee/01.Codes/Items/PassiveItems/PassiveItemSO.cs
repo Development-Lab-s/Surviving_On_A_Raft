@@ -8,11 +8,11 @@ namespace _00.Work.CheolYee._01.Codes.Items.PassiveItems
     {
         [Header("Item info")]
         public int id;
+        public int level; // 현재 레벨
         public string itemName; // 아이템 이름
         public Sprite icon; // 아이콘
         [TextArea]
         public string desc;
-        public int level; // 현재 레벨
         
         
         [Header("Stats")]

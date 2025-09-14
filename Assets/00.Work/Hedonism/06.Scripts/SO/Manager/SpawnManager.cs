@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _00.Work.CheolYee._01.Codes.Core.Cameras;
 using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Portals;
 using _00.Work.CheolYee._01.Codes.Managers;
@@ -29,6 +30,11 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             OnFirstStart(Random.Range(0, spawnPoints.Count));
         }
 
+        public void MaxSpawnCountChange(int value)
+        {
+            maxSpawnCount = value;
+        }
+
         public bool CanSpawn()
         {
             return Enemys?.Count < maxSpawnCount;
@@ -47,7 +53,8 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             // 기존 포탈 전부 삭제
             DespawnCurrentPortals();
             ClearAllEnemies();
-
+            maxSpawnCount = portalData[GameManager.Instance.currentLevel - 1].enemyCount;
+            
             if (map.portalSpawnPoints.Count == 0)
             {
                 return;
@@ -55,7 +62,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
 
             // 랜덤하게 2개의 다른 위치 선택
             List<int> indices = new List<int>();
-            while (indices.Count < 2)
+            while (indices.Count < map.portalSpawnCount)
             {
                 int index = Random.Range(0, map.portalSpawnPoints.Count);
                 if (!indices.Contains(index))
@@ -65,6 +72,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             // 포탈 2개 생성
             foreach (int index in indices)
             {
+                
                 Vector3 spawnPos = map.portalSpawnPoints[index].position;
                 bool left = map.portalSpawnPoints[index].GetComponent<PortalSpawn>().isLeft;
 
@@ -72,7 +80,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
                 if (portal != null)
                 {
                     portal.transform.position = spawnPos;
-                    portal.Initialize(portalData[GameManager.Instance.currentLevel], left);
+                    portal.Initialize(portalData[GameManager.Instance.currentLevel -1], left);
 
                     _currentPortals.Add(portal); // 리스트에 저장
                 }
@@ -128,6 +136,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             FadeManager.Instance.FadeIn();
             yield return new WaitForSeconds(0.5f);
             _playerTrm.position = spawnPoints[index].transform.position;
+            CamDampingSetting.Instance.WarpPlayer(_playerTrm.position);
             TsunamiEventManager.Instance.LadderInteracted(GameManager.Instance.currentLevel);
         }
     }

@@ -57,12 +57,6 @@ public class CostBoarder : MonoBehaviour
         ResetCostImg();
     }
 
-    private void OnDestroy()
-    {
-        CostManager.Instance.CostUpEvent -= CostUpBoard;
-        CostManager.Instance.CostDownEvent -= CostDownBoard;
-    }
-
     private void CostUpBoard()
     {
         for (int i = 0; i < costText.Length; i++)

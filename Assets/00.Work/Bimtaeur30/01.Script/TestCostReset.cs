@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using _00.Work.Bimtaeur30._01.Script;
 using _00.Work.Nugusaeyo._Script.Cost;
 
 public class TestCostReset : MonoBehaviour

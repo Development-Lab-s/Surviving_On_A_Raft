@@ -15,7 +15,9 @@ MonoBehaviour:
   mapIndex: 4
   mapIcon: {fileID: 5088316998373936774, guid: 6366fb4a8bf93384a8fbdebcbf120e0a, type: 3}
   resourceDatas:
-  - resourceIndex: 0
-    resourceName: "\uAC15\uCCA0"
-    resourceIcon: {fileID: 5088316998373936774, guid: 38df5ddcd48f46f4586ae0e632e1fef7, type: 3}
-    resourceAmount: 200
+  - resourceIndex: 1
+    resourceData: {fileID: 11400000, guid: a16bbb5a68a0934468aaec639fa96ed7, type: 2}
+    resourceAmount: 20
+  - resourceIndex: 2
+    resourceData: {fileID: 11400000, guid: 05d4155182d449b4e84ba566cd80e8ab, type: 2}
+    resourceAmount: 20

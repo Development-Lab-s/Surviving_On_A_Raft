@@ -126,7 +126,7 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: 3ac054201fc95dc4fad051ee87c7835a, type: 2}
   damageMulti: 0
   detectRadius: 0
-  attackRadius: 6.54
+  attackRadius: 6.27
   attackCooldown: 0
   knockbackPower: 0
   lastAttackTime: 0

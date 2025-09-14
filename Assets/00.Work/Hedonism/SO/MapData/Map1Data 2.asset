@@ -17,10 +17,10 @@ MonoBehaviour:
   resourceDatas:
   - resourceIndex: 0
     resourceData: {fileID: 11400000, guid: e5b5860bd4dce0c45979e997d980a38d, type: 2}
-    resourceAmount: 200
+    resourceAmount: 20
   - resourceIndex: 3
     resourceData: {fileID: 11400000, guid: 09381e86dc371cf4696cd4cd1c62f0eb, type: 2}
-    resourceAmount: 200
+    resourceAmount: 15
   - resourceIndex: 4
     resourceData: {fileID: 11400000, guid: 2264059c612cce2448e5b494f45da84b, type: 2}
-    resourceAmount: 200
+    resourceAmount: 10

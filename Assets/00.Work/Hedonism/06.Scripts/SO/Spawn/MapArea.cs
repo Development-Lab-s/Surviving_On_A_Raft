@@ -10,6 +10,8 @@ public class MapArea : MonoBehaviour
     [Header("포탈이 소환될 수 있는 위치들")]
     public List<Transform> portalSpawnPoints = new();
 
+    public int portalSpawnCount = 1;
+
     // 플레이어가 맵에 들어올 때 감지
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -51,6 +51,17 @@ namespace _00.Work.CheolYee._01.Codes.Players
         
         private int _critChance;
         public int CurrentCriticalChance => (int)(critChanceMulti * _critChance);
+        
+        public bool HaveBloodSuckingItem { get; set; }
+        public float BloodSuckingHealMultiplier { get; set; }
+
+        public void BloodSucking()
+        {
+            if (HaveBloodSuckingItem)
+            {
+                HealthComponent.HealPer(BloodSuckingHealMultiplier);
+            }
+        }
         protected override void Awake()
         {
             base.Awake();

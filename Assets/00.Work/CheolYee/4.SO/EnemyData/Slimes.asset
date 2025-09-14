@@ -17,5 +17,5 @@ MonoBehaviour:
   jumpForce: 20
   knockbackDuration: 0.1
   attackDamage: 10
-  attackCooldown: 2
+  attackCooldown: 5
   knockbackPower: 0

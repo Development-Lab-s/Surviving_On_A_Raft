@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _00.Work.CheolYee._01.Codes.Items.PassiveItems;
 using _00.Work.CheolYee._01.Codes.Items.PicupItem;
 using _00.Work.lusalord._02.Script;
+using _00.Work.lusalord._02.Script.SO.AttackItem;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using UnityEngine;
@@ -23,21 +24,31 @@ namespace _00.Work.CheolYee._01.Codes.Managers
 
         public void CreateAttackItem(int id)
         {
-            if (attackItems[id].gameObject.activeSelf)
+            if (attackItems[id].gameObject.activeSelf || attackItems[id].attackItemSo.level > 1)
             {
-                Debug.Log("업글");
-                attackItems[id].LevelUp(id);                
+                attackItems[id].gameObject.SetActive(true);
+                attackItems[id].LevelUp(id);
             }
             else
             {
-                Debug.Log("처음생성");
                 attackItems[id].gameObject.SetActive(true);
             }
         }
         
+        public void DeleteAttackItem(int id) => attackItems[id].gameObject.SetActive(false);
+
+        public void DeletePassiveItem(int id)
+        {
+            passiveItems[id].CancelBuff();
+            passiveItems[id].gameObject.SetActive(false);
+        }
+
+        public AttackItemSo GetAttackItem(int id) => attackItems[id].attackItemSo;
+        public PassiveItemSo GetPassiveItem(int id) => passiveItems[id].PassiveItemSo;
+
         public void CreatePassiveItem(int id)
         {
-            if (passiveItems[id].gameObject.activeSelf)
+            if (passiveItems[id].gameObject.activeSelf || passiveItems[id].PassiveItemSo.level > 1)
             {
                 passiveItems[id].CancelBuff();
                 passiveItems[id].PassiveItemLevelUp(id);

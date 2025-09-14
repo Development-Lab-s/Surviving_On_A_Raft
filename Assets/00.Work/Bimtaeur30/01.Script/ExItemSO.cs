@@ -4,6 +4,7 @@ using _00.Work.CheolYee._01.Codes.Items.PassiveItems;
 using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.lusalord._02.Script.SO.AttackItem;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -30,8 +31,12 @@ public class ExItemSO : ScriptableObject
 
     public int ItemLevel
     {
-        get => _itemLevel;
-        set => _itemLevel = Mathf.Clamp(value, 1, 5);
+        get
+        {
+            if (ItemType == ItemType.AttackItem) return attackItem.level;
+            if (ItemType == ItemType.PassiveItem) return passiveItem.level;
+            return _itemLevel;
+        }
     }
 
     public string ItemName
@@ -68,11 +73,7 @@ public class ExItemSO : ScriptableObject
     public PassiveItemSo passiveItem;
     public string[] itemAttributes;
     public List<Ingredient> ItemIgdt = new List<Ingredient>(); // 인스펙터에 보임!
-
-    private void OnEnable()
-    {
-        ItemLevel = 1;
-    }
+    public ExItemSO nextItem;
 
     public void Upgrade()
     {
