@@ -9,20 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
-  m_Name: BSpinItemLv5
+  m_Script: {fileID: 11500000, guid: fcabfa983f18428bb0ca703f80e75a5f, type: 3}
+  m_Name: BProjectileItemLv5
   m_EditorClassIdentifier: 
   id: 0
-  itemName: BSpinItem
+  itemName: Sword
   level: 5
   damage: 40
-  knockbackPower: 20
+  knockbackPower: 15
   nextLevel: {fileID: 0}
-  spinRadius: 3
-  spinPrefab: {fileID: 3599668503528672686, guid: 77757dceb87ccd44fb14ac8ace984530, type: 3}
-  spinSpeed: 6
-  spinAmount: 2
-  rotateSpeed: 0
-  isRotate: 1
-  rickRolling: 0
-  flip: 0
+  speed: 20
+  cooldown: 1
+  projectilePrefab: {fileID: 3149612778032154149, guid: 845f780fc4dd79d45904886ead767e78, type: 3}

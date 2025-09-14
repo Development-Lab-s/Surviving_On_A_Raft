@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
-  m_Name: BSpinItemLv1
+  m_Name: DSpinItemLv3
   m_EditorClassIdentifier: 
   id: 0
-  itemName: BSpinItem
-  level: 1
-  damage: 15
-  knockbackPower: 10
-  nextLevel: {fileID: 11400000, guid: c80ddc864e7d5f14e9e1572d217c351e, type: 2}
-  spinRadius: 2
-  spinPrefab: {fileID: 3599668503528672686, guid: 77757dceb87ccd44fb14ac8ace984530, type: 3}
-  spinSpeed: 4
-  spinAmount: 1
-  rotateSpeed: 0
+  itemName: DSpinItem
+  level: 3
+  damage: 50
+  knockbackPower: 4
+  nextLevel: {fileID: 11400000, guid: c476526f1d2eb954caf34f7bf85d4866, type: 2}
+  spinRadius: 1.7
+  spinPrefab: {fileID: 3599668503528672686, guid: d953772a725df284aa62a9b7a3f1dcb3, type: 3}
+  spinSpeed: 3
+  spinAmount: 2
+  rotateSpeed: 6
   isRotate: 1
-  rickRolling: 0
+  rickRolling: 1
   flip: 0
