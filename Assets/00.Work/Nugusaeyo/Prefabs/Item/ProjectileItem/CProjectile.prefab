@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1283418039745773849}
   - component: {fileID: 9218661352627807590}
   - component: {fileID: 8102404634658915595}
-  - component: {fileID: 6727180745600579857}
+  - component: {fileID: 8583449617712786503}
   m_Layer: 8
-  m_Name: BProjectile
+  m_Name: CProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,9 +107,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9, y: 0.25}
+  m_Size: {x: 0.9, y: 0.3}
   m_EdgeRadius: 0
---- !u!114 &6727180745600579857
+--- !u!114 &8583449617712786503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,10 +118,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3149612778032154149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f4238f163584404b1b3204a37bb80d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e89e203a0b946b48373f99f819f6f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Sword
+  itemName: Spike
   lifeTime: 1.5
   damageCaster: {fileID: 549332410888049333}
 --- !u!1 &9029243610140372062
@@ -149,13 +149,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9029243610140372062}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1283418039745773849}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &2822903834942403507
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6130644427714032177, guid: d8879771a4d510f4690d22c57c871a7f, type: 3}
+  m_Sprite: {fileID: -5901925832938833544, guid: 84ffb79c3ef3f8646ae60c1bc37ac758, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

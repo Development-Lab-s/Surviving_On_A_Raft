@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 808b3eaf175ccb04b91aa8bd44b8d567, type: 3}
-  m_Name: BProjectileItem 1
+  m_Name: CProjectileItem
   m_EditorClassIdentifier: 
-  poolName: BProjectileItem
-  prefab: {fileID: 3149612778032154149, guid: 845f780fc4dd79d45904886ead767e78, type: 3}
+  poolName: Spike
+  prefab: {fileID: 3149612778032154149, guid: df9a798c1e9d5fc439cb68340c20ab7d, type: 3}
   count: 5
