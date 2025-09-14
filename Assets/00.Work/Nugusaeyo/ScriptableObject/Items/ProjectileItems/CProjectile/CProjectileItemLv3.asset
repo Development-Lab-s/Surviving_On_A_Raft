@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcabfa983f18428bb0ca703f80e75a5f, type: 3}
-  m_Name: CProjectileItemLv1
+  m_Name: CProjectileItemLv3
   m_EditorClassIdentifier: 
   id: 0
   itemName: Spike
-  level: 1
-  damage: 20
-  knockbackPower: 4
-  nextLevel: {fileID: 11400000, guid: c06658d5dde191240a280413cc3d70dd, type: 2}
-  speed: 4
-  cooldown: 7
+  level: 3
+  damage: 50
+  knockbackPower: 8
+  nextLevel: {fileID: 11400000, guid: ad6d654daf96b1f4caca7a8f15502b43, type: 2}
+  speed: 8
+  cooldown: 5
   projectilePrefab: {fileID: 3149612778032154149, guid: df9a798c1e9d5fc439cb68340c20ab7d, type: 3}

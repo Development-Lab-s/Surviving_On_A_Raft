@@ -23,6 +23,6 @@ MonoBehaviour:
   spinSpeed: 6
   spinAmount: 3
   rotateSpeed: 7
-  isRotate: 1
+  isRotate: 0
   rickRolling: 1
-  flip: 0
+  flip: 1
