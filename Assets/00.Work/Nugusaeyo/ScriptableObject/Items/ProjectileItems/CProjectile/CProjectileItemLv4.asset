@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   itemName: Spike
+  desc: "\uC2A4\uD30C\uC774\uD06C\uAC00 \uC801\uC744 \uCD94\uC801\uD574 \uD53C\uD574\uB97C
+    \uC90D\uB2C8\uB2E4."
+  icon: {fileID: -5901925832938833544, guid: 84ffb79c3ef3f8646ae60c1bc37ac758, type: 3}
   level: 4
-  damage: 60
+  damage: 40
   knockbackPower: 10
   nextLevel: {fileID: 11400000, guid: bd4a81900da1edd4c96875d0587cbc5f, type: 2}
   speed: 10
   cooldown: 4
   projectilePrefab: {fileID: 3149612778032154149, guid: df9a798c1e9d5fc439cb68340c20ab7d, type: 3}
+  bulletCount: 1

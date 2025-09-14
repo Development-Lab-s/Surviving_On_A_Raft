@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   itemName: Sword
+  desc: "\uAD00\uD1B5\uD558\uB294 \uAC80\uC774 \uC801\uC758 \uBC29\uD5A5\uC73C\uB85C
+    \uB0A0\uC544\uAC11\uB2C8\uB2E4."
+  icon: {fileID: 6130644427714032177, guid: d8879771a4d510f4690d22c57c871a7f, type: 3}
   level: 3
-  damage: 30
+  damage: 10
   knockbackPower: 12
-  nextLevel: {fileID: 0}
+  nextLevel: {fileID: 11400000, guid: 82252e82fe83fb744a8052852558d0a9, type: 2}
   speed: 17
-  cooldown: 3
+  cooldown: 4
   projectilePrefab: {fileID: 3149612778032154149, guid: 845f780fc4dd79d45904886ead767e78, type: 3}
+  bulletCount: 2
