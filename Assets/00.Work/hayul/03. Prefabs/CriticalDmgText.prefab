@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3123080577011826513}
   - component: {fileID: 1371830326581525486}
   m_Layer: 0
-  m_Name: DamageText
+  m_Name: CriticalDmgText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 7084671633608761623}
-  textColor: {r: 0.9056604, g: 0.25347093, b: 0.25347093, a: 1}
+  textColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8931043938301744572
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,7 +60,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
 
                     return false;
                 case CasterType.Box:
-                    cnt = Physics2D.OverlapBox(transform.position, boxSize, 0f, whatIsTarget, _resultArray);
+                    cnt = Physics2D.OverlapBox(transform.position, boxSize, 0, whatIsTarget, _resultArray);
 
                     for (int i = 0; i < cnt; i++)
                     {

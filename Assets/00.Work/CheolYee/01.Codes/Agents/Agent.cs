@@ -20,6 +20,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
 
         public bool isDead; // 캐릭터가 죽었는가?
+        public bool isFliping;
 
         private float _timeInAir; // 캐릭터가 공중에 떠 있는 시간
         protected virtual void Awake()
@@ -60,6 +61,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         // 타겟 위치에 따라 캐릭터의 방향(스프라이트)을 좌우 반전
         public void HandleSpriteFlip(Vector3 targetPosition)
         {
+            if (isFliping) return;
             //만약에 타겟(마우스, 플레이어 등 움직이는 것)의 x좌표가 자신보다 크다면(오른쪽에 있다면)
             float dir = targetPosition.x - transform.position.x;
 
