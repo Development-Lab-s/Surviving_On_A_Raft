@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5000
   moveSpeed: 3
-  jumpForce: 10
+  jumpForce: 4
   knockbackDuration: 0.1
-  attackDamage: 25
-  attackCooldown: 4
-  knockbackPower: 3
+  attackDamage: 100
+  attackCooldown: 1
+  knockbackPower: 5

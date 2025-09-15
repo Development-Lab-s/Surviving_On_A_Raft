@@ -110,7 +110,7 @@ public class SmallSlime : GroundEnemy
             Debug.Log("비어있음요");
         }
 
-        // 1) 보스 소환
+        // 1. 보스 소환
         if (bossSlimePrefab != null)
         {
             Vector3 pos = bossSpawnPoint ? bossSpawnPoint.position : transform.position;
@@ -119,7 +119,7 @@ public class SmallSlime : GroundEnemy
             Quaternion rot = transform.rotation; // 보통 2D는 그대로 사용
             var boss = Instantiate(bossSlimePrefab, pos, rot);
 
-            // (선택) 좌우 방향 계승: flipX 또는 localScale.x 부호를 복사
+            // (선택사항임) 좌우 방향 계승: flipX 또는 localScale.x 부호를 복사
             if (inheritFacing && SpriteRendererComponent != null)
             {
                 bool flipped = SpriteRendererComponent.flipX;

@@ -6,7 +6,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
     {
         //움직이는 생명체가 가질 기본 설정을 저장하고 있습니다.;
 
-        [Header("Settings")] 
+        [Header("Settings")]
         [SerializeField] private float extraGravity = 200f; //플레이어가 공중에 떠 있을 때 일정 시간 후 떨어지는 속도의 중력값
         [SerializeField] private float gravityDelay = 0.15f; //공중에 떠 있는 시간
 
@@ -17,6 +17,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public SpriteRenderer SpriteRendererComponent { get; private set; } //스프라이트 담당
 
         public Animator AnimatorComponent { get; private set; }
+
 
         public bool isDead; // 캐릭터가 죽었는가?
 

@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class BossSlimeSkill1 : SkillState
 {
-    private readonly DamageCaster _caster;   // 데미지 관리코드
+    private DamageCaster _hitCaster;   // 데미지 관리코드
     private readonly float _range;    // 범위
 
-    public BossSlimeSkill1(Enemy enemy, string animBoolName, float coolDown, DamageCaster caster, float range)
+    private Rigidbody2D rb;
+    private RigidbodyConstraints2D _orginalConstraints;
+    private bool _FrozenApplied;
+
+    public BossSlimeSkill1(Enemy enemy, string animBoolName, float coolDown, DamageCaster hitCaster, float range)
          : base(enemy, animBoolName, coolDown)
     {
-        _caster = caster;
+        _hitCaster = hitCaster;
         _range = range;
     }
 
     public override void OnAnimationCast()
     {
-        if (_caster == null) return;
+        if (_hitCaster == null) return;
 
-        bool hit = _caster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
+        bool hit = _hitCaster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
         LastAttackTime = Time.time; // 쿨타임 시작
         Debug.Log(hit ? "[BossSlimeSkill1] HIT" : "[BossSlimeSkill1] MISS");
     }
@@ -39,6 +43,10 @@ public class BossSlimeSkill1 : SkillState
         if (dist > _range) return false;
 
         return true;
+    }
+    public void SetCaster(DamageCaster caster)
+    {
+        _hitCaster = caster;
     }
 }
 
