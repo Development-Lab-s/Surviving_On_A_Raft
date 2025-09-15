@@ -9,7 +9,6 @@ namespace _00.Work.lusalord._02.Script.Item
     public class SpinCaster : MonoBehaviour
     {
         [SerializeField] private DamageCaster damageCaster;
-        [SerializeField] private float rotationSpeed;
 
         private SpinItemSo _spinItemSo;
         private Player _player;
@@ -19,12 +18,6 @@ namespace _00.Work.lusalord._02.Script.Item
             _spinItemSo = GetComponentInParent<AttackItem>().attackItemSo as SpinItemSo;
             _player = GameManager.Instance.playerTransform.GetComponent<Player>();
         
-        }
-
-        public void InitSpinCaster(SpinItemSo spinItemSo)
-        {
-            _spinItemSo = spinItemSo;
-            rotationSpeed = _spinItemSo.rotateSpeed;
         }
 
         private void OnTriggerEnter2D(Collider2D other)

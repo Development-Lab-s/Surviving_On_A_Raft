@@ -29,7 +29,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM.AirEnemy
             target.y += Mathf.Sin((Time.time + _seed) * BobFrequency) * BobAmplitude;
             MoveTowardsSmooth(target, Enemy.MovementComponent.CurrnetMoveSpeed * 1.1f);
             
-            if (Enemy.lastAttackTime + Enemy.attackCooldown < Time.time && dist < Enemy.attackRadius)
+            if (Enemy.lastAttackTime + Enemy.CurrentAttackSpeed < Time.time && dist < Enemy.attackRadius)
             {
                 StateMachine.ChangeState(EnemyBehaviourType.Attack);
             }
