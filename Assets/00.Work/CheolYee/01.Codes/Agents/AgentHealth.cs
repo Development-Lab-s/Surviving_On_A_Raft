@@ -11,13 +11,15 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         private float _maxHealth = 150f;
         private float _currentHealth;
-        
+
         private Dictionary<string, float> _healthMultipliers = new();
 
         public float CurrentHealth => _currentHealth;
-        
+
         public float MaxHealth => _maxHealth * TotalMultiplier;
-        
+
+        public float NormalizedHealth => _currentHealth / MaxHealth;
+
 
         private Agent _owner;
 
@@ -37,27 +39,27 @@ namespace _00.Work.CheolYee._01.Codes.Agents
                 return result;
             }
         }
-        
+
         public void AddMultiplier(string source, float multiplier)
         {
             _healthMultipliers[source] = multiplier;
             RecalculateHealth();
         }
-        
+
         public void RemoveMultiplier(string source)
         {
             if (_healthMultipliers.ContainsKey(source))
                 _healthMultipliers.Remove(source);
             RecalculateHealth();
         }
-        
+
         private void RecalculateHealth()
         {
             float ratio = _currentHealth / MaxHealth; // 현재 비율 유지
             _currentHealth = MaxHealth * ratio;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
         }
-        
+
 
         public void ResetHealth()
         {
@@ -77,7 +79,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         public void TakeDamage(float amount, Vector2 normal, float kbPower, Agent attacker = null)
         {
             Debug.Assert(_owner != null, $"{nameof(_owner)} 의 체력이 초기화되지 않았습니다.");
-            
+
             _currentHealth -= amount;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
             onHit?.Invoke();
@@ -87,7 +89,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
                 //노말은 피격지점의 수직인 벡터니까 -1을 곱하면 피격 방향 벡텀가 나오게 된다
                 _owner.MovementComponent.GetKnockBack(normal * -1, kbPower);
             }
-            
+
             if (CurrentHealth <= 0)
             {
                 onDeath?.Invoke();

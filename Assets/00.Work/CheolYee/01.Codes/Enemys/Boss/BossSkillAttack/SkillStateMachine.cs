@@ -10,9 +10,10 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack
         Skill2 = 1,
         Skill3 = 2,
         Skill4 = 3,
-        Skill5 = 4
+        Skill5 = 4,
+        Skill6 = 5
     }
-    
+
     public class SkillStateMachine
     {
         private readonly Dictionary<SkillType, SkillState> _states = new();

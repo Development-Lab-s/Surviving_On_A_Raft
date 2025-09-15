@@ -13,13 +13,14 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         public GameObject GameObject => gameObject;
 
         protected EnemyStateMachine StateMachine; //FSM 머신 설정
+        protected Enemy enemy;
 
         protected override void Awake()
         {
             base.Awake();
             StateMachine = new EnemyStateMachine();
 
-            StateMachine.AddState(EnemyBehaviourType.Idle, new AirEnemyIdleState(this, StateMachine,"IDLE"));
+            StateMachine.AddState(EnemyBehaviourType.Idle, new AirEnemyIdleState(this, StateMachine, "IDLE"));
             StateMachine.AddState(EnemyBehaviourType.Chase, new AirEnemyChaseState(this, StateMachine, "CHASE"));
             StateMachine.AddState(EnemyBehaviourType.Attack, new AirEnemyAttackState(this, StateMachine, "ATTACK"));
             StateMachine.AddState(EnemyBehaviourType.Death, new EnemyDeathState(this, StateMachine, "DEATH"));

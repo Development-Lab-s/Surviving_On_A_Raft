@@ -69,7 +69,7 @@ public class PlayerInput : MonoBehaviour
         }
 
             // 4. Q키 → 선택 슬롯 아이템 정보 보기
-            if (Keyboard.current.qKey.wasPressedThisFrame)
+        if (Keyboard.current.qKey.wasPressedThisFrame)
         {
             int selectedSlot = IS.currentSlotsSelecting;
             if (selectedSlot != -1)
@@ -81,33 +81,33 @@ public class PlayerInput : MonoBehaviour
                 }
             }
         }
-        IEnumerator HoldKey(Slider slider)
+    }
+    
+    IEnumerator HoldKey(Slider slider)
+    {
+        heldTime = 0f;
+        isHolding = true;
+
+        // 시작 시 슬라이더 0으로 초기화
+        slider.value = 0f;
+
+        while (Input.GetKey(KeyCode.E))
         {
-            heldTime = 0f;
-            isHolding = true;
+            heldTime += Time.deltaTime;
 
-            // 시작 시 슬라이더 0으로 초기화
-            slider.value = 0f;
+            // 슬라이더 값 = 현재 누른 시간 / 최대 시간
+            slider.value = Mathf.Clamp01(heldTime / maxHoldTime);
 
-            while (Input.GetKey(KeyCode.E))
+            if (heldTime >= maxHoldTime)
             {
-                heldTime += Time.deltaTime;
-
-                // 슬라이더 값 = 현재 누른 시간 / 최대 시간
-                slider.value = Mathf.Clamp01(heldTime / maxHoldTime);
-
-                if (heldTime >= maxHoldTime)
-                {
-                    IIGAR.RemoveItem();
-                    break;
-                }
-                yield return null;
+                IIGAR.RemoveItem();
+                break;
             }
-
-            // 키를 뗀 경우, 슬라이더 값 초기화
-            slider.value = 0f;
-            isHolding = false;
+            yield return null;
         }
 
+        // 키를 뗀 경우, 슬라이더 값 초기화
+        slider.value = 0f;
+        isHolding = false;
     }
 }

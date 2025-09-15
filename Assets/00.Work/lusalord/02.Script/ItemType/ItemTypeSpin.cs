@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _00.Work.lusalord._02.Script.Item;
 using _00.Work.lusalord._02.Script.SO.AttackItem.ItemType;
 using UnityEngine;
 
@@ -6,13 +7,12 @@ namespace _00.Work.lusalord._02.Script.ItemType
 {
     public abstract class ItemTypeSpin : AttackItem
     {
-        private SpinItemSo _spinItemSo;
+        protected SpinItemSo _spinItemSo;
         private float _angle;
         private Vector3 _startDir;
         private float _radius;
         private readonly List<float> _childOffsets = new();
         public List<GameObject> objects = new();
-        private int _flip;
 
         protected override void Awake()
         {
@@ -26,11 +26,6 @@ namespace _00.Work.lusalord._02.Script.ItemType
                 float angle = i * (2f * Mathf.PI / _spinItemSo.spinAmount);
                 _childOffsets.Add(angle);
                 Spawn();
-            }
-
-            if (_spinItemSo.flip)
-            {
-                _flip = 180;
             }
         }
 
@@ -60,11 +55,6 @@ namespace _00.Work.lusalord._02.Script.ItemType
             {
                 float angle = i * (2f * Mathf.PI / _spinItemSo.spinAmount);
                 _childOffsets.Add(angle);
-            }
-
-            if (_spinItemSo.flip)
-            {
-                _flip = 180;
             }
 
         }
@@ -99,7 +89,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
                 {
                     Vector3 dir = Player.gameObject.transform.position - child.position;
                     float angleToPlayer = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    child.rotation = Quaternion.AngleAxis(angleToPlayer + (90 + _flip), Vector3.forward);
+                    child.rotation = Quaternion.AngleAxis(angleToPlayer + 90, Vector3.forward);
                 }
 
                 if (_spinItemSo.rickRolling)

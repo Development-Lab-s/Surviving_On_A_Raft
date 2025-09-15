@@ -3,14 +3,16 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
     public abstract class EnemyGroundState : State
     {
         //땅에 있는 상태만 가져야 할 것들을 뭉탱이로 모아 추상으로 한번 더 묶기
-        
-        protected EnemyGroundState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName) {}
+        protected bool SuppressGroundTransitions { get; private set; } = false;
+        protected void SetGroundTransitionSuppressed(bool v) => SuppressGroundTransitions = v;
+
+        protected EnemyGroundState(Enemy enemy, EnemyStateMachine stateMachine, string boolName) : base(enemy, stateMachine, boolName) { }
 
         public override void Enter()
         {
             base.Enter();
             Enemy.MovementComponent.IsGround.OnValueChanged += HandleGroundStateChange; //바닥감지로 Air 바꿔야하므로 구독
-            
+
             //맨 처음 기본값 초기화
             HandleGroundStateChange(false, Enemy.MovementComponent.IsGround.Value);
         }
@@ -18,6 +20,9 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
         public override void Update()
         {
             base.Update();
+
+            // 점프 안되서 쓰는 코드.
+            if (SuppressGroundTransitions) return;
 
             if (Enemy is GroundEnemy groundEnemy)
             {
@@ -32,11 +37,13 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
         {
             //나가기 전 구독 해제
             Enemy.MovementComponent.IsGround.OnValueChanged -= HandleGroundStateChange;
+            SuppressGroundTransitions = false;
             base.Exit();
         }
 
-        private void HandleGroundStateChange(bool prev, bool next) //에너미 바닥감지
+        public void HandleGroundStateChange(bool prev, bool next) //에너미 바닥감지
         {
+            if (SuppressGroundTransitions) return;
             if (next == false) //만약 적이 공중에 있다면
             {
                 StateMachine.ChangeState(EnemyBehaviourType.Air); //공중상태로 변경

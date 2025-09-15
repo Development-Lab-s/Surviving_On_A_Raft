@@ -66,7 +66,7 @@ namespace _00.Work.CheolYee._01.Codes.Managers
         {
             int index = UnityEngine.Random.Range(0, 100);
 
-            if (index < 10)
+            if (index < 2)
             {
                 PickupItem healthItem =  PoolManager.Instance.Pop(pickupItems[0].name) as PickupItem;
                 if (healthItem != null) healthItem.Initialize(spawnPos);
