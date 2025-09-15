@@ -1,11 +1,11 @@
 using _00.Work.CheolYee._01.Codes.Agents;
-using _00.Work.CheolYee._01.Codes.Enemys.Anim;
-using _00.Work.CheolYee._01.Codes.SO;
-using System.Collections;
 using _00.Work.CheolYee._01.Codes.Agents.Movements;
 using _00.Work.CheolYee._01.Codes.Core.Buffs;
+using _00.Work.CheolYee._01.Codes.Enemys.Anim;
 using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.CheolYee._01.Codes.SO;
 using _00.Work.Hedonism._06.Scripts.SO.Manager;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -28,13 +28,15 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         [Header("Enemy Settings")]
         public EnemyDataSo enemyData;
 
-        [Header("Attack Settings")] 
+        [Header("Attack Settings")]
         public float damageMulti; //공격력 배율
         public float detectRadius; // 플레이어를 탐지하는 범위
         public float attackRadius; // 공격이 가능한 거리
-        
+
+        public bool lockFlip = false; // 스킬쓸때 좌우 회전 잠금.
+
         public float CurrentAttackDamage => _attackDamage * damageMulti; //배율 적용된 공격 데미지
-        
+
         private float _attackDamage; // 공격 데미지
         [HideInInspector] public float attackCooldown; // 공격 쿨타임
         [HideInInspector] public float knockbackPower; // 넉백 힘
