@@ -28,4 +28,4 @@ MonoBehaviour:
   rotateSpeed: 100
   isRotate: 1
   rickRolling: 0
-  flip: 0
+  flip: 1

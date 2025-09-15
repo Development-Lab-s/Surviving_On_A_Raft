@@ -20,7 +20,7 @@ MonoBehaviour:
   level: 5
   damage: 30
   knockbackPower: 10
-  nextLevel: {fileID: 11400000, guid: d50c3cf3f0667dc409d5ed6d66e78e16, type: 2}
+  nextLevel: {fileID: 0}
   speed: 10
   cooldown: 3
   projectilePrefab: {fileID: 3149612778032154149, guid: 077c7becde2a6a14facaaccb1b51ca9e, type: 3}

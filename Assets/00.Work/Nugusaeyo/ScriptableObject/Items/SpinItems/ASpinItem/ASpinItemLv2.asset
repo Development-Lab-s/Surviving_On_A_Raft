@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ASpinItemLv2
   m_EditorClassIdentifier: 
   id: 0
-  itemName: ASpinItem
+  itemName: AlphaSpinItem
   level: 2
   damage: 15
   knockbackPower: 0
   nextLevel: {fileID: 11400000, guid: c24a6853ba5f870489a27f70be912fac, type: 2}
   spinRadius: 3
-  spinPrefab: {fileID: 3599668503528672686, guid: ee8d816bd8ffa704998ded5459be9448, type: 3}
+  spinPrefab: {fileID: 3599668503528672686, guid: 78e81a0a4dc68804a85f0256a65871df, type: 3}
   spinSpeed: 6
   spinAmount: 3
   rotateSpeed: 20
