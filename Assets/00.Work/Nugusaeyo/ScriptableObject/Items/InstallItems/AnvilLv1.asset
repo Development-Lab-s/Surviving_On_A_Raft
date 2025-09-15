@@ -23,4 +23,4 @@ MonoBehaviour:
   speed: 4
   cooldown: 7
   grenadeCount: 1
-  installItem: {fileID: 8573666376694820070, guid: 5847d8fda69d39249bbd84084431ed62, type: 3}
+  installItem: {fileID: 9021295688375307542, guid: 11a9b31eab5ffde47b2556cdf7d2ce72, type: 3}
