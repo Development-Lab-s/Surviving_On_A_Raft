@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 200
   moveSpeed: 6
   jumpForce: 35
-  attack: 10
+  attack: 25
   attackSpeed: 0.5
   criticalChance: 10
   playerSkillData: {fileID: 11400000, guid: ba863712454e7324980a54b6fa527aad, type: 2}

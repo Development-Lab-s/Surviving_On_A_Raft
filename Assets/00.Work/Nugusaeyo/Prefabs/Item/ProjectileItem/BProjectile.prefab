@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4238f163584404b1b3204a37bb80d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Sword
+  itemName: BProjectile
   lifeTime: 1.5
   damageCaster: {fileID: 549332410888049333}
 --- !u!1 &9029243610140372062
