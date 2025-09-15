@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcabfa983f18428bb0ca703f80e75a5f, type: 3}
   m_Name: NewProjectileItem 2
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
+  id: 11
+  itemName: "\uC804\uAE30 \uAD6C\uCCB4"
   desc: 
-  icon: {fileID: 0}
-  level: 0
-  damage: 0
-  knockbackPower: 0
-  nextLevel: {fileID: 0}
-  speed: 0
-  cooldown: 0
+  icon: {fileID: -855298285791758126, guid: 41e0f6d8c39ea1b428aa5747aa507ca9, type: 3}
+  level: 3
+  damage: 20
+  knockbackPower: 2
+  nextLevel: {fileID: 11400000, guid: f6365a24270abc846ac8610776c7c3ca, type: 2}
+  speed: 3
+  cooldown: 15
   projectilePrefab: {fileID: 0}
   bulletCount: 1
