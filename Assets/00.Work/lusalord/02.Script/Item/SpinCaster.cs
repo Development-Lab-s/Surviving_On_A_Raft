@@ -21,6 +21,12 @@ namespace _00.Work.lusalord._02.Script.Item
         
         }
 
+        public void InitSpinCaster(SpinItemSo spinItemSo)
+        {
+            _spinItemSo = spinItemSo;
+            rotationSpeed = _spinItemSo.rotateSpeed;
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             damageCaster.CastDamage(_spinItemSo.damage + _player.CurrentDamage, _spinItemSo.knockbackPower);
