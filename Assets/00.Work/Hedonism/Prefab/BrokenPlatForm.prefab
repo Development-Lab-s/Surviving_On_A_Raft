@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 8494478916612360527}
   - component: {fileID: 2663189680718363501}
   - component: {fileID: 1126281560302404753}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: BrokenPlatForm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

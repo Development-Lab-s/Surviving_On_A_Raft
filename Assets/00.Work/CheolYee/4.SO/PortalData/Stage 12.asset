@@ -19,4 +19,4 @@ MonoBehaviour:
   maxTime: 4
   portalColor: {r: 1, g: 0.2172639, b: 0.18431371, a: 0.80784315}
   isBossStage: 1
-  currentBoss: {fileID: 11400000, guid: 207bf7823295dab438fb1531376def45, type: 2}
+  currentBoss: {fileID: 11400000, guid: 23fd151a605207640aad02ce91c924ae, type: 2}
