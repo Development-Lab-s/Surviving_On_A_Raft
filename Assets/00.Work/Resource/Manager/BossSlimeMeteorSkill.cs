@@ -8,11 +8,11 @@ public class BossSlimeMeteorSkill : SkillState
 {
     [Header("Pooling & Spawn")]
     [SerializeField] private MeteorPool meteorPool;
-    [SerializeField] private Transform[] spawnPoints;    // 5~9°³ ·£´ı Æ÷ÀÎÆ®
+    [SerializeField] private Transform[] spawnPoints;    // 5~9ê°œ ëœë¤ í¬ì¸íŠ¸
 
     [Header("Timing")]
-    [SerializeField] private Vector2 delayRange = new Vector2(1f, 2f); // ½ºÆù °£°İ(·£´ı)
-    [SerializeField] private float duration = 8f;                      // ½ºÅ³ Áö¼Ó½Ã°£
+    [SerializeField] private Vector2 delayRange = new Vector2(1f, 2f); // ìŠ¤í° ê°„ê²©(ëœë¤)
+    [SerializeField] private float duration = 8f;                      // ìŠ¤í‚¬ ì§€ì†ì‹œê°„
 
     [Header("Damage")]
     [SerializeField] private float meteorDamage = 20f;
@@ -46,7 +46,7 @@ public class BossSlimeMeteorSkill : SkillState
 
     public override bool CanUse()
     {
-        return Time.time >= LastAttackTime + CoolDown; // Äğ¸¸ Ã¼Å©
+        return Time.time >= LastAttackTime + CoolDown; // ì¿¨ë§Œ ì²´í¬
     }
 
     public override void Enter()
@@ -56,7 +56,7 @@ public class BossSlimeMeteorSkill : SkillState
 
         if (meteorPool == null || spawnPoints == null || spawnPoints.Length == 0)
         {
-            Debug.LogWarning("[MeteorSkill] pool ¶Ç´Â spawnPoints°¡ ºñ¾ú½¿¿ä.");
+            Debug.LogWarning("[MeteorSkill] pool ë˜ëŠ” spawnPointsê°€ ë¹„ì—ˆìŠ´ìš”.");
             return;
         }
 
@@ -84,7 +84,7 @@ public class BossSlimeMeteorSkill : SkillState
 
         while (_running && Time.time < endTime)
         {
-            // ·£´ı Æ÷ÀÎÆ® ¼±ÅÃ (null Á¦¿Ü)
+            // ëœë¤ í¬ì¸íŠ¸ ì„ íƒ (null ì œì™¸)
             Transform p = null;
             for (int tries = 0; tries < 6 && p == null; tries++)
             {
@@ -97,13 +97,12 @@ public class BossSlimeMeteorSkill : SkillState
             yield return new WaitForSeconds(UnityEngine.Random.Range(delayRange.x, delayRange.y));
         }
 
-        // ½ºÅ³ Á¾·á ¡æ Äğ ½ÃÀÛ
+        // ìŠ¤í‚¬ ì¢…ë£Œ â†’ ì¿¨ ì‹œì‘
         LastAttackTime = Time.time;
         _running = false;
 
-        Debug.Log($"[MeteorSkill] finished (duration {duration}s). CD start @ {LastAttackTime:F2}");
         _onFinished?.Invoke();
-        // ³¡³µ´Ù´Â°É ¾Ë·Á¾ßÇØ!!!!
+        // ëë‚¬ë‹¤ëŠ”ê±¸ ì•Œë ¤ì•¼í•´!!!!
     }
 
     private void SpawnOneAt(Vector3 pos)
@@ -115,11 +114,10 @@ public class BossSlimeMeteorSkill : SkillState
         if (meteor == null)
         {
             meteorPool.Return(go);
-            Debug.LogWarning("[MeteorSkill] Pooled object¿¡ MeteorObject°¡ ¾ø½À´Ï´Ù.");
             return;
         }
 
         meteor.SetPool(meteorPool);
-        meteor.InitializeAt(pos, meteorDamage, meteorKnockback);
+        meteor.InitializeAt(pos, meteorDamage);
     }
 }

@@ -52,7 +52,11 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
             seq.Append(transform.DOScale(1, 1f));
             seq.Join(spriteRenderer.DOFade(1, 1f));
             seq.AppendInterval(0.5f);
-            seq.AppendCallback(() => StartCoroutine(SummonCoroutine()));
+            seq.AppendCallback(() =>
+            {
+                
+                StartCoroutine(SummonCoroutine());
+            });
         }
 
         private IEnumerator SummonCoroutine()
@@ -61,6 +65,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
             while (_closePortal == false)
             {
                 float spawnTime = PortalData.GetRandomSpawnTime();
+                
                 if (SpawnManager.Instance.CanSpawn())
                 {
                     int randomListIndex = PortalData.GetRandomListIndex();

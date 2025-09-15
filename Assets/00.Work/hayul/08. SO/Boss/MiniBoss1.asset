@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 1000
   moveSpeed: 2
   jumpForce: 5
-  knockbackDuration: 0.1
-  attackDamage: 15
-  attackCooldown: 3
+  knockbackDuration: 0
+  attackDamage: 40
+  attackCooldown: 4
   knockbackPower: 2

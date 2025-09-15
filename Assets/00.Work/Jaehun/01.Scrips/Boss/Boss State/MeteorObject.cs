@@ -17,13 +17,13 @@ public class MeteorObject : Projectile         // 민철이가 만든 총알과 
 
     public override void Initialize(Transform firePos, Vector2 _, float damage, float knockbackPower, float __)
     {
-        InitializeAt(firePos.position, damage, knockbackPower);
+        InitializeAt(firePos.position, damage);
     }
 
-    public void InitializeAt(Vector3 position, float damage, float knockbackPower)
+    public void InitializeAt(Vector3 position, float damage)
     {
         _damage = damage;
-        _knockBackPower = knockbackPower;
+        _knockBackPower = 0;
 
         transform.SetPositionAndRotation(position, Quaternion.identity);
 
@@ -46,25 +46,23 @@ public class MeteorObject : Projectile         // 민철이가 만든 총알과 
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("메테오 맞음");
         if (IsDead) return;
-        IsDead = true;
+        
 
         // 총알과 같은 방식: DamageCaster로 데미지 처리
         if (damageCaster != null)
         {
-            bool hit = damageCaster.CastDamage(_damage, _knockBackPower);
-            Debug.Log(hit ? "[Meteor] HIT" : "[Meteor] MISS");
+            damageCaster.CastDamage(_damage, _knockBackPower);
         }
-        else
-        {
-            Debug.LogWarning("[Meteor] DamageCaster is null on prefab.");
-        }
+
 
         ReturnToPool();
     }
 
     private void ReturnToPool()
     {
+        IsDead = true;
         // PoolManager로 보내지 말고, 우리가 사용 중인 MeteorPool로 반환
         if (_ownerPool != null)
         {

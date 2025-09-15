@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   moveSpeed: 6
-  jumpForce: 30
+  jumpForce: 35
   attack: 10
   attackSpeed: 0.5
   criticalChance: 10

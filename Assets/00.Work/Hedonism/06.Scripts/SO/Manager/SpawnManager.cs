@@ -19,6 +19,9 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
         [SerializeField] private PoolItem portalItemPrefab; // 풀링할 포탈
         [SerializeField] private List<PortalDataSo> portalData;    // 포탈 설정 데이터
         [SerializeField] private int maxSpawnCount;    //최대 스폰 카운트
+        
+        private bool _isBossSpawn;
+        
         private Transform _playerTrm;
 
 
@@ -30,14 +33,18 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             OnFirstStart(Random.Range(0, spawnPoints.Count));
         }
 
-        public void MaxSpawnCountChange(int value)
-        {
-            maxSpawnCount = value;
-        }
-
         public bool CanSpawn()
         {
             return Enemys?.Count < maxSpawnCount;
+        }
+
+        private void IsBossSpawn(Vector3 position)
+        {
+            if (_isBossSpawn)
+            {
+                Enemy boss = PoolManager.Instance.Pop(portalData[GameManager.Instance.currentLevel - 1].currentBoss.poolName) as Enemy;
+                if (boss != null) boss.transform.position = position;
+            }
         }
 
         public void RemoveEnemy(Enemy enemy)
@@ -54,6 +61,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             DespawnCurrentPortals();
             ClearAllEnemies();
             maxSpawnCount = portalData[GameManager.Instance.currentLevel - 1].enemyCount;
+            _isBossSpawn = portalData[GameManager.Instance.currentLevel - 1].isBossStage;
             
             if (map.portalSpawnPoints.Count == 0)
             {
@@ -70,6 +78,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             }
 
             // 포탈 2개 생성
+           IsBossSpawn(map.portalSpawnPoints[0].position); //만약에 보스 생성할 수 있다면 보스생성
             foreach (int index in indices)
             {
                 

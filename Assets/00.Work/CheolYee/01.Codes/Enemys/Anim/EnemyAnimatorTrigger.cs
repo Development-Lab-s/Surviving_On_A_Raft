@@ -1,3 +1,4 @@
+using _00.Work.Jaehun._01.Scrips.Boss;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.Anim
@@ -25,11 +26,11 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Anim
             if (_enemy is BossSlime b) b.OnSkillTakeoff();
         }
 
-        public void SpawnPhase2Boss()             // ¾Æ½ÃÁÒ?
+        public void SpawnPhase2Boss()             // ï¿½Æ½ï¿½ï¿½ï¿½?
         {
             if (_enemy is SmallSlime s) s.AnimEvent_SpawnBossAndDespawnSelf();
         }
-        public void ComboFlip()               // ¿¬¼Ó °ø°ÝÇÒ ¶§ ¾²´Â ¹æÇâµÚÁý±â ÀÌº¥Æ®
+        public void ComboFlip()               // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
         {
             if (_enemy is BossSlime b) b.AnimEvent_ComboFlip();
         }

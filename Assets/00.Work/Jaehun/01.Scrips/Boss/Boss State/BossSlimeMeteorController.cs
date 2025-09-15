@@ -3,31 +3,32 @@ using _00.Work.CheolYee._01.Codes.SO;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using System.Collections;
+using _00.Work.Jaehun._01.Scrips.Boss;
 using UnityEngine;
 
 [DisallowMultipleComponent]
 public class BossSlimeMeteorController : MonoBehaviour
 {
     [Header("Owner & Stats")]
-    [SerializeField] private BossSlime owner;              // ¹ÌÁöÁ¤ ½Ã ÀÚµ¿ Å½»ö
-    [SerializeField] private EnemyDataSo bossData;         // ¹ÌÁöÁ¤ ½Ã owner.data »ç¿ë
+    [SerializeField] private BossSlime owner;              // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Úµï¿½ Å½ï¿½ï¿½
+    [SerializeField] private EnemyDataSo bossData;         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ owner.data ï¿½ï¿½ï¿½
     [SerializeField] private float meteorDamageScale = 1f; // = owner.CurrentAttackDamage * scale
     [SerializeField] private float meteorKnockback = 12f;
 
     [Header("Pool & Prefab")]
-    [SerializeField] private GameObject meteorPrefab;      // MeteorProjectile ÇÁ¸®ÆÕ(Ç® ´ë»ó)
+    [SerializeField] private GameObject meteorPrefab;      // MeteorProjectile ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Ç® ï¿½ï¿½ï¿½)
 
     [Header("Spawn Points")]
-    [SerializeField] private Transform[] spawnPoints;      // 5°³ ±ÇÀå (ÃµÀå À§ µî)
+    [SerializeField] private Transform[] spawnPoints;      // 5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Ãµï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½)
 
     [Header("Timing")]
-    [SerializeField] private float cooldown = 6f;          // ÇÑ ¿þÀÌºê ÄðÅ¸ÀÓ
-    [SerializeField] private Vector2 betweenSpawnDelay = new Vector2(1f, 3f); // ³«ÇÏ »çÀÌ ´ë±â
-    [SerializeField] private Vector2Int countPerWave = new Vector2Int(1, 5);  // ¿þÀÌºê´ç ³«ÇÏ ¼ö
+    [SerializeField] private float cooldown = 6f;          // ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
+    [SerializeField] private Vector2 betweenSpawnDelay = new Vector2(1f, 3f); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    [SerializeField] private Vector2Int countPerWave = new Vector2Int(1, 5);  // ï¿½ï¿½ï¿½Ìºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
     [Header("Rules")]
-    [SerializeField] private bool allowWhileAttacking = true; // ´Ù¸¥ ½ºÅ³ Áß¿¡µµ Çã¿ë?
-    [SerializeField] private bool autoStart = true;           // ÄÑÁú ¶§ ÀÚµ¿ ½ÃÀÛ
+    [SerializeField] private bool allowWhileAttacking = true; // ï¿½Ù¸ï¿½ ï¿½ï¿½Å³ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½?
+    [SerializeField] private bool autoStart = true;           // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 
     private string _poolName;
     private bool _running;
@@ -40,7 +41,7 @@ public class BossSlimeMeteorController : MonoBehaviour
         var poolable = meteorPrefab != null ? meteorPrefab.GetComponent<IPoolable>() : null;
         if (poolable == null)
         {
-            Debug.LogError("[MeteorController] meteorPrefab¿¡ IPoolableÀÌ ÇÊ¿äÇÕ´Ï´Ù.");
+            Debug.LogError("[MeteorController] meteorPrefabï¿½ï¿½ IPoolableï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Õ´Ï´ï¿½.");
         }
         else
         {
@@ -64,12 +65,12 @@ public class BossSlimeMeteorController : MonoBehaviour
 
         if (spawnPoints == null || spawnPoints.Length == 0)
         {
-            Debug.LogWarning("[MeteorController] spawnPoints ºñ¾îÀÖÀ½");
+            Debug.LogWarning("[MeteorController] spawnPoints ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             return;
         }
         if (string.IsNullOrEmpty(_poolName))
         {
-            Debug.LogError("[MeteorController] Ç® ÀÌ¸§ÀÌ ºñ¾îÀÖÀ½ (IPoolable ¹Ì¼³Á¤?)");
+            Debug.LogError("[MeteorController] Ç® ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (IPoolable ï¿½Ì¼ï¿½ï¿½ï¿½?)");
             return;
         }
 
@@ -89,7 +90,7 @@ public class BossSlimeMeteorController : MonoBehaviour
 
         while (_running)
         {
-            // µ¿½Ã »ç¿ë ±ÝÁö¶ó¸é °ø°Ý Áß È¸ÇÇ
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È¸ï¿½ï¿½
             if (!allowWhileAttacking && owner != null && owner.IsInAttack)
             {
                 yield return null;
@@ -121,24 +122,24 @@ public class BossSlimeMeteorController : MonoBehaviour
         Transform p = spawnPoints[idx];
         if (p == null)
         {
-            Debug.LogWarning("[MeteorController] ºó spawnPoint");
+            Debug.LogWarning("[MeteorController] ï¿½ï¿½ spawnPoint");
             return;
         }
 
-        // Ç®¿¡¼­ ¸ÞÅ×¿À ²¨³»±â
+        // Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         var proj = PoolManager.Instance.Pop(_poolName) as Projectile;
         if (proj == null)
         {
-            Debug.LogError("[MeteorController] Ç® Pop ½ÇÆÐ");
+            Debug.LogError("[MeteorController] Ç® Pop ï¿½ï¿½ï¿½ï¿½");
             return;
         }
 
-        // µ¥¹ÌÁö °è»ê
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         float baseDamage = (owner != null) ? owner.CurrentAttackDamage
                            : (bossData != null ? bossData.attackDamage : 10f);
         float damage = baseDamage * meteorDamageScale;
 
-        // Initialize (¹æÇâÀº ¹«½ÃµÊ, ³»ºÎ¿¡¼­ ¾Æ·¡ ³«ÇÏ)
+        // Initialize (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½, ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½)
         proj.Initialize(p, Vector2.down, damage, meteorKnockback, 0f);
     }
 

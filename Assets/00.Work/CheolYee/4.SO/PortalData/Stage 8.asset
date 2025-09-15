@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 11400000, guid: 3dffb2594736b5b4cb6f85616a4963a6, type: 2}
-  enemyCount: 45
-  launchForce: 3
-  minTime: 1.5
+  enemyCount: 75
+  launchForce: 2
+  minTime: 1
   maxTime: 4
   portalColor: {r: 0.18396229, g: 0.628657, b: 1, a: 0.80784315}
+  isBossStage: 0
+  currentBoss: {fileID: 0}

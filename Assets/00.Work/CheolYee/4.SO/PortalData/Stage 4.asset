@@ -17,8 +17,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 838111d6ac46d3842809e00808b978e0, type: 2}
   - {fileID: 11400000, guid: 268e7a706cdf4b748bfc826415e159f3, type: 2}
   - {fileID: 11400000, guid: 7b5dc30de920a7643992424bb1421a4b, type: 2}
-  enemyCount: 25
-  launchForce: 3
-  minTime: 1.5
+  - {fileID: 11400000, guid: 4abd138ee28c5ec48933fdb17f114827, type: 2}
+  - {fileID: 11400000, guid: ea8a8ec89918ab346943cc018cdabdc3, type: 2}
+  enemyCount: 50
+  launchForce: 2
+  minTime: 1
   maxTime: 4
   portalColor: {r: 0.7728745, g: 0.18431371, b: 1, a: 0.80784315}
+  isBossStage: 0
+  currentBoss: {fileID: 0}

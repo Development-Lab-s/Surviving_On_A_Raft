@@ -26,17 +26,10 @@ public class EventUIManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         _eventText = GetComponentsInChildren<TypewriterByCharacter>();
-        
-        foreach (var i in _eventText)
-        {
-            Debug.Log(i);
-        }
     }
 
     public void WhatEvent(GameEventType gameEventType)
     {
-        Debug.Log($"WhatEvent 호출됨: {gameEventType}");
-
         // EventManager에서 게임 이벤트 타입 받아오고 그거에 따라 랜덤으로 메시지 실행
         switch (gameEventType)
         {
