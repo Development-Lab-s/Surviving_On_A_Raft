@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a183b0e7f7f4be0a21626664b9f3947, type: 3}
   m_Name: Slimes2
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  moveSpeed: 1.5
+  maxHealth: 100
+  moveSpeed: 1.2
   jumpForce: 20
   knockbackDuration: 0.1
   attackDamage: 10
-  attackCooldown: 1
+  attackCooldown: 5
   knockbackPower: 0

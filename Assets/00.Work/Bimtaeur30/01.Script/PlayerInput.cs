@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 
@@ -62,13 +63,13 @@ public class PlayerInput : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Keyboard.current.tabKey.wasPressedThisFrame)
         {
             ICU.ItemCreateUIView();
         }
 
             // 4. Q키 → 선택 슬롯 아이템 정보 보기
-            if (Input.GetKeyDown(KeyCode.Q))
+        if (Keyboard.current.qKey.wasPressedThisFrame)
         {
             int selectedSlot = IS.currentSlotsSelecting;
             if (selectedSlot != -1)
@@ -77,39 +78,36 @@ public class PlayerInput : MonoBehaviour
                 if (playerItem != null)
                 {
                     IIV.ItemInfoViewMethod(playerItem);
-                    Debug.Log("aaaaaaaa");
                 }
             }
         }
-        IEnumerator HoldKey(Slider slider)
+    }
+    
+    IEnumerator HoldKey(Slider slider)
+    {
+        heldTime = 0f;
+        isHolding = true;
+
+        // 시작 시 슬라이더 0으로 초기화
+        slider.value = 0f;
+
+        while (Input.GetKey(KeyCode.E))
         {
-            heldTime = 0f;
-            isHolding = true;
+            heldTime += Time.deltaTime;
 
-            // 시작 시 슬라이더 0으로 초기화
-            slider.value = 0f;
+            // 슬라이더 값 = 현재 누른 시간 / 최대 시간
+            slider.value = Mathf.Clamp01(heldTime / maxHoldTime);
 
-            while (Input.GetKey(KeyCode.E))
+            if (heldTime >= maxHoldTime)
             {
-                heldTime += Time.deltaTime;
-                Debug.Log($"꾹 누른 시간: {heldTime:F2}초");
-
-                // 슬라이더 값 = 현재 누른 시간 / 최대 시간
-                slider.value = Mathf.Clamp01(heldTime / maxHoldTime);
-
-                if (heldTime >= maxHoldTime)
-                {
-                    IIGAR.RemoveItem();
-                    break;
-                }
-                yield return null;
+                IIGAR.RemoveItem();
+                break;
             }
-
-            // 키를 뗀 경우, 슬라이더 값 초기화
-            slider.value = 0f;
-            isHolding = false;
-            Debug.Log($"키를 떼거나 멈췄습니다. 총 {heldTime:F2}초 눌렸습니다.");
+            yield return null;
         }
 
+        // 키를 뗀 경우, 슬라이더 값 초기화
+        slider.value = 0f;
+        isHolding = false;
     }
 }

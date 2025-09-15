@@ -25,22 +25,11 @@ public class EventUIManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
-
-    private void Start()
-    {
         _eventText = GetComponentsInChildren<TypewriterByCharacter>();
-        
-        foreach (var i in _eventText)
-        {
-            Debug.Log(i);
-        }
     }
 
     public void WhatEvent(GameEventType gameEventType)
     {
-        Debug.Log($"WhatEvent 호출됨: {gameEventType}");
-
         // EventManager에서 게임 이벤트 타입 받아오고 그거에 따라 랜덤으로 메시지 실행
         switch (gameEventType)
         {
@@ -48,7 +37,6 @@ public class EventUIManager : MonoBehaviour
                 if (smallGoodMessage.Count > 0)
                 {
                     int rand1 = Random.Range(0, smallGoodMessage.Count);
-                    Debug.Log($"Small Good 메시지 선택: {rand1}, 내용: {smallGoodMessage[rand1]}");
                     SetEventText(smallGoodMessage[rand1]);
                 }
                 else
@@ -61,7 +49,6 @@ public class EventUIManager : MonoBehaviour
                 if (BigGoodMessage.Count > 0)
                 {
                     int rand2 = Random.Range(0, BigGoodMessage.Count);
-                    Debug.Log($"Big Good 메시지 선택: {rand2}, 내용: {BigGoodMessage[rand2]}");
                     SetEventText(BigGoodMessage[rand2]);
                 }
                 else
@@ -74,7 +61,6 @@ public class EventUIManager : MonoBehaviour
                 if (smallBadMessage.Count > 0)
                 {
                     int rand3 = Random.Range(0, smallBadMessage.Count);
-                    Debug.Log($"Small Bad 메시지 선택: {rand3}, 내용: {smallBadMessage[rand3]}");
                     SetEventText(smallBadMessage[rand3]);
                 }
                 else
@@ -87,7 +73,6 @@ public class EventUIManager : MonoBehaviour
                 if (BigBadMessage.Count > 0)
                 {
                     int rand4 = Random.Range(0, BigBadMessage.Count);
-                    Debug.Log($"Big Bad 메시지 선택: {rand4}, 내용: {BigBadMessage[rand4]}");
                     SetEventText(BigBadMessage[rand4]);
                 }
                 else
@@ -100,13 +85,11 @@ public class EventUIManager : MonoBehaviour
 
     private void SetEventText(string text)
     {
-        Debug.Log(text);
         _eventText[0].ShowText(text);
     }
 
     public void SetEventTextEffect(string text)
     {
-        Debug.Log(text);
         _eventText[1].ShowText(text);
     }
 

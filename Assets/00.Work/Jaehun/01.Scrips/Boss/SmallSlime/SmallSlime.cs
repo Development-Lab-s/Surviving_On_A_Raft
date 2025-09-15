@@ -23,6 +23,7 @@ public class SmallSlime : GroundEnemy
     [SerializeField] private Transform bossSpawnPoint;       // 없으면 본인 위치 사용
     [SerializeField] private bool inheritFacing = true;      // 스몰 슬라임의 좌우 방향 계승 여부
 
+
     private bool _bossSpawned;  // 소환은 한번만 하기 위함.
     private Vector2 _spawnPos;
 
@@ -33,7 +34,7 @@ public class SmallSlime : GroundEnemy
         _spawnPos = transform.position;
 
         StateMachine = new EnemyStateMachine();
-
+        
         StateMachine.AddState(EnemyBehaviourType.Air, new EnemyAirState(this, StateMachine, "AIR"));
         StateMachine.AddState(EnemyBehaviourType.Jump, new EnemyJumpState(this, StateMachine, "JUMP"));
 
@@ -109,7 +110,7 @@ public class SmallSlime : GroundEnemy
             Debug.Log("비어있음요");
         }
 
-        // 1) 보스 소환
+        // 1. 보스 소환
         if (bossSlimePrefab != null)
         {
             Vector3 pos = bossSpawnPoint ? bossSpawnPoint.position : transform.position;
@@ -118,7 +119,7 @@ public class SmallSlime : GroundEnemy
             Quaternion rot = transform.rotation; // 보통 2D는 그대로 사용
             var boss = Instantiate(bossSlimePrefab, pos, rot);
 
-            // (선택) 좌우 방향 계승: flipX 또는 localScale.x 부호를 복사
+            // (선택사항임) 좌우 방향 계승: flipX 또는 localScale.x 부호를 복사
             if (inheritFacing && SpriteRendererComponent != null)
             {
                 bool flipped = SpriteRendererComponent.flipX;

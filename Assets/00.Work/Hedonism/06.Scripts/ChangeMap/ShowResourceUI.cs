@@ -17,15 +17,10 @@ public class ShowResourceUI : MonoBehaviour
     // [SerializeField] private Text textUI2;
     // [SerializeField] private Text textUI3;
     
-    [Header("Settings")]
-    [Range(0f, 1f)]
-    [SerializeField] private float alpha = 1f; // 투명도 조절 (0 = 완전투명, 1 = 불투명)
-    
     // Properties
     public bool isRand { get; set; } = false;
     
     // Private variables
-    private bool isRadder = false;
     private List<(int type, int value)> needResources = new List<(int type, int value)>();
 
     void Start() 
@@ -44,8 +39,6 @@ public class ShowResourceUI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) 
         {
-            isRadder = true;
-            
             if (!isRand) 
             {
                 PickThreeResources();
@@ -58,7 +51,6 @@ public class ShowResourceUI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) 
         {
-            isRadder = true;
             IsCanNext();
             ShowUI();
         }
@@ -68,7 +60,6 @@ public class ShowResourceUI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) 
         {
-            isRadder = false;
             Panel.gameObject.SetActive(false);
         }
     }

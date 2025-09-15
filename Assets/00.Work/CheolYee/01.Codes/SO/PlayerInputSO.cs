@@ -8,7 +8,7 @@ namespace _00.Work.CheolYee._01.Codes.SO
     public class PlayerInputSo : ScriptableObject, Controls.IPlayerActions
     {
         public Action OnJumpKeyPress;
-        public Action OnSkillKeyPress;
+        public Action OnQKeyPress;
         public Action OnFkeyPress;
         
         public Vector2 Movement { get; private set; }
@@ -49,7 +49,7 @@ namespace _00.Work.CheolYee._01.Codes.SO
 
         public void OnSkill(InputAction.CallbackContext context)
         {
-            if (context.performed) OnSkillKeyPress?.Invoke();
+            if (context.performed) OnQKeyPress?.Invoke();
         }
 
         public void OnFkey(InputAction.CallbackContext context)

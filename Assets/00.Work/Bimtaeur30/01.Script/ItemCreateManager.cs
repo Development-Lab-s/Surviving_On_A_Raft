@@ -1,103 +1,102 @@
-using NUnit.Framework;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using _00.Work.Nugusaeyo._Script.Cost;
 using UnityEngine;
-using static Unity.VisualScripting.Dependencies.Sqlite.SQLite3;
-using static UnityEngine.Rendering.DebugUI;
 
-public class ItemCreateManager : MonoBehaviour
+namespace _00.Work.Bimtaeur30._01.Script
 {
-    public static ItemCreateManager Instance { get; private set; }
-
-    // Cost[0~4] = ±∏∏Æ, ∞≠√∂, »≤±›, ∫∏ºÆ, ∏∂ºÆ
-    public List<string> ItemNames = new List<string>() { "±∏∏Æ", "∞≠√∂", "»≤±›", "∫∏ºÆ", "∏∂ºÆ" };
-    [SerializeField] private ExItemSO ExItem;
-    [SerializeField] private ItemInvenGetAndRemove IIGAR;
-    private void Awake()
+    public class ItemCreateManager : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
+        public static ItemCreateManager Instance { get; private set; }
+
+        // Cost[0~4] = { "Íµ¨Î¶¨", "Í∞ïÏ≤†", "Ìô©Í∏à", "Î≥¥ÏÑù", "ÎßàÏÑù" }
+        public List<string> itemNames = new() { "Íµ¨Î¶¨", "Í∞ïÏ≤†", "Ìô©Í∏à", "Î≥¥ÏÑù", "ÎßàÏÑù" };
+        [SerializeField] private ItemInvenGetAndRemove iigar;
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+        }
+        private void Start()
+        {
+            CostManager.Instance.PlusCost(2, 200);
+            CostManager.Instance.PlusCost(0, 200);
+            CostManager.Instance.PlusCost(1, 200);
+            CostManager.Instance.PlusCost(3, 200);
+            CostManager.Instance.PlusCost(4, 200);
+            //StartCoroutine(waitaa());
         }
 
-        Instance = this;
-    }
-    private void Start()
-    {
-        CostManager.instance.PlusCost(2, 100);
-        CostManager.instance.PlusCost(0, 100);
-        CostManager.instance.PlusCost(1, 100);
-        CostManager.instance.PlusCost(3, 100);
-        CostManager.instance.PlusCost(4, 100);
-        //StartCoroutine(waitaa());
-    }
-
-    //public void ItemCreate(ExItemSO createItem)
-    //{
-    //    List<Ingredient> ItemIgdt = new List<Ingredient>();
-    //}
+        //public void ItemCreate(ExItemSO createItem)
+        //{
+        //    List<Ingredient> ItemIgdt = new List<Ingredient>();
+        //}
 
 
-    //IEnumerator waitaa()
-    //{
-    //    yield return new WaitForSeconds(5f);
-    //    CreateItem(ExItem);
-    //}
+        //IEnumerator waitaa()
+        //{
+        //    yield return new WaitForSeconds(5f);
+        //    CreateItem(ExItem);
+        //}
 
-    public void CreateItem(ExItemSO Item)
-    {
-            Dictionary<string, int> itemNeed = CheckCanCreateItem(Item);
+        public void CreateItem(ExItemSO item)
+        {
+            Dictionary<string, int> itemNeed = CheckCanCreateItem(item);
 
             if (itemNeed == null)
                 return;
 
-        bool isInvenEmpty = IIGAR.FindInventorySlot(Item);
-        for (int i = 0; i < itemNeed.Count; i++)
+            bool isInvenEmpty = iigar.FindInventorySlot(item);
+            for (int i = 0; i < itemNeed.Count; i++)
             {
                 if (isInvenEmpty)
                 {
-                    int ind = ItemNames.IndexOf(itemNeed.Keys.ElementAt(i));
-                    CostManager.instance.MinusCost(ind, itemNeed.Values.ElementAt(i));
+                    int ind = itemNames.IndexOf(itemNeed.Keys.ElementAt(i));
+                    CostManager.Instance.MinusCost(ind, itemNeed.Values.ElementAt(i));
                     //return;
                 }
             }
             //IIGAR.FindInventorySlot(Item);
-    }
+        }
 
-    public Dictionary<string, int> CheckCanCreateItem(ExItemSO Item)
-    {
-        if (Item == null)
-            return null;
-
-        int[] costList = CostManager.instance.Costs;
-
-        List<Ingredient> igdtList = Item.ItemIgdt;
-        Dictionary<string, int> itemNeed = new Dictionary<string, int>();
-        for (int i = 0; i < igdtList.Count; i++)
+        private Dictionary<string, int> CheckCanCreateItem(ExItemSO item)
         {
-            string iname = igdtList[i].Name;
-            int iAmount = igdtList[i].Amount;
-            if (ItemNames.Contains(iname))
+            if (item == null)
+                return null;
+
+            int[] costList = CostManager.Instance.Costs;
+
+            List<Ingredient> igdtList = item.ItemIgdt;
+            Dictionary<string, int> itemNeed = new Dictionary<string, int>();
+            foreach (var t in igdtList)
             {
-                int ind = ItemNames.IndexOf(iname);
-                if (costList[ind] >= iAmount)
+                string iname = t.Name;
+                int iAmount = t.Amount;
+                if (itemNames.Contains(iname))
                 {
-                    itemNeed.Add(iname, iAmount);
+                    int ind = itemNames.IndexOf(iname);
+                    if (costList[ind] >= iAmount)
+                    {
+                        itemNeed.Add(iname, iAmount);
+                    }
+                    else
+                    {
+                        Debug.Log(iname + ",ÏùÑ ÏßÄÎ∂àÌï† Ïàò ÏóÜÏäµÎãàÎã§. "+ costList[ind] + " " + iAmount);
+                        return null;
+                    }
                 }
                 else
                 {
-                    Debug.Log(iname + " ¿⁄ø¯ ∞≥ºˆ ∫Œ¡∑, "+ costList[ind] + " " + iAmount);
+                    Debug.LogAssertion("ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ExSO ÔøΩÔøΩÔøΩ ÔøΩÃ∏ÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩœºÔøΩÔøΩÔøΩ");
                     return null;
                 }
             }
-            else
-            {
-                Debug.LogAssertion("æ∆¿Ã≈€ ExSO ¿Á∑· ¿Ã∏ß ºˆ¡§«œººø‰");
-                return null;
-            }
+            return itemNeed;
         }
-        return itemNeed;
     }
 }

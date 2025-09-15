@@ -1,3 +1,4 @@
+using _00.Work.Bimtaeur30._01.Script;
 using UnityEngine;
 
 public class ItemBar : MonoBehaviour

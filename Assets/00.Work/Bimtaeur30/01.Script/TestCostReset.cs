@@ -1,13 +1,15 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using _00.Work.Bimtaeur30._01.Script;
+using _00.Work.Nugusaeyo._Script.Cost;
 
 public class TestCostReset : MonoBehaviour
 {
     [SerializeField] private ItemCreatetorBars ItemCreatetorBars;
 
 
-    [ContextMenu("Å×½ºÆ® ½ÇÇà")]
+    [ContextMenu("ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½")]
     public void ResetBarState()
     {
         int barCount = ItemCreatetorBars.barList.Count;
@@ -20,8 +22,8 @@ public class TestCostReset : MonoBehaviour
             {
                 string iname = igdtList[j].Name;
                 int iamount = igdtList[j].Amount;
-                int ind = CostManager.instance.CostNames.IndexOf(iname);
-                if (CostManager.instance.Costs[ind] < iamount)
+                int ind = CostManager.Instance.costNames.IndexOf(iname);
+                if (CostManager.Instance.Costs[ind] < iamount)
                 {
                     isCostPerfact = false;
                     break;

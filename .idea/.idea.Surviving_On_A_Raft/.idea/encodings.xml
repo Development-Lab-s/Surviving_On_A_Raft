@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/Bimtaeur30/01.Script/ExItemSO.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/Bimtaeur30/01.Script/InventoryManager.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/Bimtaeur30/01.Script/ItemCreateManager.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/00.Work/Bimtaeur30/01.Script/ItemCreateUI.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/Bimtaeur30/01.Script/ItemCreatetorBars.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/00.Work/Bimtaeur30/01.Script/ItemInfoView.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/Bimtaeur30/01.Script/ItemInvenGetAndRemove.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/00.Work/Bimtaeur30/01.Script/PlayerInput.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/00.Work/Bimtaeur30/01.Script/PlayerItem.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/00.Work/CheolYee/01.Codes/Enemys/AirEnemy.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/00.Work/CheolYee/01.Codes/Enemys/AirMeleeAttackEnemy.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/00.Work/CheolYee/01.Codes/Enemys/FSM/AirEnemy/AirEnemyAttackState.cs" charset="UTF-8" />

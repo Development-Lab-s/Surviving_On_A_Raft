@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 830694812396850713}
-  fadeDuration: 1
+  fadeDuration: 0.7
 --- !u!1001 &7912962908700236244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,7 +279,8 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6537234414688612551, guid: 8598cdec64e45ab40914df19776d45f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

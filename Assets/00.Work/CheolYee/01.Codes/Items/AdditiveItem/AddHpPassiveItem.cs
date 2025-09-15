@@ -7,12 +7,12 @@ namespace _00.Work.CheolYee._01.Codes.Items.AdditiveItem
     {
         public override void ApplyBuff()
         {
-            Player.HealthComponent.HealthMulti += PassiveItemSo.hpMulti;
+            Player.HealthComponent.AddMultiplier("AddHpPassiveItem", PassiveItemSo.hpMulti);
         }
 
         public override void CancelBuff()
         {
-            Player.HealthComponent.HealthMulti -= PassiveItemSo.hpMulti;
+            Player.HealthComponent.RemoveMultiplier("AddHpPassiveItem");
         }
     }
 }

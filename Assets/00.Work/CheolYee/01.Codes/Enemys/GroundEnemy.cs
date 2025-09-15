@@ -14,8 +14,12 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         [field: SerializeField] public string ItemName { get; private set; } = "GroundEnemy";
         public GameObject GameObject => gameObject; //다른곳에서 오브젝트 쉽게 가져오도록 만들기
         protected EnemyStateMachine StateMachine; //FSM 머신 설정
+
+        public Enemy Enemy { get; private set; }
+
         public override void SetDead() //죽은 상태로 만들기
         {
+            base.SetDead();
             StateMachine.ChangeState(EnemyBehaviourType.Death);
         }
 
@@ -55,7 +59,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
             {
                 HandleSpriteFlip(targetTrm.position); //움직이는 방향에 따라 자동 플립
             }
-            
+
             StateMachine.CurrentState.Update(); //현재 상태에 맞는 업데이트 구문을 실행
         }
 
@@ -65,7 +69,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         }
 
 #if UNITY_EDITOR
-        private void OnDrawGizmosSelected()
+        protected virtual void OnDrawGizmosSelected()
         {
             if (wallCheck != null)
             {

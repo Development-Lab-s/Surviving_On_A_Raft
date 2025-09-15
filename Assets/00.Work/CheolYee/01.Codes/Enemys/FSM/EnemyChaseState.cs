@@ -17,7 +17,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
             
             float distance = dir.magnitude; //거리 가져와서
             //공격 사거리보가 짧고, 쿨타임이 지났으면
-            if (distance < Enemy.attackRadius && Enemy.lastAttackTime + Enemy.attackCooldown < Time.time)
+            if (distance < Enemy.attackRadius && Enemy.lastAttackTime + Enemy.CurrentAttackSpeed < Time.time)
             {
                 StateMachine.ChangeState(EnemyBehaviourType.Attack); //공격으로 설정  
             }

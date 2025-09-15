@@ -35,12 +35,14 @@ public class ItemCreateUI : MonoBehaviour
 
         if (isUIEnabled == true)
         {
+            Time.timeScale = 1;
             ItemCreateUIUnView();
             return;
         }
 
         if (PInput.isFullscreenUIEnabled != true)
         {
+            
             MoveObject.gameObject.SetActive(true);
 
             currentSeq = DOTween.Sequence();
@@ -53,6 +55,7 @@ public class ItemCreateUI : MonoBehaviour
                 AnimateFocus(0.1f, 0.3f);
                 PInput.ChangeUIEnabled(true);
                 currentSeq = null; // 끝나면 초기화
+                Time.timeScale = 0;
             });
         }
     }

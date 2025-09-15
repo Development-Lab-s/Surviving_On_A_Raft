@@ -1,22 +1,45 @@
 using UnityEngine;
 
-public class ShowRadderUI : MonoBehaviour
+namespace _00.Work.Hedonism._06.Scripts.ChangeMap
 {
-    [SerializeField] private Transform UItrm;
-    void OnTriggerEnter2D(Collider2D collision)
+    public class ShowRadderUI : MonoBehaviour
     {
-        if (collision.CompareTag("Player"))
+        public StageSelectState State { get; private set; } = StageSelectState.None;
+        private void Awake()
         {
-            Vector3 CanvasPos = Camera.main.WorldToScreenPoint(UItrm.position);
-            ShowStageSelectUI.Instance.ShowMaps(CanvasPos);
+            // 매니저에 자기 자신 등록
+            ShowStageSelectUI.Instance.RegisterLadder(this);
         }
-    }
 
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        public void SetState(StageSelectState newState)
         {
-            ShowStageSelectUI.Instance.CloseMapUI();
+            State = newState;
+        }
+
+        public void ResetLadder()
+        {
+            State = StageSelectState.None;
+        }
+
+        public void MarkUsed()
+        {
+            State = StageSelectState.Finished;
+        }
+
+        void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                ShowStageSelectUI.Instance.ShowMaps(this);
+            }
+        }
+
+        void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                ShowStageSelectUI.Instance?.CloseMapUI();
+            }
         }
     }
 }

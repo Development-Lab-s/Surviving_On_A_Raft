@@ -14,3 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapIndex: 5
   mapIcon: {fileID: -855298285791758126, guid: 13e623e65a22b7848b8a51b764e47d8a, type: 3}
+  resourceDatas:
+  - resourceIndex: 0
+    resourceData: {fileID: 11400000, guid: e5b5860bd4dce0c45979e997d980a38d, type: 2}
+    resourceAmount: 30
+  - resourceIndex: 3
+    resourceData: {fileID: 11400000, guid: 09381e86dc371cf4696cd4cd1c62f0eb, type: 2}
+    resourceAmount: 10
+  - resourceIndex: 4
+    resourceData: {fileID: 11400000, guid: 2264059c612cce2448e5b494f45da84b, type: 2}
+    resourceAmount: 10

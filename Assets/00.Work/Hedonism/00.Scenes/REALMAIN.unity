@@ -559,6 +559,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115323921}
   m_CullTransparentMesh: 1
+--- !u!4 &121463532 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4709152736142707137, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
+  m_PrefabInstance: {fileID: 2338340690404401467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &122506845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2671,6 +2676,52 @@ MonoBehaviour:
   ICU: {fileID: 659750807}
   maxHoldTime: 1
   isFullscreenUIEnabled: 0
+--- !u!1 &873458654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 873458655}
+  - component: {fileID: 873458656}
+  m_Layer: 6
+  m_Name: BigSpinItme
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &873458655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873458654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 121463532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &873458656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873458654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f2135de96ccae4d98446e11f26eb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackItemSo: {fileID: 11400000, guid: e00b218185d734a44af89d65d2a86779, type: 2}
+  objects: []
 --- !u!1 &907495835
 GameObject:
   m_ObjectHideFlags: 0
@@ -4329,6 +4380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackItems:
+  - {fileID: 873458656}
   - {fileID: 221701566}
   passiveItems:
   - {fileID: 1884967581}
@@ -7329,6 +7381,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4709152736142707137, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 873458655}
     - targetCorrespondingSourceObject: {fileID: 6066296400555863175, guid: b76b837e5c232e54ba01ca95dbca3935, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1884967580}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808b3eaf175ccb04b91aa8bd44b8d567, type: 3}
   m_Name: TestBoss
   m_EditorClassIdentifier: 
-  poolName: TestBoss
-  prefab: {fileID: 4418232790310199413, guid: 7dd161d24acc7f54aa45d70fa1b1e270, type: 3}
-  count: 0
+  poolName: MiniBoss1
+  prefab: {fileID: 4418232790310199413, guid: 6e81ff3ea0eac6d4695445c904c0d8a3, type: 3}
+  count: 1

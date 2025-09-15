@@ -44,6 +44,8 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack
         //애니메이션 이벤트(AttackCast) 시 호출되는 지점
         public virtual void OnAnimationCast() { }
 
+        public virtual void ComboFlip() { }  // 뒤집는 애니메이션
+
         //애니메이션 종료 이벤트가 들어오면 호출
         public virtual void AnimationEndTrigger() => IsEndTriggerCall = true;
 
