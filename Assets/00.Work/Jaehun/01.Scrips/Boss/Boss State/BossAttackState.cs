@@ -83,7 +83,6 @@ public class BossAttackState : EnemyGroundState
         {
             // 스킬 진행 상황 모니터링
             var cs = _skillStateMachine.CurrentState;
-            Debug.Log($"[BossAttackState] Tick skill={cs.GetType().Name} completed={cs.IsCompleted}");
         }
 
         // 현재 스킬이 끝났으면 Idle로 복귀 + 전역 잠금 시작

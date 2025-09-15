@@ -12,7 +12,6 @@ public class BossSlimeBigAttack : SkillState
     //private readonly Vector2 _hitBoxOffset;    // 타격 박스 오프셋(좌우 flip 반영)
     //private readonly LayerMask _playerMask;
 
-    private bool _didHit;
     private Rigidbody2D _rb;
 
     public BossSlimeBigAttack(
@@ -41,7 +40,6 @@ public class BossSlimeBigAttack : SkillState
     public override void Enter()
     {
         base.Enter();
-        _didHit = false;
         _rb = Enemy.MovementComponent?.RbCompo;
 
         // 스킬 시작 즉시 쿨타임/전역 락(스팸 방지)

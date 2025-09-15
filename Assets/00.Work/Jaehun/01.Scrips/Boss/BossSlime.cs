@@ -17,10 +17,6 @@ public class BossSlime : GroundEnemy
     private readonly List<Rigidbody2D> _phaseRb = new();
     private readonly List<Collider2D> _phaseCols = new();
 
-    [SerializeField] private string p3Skill1CasterName = "Skill1Caster_P3";
-    [SerializeField] private string p3Skill3CasterName = "Skill3Caster_P3";
-    [SerializeField] private string p3Skill4CasterName = "Skill4Caster_P3";
-    [SerializeField] private string p3Skill6CasterName = "Skill6Caster_P3";
 
     [SerializeField] private DamageCaster skill1CasterP3;
     [SerializeField] private DamageCaster skill3SlamCasterP3;
@@ -85,7 +81,6 @@ public class BossSlime : GroundEnemy
     [Header("Skill3 Jump Settings")]
     [SerializeField] private float skill3Cooldown = 6f;
     [SerializeField] private float skill3DetectRadius = 7f;
-    [SerializeField] private float skill3SlamRadius = 2.5f;
     [SerializeField] private float skill3JumpPower = 10f;
     [SerializeField] private float skill3ForwardPower = 5f;
 
