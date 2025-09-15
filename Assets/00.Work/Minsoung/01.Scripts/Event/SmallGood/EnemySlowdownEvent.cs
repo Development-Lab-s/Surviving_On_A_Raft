@@ -11,7 +11,7 @@ public class EnemySlowdownEvent : MonoBehaviour, IEvent
     [ContextMenu("적 오소이..")]
     public void StartEvent()
     {
-        StatManager.Instance.EnemyBuffInTime(StatType.MoveSpeed, 0f,EventDuration);
+        StatManager.Instance.EnemyBuffInTime(StatType.MoveSpeed, 0.8f,EventDuration);
     }
 
     public void StartEventEffectText()
