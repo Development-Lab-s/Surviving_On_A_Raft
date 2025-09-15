@@ -10,6 +10,9 @@ namespace _00.Work.lusalord._02.Script.SO.AttackItem
         [Header("AttackItem Settings")] 
         public int id;
         public string itemName;
+        [TextArea]
+        public string desc;
+        public Sprite icon;
         public int level;
         public float damage;
         public float knockbackPower;

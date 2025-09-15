@@ -48,15 +48,17 @@ public class ItemInfoView : MonoBehaviour
             ItemDescriptionTxt.text = playerItem.Template.ItemDescription;
             ItemLevelTxt.text = "Level: " + playerItem.Level; // 레벨 표시
 
-            seq.AppendInterval(1f);
             seq.Join(ButtonImage.DOFade(1f, 1f));
+            seq.OnComplete(() => Time.timeScale = 0);
 
             PInput.ChangeUIEnabled(true);
+            
         }
     }
 
     public void ItemInfoUnViewMethod()
     {
+        Time.timeScale = 1;
         Sequence seq = DOTween.Sequence();
         AnimateFocus(10f, 0.3f);
         seq.Join(ItemInfo.DOAnchorPos(IIDownPos, 0.8f));

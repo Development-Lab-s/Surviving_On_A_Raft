@@ -19,7 +19,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Movements
 
         public void ResetBuff(StatType statType, float buff)
         {
-            if (statType == StatType.MoveSpeed) SpeedMultiplier = 1f; 
+            if (statType == StatType.MoveSpeed) SpeedMultiplier = 1f;
         }
 
         public void Initialize(EnemyDataSo data)

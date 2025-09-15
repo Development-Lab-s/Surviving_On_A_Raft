@@ -28,12 +28,12 @@ namespace _00.Work.CheolYee._01.Codes.Skills
             _coolTime = coolTime;
             _playerInput = player.PlayerInput;
             _player = player;
-            _playerInput.OnSkillKeyPress += UseSkill;
+            _playerInput.OnQKeyPress += UseSkill;
         }
 
         private void OnDisable()
         {
-            _playerInput.OnSkillKeyPress -= UseSkill;
+            _playerInput.OnQKeyPress -= UseSkill;
         }
 
         private void Update()

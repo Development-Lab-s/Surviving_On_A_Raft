@@ -1,3 +1,5 @@
+using _00.Work.Bimtaeur30._01.Script;
+using _00.Work.CheolYee._01.Codes.Managers;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -9,24 +11,39 @@ public class ItemInvenGetAndRemove : MonoBehaviour
     [SerializeField] private RectTransform UpgradeUI;
     [SerializeField] private TextMeshProUGUI UpgradeTxt;
 
-    // ¾ÆÀÌÅÛ ¾÷±×·¹ÀÌµå
+    // ì•„ì´í…œ ì—…ê·¸ë ˆì´ë“œ
     private Sequence upgradeSeq;
 
     public bool UpgradeItem(int slotIndex)
     {
         var playerItem = InventoryManager.Instance.ItemSlotList[slotIndex];
-        if (playerItem == null || playerItem.Level >= 5)
+        
+        if (playerItem == null) return false;
+        
+        
+        if (playerItem.Level >= 5)
             return false;
 
         playerItem.Upgrade();
         UpdateSlotUI(slotIndex);
 
-        Debug.Log(playerItem.Template.ItemName + " ·¹º§: " + playerItem.Level);
+        if (playerItem.Template.ItemType == ItemType.AttackItem)
+        {
+            ItemCreatetorBars.Instance.UpdateAttackItemUI(playerItem.Template.attackItem.id);
+            playerItem.Level = ItemManager.Instance.GetAttackItem(playerItem.Template.attackItem.id).level;
+        }
+        else
+        {
+            ItemCreatetorBars.Instance.UpdatePassiveItemUI(playerItem.Template.passiveItem.id);
+            playerItem.Level = ItemManager.Instance.GetPassiveItem(playerItem.Template.passiveItem.id).level;
+        }
+
+        Debug.Log(playerItem.Template.ItemName + " ë ˆë²¨: " + playerItem.Level);
 
         UpgradeUI.anchoredPosition = new Vector2(1200, -450);
-        UpgradeTxt.text = $"{playerItem.Template.ItemName}(ÀÌ)°¡ {playerItem.Level}·¹º§·Î ¾÷±×·¹ÀÌµåµÇ¾ú½À´Ï´Ù!";
+        UpgradeTxt.text = $"{playerItem.Template.ItemName}(ì´)ê°€ {playerItem.Level}ë ˆë²¨ë¡œ ì—…ê·¸ë ˆì´ë“œë˜ì—ˆìŠµë‹ˆë‹¤!";
 
-        // ±âÁ¸ ½ÃÄö½º ÀÖÀ¸¸é Á¦°Å
+        // ê¸°ì¡´ ì‹œí€€ìŠ¤ ìˆìœ¼ë©´ ì œê±°
         upgradeSeq?.Kill();
 
         upgradeSeq = DOTween.Sequence();
@@ -39,24 +56,24 @@ public class ItemInvenGetAndRemove : MonoBehaviour
 
 
 
-    // ÀÎº¥Åä¸®¿¡¼­ ¾ÆÀÌÅÛ Ã£±â + ¾÷±×·¹ÀÌµå
+    // ì¸ë²¤í† ë¦¬ì—ì„œ ì•„ì´í…œ ì°¾ê¸° + ì—…ê·¸ë ˆì´ë“œ
     public bool FindInventorySlot(ExItemSO templateSO)
     {
-        // ÀÌ¹Ì ÀÎº¥Åä¸®¿¡ ÀÖ´ÂÁö È®ÀÎ
+        // ì´ë¯¸ ì¸ë²¤í† ë¦¬ì— ìˆëŠ”ì§€ í™•ì¸
         for (int i = 0; i < InventoryManager.Instance.ItemSlotList.Length; i++)
         {
             var playerItem = InventoryManager.Instance.ItemSlotList[i];
-            if (playerItem != null && playerItem.Template == templateSO)
+            if (playerItem != null && playerItem.Template.ItemName == templateSO.ItemName)
             {
                 return UpgradeItem(i);
             }
         }
 
-        // ½½·Ô ¹üÀ§ ¼³Á¤
+        // ìŠ¬ë¡¯ ë²”ìœ„ ì„¤ì •
         int startSlot = templateSO.ItemType == ItemType.AttackItem ? 0 : 5;
         int endSlot = templateSO.ItemType == ItemType.AttackItem ? 4 : 9;
 
-        // ºó ½½·Ô¿¡ Ãß°¡
+        // ë¹ˆ ìŠ¬ë¡¯ì— ì¶”ê°€
         for (int i = startSlot; i <= endSlot; i++)
         {
             if (InventoryManager.Instance.ItemSlotList[i] == null)
@@ -66,11 +83,11 @@ public class ItemInvenGetAndRemove : MonoBehaviour
             }
         }
 
-        // ½½·Ô °¡µæ
+        // ìŠ¬ë¡¯ ê°€ë“
         return false;
     }
 
-    // ¾ÆÀÌÅÛ È¹µæ
+    // ì•„ì´í…œ íšë“
     public void GetItemToInventory(int slotIndex, ExItemSO templateSO)
     {
         if (InventoryManager.Instance.ItemSlotList[slotIndex] != null)
@@ -79,12 +96,13 @@ public class ItemInvenGetAndRemove : MonoBehaviour
         InventoryManager.Instance.ItemSlotList[slotIndex] = new PlayerItem
         {
             Template = templateSO,
-            Level = 1
+            Level = 0
         };
+        UpgradeItem(slotIndex);
         UpdateSlotUI(slotIndex);
     }
 
-    // ¾ÆÀÌÅÛ »èÁ¦
+    // ì•„ì´í…œ ì‚­ì œ
     public void RemoveItem()
     {
         int slotIndex = IS.currentSlotsSelecting;
@@ -94,12 +112,17 @@ public class ItemInvenGetAndRemove : MonoBehaviour
         if (playerItem == null) return;
 
         InventoryManager.Instance.ItemSlotList[slotIndex] = null;
+        if (playerItem.Template.ItemType == ItemType.AttackItem) 
+            ItemManager.Instance.DeleteAttackItem(playerItem.Template.attackItem.id);
+        else
+            ItemManager.Instance.DeletePassiveItem(playerItem.Template.passiveItem.id);
+            
         UpdateSlotUI(slotIndex);
 
         IS.SlotUnselectMethod();
     }
 
-    // ½½·Ô UI °»½Å
+    // ìŠ¬ë¡¯ UI ê°±ì‹ 
     private void UpdateSlotUI(int slotIndex)
     {
         var playerItem = InventoryManager.Instance.ItemSlotList[slotIndex];
