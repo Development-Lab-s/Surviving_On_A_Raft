@@ -17,9 +17,8 @@ namespace _00.Work.CheolYee._01.Codes.Items.SO
         {
             if (installItem != null)
             {
-                if (installItem.TryGetComponent(out Projectile projectile))
+                if (installItem.TryGetComponent(out Projectile _))
                 {
-                    itemName = projectile.ItemName;
                 }
                 else
                 {
