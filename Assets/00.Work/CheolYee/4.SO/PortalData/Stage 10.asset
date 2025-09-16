@@ -14,6 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 11400000, guid: 3dffb2594736b5b4cb6f85616a4963a6, type: 2}
+  - {fileID: 11400000, guid: 838111d6ac46d3842809e00808b978e0, type: 2}
+  - {fileID: 11400000, guid: ea8a8ec89918ab346943cc018cdabdc3, type: 2}
+  - {fileID: 11400000, guid: 4abd138ee28c5ec48933fdb17f114827, type: 2}
+  - {fileID: 11400000, guid: 7b5dc30de920a7643992424bb1421a4b, type: 2}
+  enemiesData:
+  - {fileID: 11400000, guid: 6b96d53f5dbc4ea43acbe2139773b116, type: 2}
+  - {fileID: 11400000, guid: e3730978815f041469a1850cb291516a, type: 2}
+  - {fileID: 11400000, guid: f85807ef4294c6141aea3cfbbc54e37a, type: 2}
+  - {fileID: 11400000, guid: abef41291aa715c4ca7e746d61173152, type: 2}
+  - {fileID: 11400000, guid: f7f81cc8b114d59428cafb84b40b8cdd, type: 2}
   enemyCount: 95
   launchForce: 2
   minTime: 1
