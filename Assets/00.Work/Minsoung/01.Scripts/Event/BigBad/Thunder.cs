@@ -30,6 +30,7 @@ public class Thunder : MonoBehaviour, IPoolable
 
     public void ThunderPop()
     {
+        SoundManager.Instance.PlaySfx("Lightning");
         _animator.SetBool(_thunderHash, true);
         StartCoroutine(DotDamage());
         eventData.gain = 10;

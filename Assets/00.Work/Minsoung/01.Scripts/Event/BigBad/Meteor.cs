@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
+﻿using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
+using _00.Work.Resource.Manager;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,6 +54,7 @@ public class Meteor : MonoBehaviour
         if ((whatIsgroundCheck & (1 << collision.gameObject.layer)) != 0)
         {
             Debug.Log("Crash 레이어 일치! 파괴!");
+            SoundManager.Instance.PlaySfx("Explosion");
             StartCoroutine(MeteorParticle());
         }
         else
