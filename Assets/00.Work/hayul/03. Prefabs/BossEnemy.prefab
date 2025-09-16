@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 900949303553575304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.97, z: 0}
+  m_LocalPosition: {x: 0, y: -1.626, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -346,7 +346,7 @@ MonoBehaviour:
   damageMulti: 1
   attackSpeedMulti: 0
   detectRadius: 0
-  attackRadius: 20
+  attackRadius: 7
   lockFlip: 0
   attackCooldown: 0
   knockbackPower: 0
@@ -367,12 +367,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   targetTrm: {fileID: 0}
   wallCheck: {fileID: 6238890139004296903}
-  wallCheckDistance: 0.5
+  wallCheckDistance: 1.92
   whatIsWall:
     serializedVersion: 2
     m_Bits: 8
   <ItemName>k__BackingField: BossEnemy
-  skill1Cooldown: 10
+  skill1Cooldown: 20
   skill1Prefab: {fileID: 1367622691017992015, guid: 47528f8395854af44933244fef8dc88a, type: 3}
   skill1FirePos: {fileID: 298337203460396026}
   skill1Range: 20
@@ -381,7 +381,7 @@ MonoBehaviour:
   armPrefab: {fileID: 3659094807772548393, guid: f326cc06cc0c4bf4ba70c0f058a573b4, type: 3}
   armSpawnPoint: {fileID: 1830453905345826152}
   armRange: 7
-  armShotSpeed: 5
+  armShotSpeed: 10
 --- !u!1 &6559196733022272890
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +606,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1112886881733423179}
     m_Modifications:
     - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
+      propertyPath: motorControlsX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
       propertyPath: groundCheckRadius.x
       value: 0.64
       objectReference: {fileID: 0}
@@ -623,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6826281240418199645, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.51
+      value: -2.061
       objectReference: {fileID: 0}
     - target: {fileID: 6826281240418199645, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
       propertyPath: m_LocalPosition.z

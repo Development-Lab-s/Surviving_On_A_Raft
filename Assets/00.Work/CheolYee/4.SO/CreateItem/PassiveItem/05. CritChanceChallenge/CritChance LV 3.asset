@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CritChance LV 3
   m_EditorClassIdentifier: 
   ItemType: 1
-  _itemLevel: 1
+  _itemLevel: 3
   attackItem: {fileID: 0}
   passiveItem: {fileID: 11400000, guid: fb269e82356320c4fb4bfb228c18360e, type: 2}
   itemAttributes:

@@ -7,6 +7,8 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private static readonly int Move = Animator.StringToHash("MOVE");
         private static readonly int Jump = Animator.StringToHash("JUMP");
         private static readonly int Death = Animator.StringToHash("DEATH");
+        
+        [SerializeField] private GameObject player;
         public Animator AnimatorComponent { get; private set; }
 
         private bool _isFacingRight;
@@ -46,7 +48,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private void Flip(bool faceRight)
         {
             _isFacingRight = faceRight;
-            transform.rotation = faceRight ? Quaternion.identity : Quaternion.Euler(0, 180f, 0);
+            player.transform.rotation = faceRight ? Quaternion.identity : Quaternion.Euler(0, 180f, 0);
         }
     }
 }

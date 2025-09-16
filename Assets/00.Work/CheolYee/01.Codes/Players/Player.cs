@@ -1,11 +1,9 @@
-using System;
 using _00.Work.CheolYee._01.Codes.Agents;
 using _00.Work.CheolYee._01.Codes.Agents.Movements;
 using _00.Work.CheolYee._01.Codes.Core.Buffs;
 using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace _00.Work.CheolYee._01.Codes.Players
@@ -54,6 +52,11 @@ namespace _00.Work.CheolYee._01.Codes.Players
         
         public bool HaveBloodSuckingItem { get; set; }
         public float BloodSuckingHealMultiplier { get; set; }
+        
+        public bool HaveHealing { get; set; }
+        public float HealingMultiplier { get; set; }
+
+        private float _healTimer;
 
         public void BloodSucking()
         {
@@ -95,6 +98,13 @@ namespace _00.Work.CheolYee._01.Codes.Players
             {
                 SetupMovementX(); //무브먼트 스크립트에 지속적으로 X값 전달
                 UpdateAnimator(); //애니메이션 업데이트
+            }
+
+            _healTimer += Time.deltaTime;
+            if (_healTimer >= 5)
+            {
+                _healTimer = 0;
+                HealthComponent.HealPer(HealingMultiplier);
             }
         }
 

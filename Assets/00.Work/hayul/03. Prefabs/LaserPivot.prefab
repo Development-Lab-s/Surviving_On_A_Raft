@@ -58,6 +58,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser
       objectReference: {fileID: 0}
+    - target: {fileID: 1749927913649649671, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749927913649649671, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1933110025
+      objectReference: {fileID: 0}
     - target: {fileID: 7547278100680176945, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
       propertyPath: laser
       value: 

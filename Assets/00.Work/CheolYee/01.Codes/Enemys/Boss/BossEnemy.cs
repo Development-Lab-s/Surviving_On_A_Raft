@@ -1,6 +1,7 @@
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss;
 using UnityEngine;
+using BossAttackState = _00.Work.Jaehun._01.Scrips.Boss.Boss_State.BossAttackState;
 
 namespace _00.Work.CheolYee._01.Codes.Enemys.Boss
 {
