@@ -12,18 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e05906a1da94ea8a00b363573c72187, type: 3}
   m_Name: Stage 12
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 11400000, guid: 3dffb2594736b5b4cb6f85616a4963a6, type: 2}
-  - {fileID: 11400000, guid: 838111d6ac46d3842809e00808b978e0, type: 2}
-  - {fileID: 11400000, guid: 29204f7b524b78942ba9cd470e733609, type: 2}
-  enemiesData:
-  - {fileID: 11400000, guid: 1d82d8218829eeb458f8bf2aafbb128e, type: 2}
-  - {fileID: 11400000, guid: 23fa303b777151844ad9bebc8bb11c67, type: 2}
-  - {fileID: 11400000, guid: a092da17f58019e4099a24d3339dee9a, type: 2}
+  enemies: []
   enemyCount: 30
   launchForce: 2
-  minTime: 1
-  maxTime: 6
+  minTime: 5
+  maxTime: 4
   portalColor: {r: 1, g: 0.2172639, b: 0.18431371, a: 0.80784315}
   isBossStage: 1
   currentBoss: {fileID: 11400000, guid: 23fd151a605207640aad02ce91c924ae, type: 2}

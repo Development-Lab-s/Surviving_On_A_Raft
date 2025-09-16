@@ -332,7 +332,7 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
-  enemyData: {fileID: 11400000, guid: 11fa3dbda5bb50d4b96d5b3d73734721, type: 2}
+  enemyData: {fileID: 11400000, guid: dcd0d07e9d419c345b3f782b9446404d, type: 2}
   damageMulti: 0
   attackSpeedMulti: 0
   detectRadius: 0
