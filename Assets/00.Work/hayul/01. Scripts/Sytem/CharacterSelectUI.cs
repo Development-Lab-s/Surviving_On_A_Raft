@@ -17,7 +17,6 @@ public class CharacterSelectUI : MonoBehaviour
     public List<CharacterSlot> slots;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI hpText;
-    public TextMeshProUGUI attackCoolDownText;
     public TextMeshProUGUI moveSpeedText;
     public TextMeshProUGUI attackPowerText;
     public TextMeshProUGUI attackSpeedText;
@@ -100,7 +99,6 @@ public class CharacterSelectUI : MonoBehaviour
         attackSpeedText.text = data.attackSpeed;
         hpText.text = data.maxHp;
         moveSpeedText.text = data.moveSpeed;
-        attackCoolDownText.text = data.abilityCooldown;
         attackPowerText.text = data.attackPower;
     }
 }
