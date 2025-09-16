@@ -15,13 +15,16 @@ public class StormEvent : MonoBehaviour, IEvent
     private float _rand;
     private Vector2 _posision;
 
-    
+    private void Start()
+    {
+        
+    }
 
     [ContextMenu("허리지팡이")]
     public void StartEvent()
     {
         StartCoroutine(CreateThunder());
-        EventTimer.Instance.StartTimer(10f);
+        
     }
 
     private IEnumerator CreateThunder()

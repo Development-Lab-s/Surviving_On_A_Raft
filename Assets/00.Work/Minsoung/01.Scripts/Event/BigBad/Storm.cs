@@ -1,6 +1,5 @@
-﻿using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
-using _00.Work.Resource.Manager;
-using System.Collections;
+﻿using System.Collections;
+using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using UnityEngine;
 
 public class Storm : MonoBehaviour
@@ -57,7 +56,6 @@ public class Storm : MonoBehaviour
 
     private IEnumerator AirLifeTime()
     {
-        SoundManager.Instance.PlaySfx("Storm");
         yield return new WaitForSeconds(lifeTime);
         EndAir();
     }

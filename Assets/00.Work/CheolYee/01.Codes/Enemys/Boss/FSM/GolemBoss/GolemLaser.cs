@@ -1,5 +1,5 @@
+using System.Collections;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
-using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using UnityEngine;
@@ -11,9 +11,12 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
         [SerializeField] private DamageCaster damageCaster;
         public string ItemName => gameObject.name;
         public GameObject GameObject => gameObject;
+        private Vector3 _moveDirection = Vector3.right;
         
         public void SetMoveDirection(Vector3 dir)
         {
+            _moveDirection = dir.normalized;
+
             // transform 회전으로 방향 맞춤 (플립 X)
             if (dir == Vector3.left)
                 transform.rotation = Quaternion.Euler(0, 180, 0); // 왼쪽
@@ -34,27 +37,19 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
         private float _knockback;
         private float _coolTime;
         private float _timer;
-        
-        private SkillState _skill;
-        
-        public void Initialize(float damage, float knockback, float cooltime, SkillState skillState)
+
+        public void Initialize(float damage, float knockback, float cooltime)
         {
             _damage = damage;
             _knockback = knockback;
             _coolTime = cooltime;
-            _skill = skillState;
-            _timer = 0;
+            StartCoroutine(LifeTimeRoutine());
         }
 
-        private void Update()
+        private IEnumerator LifeTimeRoutine()
         {
-            _timer += Time.deltaTime;
-            if (_timer > _coolTime)
-            {
-                _timer = 0;
-                _skill.AnimationEndTrigger();
-                PoolManager.Instance.Push(this);
-            }
+            yield return new WaitForSeconds(_coolTime);
+            PoolManager.Instance.Push(this);
         }
 
         public void LaserDamageCast()
