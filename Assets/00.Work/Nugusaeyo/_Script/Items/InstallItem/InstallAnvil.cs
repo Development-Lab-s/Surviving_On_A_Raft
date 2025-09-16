@@ -39,6 +39,7 @@ public class InstallAnvil : Projectile
     {
         damageCaster.CastDamage(_damage, _knockbackPower);
         PoolManager.Instance.Push(this);
+        Debug.Log("Stabbing, " + _timer);
     }
         
     private void OnCollisionEnter2D(Collision2D other)

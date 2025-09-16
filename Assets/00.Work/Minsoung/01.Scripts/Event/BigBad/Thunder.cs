@@ -28,8 +28,15 @@ public class Thunder : MonoBehaviour, IPoolable
         _animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        SoundManager.Instance.PlaySfx("Electricity");
+        
+    }
+
     public void ThunderPop()
     {
+        SoundManager.Instance.PlaySfx("Lightning");
         _animator.SetBool(_thunderHash, true);
         StartCoroutine(DotDamage());
         eventData.gain = 10;
