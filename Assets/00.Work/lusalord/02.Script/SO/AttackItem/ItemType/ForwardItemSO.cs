@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ForwardItemSO", menuName = "SO/Item/ForwardItemSO")]
 public class ForwardItemSO : AttackItemSo
 {
+    public RuntimeAnimatorController animatorController;
     public float coolTime;
     protected override void OnValidate()
     {

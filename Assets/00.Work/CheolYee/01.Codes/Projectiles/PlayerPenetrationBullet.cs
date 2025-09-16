@@ -1,4 +1,3 @@
-using System.Collections;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using _00.Work.Resource.Manager;
 using UnityEngine;
@@ -10,8 +9,6 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
         [Header("PlayerPenetrationBullet Settings")]
         [SerializeField] protected float lifeTime = 1.5f; //총알 지속시간
         [SerializeField] private DamageCaster damageCaster; //데미지를 넣을 담당 컴포넌트
-        [SerializeField] private bool continuousAttack;
-        [SerializeField] private float attackCooltime;
         
         private float _speed = 20f; //이동속도
         private float _damage; //데미지
@@ -27,8 +24,6 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
             
             float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
             transform.SetPositionAndRotation(firePos.position, Quaternion.Euler(0, 0, angle));
-            
-            if (continuousAttack) StartCoroutine(ContinuousAttack());
         }
 
         private void FixedUpdate()
@@ -45,24 +40,14 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
 
         private void OnTriggerEnter2D(Collider2D other) // 무언가 충돌했을 때
         {
-            if (IsDead || continuousAttack) return; //이미 죽어있다면 취소
+            if (IsDead) return; //이미 죽어있다면 취소
             
             damageCaster.CastDamage(_damage, _knockBackPower); //데미지 주기
 
         }
 
-        private IEnumerator ContinuousAttack()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(attackCooltime);
-                damageCaster.CastDamage(_damage, _knockBackPower); //데미지 주기
-            }
-        }
-
         private void DestroyBullet() // 풀에 반납
         {
-            StopAllCoroutines();
             PoolManager.Instance.Push(this);
         }
     }

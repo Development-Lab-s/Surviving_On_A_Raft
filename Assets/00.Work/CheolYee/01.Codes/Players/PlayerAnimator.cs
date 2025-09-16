@@ -7,8 +7,6 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private static readonly int Move = Animator.StringToHash("MOVE");
         private static readonly int Jump = Animator.StringToHash("JUMP");
         private static readonly int Death = Animator.StringToHash("DEATH");
-        
-        [SerializeField] private GameObject player;
         public Animator AnimatorComponent { get; private set; }
 
         private bool _isFacingRight;
