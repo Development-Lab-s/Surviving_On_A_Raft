@@ -19,7 +19,7 @@ MonoBehaviour:
   desc: "\uC774\uB3D9 \uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9C0\uB294 \uB300\uC2E0, \uCCB4\uB825\uC774
     \uB0AE\uC544\uC9D1\uB2C8\uB2E4."
   criticalChanceMulti: 0
-  hpMulti: 0.3
+  hpMulti: -0.3
   speedMulti: 1
   damageMulti: 0
   atkSpeedMulti: 0

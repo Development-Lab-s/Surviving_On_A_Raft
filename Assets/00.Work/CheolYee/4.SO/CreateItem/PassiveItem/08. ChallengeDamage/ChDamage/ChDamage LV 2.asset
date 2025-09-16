@@ -21,6 +21,6 @@ MonoBehaviour:
   criticalChanceMulti: 0
   hpMulti: 0
   speedMulti: 0
-  damageMulti: 0.8
-  atkSpeedMulti: 0.3
+  damageMulti: 0.15
+  atkSpeedMulti: -0.3
   nextLevelPassiveItem: {fileID: 11400000, guid: 66c2ccfb804995044946f430d23ecf7c, type: 2}
