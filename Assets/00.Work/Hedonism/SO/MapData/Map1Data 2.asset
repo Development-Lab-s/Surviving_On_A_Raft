@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Map1Data 2
   m_EditorClassIdentifier: 
   mapIndex: 1
-  mapIcon: {fileID: 3349162952400237527, guid: 6e70cb7a7ee251e448c2d4ac8cf238ad, type: 3}
+  mapIcon: {fileID: -1169411088111069324, guid: c4823e5d4d2995845a0fb694473bebba, type: 3}
   resourceDatas:
   - resourceIndex: 0
     resourceData: {fileID: 11400000, guid: e5b5860bd4dce0c45979e997d980a38d, type: 2}

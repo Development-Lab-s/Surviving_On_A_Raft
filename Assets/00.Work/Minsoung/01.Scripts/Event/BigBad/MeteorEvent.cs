@@ -30,7 +30,7 @@ public class MeteorEvent : MonoBehaviour, IEvent
     public void StartEvent()
     {
         StartCoroutine(CreateMeteor());
-        
+        EventTimer.Instance.StartTimer(5f);
     }
 
     private IEnumerator CreateMeteor()
