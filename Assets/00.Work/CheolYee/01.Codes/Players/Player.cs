@@ -57,12 +57,6 @@ namespace _00.Work.CheolYee._01.Codes.Players
         public float HealingMultiplier { get; set; }
 
         private float _healTimer;
-
-        public bool HaveHealing { get; set; }
-        public float HealingMultiplier { get; set; }
-
-        private float _healTimer;
-
         public void BloodSucking()
         {
             if (HaveBloodSuckingItem)
