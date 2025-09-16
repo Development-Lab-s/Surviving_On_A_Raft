@@ -21,7 +21,6 @@ namespace _00.Work.lusalord._02.Script.ItemType
         {
             _forwardItemSo = (ForwardItemSO)attackItemSo;
 
-            animator.runtimeAnimatorController = _forwardItemSo.animatorController;
             gameObject.name = _forwardItemSo.itemName;
             _coolTime = _forwardItemSo.coolTime;
         }
