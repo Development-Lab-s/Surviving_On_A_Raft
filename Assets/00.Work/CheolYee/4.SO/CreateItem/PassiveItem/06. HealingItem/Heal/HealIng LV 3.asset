@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed7fb9aedb64474aa2688419fc3aa24, type: 3}
+  m_Name: HealIng LV 3
+  m_EditorClassIdentifier: 
+  id: 6
+  level: 3
+  itemName: "\uB118\uCE58\uB294 \uD798"
+  icon: {fileID: 21300000, guid: b8fcd52aee8d7d3489cdd4ca264b67de, type: 3}
+  desc: "5\uCD08\uC5D0 \uD55C\uBC88 \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+  criticalChanceMulti: 0
+  hpMulti: 0.02
+  speedMulti: 0
+  damageMulti: 0
+  atkSpeedMulti: 0
+  nextLevelPassiveItem: {fileID: 11400000, guid: 0fe06fae7d36b5445b565fc23a09b403, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a11b1fa2c850b2449121e36a07f1f29, type: 3}
+  m_Name: CritChance LV 2
+  m_EditorClassIdentifier: 
+  ItemType: 1
+  _itemLevel: 2
+  attackItem: {fileID: 0}
+  passiveItem: {fileID: 11400000, guid: b8d3c436dcc6df44bab5e3bb9b4688f9, type: 2}
+  itemAttributes:
+  - "\uD06C\uD655 15%, \uACF5\uC18D -15%, \uC774\uC18D -10%"
+  ItemIgdt:
+  - Name: "\uAC15\uCCA0"
+    Amount: 6
+  - Name: "\uBCF4\uC11D"
+    Amount: 2
+  - Name: "\uB9C8\uC11D"
+    Amount: 3
+  nextItem: {fileID: 11400000, guid: 8076635f1b8a7c04ea513bd11fa8d3d4, type: 2}

@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemType: 1
   _itemLevel: 2
   attackItem: {fileID: 0}
-  passiveItem: {fileID: 11400000, guid: 643618ab67354434d8974899fd561707, type: 2}
+  passiveItem: {fileID: 11400000, guid: 22347b9cb9a03504bb9709f47b3d649c, type: 2}
   itemAttributes:
   - "\uB808\uBCA8\uC5C5\uB2F9 +20%"
   ItemIgdt:

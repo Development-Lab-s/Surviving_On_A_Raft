@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416753c892f3a294f860a509d2abd42d, type: 3}
+  m_Name: BoomItem LV 5
+  m_EditorClassIdentifier: 
+  id: 6
+  itemName: "\uD3ED\uD0C4"
+  desc: "\uD3ED\uD0C4\uC744 \uB358\uC800 \uBC94\uC704 \uD53C\uD574\uB97C \uC785\uD585\uB2C8\uB2E4."
+  icon: {fileID: 21300000, guid: 62e63d352be550e4ba5d32173d338f3e, type: 3}
+  level: 5
+  damage: 120
+  knockbackPower: 10
+  nextLevel: {fileID: 0}
+  speed: 5
+  cooldown: 2.5
+  grenadeCount: 6
+  installItem: {fileID: 9021295688375307542, guid: d6e6f81dbaa5bd7409de5a751b5c5f4a, type: 3}

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b23982cdad40189b794c658718e7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Knife
+  itemName: AProjectile
   lifeTime: 2
   damageCaster: {fileID: 549332410888049333}
 --- !u!50 &9218661352627807590
