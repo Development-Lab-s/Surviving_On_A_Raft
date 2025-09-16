@@ -9,7 +9,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private static readonly int Death = Animator.StringToHash("DEATH");
         
         [SerializeField] private GameObject player;
-        public Animator AnimatorComponent { get; private set; }
+        public Animator AnimatorComponent { get; set; }
 
         private bool _isFacingRight;
         private void Awake()

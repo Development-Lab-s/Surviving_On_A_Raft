@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Text.RegularExpressions;
+using _00.Work.Resource.Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class StartSceneUI : MonoBehaviour
     [SerializeField] RectTransform TitleRec;
     [SerializeField] RectTransform TxtRec;
     [SerializeField] RectTransform ButtonsRec;
+    
+    [SerializeField] private GameObject StartBtn;
 
     [SerializeField] Image Line;
     private void Start()
@@ -21,6 +24,7 @@ public class StartSceneUI : MonoBehaviour
         seq.Join(ButtonsRec.DOAnchorPos(new Vector2(0, -480), 1f));
         seq.Join(TitleRec.gameObject.GetComponent<TextMeshProUGUI>().DOFade(1f, 1f));
         seq.Join(TxtRec.gameObject.GetComponent<TextMeshProUGUI>().DOFade(1f, 1f));
-
+        
+        seq.OnComplete(() => StartBtn.SetActive(true));
     }
 }
