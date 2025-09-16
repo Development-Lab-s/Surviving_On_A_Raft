@@ -12,7 +12,6 @@ public class PlayerDamageUpEvent : MonoBehaviour, IEvent
     public void StartEvent()
     {
         StatManager.Instance.PlayerBuffInTime(StatType.Damage, 0.2f, EventDuration);
-        EventTimer.Instance.StartTimer(EventDuration);
     }
 
     public void StartEventEffectText()

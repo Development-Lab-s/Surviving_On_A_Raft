@@ -50,11 +50,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
             if (_isBossSpawn)
             {
                 Enemy boss = PoolManager.Instance.Pop(portalData[GameManager.Instance.currentLevel - 1].currentBoss.poolName) as Enemy;
-                if (boss != null)
-                {
-                    Debug.Log("보스 스폰~!!!!!!!!!!!");
-                    boss.transform.position = position;
-                }
+                if (boss != null) boss.transform.position = position;
             }
         }
 

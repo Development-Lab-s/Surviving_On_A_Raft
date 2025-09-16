@@ -18,9 +18,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 286f62faee236d24b94170593fc3c706, type: 3}
   level: 1
   damage: 30
-  knockbackPower: 12
+  knockbackPower: 20
   nextLevel: {fileID: 11400000, guid: e2b5ee0fba971914eab9a1f65e5ae501, type: 2}
   speed: 4
-  cooldown: 7
+  cooldown: 10
   grenadeCount: 1
   installItem: {fileID: 9021295688375307542, guid: 11a9b31eab5ffde47b2556cdf7d2ce72, type: 3}
