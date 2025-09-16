@@ -24,7 +24,6 @@ public class ThunderEvent : MonoBehaviour, IEvent
     public void StartEvent()
     {
         StartCoroutine(CreateThunder());
-        EventTimer.Instance.StartTimer(10f);
     }
 
     private IEnumerator CreateThunder()

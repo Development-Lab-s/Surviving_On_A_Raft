@@ -6,14 +6,14 @@ namespace _00.Work.CheolYee._01.Codes.Items.ChallengeItem
     {
         public override void ApplyBuff()
         {
-            Player.attackSpeedMulti += PassiveItemSo.atkSpeedMulti;
-            Player.damageMulti -= PassiveItemSo.damageMulti;
+            Player.attackSpeedMulti -= PassiveItemSo.atkSpeedMulti;
+            Player.damageMulti += PassiveItemSo.damageMulti;
         }
 
         public override void CancelBuff()
         {
-            Player.attackSpeedMulti -= PassiveItemSo.atkSpeedMulti;
-            Player.damageMulti += PassiveItemSo.damageMulti;
+            Player.attackSpeedMulti += PassiveItemSo.atkSpeedMulti;
+            Player.damageMulti -= PassiveItemSo.damageMulti;
         }
     }
 }
