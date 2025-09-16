@@ -48,7 +48,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private void Flip(bool faceRight)
         {
             _isFacingRight = faceRight;
-            player.transform.rotation = faceRight ? Quaternion.identity : Quaternion.Euler(0, 180f, 0);
+            transform.rotation = faceRight ? Quaternion.identity : Quaternion.Euler(0, 180f, 0);
         }
     }
 }
