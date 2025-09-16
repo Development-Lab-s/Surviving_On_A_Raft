@@ -5,6 +5,7 @@ using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Portals;
 using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.Hedonism._06.Scripts.ChangeMap;
+using _00.Work.Nugusaeyo._Script.Cost;
 using _00.Work.Nugusaeyo._Script.Tsunami;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
@@ -29,6 +30,12 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
 
         void Start()
         {
+            CostManager.Instance.PlusCost(0, 100);
+            CostManager.Instance.PlusCost(1, 100);
+            CostManager.Instance.PlusCost(2, 100);
+            CostManager.Instance.PlusCost(3, 100);
+            CostManager.Instance.PlusCost(4, 100);
+            
             _playerTrm = GameManager.Instance.playerTransform;
             OnFirstStart(Random.Range(0, spawnPoints.Count));
         }
