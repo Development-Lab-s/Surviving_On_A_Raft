@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1283418039745773849}
-  - component: {fileID: 4878068183831188758}
   - component: {fileID: 9218661352627807590}
   - component: {fileID: 8102404634658915595}
+  - component: {fileID: 6727180745600579857}
   m_Layer: 8
   m_Name: BProjectile
   m_TagString: Untagged
@@ -36,21 +36,6 @@ Transform:
   - {fileID: 5397779399708654838}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4878068183831188758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3149612778032154149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b23982cdad40189b794c658718e7ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Knife
-  lifeTime: 2
-  damageCaster: {fileID: 549332410888049333}
 --- !u!50 &9218661352627807590
 Rigidbody2D:
   serializedVersion: 5
@@ -122,8 +107,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.55}
+  m_Size: {x: 0.9, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &6727180745600579857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149612778032154149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4238f163584404b1b3204a37bb80d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Sword
+  lifeTime: 1.5
+  damageCaster: {fileID: 549332410888049333}
 --- !u!1 &9029243610140372062
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +269,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: casterType
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
+      propertyPath: damageRadius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6243269046706289747, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: m_Name

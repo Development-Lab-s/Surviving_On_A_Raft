@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d47b267d7ba44e78a5fe9e668cacb74, type: 3}
   m_Name: CostSlot1
   m_EditorClassIdentifier: 
-  name: "\uACE0\uCCA0"
+  costName: "\uAD6C\uB9AC"
   sprite: {fileID: 2000703918757271117, guid: 7e0bc3cd9ed367c44bb3297ef8d633f8, type: 3}

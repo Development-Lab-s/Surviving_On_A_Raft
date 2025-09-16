@@ -21,6 +21,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
         {
             _forwardItemSo = (ForwardItemSO)attackItemSo;
 
+            animator.runtimeAnimatorController = _forwardItemSo.animatorController;
             gameObject.name = _forwardItemSo.itemName;
             _coolTime = _forwardItemSo.coolTime;
         }
@@ -38,9 +39,13 @@ namespace _00.Work.lusalord._02.Script.ItemType
             if (CoolTime <= _timer)
             {
                 animator.SetTrigger(ForwardAttack);
-                damageCaster.CastDamage(10, 4);
                 _timer = 0;
             }
+        }
+
+        public void AnimateForwardAttack()
+        {
+            damageCaster.CastDamage(_forwardItemSo.damage, _forwardItemSo.knockbackPower);
         }
     }
 }

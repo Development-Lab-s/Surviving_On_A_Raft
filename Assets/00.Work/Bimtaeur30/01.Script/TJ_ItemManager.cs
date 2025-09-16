@@ -1,18 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
+using _00.Work.Resource.Manager;
+using UnityEngine.Serialization;
 
-public class TJ_ItemManager : MonoBehaviour
+public class TJ_ItemManager : MonoSingleton<TJ_ItemManager>
 {
-    public static TJ_ItemManager Instance { get; private set; }
-    public List<ExItemSO> ItemList = new List<ExItemSO>();
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
+    public List<ExItemSO> attackItemList = new List<ExItemSO>();
+    public List<ExItemSO> passiveItemList = new List<ExItemSO>();
 }

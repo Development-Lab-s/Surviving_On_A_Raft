@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7cd7fec0b449b5bfb068c9ddeff55a, type: 3}
   m_Name: testChar
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
   moveSpeed: 6
-  jumpForce: 30
+  jumpForce: 35
   attack: 10
   attackSpeed: 0.5
   criticalChance: 10

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 [DisallowMultipleComponent]
 public class BrokenPlatform : MonoBehaviour
@@ -25,21 +26,14 @@ public class BrokenPlatform : MonoBehaviour
     // ✅ 흔들릴 자식 오브젝트(선택 사항)
     [SerializeField] private Transform shakeTarget;
 
-    private Collider2D[] _colliders;
-    private Renderer[] _renderers;
+    [SerializeField] private Collider2D[] colliders;
+    [SerializeField] private Renderer[] renderers;
     private bool _isRunning;
     private bool _consumed;
-
-    private void Awake()
-    {
-        // ✅ 자신 + 부모까지의 콜라이더/렌더러 전부 수집
-        _colliders = transform.root.GetComponentsInChildren<Collider2D>(includeInactive: true);
-        _renderers = transform.root.GetComponentsInChildren<Renderer>(includeInactive: true);
-    }
-
+    
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (!triggerOnCollision) return;
+        if (!triggerOnCollision || col.transform.position.y < transform.position.y) return;
         TryTrigger(col.collider);
     }
 
@@ -97,15 +91,15 @@ public class BrokenPlatform : MonoBehaviour
 
     private void SetPlatformCollidable(bool on)
     {
-        if (_colliders == null) return;
-        foreach (var c in _colliders)
+        if (colliders == null) return;
+        foreach (var c in colliders)
             if (c) c.enabled = on;
     }
 
     private void SetPlatformVisible(bool on)
     {
-        if (_renderers == null) return;
-        foreach (var r in _renderers)
+        if (renderers == null) return;
+        foreach (var r in renderers)
             if (r) r.enabled = on;
     }
 }

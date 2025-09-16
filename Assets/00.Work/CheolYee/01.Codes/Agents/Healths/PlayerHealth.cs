@@ -12,14 +12,21 @@ namespace _00.Work.CheolYee._01.Codes.Agents.Healths
             StatManager.Instance.OnResetPlayerBuff += ResetBuff;
         }
         
+        
         public void ApplyBuff(StatType stat, float buff)
         {
-            if (stat == StatType.Health) HealthMulti += buff;
+            if (stat == StatType.Health)
+            {
+                AddMultiplier("Event", buff);
+            }
         }
 
         public void ResetBuff(StatType statType, float buff)
         {
-            if (statType == StatType.Health) HealthMulti -= buff;
+            if (statType == StatType.Health)
+            {
+                RemoveMultiplier("Event");
+            }
         }
     }
 }

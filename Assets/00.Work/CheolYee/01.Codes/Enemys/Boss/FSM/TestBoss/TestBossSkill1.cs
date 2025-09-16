@@ -38,7 +38,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
             Projectile projectile = PoolManager.Instance.Pop(poolName) as Projectile;
             if (projectile)
             {
-                Vector2 dir = Enemy.targetTrm.position - _firePos.position;
+                Vector2 dir = Enemy.targetTrm.position - _firePos.right;
                 projectile.Initialize(_firePos, dir, Enemy.CurrentAttackDamage, 0, 10);
             }
 

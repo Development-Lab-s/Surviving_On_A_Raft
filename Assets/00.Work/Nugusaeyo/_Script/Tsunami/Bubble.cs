@@ -39,7 +39,7 @@ public class Bubble : MonoBehaviour, IPoolable
         _particleSys.Play();
         yield return new WaitForSeconds(1f);
         transform.position = GameManager.Instance.playerTransform.position;
-        _player.HealthComponent.CurrentHealth -= 2;
+        _player.HealthComponent.TakeDamage(20, Vector2.zero, 0);
         yield return new WaitForSeconds(3f);
         StartCoroutine(BubbleBubble());
     }

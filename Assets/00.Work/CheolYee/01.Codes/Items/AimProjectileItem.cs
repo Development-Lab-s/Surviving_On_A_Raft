@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using _00.Work.CheolYee._01.Codes.Projectiles;
 using _00.Work.Resource.Manager;
+using _00.Work.Resource.SO;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Items
@@ -11,12 +13,16 @@ namespace _00.Work.CheolYee._01.Codes.Items
 
         protected override void SpawnProjectile()
         {
+            bulletCount = CurrentProjectileSo.bulletCount;
             base.SpawnProjectile();
-            Projectile projectile = PoolManager.Instance.Pop(CurrentProjectileSo.itemName) as Projectile;
+            Projectile projectile = PoolManager.Instance.Pop(BullItemName) as Projectile;
             
             Vector2 dir = Player.PlayerInput.MousePosition - (Vector2)transform.position;
             if (projectile != null)
+            {
                 projectile.Initialize(transform, dir, Damage + Player.CurrentDamage, KnockbackPower, Speed);
+                Debug.Log(CurrentProjectileSo.itemName);
+            }
         }
 
         private void Update()
@@ -31,6 +37,7 @@ namespace _00.Work.CheolYee._01.Codes.Items
         {
             for (int i = 0; i < bulletCount; i++)
             {
+                
                 SpawnProjectile();
                 yield return new WaitForSeconds(0.1f);
             }

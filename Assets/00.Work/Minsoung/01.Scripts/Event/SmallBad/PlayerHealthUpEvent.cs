@@ -11,7 +11,7 @@ public class PlayerHealthUpEvent : MonoBehaviour, IEvent
     [ContextMenu("나 약간 통통")]
     public void StartEvent()
     {
-        StatManager.Instance.PlayerBuffInTime(StatType.Health, 1.1f, EventDuration);
+        StatManager.Instance.PlayerBuffInTime(StatType.Health, 0.2f, EventDuration);
     }
 
     public void StartEventEffectText()

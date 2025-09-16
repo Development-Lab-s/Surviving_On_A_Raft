@@ -1,59 +1,53 @@
-using NUnit.Framework;
 using System;
-using UnityEngine;
 using System.Collections.Generic;
+using _00.Work.Resource.Manager;
 
-public class CostManager : MonoBehaviour
+namespace _00.Work.Nugusaeyo._Script.Cost
 {
-    public Action CostUpEvent;
-    public Action CostDownEvent;
-
-    public int[] Costs { get; private set; } = new int[5];
-    public List<string> CostNames = new List<string> { "구리", "강철", "황금", "보석", "마석" };
-    static public CostManager instance;
-
-    private void Awake()
+    public class CostManager : MonoSingleton<CostManager>
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+        public Action CostUpEvent;
+        public Action CostDownEvent;
 
-    public void PlusCost(int costType, int value)
-    {
-        if (costType < 999)
+        public int[] Costs { get; private set; } = new int[5];
+        public List<string> costNames = new List<string> { "구리", "강철", "황금", "보석", "마석" };
+
+        public void PlusCost(int costType, int value)
         {
-            if (costType + value > 999)
+            if (costType < 999)
             {
-                Costs[costType] = IncreaseCost(999);
+                if (costType + value > 999)
+                {
+                    Costs[costType] = IncreaseCost(999);
+                }
+                else
+                {
+                    Costs[costType] += IncreaseCost(value);
+                }
+                CostUpEvent?.Invoke();
             }
-            else
-            {
-                Costs[costType] += IncreaseCost(value);
-            }
-            CostUpEvent?.Invoke();
         }
-    }
 
-    public void MinusCost(int costType, int value)
-    {
-        Costs[costType] -= IncreaseCost(value);
-        if (Costs[costType] < 0)
+        public void MinusCost(int costType, int value)
         {
-            Debug.LogError($"코스트 {costType} 음수 돌파됨, 값 {Costs[costType]} 초과. 0으로 설정됨.");
-            Costs[costType] = 0;
+            Costs[costType] -= IncreaseCost(value);
+            if (Costs[costType] < 0)
+            {
+                Costs[costType] = 0;
+            }
+            CostDownEvent?.Invoke();
         }
-        CostDownEvent?.Invoke();
-    }
 
-    private int IncreaseCost(int value)
-    {
-        //여기서 여러 이벤트 알아서 실행
-        return value;
+        public bool IsPaid(int costType, int value)
+        {
+            if (Costs[costType] < value) return false;
+            return true;
+        }
+
+        private int IncreaseCost(int value)
+        {
+            //여기서 여러 이벤트 알아서 실행
+            return value;
+        }
     }
 }

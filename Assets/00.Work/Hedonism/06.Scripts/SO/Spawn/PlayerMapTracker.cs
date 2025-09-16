@@ -1,10 +1,11 @@
+using _00.Work.Hedonism._06.Scripts.SO.Manager;
 using UnityEngine;
 
 public class PlayerMapTracker : MonoBehaviour
 {
     public MapArea CurrentMap { get; private set; }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    /*private void OnTriggerEnter2D(Collider2D other)
     {
         MapArea map = other.GetComponent<MapArea>();
         if (map != null)
@@ -12,5 +13,5 @@ public class PlayerMapTracker : MonoBehaviour
             CurrentMap = map;
             SpawnManager.Instance.SpawnPortalInMap(map);
         }
-    }
+    }*/
 }

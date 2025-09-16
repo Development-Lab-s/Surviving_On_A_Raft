@@ -12,7 +12,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
         {
             base.Enter();
             Enemy.MovementComponent.StopImmediately(); //움직임 멈추고
-            Enemy.Attack();
         }
 
         public override void Exit()

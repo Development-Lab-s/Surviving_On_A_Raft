@@ -23,10 +23,9 @@ namespace _00.Work.lusalord._02.Script.SO.AttackItem.ItemType
         {
             if (spinPrefab != null)
             {
-                if (spinPrefab.TryGetComponent(out SpinCaster spinCaster))
+                if (spinPrefab.TryGetComponent(out SpinCaster _))
                 {
-                    itemName = spinCaster.gameObject.name;
-                }
+                 }
                 else
                 {
                     spinPrefab = null;

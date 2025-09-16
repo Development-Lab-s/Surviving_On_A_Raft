@@ -9,7 +9,6 @@ namespace _00.Work.lusalord._02.Script.Item
     public class SpinCaster : MonoBehaviour
     {
         [SerializeField] private DamageCaster damageCaster;
-        [SerializeField] private float rotationSpeed;
 
         private SpinItemSo _spinItemSo;
         private Player _player;

@@ -5,6 +5,7 @@ using System.Collections;
 using _00.Work.CheolYee._01.Codes.Agents.Movements;
 using _00.Work.CheolYee._01.Codes.Core.Buffs;
 using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.Hedonism._06.Scripts.SO.Manager;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,16 +30,20 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         [Header("Attack Settings")] 
         public float damageMulti; //공격력 배율
+        public float attackSpeedMulti; //공격력 배율
         public float detectRadius; // 플레이어를 탐지하는 범위
         public float attackRadius; // 공격이 가능한 거리
         
+        public bool lockFlip; // 스킬쓸때 좌우 회전 잠금.
         public float CurrentAttackDamage => _attackDamage * damageMulti; //배율 적용된 공격 데미지
+        public float CurrentAttackSpeed => attackCooldown * attackSpeedMulti;
         
         private float _attackDamage; // 공격 데미지
         [HideInInspector] public float attackCooldown; // 공격 쿨타임
         [HideInInspector] public float knockbackPower; // 넉백 힘
         [HideInInspector] public float lastAttackTime; //마지막 공격 시간
 
+        
         public ContactFilter2D whatIsPlayer; //플레이어를 탐지하는 필터
         public Transform targetTrm; //현재 타겟 위치
 
@@ -63,6 +68,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         private void OnEnable()
         {
+            SpawnManager.Instance.Enemys.Add(this);
             StartCoroutine(MaskChange());
         }
 
@@ -84,11 +90,13 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         public void ApplyBuff(StatType stat, float buff)
         {
             if (stat == StatType.Damage) damageMulti = buff;
+            if (stat == StatType.AttackSpeed) attackSpeedMulti = buff;
         }
 
         public void ResetBuff(StatType statType, float buff)
         {
             if (statType == StatType.Damage) damageMulti = 1f;
+            if (statType == StatType.AttackSpeed) damageMulti = 1f;
         }
 
         private void AttackSetting(EnemyDataSo data)
@@ -105,7 +113,12 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
         }
 
 
-        public abstract void SetDead();
+        public virtual void SetDead()
+        {
+            ItemManager.Instance.CreateRandomPickupItem(transform);
+            GameManager.Instance.player.BloodSucking();
+            SpawnManager.Instance.RemoveEnemy(this);
+        }
 
         //공격 메서드 (에너미 공격에 따라 따로 구현)
         public virtual void Attack() { }

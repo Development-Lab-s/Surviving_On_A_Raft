@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   itemName: BSpinItem
   level: 1
-  damage: 25
+  damage: 15
   knockbackPower: 10
   nextLevel: {fileID: 11400000, guid: c80ddc864e7d5f14e9e1572d217c351e, type: 2}
   spinRadius: 2

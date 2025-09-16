@@ -6,7 +6,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
     {
         //움직이는 생명체가 가질 기본 설정을 저장하고 있습니다.;
 
-        [Header("Settings")] 
+        [Header("Settings")]
         [SerializeField] private float extraGravity = 200f; //플레이어가 공중에 떠 있을 때 일정 시간 후 떨어지는 속도의 중력값
         [SerializeField] private float gravityDelay = 0.15f; //공중에 떠 있는 시간
 
@@ -18,7 +18,9 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         public Animator AnimatorComponent { get; private set; }
 
+
         public bool isDead; // 캐릭터가 죽었는가?
+        public bool isFliping;
 
         private float _timeInAir; // 캐릭터가 공중에 떠 있는 시간
         protected virtual void Awake()
@@ -59,6 +61,7 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         // 타겟 위치에 따라 캐릭터의 방향(스프라이트)을 좌우 반전
         public void HandleSpriteFlip(Vector3 targetPosition)
         {
+            if (isFliping) return;
             //만약에 타겟(마우스, 플레이어 등 움직이는 것)의 x좌표가 자신보다 크다면(오른쪽에 있다면)
             float dir = targetPosition.x - transform.position.x;
 

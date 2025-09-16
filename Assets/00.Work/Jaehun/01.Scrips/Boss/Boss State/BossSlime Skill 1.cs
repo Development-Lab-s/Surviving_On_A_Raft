@@ -1,45 +1,52 @@
 using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
+using _00.Work.Jaehun._01.Scrips.Boss;
 using UnityEngine;
 
 public class BossSlimeSkill1 : SkillState
 {
-    private readonly DamageCaster _caster;   // µ¥¹ÌÁö °ü¸®ÄÚµå
-    private readonly float _range;    // ¹üÀ§
+    private DamageCaster _hitCaster;   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
+    private readonly float _range;    // ï¿½ï¿½ï¿½ï¿½
 
-    //»ý¼ºÀÚ ¾È¿¡ ¿øÇÏ´Â°Å ³Ö¾î¼­ ¹Þ¾Æ¿À±â °¡´É
-    public BossSlimeSkill1(Enemy enemy,
-        string animBoolName,
-        float coolDown,
-        DamageCaster caster,   // Ä³½ºÅÍ ¹Þ±â
-        float range)
-        : base(enemy, animBoolName, coolDown)
+    private Rigidbody2D rb;
+    private RigidbodyConstraints2D _orginalConstraints;
+    private bool _FrozenApplied;
+
+    public BossSlimeSkill1(Enemy enemy, string animBoolName, float coolDown, DamageCaster hitCaster, float range)
+         : base(enemy, animBoolName, coolDown)
     {
-        _caster = caster;
+        _hitCaster = hitCaster;
         _range = range;
     }
 
     public override void OnAnimationCast()
     {
-        if (_caster == null) return;
+        if (_hitCaster == null) return;
 
-        bool hit = _caster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
-        LastAttackTime = Time.time; // ÄðÅ¸ÀÓ ½ÃÀÛ
-        Debug.Log(hit ? "[BossSlimeSkill1] HIT" : "[BossSlimeSkill1] MISS");
+        bool hit = _hitCaster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
+        LastAttackTime = Time.time; // ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
-    //½ºÅ³À» »ç¿ëÇÒ ¼ö ÀÖ´Â°¡? (·Î¹ö¶óÀÌµùÇØ¼­ »ç¿ë)
+    //ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´Â°ï¿½? (ï¿½Î¹ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½)
     public override bool CanUse()
     {
-        //ÄðÅ¸ÀÓ ·ÎÁ÷ (¹Ýµå½Ã ÇÊ¿ä)
+        //ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ýµï¿½ï¿½ ï¿½Ê¿ï¿½)
         if (Time.time < LastAttackTime + CoolDown) return false;
 
-        // »ç°Å¸® Ã¼Å©(´ç¿¬È÷ º¸½º Áß½É ±âÁØÀÌ°ÚÁÒ?)
+        // 2) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¿ï¿½(3ï¿½ï¿½ ï¿½ï¿½) - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©(ï¿½ï¿½ï¿½ï¿½)
+        if (Enemy is BossSlime boss && !boss.IsGlobalSkillReady()) return false;
+
+        // ï¿½ï¿½Å¸ï¿½ Ã¼Å©(ï¿½ç¿¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½?)
+        if (Enemy.targetTrm == null) return false;  // ï¿½Ï´ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?
         float dist = Vector3.Distance(Enemy.transform.position, Enemy.targetTrm.position);
         if (dist > _range) return false;
 
         return true;
+    }
+    public void SetCaster(DamageCaster caster)
+    {
+        _hitCaster = caster;
     }
 }
 
