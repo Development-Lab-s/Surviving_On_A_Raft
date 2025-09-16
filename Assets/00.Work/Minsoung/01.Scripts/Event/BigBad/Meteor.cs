@@ -35,6 +35,7 @@ public class Meteor : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.PlaySfx("Meteor");
         StartCoroutine(ColloiderActive());
     }
 
@@ -44,6 +45,7 @@ public class Meteor : MonoBehaviour
         eventSO.RaiseEvent(eventData);
 
         yield return new WaitForSeconds(colliderTime);
+        
         _collider.enabled = true;
         eventData.gain = 10;
         eventSO.RaiseEvent(eventData);
