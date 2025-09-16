@@ -49,10 +49,15 @@ public class DeadScene : MonoBehaviour
         
     }
 
-    //private void Start()
-    //{
-    //    ActiveDeadScene(DeathReasonEnum.enemyDie);
-    //}
+    public void ReturnToLobby()
+    {
+        // 로비 씬 전환
+    }
+
+    private void Start()
+    {
+        ActiveDeadScene(DeathReasonEnum.enemyDie);
+    }
     //,
     //dddddhgfftf
 }
