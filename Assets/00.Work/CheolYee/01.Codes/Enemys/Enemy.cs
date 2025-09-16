@@ -66,6 +66,13 @@ namespace _00.Work.CheolYee._01.Codes.Enemys
 
         }
 
+        public void Initialize()
+        {
+            HealthComponent.Initialize(this, enemyData.maxHealth); //에너미 전용 체력 설정
+            AttackSetting(enemyData); //에너미 전용 공격 설정
+            MovementComponent.GetComponent<EnemyMovement>().Initialize(enemyData); //에너미 전용 무브먼트 설정
+        }
+
         private void OnEnable()
         {
             SpawnManager.Instance.Enemys.Add(this);
