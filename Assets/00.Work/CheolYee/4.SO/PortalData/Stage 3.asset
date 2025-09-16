@@ -25,7 +25,7 @@ MonoBehaviour:
   enemyCount: 45
   launchForce: 2
   minTime: 1
-  maxTime: 3
+  maxTime: 5
   portalColor: {r: 0.35412285, g: 0.18431371, b: 1, a: 0.80784315}
   isBossStage: 0
   currentBoss: {fileID: 0}
