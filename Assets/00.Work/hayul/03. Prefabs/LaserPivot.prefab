@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: LaserPivot
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -67,8 +67,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.77
+      value: 25.46
       objectReference: {fileID: 0}
     - target: {fileID: 9181345298928453745, guid: 5a1cb1af99d5d684f93ddc29896f993e, type: 3}
       propertyPath: m_LocalPosition.y

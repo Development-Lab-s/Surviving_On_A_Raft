@@ -1,6 +1,7 @@
 using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
+using _00.Work.Jaehun._01.Scrips.Boss;
 using UnityEngine;
 
 public class BossSlimeComboAttack : SkillState
@@ -20,17 +21,17 @@ public class BossSlimeComboAttack : SkillState
 
     public override bool CanUse()
     {
-        // ÄðÅ¸ÀÓ
+        // ï¿½ï¿½Å¸ï¿½ï¿½
         if (Time.time < LastAttackTime + CoolDown) return false;
 
-        // º¸½º/3ÆäÀÌÁî Á¦ÇÑ: HP 50% ÀÌÇÏÀÏ ¶§¸¸ Çã¿ë
-        // (BossSlime¿¡ °ø°³ ÇÁ·ÎÆÛÆ¼°¡ ÀÖÀ¸¸é ±×°É ½áµµ µÊ. ¿©±â¼± HP ±â¹ÝÀ¸·Î Ã¼Å©)
+        // ï¿½ï¿½ï¿½ï¿½/3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: HP 50% ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+        // (BossSlimeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×°ï¿½ ï¿½áµµ ï¿½ï¿½. ï¿½ï¿½ï¿½â¼± HP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©)
         var boss = Enemy as BossSlime;
         if (boss == null) return false;
         if (boss.HealthComponent == null) return false;
         if (boss.HealthComponent.NormalizedHealth > 0.5f) return false;
 
-        // Àü¿ª ¶ô(´Ù¸¥ ½ºÅ³ Á÷ÈÄ µô·¹ÀÌ)µµ ¾²°í ÀÖ´Ù¸é Ã¼Å©
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½Ù¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ Ã¼Å©
         if (!boss.IsGlobalSkillReady()) return false;
 
         return true;
@@ -42,14 +43,14 @@ public class BossSlimeComboAttack : SkillState
 
         _rb = Enemy.MovementComponent?.RbCompo;
 
-        // ¼Óµµ Á¤Áö(¿¬¼ÓÂï±â µ¿¾È Á¦ÀÚ¸® ´À³¦)
+        // ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½)
         if (_rb != null)
         {
             _rb.linearVelocity = Vector2.zero;
             _rb.angularVelocity = 0f;
         }
 
-        // ½ºÆÔ ¹æÁö: ½ÃÀÛ°ú µ¿½Ã¿¡ Äð´Ù¿î + Àü¿ª¶ô
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½Û°ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½Ù¿ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         LastAttackTime = Time.time;
         (Enemy as BossSlime)?.StartGlobalSkillLock();
 
@@ -62,19 +63,19 @@ public class BossSlimeComboAttack : SkillState
         if (_hitCaster == null) return;
 
         bool hit = _hitCaster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
-        // Äð´Ù¿î °»½Å(¿¬¼Ó Áß¿¡µµ °»½ÅÇØµÎ¸é ´ÙÀ½ ¼±ÅÃ Å¸ÀÌ¹Ö¿¡¼­ ´õ ¾ÈÀü)
+        // ï¿½ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ØµÎ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ì¹Ö¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         LastAttackTime = Time.time;
         Debug.Log(hit ? "[Skill6 Combo] HIT" : "[Skill6 Combo] MISS");
     }
 
     public override void ComboFlip()
     {
-        // °ø°Ý »çÀÌ»çÀÌ¿¡ ¹æÇâ ¹ÝÀü(ÁÂ/¿ì ¹ø°¥¾Æ)
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì»ï¿½ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½/ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
         var t = Enemy.transform;
         float y = Mathf.Approximately(t.eulerAngles.y, 0f) ? 180f : 0f;
         t.eulerAngles = new Vector3(0f, y, 0f);
 
-        // ÀÌµ¿ ¼Óµµ ÀÜ·ù ¹æÁö
+        // ï¿½Ìµï¿½ ï¿½Óµï¿½ ï¿½Ü·ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (_rb != null) _rb.linearVelocity = Vector2.zero;
 
         Debug.Log("[Skill6 Combo] Flip side.");

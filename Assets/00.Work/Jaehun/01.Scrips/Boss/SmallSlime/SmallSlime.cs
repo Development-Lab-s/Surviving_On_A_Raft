@@ -34,7 +34,7 @@ public class SmallSlime : GroundEnemy
         _spawnPos = transform.position;
 
         StateMachine = new EnemyStateMachine();
-
+        
         StateMachine.AddState(EnemyBehaviourType.Air, new EnemyAirState(this, StateMachine, "AIR"));
         StateMachine.AddState(EnemyBehaviourType.Jump, new EnemyJumpState(this, StateMachine, "JUMP"));
 

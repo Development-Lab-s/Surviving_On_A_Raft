@@ -1,5 +1,6 @@
 using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.FSM;
+using _00.Work.Jaehun._01.Scrips.Boss;
 using UnityEngine;
 
 public class BossChaseState : EnemyGroundState
@@ -19,14 +20,14 @@ public class BossChaseState : EnemyGroundState
         var targetCol = Enemy.GetPlayerInRange();
         if (targetCol == null)
         {
-            // Å¸°ÙÀ» ÀÒ¾úÀ¸¸é Idle
+            // Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¾ï¿½ï¿½ï¿½ï¿½ï¿½ Idle
             Debug.Log("[BossChaseState] No player in detect radius -> Idle");
             Enemy.MovementComponent.StopImmediately();
             StateMachine.ChangeState(EnemyBehaviourType.Idle);
             return;
         }
 
-        // ÁÂ¿ì ÀÌµ¿(°£´ÜÇÏ°Ô X ¹æÇâ¸¸)
+        // ï¿½Â¿ï¿½ ï¿½Ìµï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ X ï¿½ï¿½ï¿½â¸¸)
         var t = targetCol.transform;
         float dx = t.position.x - Enemy.transform.position.x;
         float dir = Mathf.Sign(dx);
@@ -34,7 +35,7 @@ public class BossChaseState : EnemyGroundState
 
         Debug.Log($"[BossChaseState] Move toward player: dx={dx:F2}, dir={dir}, attackRadius={Enemy.attackRadius}");
 
-        // °ø°Ý »ç°Å¸®¿¡ µé¾î¿Ô°í, Àü¿ªÄð OKÀÌ¸ç, »ç¿ë °¡´ÉÇÑ ½ºÅ³ÀÌ ÀÖÀ¸¸é AttackÀ¸·Î
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ OKï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Attackï¿½ï¿½ï¿½ï¿½
         bool inAttackRange = Mathf.Abs(dx) <= Enemy.attackRadius;
         bool globalReady = (Enemy is BossSlime b) ? b.IsGlobalSkillReady() : true;
         Debug.Log($"[BossChaseState] inAttackRange={inAttackRange}, globalReady={globalReady}");
@@ -42,7 +43,7 @@ public class BossChaseState : EnemyGroundState
 
         if (inAttackRange && globalReady)
         {
-            // Attack »óÅÂ°¡ ½ÇÁ¦ ¼±ÅÃ °¡´ÉÇÑ ½ºÅ³ÀÌ ¾øÀ¸¸é Áï½Ã ´Ù½Ã Chase·Î µ¹¾Æ°¡µµ·Ï
+            // Attack ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ Chaseï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½
             StateMachine.ChangeState(EnemyBehaviourType.Attack);
             Debug.Log("[BossChaseState] -> Attack");
         }

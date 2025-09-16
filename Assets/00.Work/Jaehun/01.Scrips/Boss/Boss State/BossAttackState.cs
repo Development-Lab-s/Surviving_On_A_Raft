@@ -2,6 +2,7 @@ using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
 using _00.Work.CheolYee._01.Codes.Enemys.FSM;
 using System.Collections.Generic;
+using _00.Work.Jaehun._01.Scrips.Boss;
 using UnityEngine;
 
 public class BossAttackState : EnemyGroundState
@@ -26,21 +27,18 @@ public class BossAttackState : EnemyGroundState
     {
         if (allow) _moveAllowed.Add(type);
         else _moveAllowed.Remove(type);
-        Debug.Log($"[BossAttackState] MoveAllowed set -> {type} : {allow}");
     }
 
     public void AddSkill(SkillType type, SkillState state)
     {
         _skillStateMachine.AddState(type, state);
-        Debug.Log($"[BossAttackState] AddSkill {type} ({state.GetType().Name})");
     }
 
     public override void Enter()
     {
-        // Àü¿ª Äð´Ù¿î ÁßÀÌ¸é °ø°Ý »óÅÂ·Î µé¾î¿ÀÁö ¾Êµµ·Ï Áï½Ã ¹ÝÈ¯
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         if (Enemy is BossSlime boss && !boss.IsGlobalSkillReady())
         {
-            Debug.Log("[BossAttackState] Global lock active -> back to Chase");
             StateMachine.ChangeState(EnemyBehaviourType.Chase);
             return;
         }
@@ -55,21 +53,17 @@ public class BossAttackState : EnemyGroundState
         var selected = SelectSkill();
         if (!selected.HasValue)
         {
-            Debug.LogWarning("[BossAttackState] No usable skill -> Chase");
-            Debug.LogWarning("[BossAttackState] No usable skill (¸ðµç CanUse=false) -> Chase");
             StateMachine.ChangeState(EnemyBehaviourType.Chase);
             return;
         }
 
         bool allowMove = _moveAllowed.Contains(selected.Value);
-        Debug.Log($"[BossAttackState] Selected={selected.Value} allowMove={allowMove}");
 
         SetGroundTransitionSuppressed(allowMove);
 
         ApplyFreezeForSkill(allowMove);
 
         _skillStateMachine.ChangeState(selected.Value);
-        Debug.Log($"[BossAttackState] Change to skill: {selected.Value}, allowMove={allowMove}");
     }
 
     public override void Update()
@@ -81,17 +75,16 @@ public class BossAttackState : EnemyGroundState
 
         if (_skillStateMachine.CurrentState != null)
         {
-            // ½ºÅ³ ÁøÇà »óÈ² ¸ð´ÏÅÍ¸µ
+            // ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½Í¸ï¿½
             var cs = _skillStateMachine.CurrentState;
         }
 
-        // ÇöÀç ½ºÅ³ÀÌ ³¡³µÀ¸¸é Idle·Î º¹±Í + Àü¿ª Àá±Ý ½ÃÀÛ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Idleï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (_skillStateMachine.CurrentState != null && _skillStateMachine.CurrentState.IsCompleted)
         {
-            Enemy.lastAttackTime = Time.time; // (±âÁ¸ »ç¿ëÃ³ °í·Á)
+            Enemy.lastAttackTime = Time.time; // (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã³ ï¿½ï¿½ï¿½ï¿½)
             if (Enemy is BossSlime boss) boss.StartGlobalSkillLock();
             {
-                Debug.Log("[BossAttackState] Skill complete -> Chase");
 
                 RevertFreezeForSkill();
                 SetGroundTransitionSuppressed(false);
@@ -108,14 +101,14 @@ public class BossAttackState : EnemyGroundState
 
         SetGroundTransitionSuppressed(false);
 
-        // ³¡³¯¶§ ¿ø»óº¹±¸ È£Ãâ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½óº¹±ï¿½ È£ï¿½ï¿½
         RevertFreezeForSkill();
         Enemy.lockFlip = false;
     }
 
     public void OnAnimationTakeoff()
     {
-        // ÇöÀç ½ºÅ³ÀÌ Á¡ÇÁ Å¸ÀÔÀÏ ¶§¸¸ Àü´Þ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (_skillStateMachine.CurrentState is BossSlimeJumpAttack jump)
         {
             jump.OnTakeoffEvent();
@@ -129,7 +122,6 @@ public class BossAttackState : EnemyGroundState
     {
         if (Enemy is BossSlime boss && !boss.IsGlobalSkillReady())
         {
-            Debug.Log("[BossAttackState] SelectSkill: BLOCK by GlobalLock");
             return null;
         }
 
@@ -137,13 +129,12 @@ public class BossAttackState : EnemyGroundState
         {
             var st = kv.Value;
             bool can = st.CanUse();
-            Debug.Log($"[BossAttackState] CanUse? {kv.Key} ({kv.Value.GetType().Name}) = {can}");
             if (can) return kv.Key;
         }
         return null;
     }
 
-    private void ApplyFreezeForSkill(bool allowMove) // ½ºÅ³ ¾µ¶§´Â xÁÂÇ¥¸¦ °íÁ¤ÇØ¼­ ¹æÇâÁ¶Àý ¸øÇÏ°Ô ÇÏ±âÀ§ÇÔ. »ç½Ç ¸ØÃß°Ô ÇÏ´Â°Ç ÀÌ¹Ì ÀÖÀ½. // Á¡ÇÁ°°Àº ½ºÅ³À» ¿òÁ÷¿©¾ß ÇÏ´Ï ²¯´Ù ÄÖ´ÙÇÊ¿ä.
+    private void ApplyFreezeForSkill(bool allowMove) // ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ xï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß°ï¿½ ï¿½Ï´Â°ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½. // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½Ê¿ï¿½.
     {
         if (_frozenApplied) return;
 
@@ -151,17 +142,16 @@ public class BossAttackState : EnemyGroundState
         if (rb != null)
         {
             _originalConstraints = rb.constraints;
-            // À§Ä¡³ª ¹æÇâ °íÁ¤
+            // ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             var cons = _originalConstraints | RigidbodyConstraints2D.FreezeRotation;
             if (!allowMove)
-                cons |= RigidbodyConstraints2D.FreezePosition; // À§Ä¡ ¿ÏÀü °íÁ¤
+                cons |= RigidbodyConstraints2D.FreezePosition; // ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-            Debug.Log($"[BossAttackState] Freeze apply: allowMove={allowMove}  before={_originalConstraints}  after={cons}");
             rb.constraints = cons;
             rb.angularVelocity = 0f;
         }
 
-        // È¤½Ã ¸ð¸£´Ï±î AgentMovement ¿¡¼­µµ ¸ØÃß°Ô ÇÏ±â. ±Ùµ¥ ±×³É ¸®Áöµå ¹Ùµð °íÁ¤½ÃÅ°´Â°Å¶ó ¾ÈÇØµµ µÈ´Ù´Â ÀÌ¾ß±â°¡....
+        // È¤ï¿½ï¿½ ï¿½ð¸£´Ï±ï¿½ AgentMovement ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß°ï¿½ ï¿½Ï±ï¿½. ï¿½Ùµï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½Â°Å¶ï¿½ ï¿½ï¿½ï¿½Øµï¿½ ï¿½È´Ù´ï¿½ ï¿½Ì¾ß±â°¡....
         if (Enemy.MovementComponent != null)
         {
             Enemy.MovementComponent.canMove = false;
@@ -175,13 +165,12 @@ public class BossAttackState : EnemyGroundState
         _frozenApplied = true;
     }
 
-    private void RevertFreezeForSkill()   // ¿ø»óº¹±¸
+    private void RevertFreezeForSkill()   // ï¿½ï¿½ï¿½óº¹±ï¿½
     {
         if (!_frozenApplied) return;
 
         if (rb != null)
         {
-            Debug.Log($"[BossAttackState] Freeze revert: restore constraints {_originalConstraints}");
             rb.constraints = _originalConstraints;
         }
 

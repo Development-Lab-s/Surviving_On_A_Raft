@@ -1,6 +1,7 @@
 ﻿using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
+using _00.Work.Jaehun._01.Scrips.Boss;
 using UnityEngine;
 
 public class BossSlimeJumpAttack : SkillState
@@ -31,25 +32,21 @@ public class BossSlimeJumpAttack : SkillState
 
         if (now < LastAttackTime + CoolDown)
         {
-            Debug.Log($"[Skill3.CanUse] BLOCK cooldown  now={now:F2}  ready={LastAttackTime + CoolDown:F2}");
             return false;
         }
 
         if (Enemy is BossSlime b && !b.IsGlobalSkillReady())
         {
-            Debug.Log("[Skill3.CanUse] BLOCK global lock");
             return false;
         }
 
         if (Enemy.targetTrm == null)
         {
-            Debug.Log("[Skill3.CanUse] BLOCK targetTrm is null");
             return false;
         }
 
         float dist = Vector2.Distance(Enemy.transform.position, Enemy.targetTrm.position);
         bool ok = dist <= _detectRadius;
-        Debug.Log($"[Skill3.CanUse] dist={dist:F2}  detect={_detectRadius:F2}  -> {ok}");
         return ok;
     }
 
@@ -120,8 +117,6 @@ public class BossSlimeJumpAttack : SkillState
 
             _rb.linearVelocity = new Vector2(vx, vy0);
             _tookOff = true;
-            Debug.Log($"[Skill3] Takeoff: vx={vx:F2}, vy={vy0:F2}");
-            return;
         }
         /*if (_rb == null || Enemy.targetTrm == null) return;
 
@@ -154,8 +149,7 @@ public class BossSlimeJumpAttack : SkillState
     {
         if (_hitCaster == null) return;
 
-        bool hit = _hitCaster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
-        Debug.Log(hit ? "[Skill3] SLAM HIT" : "[Skill3] SLAM MISS");
+        _hitCaster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
         /* if (_rb == null || Enemy.targetTrm == null) return;
 
          if (!_takeoffDone)
@@ -224,9 +218,6 @@ public class BossSlimeJumpAttack : SkillState
         if (Enemy.MovementComponent != null)
             Enemy.MovementComponent.enabled = true;
 
-
-
-        Debug.Log("[BossSlimeJumpAttack] Animation ended");
     }
     public void SetCaster(DamageCaster caster)
     {

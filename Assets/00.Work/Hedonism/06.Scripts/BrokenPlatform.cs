@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using DG.Tweening; // 두트윈 네임스페이스 추가
+using DG.Tweening;
+using UnityEngine.Serialization;
 
 [DisallowMultipleComponent]
 public class BrokenPlatform : MonoBehaviour
@@ -14,7 +15,6 @@ public class BrokenPlatform : MonoBehaviour
     [SerializeField, Min(0f)] private float respawnAfter = 2.0f;
 
     [Header("Behavior")]
-    [SerializeField] private bool deactivateGameObject = false;
     [SerializeField] private bool oneShot = false;
 
     [Header("Effects")]
@@ -23,20 +23,17 @@ public class BrokenPlatform : MonoBehaviour
     [SerializeField] private int shakeVibrato = 20;      // 진동 횟수
     [SerializeField] private float shakeRandomness = 90; // 랜덤 정도
 
-    private Collider2D[] _colliders;
-    private Renderer[] _renderers;
+    // ✅ 흔들릴 자식 오브젝트(선택 사항)
+    [SerializeField] private Transform shakeTarget;
+
+    [SerializeField] private Collider2D[] colliders;
+    [SerializeField] private Renderer[] renderers;
     private bool _isRunning;
     private bool _consumed;
-
-    private void Awake()
-    {
-        _colliders = GetComponentsInChildren<Collider2D>(includeInactive: true);
-        _renderers = GetComponentsInChildren<Renderer>(includeInactive: true);
-    }
-
+    
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (!triggerOnCollision) return;
+        if (!triggerOnCollision || col.transform.position.y < transform.position.y) return;
         TryTrigger(col.collider);
     }
 
@@ -57,30 +54,25 @@ public class BrokenPlatform : MonoBehaviour
     {
         _isRunning = true;
 
-        // 1) 발판 흔들림 시작 (밟으면 즉시)
+        // 1) 발판 흔들림
         if (delayBeforeDisappear > 0f)
         {
-            transform.DOShakePosition(
+            (shakeTarget ? shakeTarget : transform).DOShakePosition(
                 shakeDuration,
                 shakeStrength,
                 shakeVibrato,
                 shakeRandomness,
-                false,   // 스냅 여부
-                true     // localPosition 기준
+                false,
+                true
             );
-
-            // delay만큼 대기
             yield return new WaitForSeconds(delayBeforeDisappear);
         }
 
-        // 2) 사라짐
+        // 2) 렌더러/콜라이더 끄기
         SetPlatformVisible(false);
         SetPlatformCollidable(false);
 
-        if (deactivateGameObject)
-            gameObject.SetActive(false);
-
-        if (respawnAfter <= 0f || deactivateGameObject || oneShot)
+        if (respawnAfter <= 0f || oneShot)
         {
             _consumed = true;
             _isRunning = false;
@@ -90,7 +82,7 @@ public class BrokenPlatform : MonoBehaviour
         // 3) 리스폰 대기
         yield return new WaitForSeconds(respawnAfter);
 
-        // 4) 복귀
+        // 4) 다시 켜기
         SetPlatformCollidable(true);
         SetPlatformVisible(true);
 
@@ -99,15 +91,15 @@ public class BrokenPlatform : MonoBehaviour
 
     private void SetPlatformCollidable(bool on)
     {
-        if (_colliders == null) return;
-        foreach (var c in _colliders)
+        if (colliders == null) return;
+        foreach (var c in colliders)
             if (c) c.enabled = on;
     }
 
     private void SetPlatformVisible(bool on)
     {
-        if (_renderers == null) return;
-        foreach (var r in _renderers)
+        if (renderers == null) return;
+        foreach (var r in renderers)
             if (r) r.enabled = on;
     }
 }

@@ -10,7 +10,7 @@ public class BossHealthBarUI : MonoBehaviour
 
     public void Bind(AgentHealth hp)
     {
-        // ±‚¡∏ ±∏µ∂ «ÿ¡¶
+        // Í∏∞Ï°¥ Íµ¨ÎèÖ Ìï¥Ï†ú
         if (_hp != null)
         {
             _hp.onHit.RemoveListener(UpdateBar);
@@ -24,12 +24,10 @@ public class BossHealthBarUI : MonoBehaviour
             _hp.onHit.AddListener(UpdateBar);
             _hp.onDeath.AddListener(UpdateBar);
             gameObject.SetActive(true);
-            Debug.Log($"[BossHPUI] Bind OK. Max={_hp.MaxHealth}, Curr={_hp.CurrentHealth}");
             UpdateBar();
         }
         else
         {
-            Debug.LogWarning("[BossHPUI] Bind(null). UI ∫Ò»∞º∫»≠");
             gameObject.SetActive(false);
         }
     }
@@ -48,7 +46,6 @@ public class BossHealthBarUI : MonoBehaviour
     {
         if (_hp == null || fill == null) return;
         fill.fillAmount = _hp.NormalizedHealth;
-        Debug.Log($"[BossHPUI] UpdateBar °Ê {fill.fillAmount:F3} (Curr={_hp.CurrentHealth}/{_hp.MaxHealth})");
 
     }
 }

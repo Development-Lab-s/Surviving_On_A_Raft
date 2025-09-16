@@ -1,15 +1,16 @@
 using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
+using _00.Work.Jaehun._01.Scrips.Boss;
 using UnityEngine;
 
 public class BossSlimeBigAttack : SkillState
 {
-    private readonly float _detectRadius;     // ½ÃÀü Á¶°Ç °Å¸®
-    private DamageCaster _hitCaster; // <-- ³»·ÁÄ¡±â Å¸°Ý ¹Ú½º/¿ø
+    private readonly float _detectRadius;     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
+    private DamageCaster _hitCaster; // <-- ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ú½ï¿½/ï¿½ï¿½
 
-    //private readonly Vector2 _hitBoxSize;      // Å¸°Ý ¹Ú½º Å©±â
-    //private readonly Vector2 _hitBoxOffset;    // Å¸°Ý ¹Ú½º ¿ÀÇÁ¼Â(ÁÂ¿ì flip ¹Ý¿µ)
+    //private readonly Vector2 _hitBoxSize;      // Å¸ï¿½ï¿½ ï¿½Ú½ï¿½ Å©ï¿½ï¿½
+    //private readonly Vector2 _hitBoxOffset;    // Å¸ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Â¿ï¿½ flip ï¿½Ý¿ï¿½)
     //private readonly LayerMask _playerMask;
 
     private Rigidbody2D _rb;
@@ -42,28 +43,26 @@ public class BossSlimeBigAttack : SkillState
         base.Enter();
         _rb = Enemy.MovementComponent?.RbCompo;
 
-        // ½ºÅ³ ½ÃÀÛ Áï½Ã ÄðÅ¸ÀÓ/Àü¿ª ¶ô(½ºÆÔ ¹æÁö)
+        // ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         LastAttackTime = Time.time;
         if (Enemy is BossSlime boss) boss.StartGlobalSkillLock();
 
-        // È¤½Ã ³²¾ÆÀÖÀ» ¼ö ÀÖ´Â ¼Óµµ Á¦°Å(ÀÚ¸® °íÁ¤ ´À³¦ °­È­)
+        // È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­)
         if (_rb != null)
         {
             var v = _rb.linearVelocity; v.x = 0f; v.y = 0f;
             _rb.linearVelocity = v;
         }
 
-        Debug.Log("[BigAttack] Enter. Wait for AttackCast (slam hit).");
     }
 
-    // ¾Ö´Ï¸ÞÀÌ¼Ç ÀÓÆÑÆ® ÇÁ·¹ÀÓ¿¡¼­ EnemyAnimatorTrigger.AttackCast()°¡ È£ÃâµÊ
+    // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ EnemyAnimatorTrigger.AttackCast()ï¿½ï¿½ È£ï¿½ï¿½ï¿½
     public override void OnAnimationCast()
     {
         if (_hitCaster == null) return;
 
-        bool hit = _hitCaster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
+        _hitCaster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
         LastAttackTime = Time.time;
-        Debug.Log(hit ? "[Skill4] BIG SLAM HIT" : "[Skill4] BIG SLAM MISS");
         /* if (_didHit) return;
 
          float face = (Enemy.SpriteRendererComponent && Enemy.SpriteRendererComponent.flipX) ? -1f : 1f;
@@ -74,20 +73,14 @@ public class BossSlimeBigAttack : SkillState
 
          foreach (var h in hits)
          {
-             // ¿©±â¼­ ½ÇÁ¦ µ¥¹ÌÁö/³Ë¹éÀ» Àû¿ëÇÏ¼¼¿ä.
-             // DamageCaster°¡ ÀÖ´Ù¸é ±×°É ½áµµ OK. (¿¹: _caster.CastDamage(...))
+             // ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½Ë¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.
+             // DamageCasterï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½×°ï¿½ ï¿½áµµ OK. (ï¿½ï¿½: _caster.CastDamage(...))
              Debug.Log("[BigAttack] HIT " + h.name);
          }
 
          _didHit = true;*/
     }
-
-    public override void AnimationEndTrigger()
-    {
-        base.AnimationEndTrigger(); // IsCompleted=true Ã³¸®
-        Debug.Log("[BigAttack] AnimationEnd");
-    }
-    public void SetCaster(DamageCaster caster)      // 3ÆäÀÌÁî¸¦ À§ÇÑ µ¥¹ÌÁö Ä³½ºÅÍ ±³Ã¼
+    public void SetCaster(DamageCaster caster)      // 3ï¿½ï¿½ï¿½ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
     {
         _hitCaster = caster;
     }

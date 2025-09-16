@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a11b1fa2c850b2449121e36a07f1f29, type: 3}
+  m_Name: HpUpItem 3
+  m_EditorClassIdentifier: 
+  ItemType: 1
+  _itemLevel: 4
+  attackItem: {fileID: 0}
+  passiveItem: {fileID: 11400000, guid: 9590d525fa01b934e991e073ecbdf427, type: 2}
+  itemAttributes:
+  - "\uD328\uC2DC\uBE0C \uC544\uC774\uD15C"
+  ItemIgdt:
+  - Name: "\uAC15\uCCA0"
+    Amount: 6
+  - Name: "\uBCF4\uC11D"
+    Amount: 2
+  - Name: "\uB9C8\uC11D"
+    Amount: 3
+  nextItem: {fileID: 11400000, guid: 9f4c05ab6d2fef94c90ff439ec2cfcdf, type: 2}
