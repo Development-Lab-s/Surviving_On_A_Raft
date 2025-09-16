@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1283418039745773849}
   - component: {fileID: 9218661352627807590}
-  - component: {fileID: 8102404634658915595}
+  - component: {fileID: 4339706988686632459}
   - component: {fileID: 8583449617712786503}
   m_Layer: 8
   m_Name: CProjectile
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8102404634658915595
-BoxCollider2D:
+--- !u!58 &4339706988686632459
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -97,18 +97,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.9, y: 0.3}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.18, y: 0}
+  m_Radius: 0.31
 --- !u!114 &8583449617712786503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e89e203a0b946b48373f99f819f6f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Spike
+  itemName: CProjectile
   lifeTime: 1.5
   damageCaster: {fileID: 549332410888049333}
 --- !u!1 &9029243610140372062
@@ -197,8 +187,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1933110025
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -5901925832938833544, guid: 84ffb79c3ef3f8646ae60c1bc37ac758, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -221,7 +211,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.185
       objectReference: {fileID: 0}
     - target: {fileID: 1771568289639841368, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: m_LocalPosition.y
@@ -273,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6188652667931021339, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: damageRadius
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6243269046706289747, guid: c491ac814cbd2db468b5c576f956e115, type: 3}
       propertyPath: m_Name

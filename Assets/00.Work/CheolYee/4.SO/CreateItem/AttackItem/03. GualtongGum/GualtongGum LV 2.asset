@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a11b1fa2c850b2449121e36a07f1f29, type: 3}
+  m_Name: GualtongGum LV 2
+  m_EditorClassIdentifier: 
+  ItemType: 0
+  _itemLevel: 2
+  attackItem: {fileID: 11400000, guid: 20909f688f66ce74a9e09135457d984f, type: 2}
+  passiveItem: {fileID: 0}
+  itemAttributes:
+  - "\uACF5\uACA9"
+  ItemIgdt:
+  - Name: "\uAC15\uCCA0"
+    Amount: 6
+  - Name: "\uBCF4\uC11D"
+    Amount: 2
+  - Name: "\uB9C8\uC11D"
+    Amount: 3
+  nextItem: {fileID: 11400000, guid: 97c27469a501da54c907928cb3298578, type: 2}

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4238f163584404b1b3204a37bb80d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Sword
+  itemName: BProjectile
   lifeTime: 1.5
   damageCaster: {fileID: 549332410888049333}
 --- !u!1 &9029243610140372062
@@ -197,8 +197,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1933110025
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 6130644427714032177, guid: d8879771a4d510f4690d22c57c871a7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

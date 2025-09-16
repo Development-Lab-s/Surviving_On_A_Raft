@@ -63,6 +63,7 @@ public class ItemInvenGetAndRemove : MonoBehaviour
         for (int i = 0; i < InventoryManager.Instance.ItemSlotList.Length; i++)
         {
             var playerItem = InventoryManager.Instance.ItemSlotList[i];
+            if (playerItem == null) continue;
             if (playerItem != null && playerItem.Template.ItemName == templateSO.ItemName)
             {
                 return UpgradeItem(i);

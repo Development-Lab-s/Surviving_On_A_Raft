@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 36
   damageCaster: {fileID: 3421358648520008907}
-  damage: 1
+  damage: 3
   eventSO: {fileID: 11400000, guid: 1c04ef59520fe7541bab703bbf170adc, type: 2}
   dotDamageTime: 0.1
   lifeTime: 10

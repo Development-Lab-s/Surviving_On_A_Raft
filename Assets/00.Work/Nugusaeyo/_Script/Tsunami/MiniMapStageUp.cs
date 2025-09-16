@@ -3,6 +3,7 @@ using _00.Work.CheolYee._01.Codes.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 using UnityEngine.InputSystem;
 
 public class MiniMapStageUp : MonoBehaviour
@@ -14,6 +15,7 @@ public class MiniMapStageUp : MonoBehaviour
     private int _castleFloor;
     private int _currentFloorSliced;
     public int CurrentFloor { get; private set; }
+    [SerializeField] private TextMeshProUGUI floorText;
     
     public static MiniMapStageUp Instance;
 
@@ -34,6 +36,7 @@ public class MiniMapStageUp : MonoBehaviour
         _castleFloor = 450 / maxTowerFloor;
         _currentFloorSliced = (int)castleImage.rectTransform.anchoredPosition.y - _castleFloor;
         CurrentFloor = GameManager.Instance.currentLevel;
+        floorText.text = $"{CurrentFloor} / {maxTowerFloor}";
     }
 
     public void CastleViewUp()
@@ -43,8 +46,8 @@ public class MiniMapStageUp : MonoBehaviour
         sequence.Append(castleImage.rectTransform.DOScale(new Vector3(1f, 1f, 0), 1f).SetEase(Ease.InSine));
         sequence.Join(castleImage.rectTransform.DOAnchorPos(new Vector2(0, _currentFloorSliced), 1f).SetEase(Ease.OutSine));
         _currentFloorSliced -= _castleFloor;
-        CurrentFloor++;
         FloorChanged?.Invoke();
+        floorText.text = $"{CurrentFloor} / {maxTowerFloor}";
     }
 
     public void SetCurrentLevel(int level)
