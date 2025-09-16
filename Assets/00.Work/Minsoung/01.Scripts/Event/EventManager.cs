@@ -70,15 +70,6 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Debug.Log("11111111111");
-        EventTimer.Instance.SetLoadingTime(_cycle);
-        EventTimer.Instance.gameObject.SetActive(false);
-        Debug.Log("22222222222");
-        
-    }
-
     private void Update()
     {
         _currentTime += Time.deltaTime;
@@ -93,7 +84,6 @@ public class EventManager : MonoBehaviour
 
     public void StartEvent()
     {
-        EventTimer.Instance.gameObject.SetActive(true);
         bool goodEvent = Random.Range(0, 2) == 1; // 굿 이벤트 true? 그럼 삼항 연산자로 
 
         GameEventType selectedEventType;

@@ -606,6 +606,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1112886881733423179}
     m_Modifications:
     - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
+      propertyPath: canBeKnocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
       propertyPath: motorControlsX
       value: 1
       objectReference: {fileID: 0}

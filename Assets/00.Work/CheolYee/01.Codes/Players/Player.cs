@@ -11,13 +11,13 @@ namespace _00.Work.CheolYee._01.Codes.Players
     public class Player : Agent, IBuffable
     {
         //플레이어의 모든 컴포넌트를 관리하는 스크립트입니다.
-        
+
         [Header("Character SO Data")]
-        [field:SerializeField] public CharacterDataSo CharacterData {get; private set;} //캐릭터 데이터
-        
+        [field: SerializeField] public CharacterDataSo CharacterData { get; private set; } //캐릭터 데이터
+
         [Header("Agent SO Data")]
-        [field:SerializeField] public PlayerInputSo PlayerInput {get; private set;} //인풋SO
-        
+        [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; } //인풋SO
+
         public float damageMulti = 1;
         public float critChanceMulti = 1;
         public float attackSpeedMulti = 1;
@@ -46,13 +46,13 @@ namespace _00.Work.CheolYee._01.Codes.Players
         }
 
         public bool IsCrit { get; private set; }
-        
+
         private int _critChance;
         public int CurrentCriticalChance => (int)(critChanceMulti * _critChance);
-        
+
         public bool HaveBloodSuckingItem { get; set; }
         public float BloodSuckingHealMultiplier { get; set; }
-        
+
         public bool HaveHealing { get; set; }
         public float HealingMultiplier { get; set; }
 
@@ -112,7 +112,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         {
             ApplyExtraGravity(); //추가 중력 적용
         }
-        
+
         public bool IsCritical()
         {
             int roll = Random.Range(0, 100);
@@ -146,7 +146,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
             MovementComponent.StopImmediately();
             PlayerAnimatorComponent.SetDead(true);
         }
-        
+
         public void ApplyBuff(StatType stat, float buff)
         {
             if (stat == StatType.Damage) damageMulti += buff;

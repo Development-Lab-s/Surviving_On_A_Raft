@@ -9,6 +9,8 @@ namespace _00.Work.Resource.Manager
 {
     public class FadeManager : MonoSingleton<FadeManager>
     {
+        
+        
         [Header("Fade UI")]
         public Image fadeImage;
         public float fadeDuration = 1f;
