@@ -6,5 +6,6 @@ namespace _00.Work.lusalord._02.Script.Item
         {
             base.Awake();
         }
+        
     }
 }

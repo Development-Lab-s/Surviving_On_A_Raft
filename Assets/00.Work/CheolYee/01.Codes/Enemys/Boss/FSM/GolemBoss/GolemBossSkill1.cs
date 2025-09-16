@@ -43,7 +43,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
                 laser.SetMoveDirection(moveDir);
 
                 // 레이저 초기화
-                laser.Initialize(Enemy.CurrentAttackDamage, Enemy.knockbackPower, _lifeTime, this);
+                laser.Initialize(Enemy.CurrentAttackDamage, Enemy.knockbackPower, _lifeTime);
             }
 
             LastAttackTime = Time.time;
@@ -61,6 +61,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
             {
                 _timer = 0;
                 Enemy.isFliping = false;
+                AnimationEndTrigger();
             }
         }
 

@@ -19,7 +19,7 @@ public class TsunamiEvent : MonoBehaviour
     {
         TsunamiTimer = GetComponent<TsunamiTimer>();
         MiniMapStageUp = GetComponent<MiniMapStageUp>();
-        CurrentTsunamiLevel = 0;
+        CurrentTsunamiLevel = 1;
     }
 
     private void Start()

@@ -12,7 +12,6 @@ public class PlayerCritChanceZeroEvent : MonoBehaviour, IEvent
     public void StartEvent()
     {
         StatManager.Instance.PlayerBuffInTime(StatType.CritChance, -100, EventDuration);
-        EventTimer.Instance.StartTimer(EventDuration);
     }
 
     public void StartEventEffectText()

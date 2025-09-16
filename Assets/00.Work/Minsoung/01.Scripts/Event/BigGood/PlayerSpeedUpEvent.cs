@@ -12,7 +12,6 @@ public class PlayerSpeedUpEvent : MonoBehaviour, IEvent
     public void StartEvent()
     {
         StatManager.Instance.PlayerBuffInTime(StatType.MoveSpeed, 0.4f, EventDuration);
-        EventTimer.Instance.StartTimer(EventDuration);
     }
 
     public void StartEventEffectText()

@@ -12,7 +12,6 @@ public class EnemyHealthDownEvent : MonoBehaviour, IEvent
     public void StartEvent()
     {
         StatManager.Instance.EnemyBuffInTime(StatType.Health, 0.75f, EventDuration);
-        EventTimer.Instance.StartTimer(EventDuration);
     }
 
     public void StartEventEffectText()
