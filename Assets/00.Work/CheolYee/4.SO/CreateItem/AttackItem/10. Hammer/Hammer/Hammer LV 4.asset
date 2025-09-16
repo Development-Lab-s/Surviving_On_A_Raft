@@ -21,4 +21,4 @@ MonoBehaviour:
   damage: 100
   knockbackPower: 10
   nextLevel: {fileID: 11400000, guid: 88cf2e06c07f89c4abcb72b2dc07c6be, type: 2}
-  coolTime: 5
+  coolTime: 7
