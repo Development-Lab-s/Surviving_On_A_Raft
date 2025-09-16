@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInventoryInput : MonoBehaviour
 {
     [SerializeField] private InventorySelect IS;
     [SerializeField] private ItemInvenGetAndRemove IIGAR;
