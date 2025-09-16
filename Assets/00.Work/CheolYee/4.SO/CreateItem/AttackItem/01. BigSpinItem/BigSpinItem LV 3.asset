@@ -19,10 +19,10 @@ MonoBehaviour:
   itemAttributes:
   - "\uACF5\uACA9"
   ItemIgdt:
+  - Name: "\uAD6C\uB9AC"
+    Amount: 70
   - Name: "\uAC15\uCCA0"
-    Amount: 6
-  - Name: "\uBCF4\uC11D"
-    Amount: 2
-  - Name: "\uB9C8\uC11D"
-    Amount: 3
+    Amount: 100
+  - Name: "\uD669\uAE08"
+    Amount: 30
   nextItem: {fileID: 11400000, guid: 31b982970d03a0344a3f48ec02570917, type: 2}
