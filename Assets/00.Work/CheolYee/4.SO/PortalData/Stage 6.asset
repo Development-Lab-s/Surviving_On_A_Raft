@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 11400000, guid: 29204f7b524b78942ba9cd470e733609, type: 2}
+  enemiesData:
+  - {fileID: 11400000, guid: 04b254318ee536849b889be0141b5be2, type: 2}
   enemyCount: 20
   launchForce: 2
   minTime: 2

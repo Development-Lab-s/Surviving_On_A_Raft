@@ -17,6 +17,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b5dc30de920a7643992424bb1421a4b, type: 2}
   - {fileID: 11400000, guid: 838111d6ac46d3842809e00808b978e0, type: 2}
   - {fileID: 11400000, guid: 4abd138ee28c5ec48933fdb17f114827, type: 2}
+  enemiesData:
+  - {fileID: 11400000, guid: 5f9ab10bbbcee524fafc607524e10fdd, type: 2}
+  - {fileID: 11400000, guid: 533804ccd73f2e94089e8c36144cc866, type: 2}
+  - {fileID: 11400000, guid: bbf85be541db1d84498387a535af1ced, type: 2}
+  - {fileID: 11400000, guid: 1a9e024d51212d3498f6e5e75065a58c, type: 2}
   enemyCount: 45
   launchForce: 2
   minTime: 1
