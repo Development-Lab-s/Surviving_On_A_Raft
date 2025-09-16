@@ -22,15 +22,6 @@ namespace _00.Work.Bimtaeur30._01.Script
 
             Instance = this;
         }
-        private void Start()
-        {
-            CostManager.Instance.PlusCost(2, 200);
-            CostManager.Instance.PlusCost(0, 200);
-            CostManager.Instance.PlusCost(1, 200);
-            CostManager.Instance.PlusCost(3, 200);
-            CostManager.Instance.PlusCost(4, 200);
-            //StartCoroutine(waitaa());
-        }
 
         //public void ItemCreate(ExItemSO createItem)
         //{
