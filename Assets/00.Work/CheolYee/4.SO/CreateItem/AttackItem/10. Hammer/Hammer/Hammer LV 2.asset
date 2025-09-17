@@ -20,5 +20,5 @@ MonoBehaviour:
   damage: 60
   knockbackPower: 10
   nextLevel: {fileID: 11400000, guid: f37abd41b76bc364485c1ce95695abfd, type: 2}
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: c805fb68e25f1494fab527bff8d9ad85, type: 2}
   coolTime: 10
