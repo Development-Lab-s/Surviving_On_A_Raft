@@ -20,7 +20,7 @@ public class ItemInfoView : MonoBehaviour
 
     [SerializeField] private Volume globalVolume;
 
-    [SerializeField] private PlayerInput PInput;
+    [SerializeField] private PlayerInventoryInput PInput;
 
     private DepthOfField dof;
 

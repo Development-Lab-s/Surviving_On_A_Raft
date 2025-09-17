@@ -12,17 +12,17 @@ namespace _00.Work.lusalord._02.Script.ItemType
         [SerializeField] private Animator animator;
         
         private ForwardItemSO _forwardItemSo;
-        private float CoolTime => _coolTime - Player.CurrentAttackSpeed;
+        private float CoolTime => _coolTime / (1f + Player.CurrentAttackSpeed);
         private float _coolTime = 3;
         private float _timer;
         
         private static readonly int ForwardAttack = Animator.StringToHash("ForwardAttack");
         protected override void Awake()
         {
+            base.Awake();
             _forwardItemSo = (ForwardItemSO)attackItemSo;
 
             animator.runtimeAnimatorController = _forwardItemSo.animatorController;
-            gameObject.name = _forwardItemSo.itemName;
             _coolTime = _forwardItemSo.coolTime;
         }
 

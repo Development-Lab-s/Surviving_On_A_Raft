@@ -22,5 +22,5 @@ MonoBehaviour:
   hpMulti: 0
   speedMulti: 0
   damageMulti: 0
-  atkSpeedMulti: 0.2
+  atkSpeedMulti: 0.1
   nextLevelPassiveItem: {fileID: 11400000, guid: 22347b9cb9a03504bb9709f47b3d649c, type: 2}

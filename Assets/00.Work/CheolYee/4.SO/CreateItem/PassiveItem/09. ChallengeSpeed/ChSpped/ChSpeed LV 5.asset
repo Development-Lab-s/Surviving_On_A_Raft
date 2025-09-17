@@ -16,10 +16,9 @@ MonoBehaviour:
   level: 5
   itemName: "\uC720\uCCB4\uD654"
   icon: {fileID: 21300000, guid: 492a25f77adb3cb49a76dfb504ac9087, type: 3}
-  desc: "\uC774\uB3D9 \uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9C0\uB294 \uB300\uC2E0, \uCCB4\uB825\uC774
-    \uB0AE\uC544\uC9D1\uB2C8\uB2E4."
+  desc: "\uC774\uC18D\uC774 \uBE68\uB77C\uC9C0\uBA70 \uB514\uBC84\uD504\uB97C \uC5BB\uC2B5\uB2C8\uB2E4."
   criticalChanceMulti: 0
-  hpMulti: 0.3
+  hpMulti: -0.3
   speedMulti: 1
   damageMulti: 0
   atkSpeedMulti: 0

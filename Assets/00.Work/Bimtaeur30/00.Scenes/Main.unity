@@ -2483,7 +2483,7 @@ MonoBehaviour:
   upPos: {x: 0, y: 100}
   downPos: {x: 0, y: 300}
   globalVolume: {fileID: 1531203223}
-  PInput: {fileID: 406499246}
+  pInventoryInput: {fileID: 406499246}
   UICanvasGroup: {fileID: 1918495356}
 --- !u!4 &1024693175
 Transform:
@@ -4321,7 +4321,7 @@ MonoBehaviour:
   IIUPPos: {x: 0, y: -66}
   IIDownPos: {x: 0, y: -848}
   globalVolume: {fileID: 1531203223}
-  PInput: {fileID: 406499246}
+  pInventoryInput: {fileID: 0}
 --- !u!4 &1524551089
 Transform:
   m_ObjectHideFlags: 0
@@ -4421,7 +4421,7 @@ MonoBehaviour:
   - "\uD669\uAE08"
   - "\uBCF4\uC11D"
   - "\uB9C8\uC11D"
-  iigar: {fileID: 0}
+  iigar: {fileID: 890361653}
 --- !u!4 &1577641337
 Transform:
   m_ObjectHideFlags: 0

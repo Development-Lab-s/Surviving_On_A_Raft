@@ -1,3 +1,4 @@
+using _00.Work.Bimtaeur30._01.Script;
 using _00.Work.CheolYee._01.Codes.Agents;
 using _00.Work.CheolYee._01.Codes.Agents.Movements;
 using _00.Work.CheolYee._01.Codes.Core.Buffs;
@@ -67,11 +68,16 @@ namespace _00.Work.CheolYee._01.Codes.Players
         protected override void Awake()
         {
             base.Awake();
+            if (GameSelectManager.Instance != null)
+            {
+                CharacterData = GameSelectManager.Instance.currentCharacter;
+            }
             PlayerAnimatorComponent = GetComponentInChildren<PlayerAnimator>(); //애니메이터 가져오기
 
             _damage = CharacterData.attack;
             _critChance = CharacterData.criticalChance;
             _attackSpeed = CharacterData.attackSpeed;
+            PlayerAnimatorComponent.AnimatorComponent.runtimeAnimatorController = CharacterData.animatorController;
 
             PlayerInput.OnJumpKeyPress += HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 등록
             MovementComponent.GetComponent<PlayerMovement>().Initialize(CharacterData); //캐릭터 데이터로 기본값 설정
@@ -82,6 +88,8 @@ namespace _00.Work.CheolYee._01.Codes.Players
         {
             StatManager.Instance.OnPlayerBuff += ApplyBuff;
             StatManager.Instance.OnResetPlayerBuff += ResetBuff;
+            
+            ItemCreateManager.Instance.CreateItem(CharacterData.startItem);
         }
 
         private void OnDestroy()

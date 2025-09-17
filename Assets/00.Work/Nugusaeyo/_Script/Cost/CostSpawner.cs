@@ -10,7 +10,20 @@ public class CostSpawner : MonoBehaviour
     public void SpawnCost(Vector2 spawnPosition)
     {
         
-        int amount = Random.Range(0, 3);
+        int rand = Random.Range(0, 100);
+        int amount = 0;
+        if (rand > 30)
+        {
+            amount = 4;
+        }
+        else if (rand > 80)
+        {
+            amount = 6;
+        }
+        else
+        {
+            amount = 10;
+        }
         
         for (int i = 0; i < amount; i++)
         {
