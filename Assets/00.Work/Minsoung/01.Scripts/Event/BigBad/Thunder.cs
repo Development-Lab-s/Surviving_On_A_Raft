@@ -34,6 +34,7 @@ public class Thunder : MonoBehaviour, IPoolable
         StartCoroutine(DotDamage());
         eventData.gain = 10;
         eventSO.RaiseEvent(eventData);
+        SoundManager.Instance.PlaySfx("LIGHTNING");
 
     }
 
@@ -51,7 +52,6 @@ public class Thunder : MonoBehaviour, IPoolable
         {
             yield return new WaitForSeconds(dotDamageTime);
             damageCaster.CastDamage(damage, 0);
-            Debug.Log("Thunder");
         }
     }
 

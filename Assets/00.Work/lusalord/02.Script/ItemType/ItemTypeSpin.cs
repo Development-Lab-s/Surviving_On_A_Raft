@@ -57,11 +57,17 @@ namespace _00.Work.lusalord._02.Script.ItemType
                 _childOffsets.Add(angle);
             }
 
+            foreach (var obj in objects)
+            {
+                obj.GetComponent<SpinCaster>().Initialize(_spinItemSo);
+            }
+
         }
 
         private void Spawn()
         {
             GameObject spawnItem = Instantiate(_spinItemSo.spinPrefab, transform);
+            spawnItem.GetComponent<SpinCaster>().Initialize(_spinItemSo);
             objects.Add(spawnItem);
             spawnItem.transform.position = transform.position = new Vector3(
                 _radius * Mathf.Cos(_angle),

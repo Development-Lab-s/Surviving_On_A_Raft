@@ -23,10 +23,10 @@ namespace _00.Work.Bimtaeur30._01.Script
         private void SetItemCreateBar()
         {
             // 공격템 전용 페이지
-            CreateItemBars(TJ_ItemManager.Instance.attackItemList, "공격템");
+            CreateItemBars(TJ_ItemManager.Instance.attackItemList);
 
             // 패시브템 시작할 때 무조건 새 페이지 생성
-            CreateItemBars(TJ_ItemManager.Instance.passiveItemList, "패시브템", true);
+            CreateItemBars(TJ_ItemManager.Instance.passiveItemList, true);
             foreach (var page in pageList)
                 page.SetActive(false);
 
@@ -36,9 +36,11 @@ namespace _00.Work.Bimtaeur30._01.Script
                 pageList[0].SetActive(true);
                 currentPage = 0;
             }
+            
+            TestCostReset.Instance.ResetBarState();
         }
 
-        private void CreateItemBars(List<ExItemSO> itemList, string category, bool forceNewPage = false)
+        private void CreateItemBars(List<ExItemSO> itemList, bool forceNewPage = false)
         {
             GameObject clonedPage;
 
@@ -67,7 +69,7 @@ namespace _00.Work.Bimtaeur30._01.Script
 
                 GameObject MeatBallDes = clonedBar.transform.Find("MeatballDes").gameObject;
                 MeatBallDes.SetActive(false);
-                MeatBallDes.transform.Find("AtTxt").GetComponent<TextMeshProUGUI>().text = "분류: " + category;
+                MeatBallDes.transform.Find("AtTxt").GetComponent<TextMeshProUGUI>().text = itemList[i].itemAttributes[0];
 
                 TextMeshProUGUI sourceCountTxt = clonedBar.transform.Find("SourceCountTxt").GetComponent<TextMeshProUGUI>();
                 sourceCountTxt.text = "";
@@ -107,7 +109,7 @@ namespace _00.Work.Bimtaeur30._01.Script
             }
 
             ItemBar targetBar = barList[index];
-            ApplyItemDataToBar(item, targetBar, "공격템");
+            ApplyItemDataToBar(item, targetBar, item.itemAttributes[0]);
         }
 
         
@@ -129,7 +131,7 @@ namespace _00.Work.Bimtaeur30._01.Script
             }
 
             ItemBar targetBar = barList[offset + index];
-            ApplyItemDataToBar(item, targetBar, "패시브템");
+            ApplyItemDataToBar(item, targetBar, item.itemAttributes[0]);
         }
 
         private void ApplyItemDataToBar(ExItemSO item, ItemBar bar, string categoryName)
@@ -146,7 +148,7 @@ namespace _00.Work.Bimtaeur30._01.Script
             TextMeshProUGUI AtTxt = MeatBallDes.transform.Find("AtTxt").GetComponent<TextMeshProUGUI>();
 
             // 분류
-            AtTxt.text = "분류: " + categoryName;
+            AtTxt.text = categoryName;
             MeatBallDes.SetActive(false);
 
             // 텍스트 갱신

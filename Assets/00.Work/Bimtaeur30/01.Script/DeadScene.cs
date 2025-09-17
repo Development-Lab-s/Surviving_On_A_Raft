@@ -1,3 +1,5 @@
+using System;
+using _00.Work.Resource.Manager;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -10,30 +12,37 @@ public enum DeathReasonEnum
     DisasterDie
 }
 
-public class DeadScene : MonoBehaviour
+public class DeadScene : MonoSingleton<DeadScene>
 {
+    [SerializeField] GameObject deathScreen;
+    
     [SerializeField] private TextMeshProUGUI Title;
     [SerializeField] private TextMeshProUGUI Description;
     [SerializeField] private Image Line;
     [SerializeField] private CanvasGroup DeadSceneGroup;
 
+    private void Start()
+    {
+        deathScreen.SetActive(false);
+    }
 
     public void ActiveDeadScene(DeathReasonEnum reason)
     {
+        deathScreen.SetActive(true);
         if (reason == DeathReasonEnum.watarDie)
         {
-            Title.text = "ÀÍ»ç";
-            Description.text = "¼ûÀ» ½¯¼ö°¡ ¾ø³×¿ä";
+            Title.text = "ìµì‚¬";
+            Description.text = "ìˆ¨ì„ ì‰´ìˆ˜ê°€ ì—†ë„¤ìš”";
         }
         else if (reason == DeathReasonEnum.enemyDie)
         {
-            Title.text = "°ú´ÙÃâÇ÷";
-            Description.text = "ÀûÀ» °¨´çÇÏÁö ¸øÇß¾î¿ä";
+            Title.text = "ê³¼ë‹¤ì¶œí˜ˆ";
+            Description.text = "ì ì„ ê°ë‹¹í•˜ì§€ ëª»í–ˆì–´ìš”";
         }
         else if (reason == DeathReasonEnum.DisasterDie)
         {
-            Title.text = "ÀÚ¿¬ÀçÇØ";
-            Description.text = "Á¤½ÅÀ» Â÷¸±¼ö°¡ ¾ø³×¿ä";
+            Title.text = "ìžì—°ìž¬í•´";
+            Description.text = "ì •ì‹ ì„ ì°¨ë¦´ìˆ˜ê°€ ì—†ë„¤ìš”";
         }
         DeadSceneGroup.alpha = 0f;
 
@@ -46,18 +55,13 @@ public class DeadScene : MonoBehaviour
         seq.AppendInterval(0.5f);
         seq.Join(Line.rectTransform.DOScaleX(2f, 1f));
         seq.Join(Line.DOFade(1f, 1f));
+        seq.OnComplete(() => Time.timeScale = 0f);
         
     }
 
     public void ReturnToLobby()
     {
-        // ·Îºñ ¾À ÀüÈ¯
+        Time.timeScale = 1f;
+        FadeManager.Instance.FadeToScene(0);
     }
-
-    private void Start()
-    {
-        ActiveDeadScene(DeathReasonEnum.enemyDie);
-    }
-    //,
-    //dddddhgfftf
 }

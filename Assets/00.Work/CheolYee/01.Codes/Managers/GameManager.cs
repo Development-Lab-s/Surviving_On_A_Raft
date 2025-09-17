@@ -9,6 +9,7 @@ namespace _00.Work.CheolYee._01.Codes.Managers
     {
         public Transform playerTransform;
         public Player player;
+        public bool isThunami;
         
         public int currentLevel = 1;
         public int maxLevel = 1;

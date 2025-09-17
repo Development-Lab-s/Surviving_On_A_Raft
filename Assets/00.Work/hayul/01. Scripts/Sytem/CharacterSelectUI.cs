@@ -2,6 +2,10 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Globalization;
+using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.CheolYee._01.Codes.SO;
+using _00.Work.Resource.Manager;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -11,19 +15,18 @@ public class CharacterSelectUI : MonoBehaviour
     public class CharacterSlot
     {
         public RectTransform rect;
-        public CharacterStatsSO data;
+        public CharacterDataSo data;
     }
 
     public List<CharacterSlot> slots;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI hpText;
-    public TextMeshProUGUI attackCoolDownText;
     public TextMeshProUGUI moveSpeedText;
     public TextMeshProUGUI attackPowerText;
     public TextMeshProUGUI attackSpeedText;
 
     private int _currentIndex = 0;
-    private CharacterStatsSO _selectedCharacter;
+    private CharacterDataSo _selectedCharacter;
     
     public Vector3 _centerPos = new Vector3(0, 0, 0);
     public Vector3 _leftPos = new Vector3(-250, 0, 0);
@@ -52,17 +55,20 @@ public class CharacterSelectUI : MonoBehaviour
 
     public void BackToTitle()
     {
-        SceneManager.LoadScene(0);
+        FadeManager.Instance.FadeToScene(0);
     }
     
     public void OnClickSelect()
     {
         _selectedCharacter = slots[_currentIndex].data;
-        Debug.Log($"선택된 캐릭터: {_selectedCharacter.characterName}");
+        GameSelectManager.Instance.currentCharacter = _selectedCharacter;
         RectTransform rect = slots[_currentIndex].rect;
         rect.DOScale(_bigScale * 1.2f, 0.2f).OnComplete(() =>
         {
-            rect.DOScale(_bigScale, 0.2f);
+            rect.DOScale(_bigScale, 0.2f).OnComplete(() =>
+            {
+                FadeManager.Instance.FadeToScene(2);
+            });
         });
     }
     
@@ -95,12 +101,11 @@ public class CharacterSelectUI : MonoBehaviour
             }
         }
 
-        CharacterStatsSO data = slots[_currentIndex].data;
+        CharacterDataSo data = slots[_currentIndex].data;
         nameText.text = data.characterName;
-        attackSpeedText.text = data.attackSpeed;
-        hpText.text = data.maxHp;
-        moveSpeedText.text = data.moveSpeed;
-        attackCoolDownText.text = data.abilityCooldown;
-        attackPowerText.text = data.attackPower;
+        attackSpeedText.text = $"공격 속도 :{data.attackSpeed.ToString(CultureInfo.InvariantCulture)}";
+        hpText.text = $"체력 : {data.health.ToString(CultureInfo.InvariantCulture)}";
+        moveSpeedText.text = $"이동 속도 : {data.moveSpeed.ToString(CultureInfo.InvariantCulture)}";
+        attackPowerText.text = $"공격력 : {data.attack.ToString(CultureInfo.InvariantCulture)}";
     }
 }

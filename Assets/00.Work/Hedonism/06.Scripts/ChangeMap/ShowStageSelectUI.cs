@@ -111,6 +111,14 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
                 foreach (ResourceData resource in mapData[selectedIndex].resourceDatas)
                 {
                     CostManager.Instance.MinusCost(resource.resourceIndex, resource.resourceAmount);
+                    if (GameManager.Instance.currentLevel == 11)
+                    {
+                        //만약 다음스테이지가 12라면 여기서 사다리 전부 다운
+                        for (int i = _allLadders.Count - 1; i >= 0; i--)
+                        {
+                            _allLadders[i].gameObject.SetActive(false);
+                        }
+                    }
                 }
 
                 Debug.Log("맵 생성 완료!");
@@ -122,8 +130,12 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
                 
 
                 lastChosenIndex = selectedIndex; // 이번에 선택된 맵 저장
-                _currentEntrance.MarkUsed(); // 사다리 상태 확정
-                ResetAllLadders();
+
+                if (_currentEntrance != null)
+                {
+                    _currentEntrance.MarkUsed(); // 사다리 상태 확정
+                    ResetAllLadders();
+                }
             }
         }
 

@@ -3,8 +3,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using _00.Work.Bimtaeur30._01.Script;
 using _00.Work.Nugusaeyo._Script.Cost;
+using _00.Work.Resource.Manager;
 
-public class TestCostReset : MonoBehaviour
+public class TestCostReset : MonoSingleton<TestCostReset>
 {
     [SerializeField] private ItemCreatetorBars ItemCreatetorBars;
 
@@ -44,12 +45,10 @@ public class TestCostReset : MonoBehaviour
 
                     if (bar.MyItem.ItemName == item.Template.ItemName)
                     {
-                        Debug.Log(item.Template.name + ": " + item);
 
                         if (item.Level == 5)
                         {
                             ItemCreatetorBars.barList[i].SetStateMaxUpgrade();
-                            Debug.Log("최대치");
                         }
                         else
                         {
@@ -60,7 +59,6 @@ public class TestCostReset : MonoBehaviour
                             else
                             {
                                 ItemCreatetorBars.barList[i].SetStateUpgrade();
-                                Debug.Log("업글");
                             }
                         }
 

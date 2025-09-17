@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 10
   itemName: "\uC624\uD568\uB9C8"
-  desc: "\uC790\uC2E0\uC744 \uC911\uC2EC\uC73C\uB85C \uB9DD\uCE58\uB97C \uB0B4\uB9AC\uCC0D\uC5B4
-    \uD070 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+  desc: "\uB9DD\uCE58\uAC00 \uB0B4\uB824\uCC0D\uD600 \uD53C\uD574\uB97C \uC90D\uB2C8\uB2E4."
   icon: {fileID: 21300000, guid: 05235c88ac663c849b2d11d14eb9892b, type: 3}
   level: 3
   damage: 80
   knockbackPower: 10
   nextLevel: {fileID: 11400000, guid: bac659e86f954934cb09b3ab365c9f17, type: 2}
+  animatorController: {fileID: 9100000, guid: c805fb68e25f1494fab527bff8d9ad85, type: 2}
   coolTime: 7

@@ -16,11 +16,10 @@ MonoBehaviour:
   level: 2
   itemName: "\uD070\uAC70 \uD55C\uBC29"
   icon: {fileID: 21300000, guid: 842c8bf5079b59c478704c0c212f0ede, type: 3}
-  desc: "\uACF5\uACA9\uB825\uC774 \uC384\uC9C0\uB294 \uB300\uC2E0, \uACF5\uACA9 \uC18D\uB3C4\uAC00
-    \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  desc: "\uD070 \uAC70 \uD55C\uBC29 \uB098\uAC00\uC2E0\uB2E4!"
   criticalChanceMulti: 0
   hpMulti: 0
   speedMulti: 0
-  damageMulti: 0.8
-  atkSpeedMulti: 0.3
+  damageMulti: 0.15
+  atkSpeedMulti: -0.3
   nextLevelPassiveItem: {fileID: 11400000, guid: 66c2ccfb804995044946f430d23ecf7c, type: 2}

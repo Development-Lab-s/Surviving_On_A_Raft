@@ -34,5 +34,10 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Anim
         {
             if (_enemy is BossSlime b) b.AnimEvent_ComboFlip();
         }
+
+        public void GameClear()
+        {
+            VictoryScene.Instance.ActivateVictoryUI();
+        }
     }
 }

@@ -16,8 +16,7 @@ MonoBehaviour:
   level: 3
   itemName: "\uB4F1\uAC00\uAD50\uD658"
   icon: {fileID: 21300000, guid: 294357b365df2c3418202affa0278150, type: 3}
-  desc: "\uD06C\uD655\uC744 \uB300\uAC00\uB85C, \uC774\uC18D\uACFC \uACF5\uC18D\uC774
-    \uAC10\uC18C\uD569\uB2C8\uB2E4."
+  desc: "\uD06C\uD655\uC744 \uB300\uAC00\uB85C \uB514\uBC84\uD504\uB97C \uBC1B\uC2B5\uB2C8\uB2E4."
   criticalChanceMulti: 0.2
   hpMulti: 0
   speedMulti: -0.15

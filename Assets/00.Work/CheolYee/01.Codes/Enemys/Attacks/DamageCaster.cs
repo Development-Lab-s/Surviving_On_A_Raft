@@ -36,6 +36,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
         public bool CastDamage(float damage, float kbPower, Agent attacker = null)
         {
             int cnt;
+            bool result = false;
             
             switch (casterType)
             {
@@ -47,18 +48,18 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                         if (_resultArray[i].TryGetComponent(out Agent agent))
                         {
                             DamageText text = PoolManager.Instance.Pop(damageText.ItemName) as DamageText;
-                            if (text != null) text.SetText(damage, transform);
+                            if (text != null) text.SetText(damage, agent.transform);
                             
                             Vector2 direction = _resultArray[i].transform.position - transform.position;
                             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, 
                                 direction.magnitude, whatIsTarget.layerMask);
                     
                             agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower, attacker);
-                            return true;
+                            result = true;
                         }
                     }
 
-                    return false;
+                    return result;
                 case CasterType.Box:
                     cnt = Physics2D.OverlapBox(transform.position, boxSize, 0, whatIsTarget, _resultArray);
 
@@ -67,18 +68,18 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                         if (_resultArray[i].TryGetComponent(out Agent agent))
                         {
                             DamageText text = PoolManager.Instance.Pop(damageText.ItemName) as DamageText;
-                            if (text != null) text.SetText(damage, transform);
+                            if (text != null) text.SetText(damage, agent.transform);
                             
                             Vector2 direction = _resultArray[i].transform.position - transform.position;
                             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, 
                                 direction.magnitude, whatIsTarget.layerMask);
 
                             agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower, attacker);
-                            return true;
+                            result = true;
                         }
                     }
 
-                    return false;
+                    return result;
 
                 default:
                     return false;

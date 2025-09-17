@@ -1,3 +1,4 @@
+using _00.Work.CheolYee._01.Codes.Managers;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Players
@@ -7,7 +8,9 @@ namespace _00.Work.CheolYee._01.Codes.Players
         private static readonly int Move = Animator.StringToHash("MOVE");
         private static readonly int Jump = Animator.StringToHash("JUMP");
         private static readonly int Death = Animator.StringToHash("DEATH");
-        public Animator AnimatorComponent { get; private set; }
+        
+        [SerializeField] private GameObject player;
+        public Animator AnimatorComponent { get; set; }
 
         private bool _isFacingRight;
         private void Awake()
@@ -41,6 +44,19 @@ namespace _00.Work.CheolYee._01.Codes.Players
         public void SetDead(bool dead)
         {
             AnimatorComponent.SetBool(Death, dead);
+        }
+
+        public void RealDeath()
+        {
+            if (GameManager.Instance.isThunami)
+            {
+                DeadScene.Instance.ActiveDeadScene(DeathReasonEnum.watarDie);
+            }
+            else
+            {
+                DeadScene.Instance.ActiveDeadScene(DeathReasonEnum.enemyDie);
+            }
+            
         }
 
         private void Flip(bool faceRight)

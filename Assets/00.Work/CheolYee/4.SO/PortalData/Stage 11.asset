@@ -16,17 +16,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3dffb2594736b5b4cb6f85616a4963a6, type: 2}
   - {fileID: 11400000, guid: 838111d6ac46d3842809e00808b978e0, type: 2}
   - {fileID: 11400000, guid: 4abd138ee28c5ec48933fdb17f114827, type: 2}
+  - {fileID: 11400000, guid: 7b5dc30de920a7643992424bb1421a4b, type: 2}
   - {fileID: 11400000, guid: ea8a8ec89918ab346943cc018cdabdc3, type: 2}
   - {fileID: 11400000, guid: 29204f7b524b78942ba9cd470e733609, type: 2}
   enemiesData:
-  - {fileID: 11400000, guid: 8fba783b53ae327438056575eae01c94, type: 2}
-  - {fileID: 11400000, guid: 3ff5bc91841d7e44fb269864cded2c86, type: 2}
-  - {fileID: 11400000, guid: 7cfd0b852443c7d4a91ff0f78a26220d, type: 2}
-  - {fileID: 11400000, guid: c6cf2418ebd58f449acdf3a1765de1ca, type: 2}
-  - {fileID: 11400000, guid: 026b77d227ff3a3448bf2d7c0951b66e, type: 2}
+  - {fileID: 11400000, guid: dc983fa85b34c3e468d3d58df488ed8a, type: 2}
+  - {fileID: 11400000, guid: 9ab951bbaa9feba4da09797f44884987, type: 2}
+  - {fileID: 11400000, guid: b6386526c99da52418015f52c86dfc59, type: 2}
+  - {fileID: 11400000, guid: 0aac47e8a69d8f442a226fd3f543c4eb, type: 2}
+  - {fileID: 11400000, guid: 3dbb25e55eac5a248858922fe51fad98, type: 2}
+  - {fileID: 11400000, guid: 80d67f353a3d12342b5f0120d7591b94, type: 2}
   enemyCount: 100
   launchForce: 2
-  minTime: 1
+  minTime: 1.5
   maxTime: 3
   portalColor: {r: 0.18396229, g: 0.628657, b: 1, a: 0.80784315}
   isBossStage: 0

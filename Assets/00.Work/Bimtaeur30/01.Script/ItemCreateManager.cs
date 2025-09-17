@@ -1,36 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using _00.Work.Nugusaeyo._Script.Cost;
+using _00.Work.Resource.Manager;
 using UnityEngine;
 
 namespace _00.Work.Bimtaeur30._01.Script
 {
-    public class ItemCreateManager : MonoBehaviour
+    public class ItemCreateManager : MonoSingleton<ItemCreateManager>
     {
-        public static ItemCreateManager Instance { get; private set; }
-
         // Cost[0~4] = { "구리", "강철", "황금", "보석", "마석" }
         public List<string> itemNames = new() { "구리", "강철", "황금", "보석", "마석" };
         [SerializeField] private ItemInvenGetAndRemove iigar;
-        private void Awake()
-        {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-        }
-        private void Start()
-        {
-            CostManager.Instance.PlusCost(2, 200);
-            CostManager.Instance.PlusCost(0, 200);
-            CostManager.Instance.PlusCost(1, 200);
-            CostManager.Instance.PlusCost(3, 200);
-            CostManager.Instance.PlusCost(4, 200);
-            //StartCoroutine(waitaa());
-        }
 
         //public void ItemCreate(ExItemSO createItem)
         //{
@@ -46,6 +26,7 @@ namespace _00.Work.Bimtaeur30._01.Script
 
         public void CreateItem(ExItemSO item)
         {
+            TestCostReset.Instance.ResetBarState();
             Dictionary<string, int> itemNeed = CheckCanCreateItem(item);
 
             if (itemNeed == null)
@@ -62,6 +43,11 @@ namespace _00.Work.Bimtaeur30._01.Script
                 }
             }
             //IIGAR.FindInventorySlot(Item);
+        }
+        
+        public void CreateStartItem(ExItemSO item)
+        {
+            iigar.FindInventorySlot(item);
         }
 
         private Dictionary<string, int> CheckCanCreateItem(ExItemSO item)

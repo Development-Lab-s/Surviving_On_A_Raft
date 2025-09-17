@@ -6,10 +6,8 @@ public class AddCost : MonoBehaviour
 {
     private void Start()
     {
-        CostManager.Instance.PlusCost(1, 100);
-        CostManager.Instance.PlusCost(2, 100);
-        CostManager.Instance.PlusCost(3, 100);
-        CostManager.Instance.PlusCost(4, 100);
-        CostManager.Instance.PlusCost(5, 100);
+        CostManager.Instance.PlusCost(1, 6);
+        CostManager.Instance.PlusCost(3, 2);
+        CostManager.Instance.PlusCost(4, 3);
     }
 }
