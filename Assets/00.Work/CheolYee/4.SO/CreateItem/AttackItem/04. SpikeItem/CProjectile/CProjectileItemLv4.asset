@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   itemName: "\uC2A4\uD30C\uC774\uD06C"
-  desc: "\uC2A4\uD30C\uC774\uD06C\uAC00 \uC801\uC744 \uCD94\uC801\uD574 \uD53C\uD574\uB97C
-    \uC90D\uB2C8\uB2E4."
+  desc: "\uC2A4\uD30C\uC774\uD06C\uAC00 \uC801\uC744 \uCD94\uC801\uD574 \uACF5\uACA9\uD569\uB2C8\uB2E4."
   icon: {fileID: -5901925832938833544, guid: 84ffb79c3ef3f8646ae60c1bc37ac758, type: 3}
   level: 4
   damage: 40

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AnvilLv5
   m_EditorClassIdentifier: 
   id: 7
-  itemName: "\uBAA8\uB8E8"
+  itemName: "\uD22C\uCC99\uC6A9 \uBAA8\uB8E8"
   desc: "\uBAA8\uB8E8\uB97C \uB358\uC9D1\uB2C8\uB2E4."
   icon: {fileID: 21300000, guid: 286f62faee236d24b94170593fc3c706, type: 3}
   level: 5
