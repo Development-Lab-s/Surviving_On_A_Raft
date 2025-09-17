@@ -130,8 +130,12 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
                 
 
                 lastChosenIndex = selectedIndex; // 이번에 선택된 맵 저장
-                _currentEntrance.MarkUsed(); // 사다리 상태 확정
-                ResetAllLadders();
+
+                if (_currentEntrance != null)
+                {
+                    _currentEntrance.MarkUsed(); // 사다리 상태 확정
+                    ResetAllLadders();
+                }
             }
         }
 

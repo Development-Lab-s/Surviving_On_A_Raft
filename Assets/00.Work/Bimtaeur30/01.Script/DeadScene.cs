@@ -1,3 +1,4 @@
+using System;
 using _00.Work.Resource.Manager;
 using DG.Tweening;
 using TMPro;
@@ -13,14 +14,21 @@ public enum DeathReasonEnum
 
 public class DeadScene : MonoSingleton<DeadScene>
 {
+    [SerializeField] GameObject deathScreen;
+    
     [SerializeField] private TextMeshProUGUI Title;
     [SerializeField] private TextMeshProUGUI Description;
     [SerializeField] private Image Line;
     [SerializeField] private CanvasGroup DeadSceneGroup;
 
+    private void Start()
+    {
+        deathScreen.SetActive(false);
+    }
 
     public void ActiveDeadScene(DeathReasonEnum reason)
     {
+        deathScreen.SetActive(true);
         if (reason == DeathReasonEnum.watarDie)
         {
             Title.text = "익사";
@@ -47,11 +55,13 @@ public class DeadScene : MonoSingleton<DeadScene>
         seq.AppendInterval(0.5f);
         seq.Join(Line.rectTransform.DOScaleX(2f, 1f));
         seq.Join(Line.DOFade(1f, 1f));
+        seq.OnComplete(() => Time.timeScale = 0f);
         
     }
 
     public void ReturnToLobby()
     {
+        Time.timeScale = 1f;
         FadeManager.Instance.FadeToScene(0);
     }
 }

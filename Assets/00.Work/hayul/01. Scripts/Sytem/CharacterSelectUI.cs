@@ -84,16 +84,21 @@ public class CharacterSelectUI : MonoBehaviour
             {
                 rect.DOScale(_bigScale, 0.5f);
                 rect.DOAnchorPos(_centerPos, 0.5f);
+                rect.gameObject.transform.GetChild(0).gameObject.SetActive(false);
             }
             else if (i == leftIndex)
             {
                 rect.DOScale(_smallScale, 0.5f);
                 rect.DOAnchorPos(_leftPos, 0.5f);
+                rect.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
             }
             else if (i == rightIndex)
             {
                 rect.DOScale(_smallScale, 0.5f);
                 rect.DOAnchorPos(_rightPos, 0.5f);
+                rect.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
             }
             else
             {

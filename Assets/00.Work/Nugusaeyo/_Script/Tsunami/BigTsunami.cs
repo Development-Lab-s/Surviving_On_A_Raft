@@ -1,4 +1,5 @@
 using System;
+using _00.Work.CheolYee._01.Codes.Managers;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using DG.Tweening;
@@ -22,6 +23,7 @@ public class BigTsunami : MonoBehaviour
     public void TsunamiUp()
     {
         gameObject.SetActive(true);
+        GameManager.Instance.isThunami = true;
         bigTsunami.rectTransform.DOAnchorPos(Vector3.zero, 1.2f).SetEase(Ease.InOutQuint);
         if (_bubble == null)
         {
@@ -32,6 +34,7 @@ public class BigTsunami : MonoBehaviour
 
     public void TsunamiEnd()
     {
+        GameManager.Instance.isThunami = false;
         gameObject.SetActive(false);
         bigTsunami.rectTransform.anchoredPosition = _startPosition;
         if (_bubble != null)

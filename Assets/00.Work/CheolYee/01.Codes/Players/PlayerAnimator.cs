@@ -1,3 +1,4 @@
+using _00.Work.CheolYee._01.Codes.Managers;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Players
@@ -43,6 +44,19 @@ namespace _00.Work.CheolYee._01.Codes.Players
         public void SetDead(bool dead)
         {
             AnimatorComponent.SetBool(Death, dead);
+        }
+
+        public void RealDeath()
+        {
+            if (GameManager.Instance.isThunami)
+            {
+                DeadScene.Instance.ActiveDeadScene(DeathReasonEnum.watarDie);
+            }
+            else
+            {
+                DeadScene.Instance.ActiveDeadScene(DeathReasonEnum.enemyDie);
+            }
+            
         }
 
         private void Flip(bool faceRight)

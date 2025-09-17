@@ -45,12 +45,10 @@ public class TestCostReset : MonoSingleton<TestCostReset>
 
                     if (bar.MyItem.ItemName == item.Template.ItemName)
                     {
-                        Debug.Log(item.Template.name + ": " + item);
 
                         if (item.Level == 5)
                         {
                             ItemCreatetorBars.barList[i].SetStateMaxUpgrade();
-                            Debug.Log("최대치");
                         }
                         else
                         {
@@ -61,7 +59,6 @@ public class TestCostReset : MonoSingleton<TestCostReset>
                             else
                             {
                                 ItemCreatetorBars.barList[i].SetStateUpgrade();
-                                Debug.Log("업글");
                             }
                         }
 
