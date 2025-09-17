@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _00.Work.Resource.Manager;
+using UnityEngine;
 
 namespace _00.Work.Nugusaeyo._Script.Cost
 {
@@ -12,6 +13,16 @@ namespace _00.Work.Nugusaeyo._Script.Cost
         public int[] Costs { get; private set; } = new int[5];
         public List<string> costNames = new List<string> { "구리", "강철", "황금", "보석", "마석" };
 
+        [ContextMenu("코스트복사")]
+        public void ChitCost()
+        {
+            PlusCost(0, 200);
+            PlusCost(1, 200);
+            PlusCost(2, 200);
+            PlusCost(3, 200);
+            PlusCost(4, 200);
+        }
+        
         public void PlusCost(int costType, int value)
         {
             TestCostReset.Instance.ResetBarState();

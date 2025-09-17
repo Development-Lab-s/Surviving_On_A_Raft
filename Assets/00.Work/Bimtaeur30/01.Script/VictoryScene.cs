@@ -1,10 +1,14 @@
+using System;
+using _00.Work.Resource.Manager;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VictoryScene : MonoBehaviour
+public class VictoryScene : MonoSingleton<VictoryScene>
 {
+    [SerializeField] GameObject clearScreen;
+    
     [SerializeField] private CanvasGroup VictorySceneUICG;
 
     [SerializeField] private CanvasGroup Star_01;
@@ -16,15 +20,21 @@ public class VictoryScene : MonoBehaviour
     [SerializeField] private TextMeshProUGUI LobbyBtn;
 
 
+    private void Start()
+    {
+        clearScreen.SetActive(false);
+    }
+
     public void ActivateVictoryUI()
     {
+        clearScreen.SetActive(true);
         Spin.DORotate(
-            new Vector3(0f, 0f, 180f), // ÇÑ ¹ÙÄû
-            2f,                        // 2ÃÊ µ¿¾È È¸Àü
-            RotateMode.FastBeyond360   // ÀÚ¿¬½º·¯¿î ¿¬¼Ó È¸Àü
+            new Vector3(0f, 0f, 180f), // í•œ ë°”í€´
+            2f,                        // 2ì´ˆ ë™ì•ˆ íšŒì „
+            RotateMode.FastBeyond360   // ìì—°ìŠ¤ëŸ¬ìš´ ì—°ì† íšŒì „
         ).SetLoops(-1).SetEase(Ease.Linear);
 
-        // UI ¿¬ÃâÀº ½ÃÄö½º·Î ÁøÇà
+        // UI ì—°ì¶œì€ ì‹œí€€ìŠ¤ë¡œ ì§„í–‰
         Sequence seq = DOTween.Sequence();
         seq.Join(VictorySceneUICG.DOFade(1f, 1f));
         seq.AppendInterval(0.5f);
@@ -43,11 +53,6 @@ public class VictoryScene : MonoBehaviour
 
     public void BackToLobby()
     {
-        // ·Îºñ·Î µ¹¾Æ°¡±â
-    }
-
-    private void Start()
-    {
-        ActivateVictoryUI();
+        FadeManager.Instance.FadeToScene(0);
     }
 }
