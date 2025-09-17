@@ -42,6 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 4115876757
+    locked: 0
+  - name: Ladder
+    uniqueID: 2595736729
+    locked: 0
+  - name: Ground
+    uniqueID: 964878575
+    locked: 0
   - name: Bullet
     uniqueID: 2361857271
     locked: 0
