@@ -62,7 +62,6 @@ public class CharacterSelectUI : MonoBehaviour
     {
         _selectedCharacter = slots[_currentIndex].data;
         GameSelectManager.Instance.currentCharacter = _selectedCharacter;
-        Debug.Log($"선택된 캐릭터: {_selectedCharacter.characterName}");
         RectTransform rect = slots[_currentIndex].rect;
         rect.DOScale(_bigScale * 1.2f, 0.2f).OnComplete(() =>
         {
