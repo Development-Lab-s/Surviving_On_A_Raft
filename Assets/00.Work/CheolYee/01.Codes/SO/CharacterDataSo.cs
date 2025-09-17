@@ -8,7 +8,7 @@ namespace _00.Work.CheolYee._01.Codes.SO
         [Header("Character Information")]
         public string characterName;
         public RuntimeAnimatorController animatorController;
-        public int startItem;
+        public ExItemSO startItem;
         
         [Header("CharacterData")]
         public float health = 100f;

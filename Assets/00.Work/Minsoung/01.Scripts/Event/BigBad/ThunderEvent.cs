@@ -23,6 +23,7 @@ public class ThunderEvent : MonoBehaviour, IEvent
     [ContextMenu("알로알로 ㄹㅊㄱ")]
     public void StartEvent()
     {
+        SoundManager.Instance.PlaySfx("Electricity");
         StartCoroutine(CreateThunder());
     }
 

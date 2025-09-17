@@ -52,9 +52,10 @@ MonoBehaviour:
   sfxClips:
   - {fileID: 8300000, guid: 1f941d9f43b449044afe6175d6ffeb01, type: 3}
   - {fileID: 8300000, guid: 1520b6a9f8a804b408965050157ed59e, type: 3}
-  - {fileID: 8300000, guid: 8f85809956852d341a08b2b68b537127, type: 3}
   - {fileID: 8300000, guid: e37d8273b7fbbf249bb838bfc75e52f4, type: 3}
-  - {fileID: 8300000, guid: e2e7639a5b1996c47979b031a2cfc04e, type: 3}
+  - {fileID: 8300000, guid: 0b631114b6a74c346a405b2cde905c78, type: 3}
+  - {fileID: 8300000, guid: 9e4ba5a17d1412e4283cf391baa2620d, type: 3}
+  - {fileID: 8300000, guid: 505c5d5053e02494c805adb12ac2d002, type: 3}
 --- !u!82 &7521794278425370003
 AudioSource:
   m_ObjectHideFlags: 0

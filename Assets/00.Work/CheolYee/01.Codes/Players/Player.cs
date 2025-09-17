@@ -1,3 +1,4 @@
+using _00.Work.Bimtaeur30._01.Script;
 using _00.Work.CheolYee._01.Codes.Agents;
 using _00.Work.CheolYee._01.Codes.Agents.Movements;
 using _00.Work.CheolYee._01.Codes.Core.Buffs;
@@ -88,7 +89,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
             StatManager.Instance.OnPlayerBuff += ApplyBuff;
             StatManager.Instance.OnResetPlayerBuff += ResetBuff;
             
-            ItemManager.Instance.CreateAttackItem(CharacterData.startItem);
+            ItemCreateManager.Instance.CreateItem(CharacterData.startItem);
         }
 
         private void OnDestroy()

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: "\uAE30\uC0AC"
   animatorController: {fileID: 9100000, guid: e333d5df3fdbb7445a73cf50896ed22a, type: 2}
-  startItem: 8
+  startItem: {fileID: 11400000, guid: 7257854539fad984dbc2554ee7de44fb, type: 2}
   health: 200
   moveSpeed: 6
   jumpForce: 35
-  attack: 25
-  attackSpeed: 1
+  attack: 40
+  attackSpeed: 1.2
   criticalChance: 10

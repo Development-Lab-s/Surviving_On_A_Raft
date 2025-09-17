@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
+using _00.Work.Resource.Manager;
 using UnityEngine;
 
 public class Storm : MonoBehaviour
@@ -34,7 +35,7 @@ public class Storm : MonoBehaviour
     private void Start()
     {
         _animator.speed = 0f;
-        
+        SoundManager.Instance.PlaySfx("STORM");
         StartCoroutine(StormSprite());
     }
 

@@ -48,7 +48,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                         if (_resultArray[i].TryGetComponent(out Agent agent))
                         {
                             DamageText text = PoolManager.Instance.Pop(damageText.ItemName) as DamageText;
-                            if (text != null) text.SetText(damage, transform);
+                            if (text != null) text.SetText(damage, agent.transform);
                             
                             Vector2 direction = _resultArray[i].transform.position - transform.position;
                             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, 
@@ -68,7 +68,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                         if (_resultArray[i].TryGetComponent(out Agent agent))
                         {
                             DamageText text = PoolManager.Instance.Pop(damageText.ItemName) as DamageText;
-                            if (text != null) text.SetText(damage, transform);
+                            if (text != null) text.SetText(damage, agent.transform);
                             
                             Vector2 direction = _resultArray[i].transform.position - transform.position;
                             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction.normalized, 

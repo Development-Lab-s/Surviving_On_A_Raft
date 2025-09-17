@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _00.Work.Resource.Manager;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -80,6 +81,8 @@ namespace _00.Work.CheolYee._01.Codes.Agents
         {
             Debug.Assert(_owner != null, $"{nameof(_owner)} 의 체력이 초기화되지 않았습니다.");
 
+            SoundManager.Instance.PlaySfx("HIT");
+            
             _currentHealth -= amount;
             _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
             onHit?.Invoke();

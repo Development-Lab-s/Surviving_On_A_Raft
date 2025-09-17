@@ -1,5 +1,6 @@
 using _00.Work.Bimtaeur30._01.Script;
 using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.Resource.Manager;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
