@@ -21,8 +21,6 @@ MonoBehaviour:
   ItemIgdt:
   - Name: "\uAD6C\uB9AC"
     Amount: 20
-  - Name: "\uAC15\uCCA0"
-    Amount: 10
-  - Name: "\uD669\uAE08"
-    Amount: 35
+  - Name: "\uBCF4\uC11D"
+    Amount: 5
   nextItem: {fileID: 11400000, guid: 9897e30d113d08a428acdf6a8555c060, type: 2}

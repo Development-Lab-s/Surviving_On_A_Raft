@@ -19,10 +19,6 @@ MonoBehaviour:
   itemAttributes:
   - "\uC18D\uB3C4 40%"
   ItemIgdt:
-  - Name: "\uAD6C\uB9AC"
-    Amount: 50
   - Name: "\uAC15\uCCA0"
-    Amount: 35
-  - Name: "\uD669\uAE08"
-    Amount: 35
+    Amount: 80
   nextItem: {fileID: 11400000, guid: cb25905b03ff4a24f9dcc1e60cba3ac8, type: 2}

@@ -20,11 +20,9 @@ MonoBehaviour:
   - "\uD761\uD608\uB7C9 2.5%"
   ItemIgdt:
   - Name: "\uAD6C\uB9AC"
-    Amount: 70
+    Amount: 90
+  - Name: "\uAC15\uCCA0"
+    Amount: 60
   - Name: "\uD669\uAE08"
-    Amount: 70
-  - Name: "\uB9C8\uC11D"
-    Amount: 20
-  - Name: "\uBCF4\uC11D"
-    Amount: 20
+    Amount: 80
   nextItem: {fileID: 0}
