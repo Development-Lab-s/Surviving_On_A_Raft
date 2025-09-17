@@ -1,3 +1,4 @@
+using System;
 using _00.Work.CheolYee._01.Codes.Players;
 using _00.Work.Resource.Manager;
 using DG.Tweening;
@@ -17,6 +18,11 @@ namespace _00.Work.CheolYee._01.Codes.Managers
         {
             base.Awake();
             DOTween.SetTweensCapacity(1000, 200);
+        }
+
+        private void Start()
+        {
+            SoundManager.Instance.PlayBgm("MAIN");
         }
     }
 }

@@ -26,5 +26,7 @@ public class StartSceneUI : MonoBehaviour
         seq.Join(TxtRec.gameObject.GetComponent<TextMeshProUGUI>().DOFade(1f, 1f));
         
         seq.OnComplete(() => StartBtn.SetActive(true));
+        
+        SoundManager.Instance.PlayBgm("TITLE");
     }
 }
