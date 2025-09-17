@@ -784,6 +784,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1197577152007353973, guid: 28bf26928843981418dc881d0d016636, type: 3}
+      propertyPath: m_text
+      value: "[Tab] : \uC81C\uC791\n\uC0AC\uB2E4\uB9AC\uC5D0\uC11C \uBC29\uD5A5\uD0A4
+        : \uB9F5 \uC120\uD0DD\nF : \uC120\uD0DD \uD655\uC815\n[1~5] : \uC544\uC774\uD15C
+        \uC120\uD0DD\nR :\uACF5\uACA9 / \uD328\uC2DC\uBE0C \uC804\uD658"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197577152007353973, guid: 28bf26928843981418dc881d0d016636, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033292874063628764, guid: 28bf26928843981418dc881d0d016636, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 2734094731516929881, guid: 28bf26928843981418dc881d0d016636, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4480,7 +4494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useTypeWriter: 1
-  startTypewriterMode: 3
+  startTypewriterMode: -1
   hideAppearancesOnSkip: 0
   hideDisappearancesOnSkip: 0
   triggerEventsOnSkip: 0
@@ -119850,7 +119864,7 @@ PrefabInstance:
     - target: {fileID: 2537762608609387408, guid: b2e883762dfedac4baaaee5138063060, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6297834568976726402, guid: bf1613d13be970544b650804d82074d5, type: 3}
+      objectReference: {fileID: -2413806693520163455, guid: 74c2f85c4e4a4ad408f4099d055cd92d, type: 3}
     - target: {fileID: 3303319052712019046, guid: b2e883762dfedac4baaaee5138063060, type: 3}
       propertyPath: m_Name
       value: EventParent
@@ -119858,11 +119872,23 @@ PrefabInstance:
     - target: {fileID: 3707232452409241135, guid: b2e883762dfedac4baaaee5138063060, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6297834568976726402, guid: bf1613d13be970544b650804d82074d5, type: 3}
+      objectReference: {fileID: -2413806693520163455, guid: 74c2f85c4e4a4ad408f4099d055cd92d, type: 3}
+    - target: {fileID: 5060558157694716108, guid: b2e883762dfedac4baaaee5138063060, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539991570550465263, guid: b2e883762dfedac4baaaee5138063060, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6645661671747009263, guid: b2e883762dfedac4baaaee5138063060, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6297834568976726402, guid: bf1613d13be970544b650804d82074d5, type: 3}
+      objectReference: {fileID: -2413806693520163455, guid: 74c2f85c4e4a4ad408f4099d055cd92d, type: 3}
+    - target: {fileID: 6645661671747009263, guid: b2e883762dfedac4baaaee5138063060, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8240899648589846470, guid: b2e883762dfedac4baaaee5138063060, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
