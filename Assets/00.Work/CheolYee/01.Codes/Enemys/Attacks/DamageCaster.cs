@@ -36,6 +36,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
         public bool CastDamage(float damage, float kbPower, Agent attacker = null)
         {
             int cnt;
+            bool result = false;
             
             switch (casterType)
             {
@@ -54,7 +55,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                                 direction.magnitude, whatIsTarget.layerMask);
                     
                             agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower, attacker);
-                            return true;
+                            result = true;
                         }
                     }
 
@@ -74,11 +75,11 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                                 direction.magnitude, whatIsTarget.layerMask);
 
                             agent.HealthComponent.TakeDamage(damage, hit.normal, kbPower, attacker);
-                            return true;
+                            result = true;
                         }
                     }
 
-                    return false;
+                    return result;
 
                 default:
                     return false;
