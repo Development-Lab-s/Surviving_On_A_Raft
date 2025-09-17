@@ -36,6 +36,8 @@ namespace _00.Work.Bimtaeur30._01.Script
                 pageList[0].SetActive(true);
                 currentPage = 0;
             }
+            
+            TestCostReset.Instance.ResetBarState();
         }
 
         private void CreateItemBars(List<ExItemSO> itemList, bool forceNewPage = false)

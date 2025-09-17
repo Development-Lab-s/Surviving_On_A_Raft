@@ -2156,7 +2156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots:
   - rect: {fileID: 927650714}
-    data: {fileID: 11400000, guid: 8f32df6cf9955af47a9613770da4eee0, type: 2}
+    data: {fileID: 11400000, guid: 003d639c06093d548925710876632516, type: 2}
   - rect: {fileID: 1102732912}
     data: {fileID: 11400000, guid: 90ab462055f6c7648975ec40deaf6dd9, type: 2}
   - rect: {fileID: 341647389}
@@ -2626,7 +2626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4679a110370048cf8f7bd5e200c2effe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCharacter: {fileID: 0}
+  currentCharacter: {fileID: 11400000, guid: 003d639c06093d548925710876632516, type: 2}
 --- !u!4 &1996517050
 Transform:
   m_ObjectHideFlags: 0

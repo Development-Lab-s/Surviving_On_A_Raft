@@ -18,6 +18,6 @@ MonoBehaviour:
   health: 100
   moveSpeed: 8
   jumpForce: 35
-  attack: 50
+  attack: 40
   attackSpeed: 1
   criticalChance: 20

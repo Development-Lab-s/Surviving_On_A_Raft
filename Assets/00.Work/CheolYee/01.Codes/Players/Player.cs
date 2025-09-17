@@ -68,10 +68,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         protected override void Awake()
         {
             base.Awake();
-            if (GameSelectManager.Instance != null)
-            {
-                CharacterData = GameSelectManager.Instance.currentCharacter;
-            }
+            CharacterData = GameSelectManager.Instance.currentCharacter;
             PlayerAnimatorComponent = GetComponentInChildren<PlayerAnimator>(); //애니메이터 가져오기
 
             _damage = CharacterData.attack;
@@ -89,7 +86,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
             StatManager.Instance.OnPlayerBuff += ApplyBuff;
             StatManager.Instance.OnResetPlayerBuff += ResetBuff;
             
-            ItemCreateManager.Instance.CreateItem(CharacterData.startItem);
+            ItemCreateManager.Instance.CreateStartItem(CharacterData.startItem);
         }
 
         private void OnDestroy()

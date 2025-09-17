@@ -39,7 +39,7 @@ public class ItemCreateUI : MonoBehaviour
             ItemCreateUIUnView();
             return;
         }
-
+        
         if (PInput.isFullscreenUIEnabled != true)
         {
             

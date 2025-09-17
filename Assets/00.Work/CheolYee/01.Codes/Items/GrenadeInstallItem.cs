@@ -13,7 +13,7 @@ namespace _00.Work.CheolYee._01.Codes.Items
             Projectile projectile = PoolManager.Instance.Pop(InstallItemSo.itemName) as Projectile;
             
             if (projectile != null)
-                projectile.Initialize(transform, Vector2.up, Damage, KnockbackPower, Speed);
+                projectile.Initialize(transform, Vector2.up, Player.CurrentDamage + Damage, KnockbackPower, Speed);
             else
             {
                 LastSpawnTime += Cooldown;

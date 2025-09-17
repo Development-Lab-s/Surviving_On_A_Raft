@@ -26,6 +26,7 @@ namespace _00.Work.Bimtaeur30._01.Script
 
         public void CreateItem(ExItemSO item)
         {
+            TestCostReset.Instance.ResetBarState();
             Dictionary<string, int> itemNeed = CheckCanCreateItem(item);
 
             if (itemNeed == null)
@@ -42,6 +43,11 @@ namespace _00.Work.Bimtaeur30._01.Script
                 }
             }
             //IIGAR.FindInventorySlot(Item);
+        }
+        
+        public void CreateStartItem(ExItemSO item)
+        {
+            iigar.FindInventorySlot(item);
         }
 
         private Dictionary<string, int> CheckCanCreateItem(ExItemSO item)

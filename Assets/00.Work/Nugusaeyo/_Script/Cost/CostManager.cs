@@ -14,6 +14,7 @@ namespace _00.Work.Nugusaeyo._Script.Cost
 
         public void PlusCost(int costType, int value)
         {
+            TestCostReset.Instance.ResetBarState();
             if (costType < 999)
             {
                 if (costType + value > 999)
@@ -30,6 +31,7 @@ namespace _00.Work.Nugusaeyo._Script.Cost
 
         public void MinusCost(int costType, int value)
         {
+            TestCostReset.Instance.ResetBarState();
             Costs[costType] -= IncreaseCost(value);
             if (Costs[costType] < 0)
             {
