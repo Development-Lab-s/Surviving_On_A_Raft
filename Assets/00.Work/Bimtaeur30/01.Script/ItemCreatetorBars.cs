@@ -107,7 +107,7 @@ namespace _00.Work.Bimtaeur30._01.Script
             }
 
             ItemBar targetBar = barList[index];
-            ApplyItemDataToBar(item, targetBar, "공격템");
+            ApplyItemDataToBar(item, targetBar, item.itemAttributes[0]);
         }
 
         
@@ -146,7 +146,7 @@ namespace _00.Work.Bimtaeur30._01.Script
             TextMeshProUGUI AtTxt = MeatBallDes.transform.Find("AtTxt").GetComponent<TextMeshProUGUI>();
 
             // 분류
-            AtTxt.text = "분류: " + categoryName;
+            AtTxt.text = categoryName;
             MeatBallDes.SetActive(false);
 
             // 텍스트 갱신
