@@ -14,15 +14,15 @@ public class CostSpawner : MonoBehaviour
         int amount = 0;
         if (rand > 30)
         {
-            amount = 8;
+            amount = 6;
         }
         else if (rand > 80)
         {
-            amount = 12;
+            amount = 8;
         }
         else
         {
-            amount = 15;
+            amount = 10;
         }
         
         for (int i = 0; i < amount; i++)
