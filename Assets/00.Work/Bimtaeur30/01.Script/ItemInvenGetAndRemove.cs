@@ -39,8 +39,6 @@ public class ItemInvenGetAndRemove : MonoBehaviour
             playerItem.Level = ItemManager.Instance.GetPassiveItem(playerItem.Template.passiveItem.id).level;
         }
 
-        Debug.Log(playerItem.Template.ItemName + " 레벨: " + playerItem.Level);
-
         UpgradeUI.anchoredPosition = new Vector2(1200, -450);
         UpgradeTxt.text = $"{playerItem.Template.ItemName}(이)가 {playerItem.Level}레벨로 업그레이드되었습니다!";
 

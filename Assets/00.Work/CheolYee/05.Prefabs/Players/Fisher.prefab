@@ -698,7 +698,7 @@ MonoBehaviour:
   gravityDelay: 0
   isDead: 0
   isFliping: 0
-  <CharacterData>k__BackingField: {fileID: 11400000, guid: 8f32df6cf9955af47a9613770da4eee0, type: 2}
+  <CharacterData>k__BackingField: {fileID: 11400000, guid: 003d639c06093d548925710876632516, type: 2}
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: d51e8f2d96eb24b468b2dada5926d59c, type: 2}
   damageMulti: 1
   critChanceMulti: 1
@@ -866,7 +866,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  firePos: {fileID: 3563921487167490497}
+  firePos: {fileID: 5460400429420362176}
 --- !u!1 &5129469062372026972
 GameObject:
   m_ObjectHideFlags: 0

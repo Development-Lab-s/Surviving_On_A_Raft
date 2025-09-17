@@ -22,7 +22,7 @@ MonoBehaviour:
   nextLevel: {fileID: 11400000, guid: 87bbeaadb673655418721b781a5b5f8c, type: 2}
   spinRadius: 7
   spinPrefab: {fileID: 3599668503528672686, guid: a79afe841cae3704e94361ed3ed1904d, type: 3}
-  spinSpeed: 8
+  spinSpeed: 4
   spinAmount: 9
   rotateSpeed: 0
   isRotate: 1
