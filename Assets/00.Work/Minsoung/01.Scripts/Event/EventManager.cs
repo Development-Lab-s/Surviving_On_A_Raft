@@ -46,6 +46,11 @@ public class EventManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        EventTimer.Instance.SetLoadingTime(_cycle);
+    }
+
     private void IEventBunlyu() // 이벤트들 타입별로 분류
     {
         IEvent[] Events = GetComponentsInChildren<IEvent>(); // 자식에서 IEvent 상속 가지고 있으면 다 가져오고 배열에 넣어 ㅇㅇ

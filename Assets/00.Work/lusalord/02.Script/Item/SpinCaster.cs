@@ -17,8 +17,9 @@ namespace _00.Work.lusalord._02.Script.Item
         {
             _spinItemSo = GetComponentInParent<AttackItem>().attackItemSo as SpinItemSo;
             _player = GameManager.Instance.playerTransform.GetComponent<Player>();
-        
         }
+        
+        public void Initialize(SpinItemSo spinItemSo) => _spinItemSo = spinItemSo;
 
         private void OnTriggerEnter2D(Collider2D other)
         {

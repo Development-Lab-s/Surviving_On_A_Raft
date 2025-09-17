@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -39,7 +39,7 @@ public class ItemCreateUI : MonoBehaviour
             ItemCreateUIUnView();
             return;
         }
-
+        
         if (PInput.isFullscreenUIEnabled != true)
         {
             

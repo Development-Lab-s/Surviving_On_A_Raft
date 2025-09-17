@@ -45,7 +45,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
 
         public void AnimateForwardAttack()
         {
-            damageCaster.CastDamage(_forwardItemSo.damage, _forwardItemSo.knockbackPower);
+            damageCaster.CastDamage(Player.CurrentDamage + _forwardItemSo.damage, _forwardItemSo.knockbackPower);
         }
     }
 }

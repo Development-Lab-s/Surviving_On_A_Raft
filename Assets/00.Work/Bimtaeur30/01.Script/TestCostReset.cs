@@ -3,8 +3,9 @@ using UnityEngine;
 using System.Collections.Generic;
 using _00.Work.Bimtaeur30._01.Script;
 using _00.Work.Nugusaeyo._Script.Cost;
+using _00.Work.Resource.Manager;
 
-public class TestCostReset : MonoBehaviour
+public class TestCostReset : MonoSingleton<TestCostReset>
 {
     [SerializeField] private ItemCreatetorBars ItemCreatetorBars;
 
