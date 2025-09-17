@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e05906a1da94ea8a00b363573c72187, type: 3}
+  m_Name: Stage 11
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 11400000, guid: 3dffb2594736b5b4cb6f85616a4963a6, type: 2}
+  - {fileID: 11400000, guid: 838111d6ac46d3842809e00808b978e0, type: 2}
+  - {fileID: 11400000, guid: 4abd138ee28c5ec48933fdb17f114827, type: 2}
+  - {fileID: 11400000, guid: ea8a8ec89918ab346943cc018cdabdc3, type: 2}
+  - {fileID: 11400000, guid: 29204f7b524b78942ba9cd470e733609, type: 2}
+  enemiesData:
+  - {fileID: 11400000, guid: 8fba783b53ae327438056575eae01c94, type: 2}
+  - {fileID: 11400000, guid: 3ff5bc91841d7e44fb269864cded2c86, type: 2}
+  - {fileID: 11400000, guid: 7cfd0b852443c7d4a91ff0f78a26220d, type: 2}
+  - {fileID: 11400000, guid: c6cf2418ebd58f449acdf3a1765de1ca, type: 2}
+  - {fileID: 11400000, guid: 026b77d227ff3a3448bf2d7c0951b66e, type: 2}
+  enemyCount: 100
+  launchForce: 2
+  minTime: 1
+  maxTime: 3
+  portalColor: {r: 0.18396229, g: 0.628657, b: 1, a: 0.80784315}
+  isBossStage: 0
+  currentBoss: {fileID: 0}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
+  m_Name: ASpinItemLv2
+  m_EditorClassIdentifier: 
+  id: 0
+  itemName: AlphaSpinItem
+  level: 2
+  damage: 15
+  knockbackPower: 0
+  nextLevel: {fileID: 11400000, guid: c24a6853ba5f870489a27f70be912fac, type: 2}
+  spinRadius: 3
+  spinPrefab: {fileID: 3599668503528672686, guid: 78e81a0a4dc68804a85f0256a65871df, type: 3}
+  spinSpeed: 6
+  spinAmount: 3
+  rotateSpeed: 20
+  isRotate: 0
+  rickRolling: 1
+  flip: 0

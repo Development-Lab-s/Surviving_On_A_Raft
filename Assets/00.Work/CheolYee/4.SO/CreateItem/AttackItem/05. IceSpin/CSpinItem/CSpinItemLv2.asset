@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
+  m_Name: CSpinItemLv2
+  m_EditorClassIdentifier: 
+  id: 5
+  itemName: "\uC5BC\uC74C \uD30C\uD3B8"
+  desc: "\uC5BC\uC74C \uD30C\uD3B8\uC774 \uBE60\uB974\uAC8C \uC801\uB4E4\uC744 \uACF5\uACA9\uD569\uB2C8\uB2E4."
+  icon: {fileID: 21300000, guid: 1e26fc5805e440f4da72dcc9c3abc1ed, type: 3}
+  level: 2
+  damage: 0
+  knockbackPower: 0
+  nextLevel: {fileID: 11400000, guid: a9924f003ef67d44291d50a70d371df6, type: 2}
+  spinRadius: 7
+  spinPrefab: {fileID: 3599668503528672686, guid: a79afe841cae3704e94361ed3ed1904d, type: 3}
+  spinSpeed: 6
+  spinAmount: 7
+  rotateSpeed: 0
+  isRotate: 1
+  rickRolling: 0
+  flip: 1

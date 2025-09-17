@@ -18,11 +18,11 @@ TagManager:
   - DeadBody
   - Skills
   - Boss
-  - 
+  - platForm
   - 
   - Cost
   - 
-  - 
+  - PickUpItem
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
     locked: 0
   - name: Bullet
     uniqueID: 2361857271
+    locked: 0
+  - name: Player
+    uniqueID: 456860619
     locked: 0
   m_RenderingLayers:
   - Default

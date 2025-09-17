@@ -1,0 +1,845 @@
+fileFormatVersion: 2
+guid: 4abbe09ffcefbf54cb7db429648a2688
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6415743003545851477
+    second: Golem_02_idle_0
+  - first:
+      213: 7122138408952064164
+    second: Golem_02_idle_1
+  - first:
+      213: 3693807445688820747
+    second: Golem_02_idle_2
+  - first:
+      213: 6925297979082039439
+    second: Golem_02_idle_3
+  - first:
+      213: 642530067596304582
+    second: Golem_02_idle_4
+  - first:
+      213: 3380940359499570812
+    second: Golem_02_idle_5
+  - first:
+      213: -6236333266329782575
+    second: Golem_02_idle_6
+  - first:
+      213: -6196997323651737575
+    second: Golem_02_idle_7
+  - first:
+      213: 3915275481816456038
+    second: Golem_02_idle_8
+  - first:
+      213: 325569699902450326
+    second: Golem_02_idle_9
+  - first:
+      213: -2988683469314431605
+    second: Golem_02_idle_10
+  - first:
+      213: -4355139723428979337
+    second: Golem_02_idle_11
+  - first:
+      213: -385610289647139004
+    second: Golem_02_idle_12
+  - first:
+      213: -2493343156971516495
+    second: Golem_02_idle_13
+  - first:
+      213: 7276317321190724333
+    second: Golem_02_idle_14
+  - first:
+      213: 3103693179992213493
+    second: Golem_02_idle_15
+  - first:
+      213: 6453272445420561400
+    second: Golem_02_idle_16
+  - first:
+      213: 6296559678389667052
+    second: Golem_02_idle_17
+  - first:
+      213: 5150804363469996377
+    second: Golem_02_idle_18
+  - first:
+      213: 6315180884653135604
+    second: Golem_02_idle_19
+  - first:
+      213: 7036299839043513527
+    second: Golem_02_idle_20
+  - first:
+      213: 4785568119141177610
+    second: Golem_02_idle_21
+  - first:
+      213: 142945590974191402
+    second: Golem_02_idle_22
+  - first:
+      213: 3543539471505383893
+    second: Golem_02_idle_23
+  - first:
+      213: 847862381038841850
+    second: Golem_02_idle_24
+  - first:
+      213: 2666422955766812631
+    second: Golem_02_idle_25
+  - first:
+      213: -3701923036198483948
+    second: Golem_02_idle_26
+  - first:
+      213: -4224552003692457850
+    second: Golem_02_idle_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Golem_02_idle_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 7
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba9a377fab3b6f6a0800000000000000
+      internalID: -6415743003545851477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 5
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a8e0c2f52be6d260800000000000000
+      internalID: 7122138408952064164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_2
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 10
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b04a9fc1d4a034330800000000000000
+      internalID: 3693807445688820747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_3
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 8
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f806ae6f1d99b1060800000000000000
+      internalID: 6925297979082039439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 7
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0e59431b9bae800800000000000000
+      internalID: 642530067596304582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_5
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 12
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ed0ce08538bee20800000000000000
+      internalID: 3380940359499570812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_6
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 9
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6367f8fe71479a0800000000000000
+      internalID: -6236333266329782575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_7
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 8
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91811b964c7dff9a0800000000000000
+      internalID: -6196997323651737575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_8
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 13
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66b57738e4ad55630800000000000000
+      internalID: 3915275481816456038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_9
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 5
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69ae058cae7a48400800000000000000
+      internalID: 325569699902450326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_10
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 8
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b856e6928301686d0800000000000000
+      internalID: -2988683469314431605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_11
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 12
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d92ddfe7f6f83c0800000000000000
+      internalID: -4355139723428979337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_12
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 4
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 447c8df0c7906aaf0800000000000000
+      internalID: -385610289647139004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_13
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 7
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bdcf89eb9dd56dd0800000000000000
+      internalID: -2493343156971516495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_14
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 11
+        width: 35
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de258925d0caaf460800000000000000
+      internalID: 7276317321190724333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_15
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 7
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f70d3dc088821b20800000000000000
+      internalID: 3103693179992213493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_16
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 6
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3eb142911ae8950800000000000000
+      internalID: 6453272445420561400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_17
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 9
+        width: 35
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce4c679baafd16750800000000000000
+      internalID: 6296559678389667052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_18
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 6
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 951492847455b7740800000000000000
+      internalID: 5150804363469996377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_19
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 5
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f6561a2e8704a750800000000000000
+      internalID: 6315180884653135604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_20
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 6
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bca3577c65f5a160800000000000000
+      internalID: 7036299839043513527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_21
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 4
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0918dd69d0c96240800000000000000
+      internalID: 4785568119141177610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_22
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a279934f148dbf100800000000000000
+      internalID: 142945590974191402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_23
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 3
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d167a6ff5e2d2130800000000000000
+      internalID: 3543539471505383893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_24
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 4
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: affac38e75634cb00800000000000000
+      internalID: 847862381038841850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_25
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 2
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7df8d6b0d89010520800000000000000
+      internalID: 2666422955766812631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_26
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 1
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 418cd89bc9020acc0800000000000000
+      internalID: -3701923036198483948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_02_idle_27
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6801fb4d5506f55c0800000000000000
+      internalID: -4224552003692457850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Golem_02_idle_0: -6415743003545851477
+      Golem_02_idle_1: 7122138408952064164
+      Golem_02_idle_10: -2988683469314431605
+      Golem_02_idle_11: -4355139723428979337
+      Golem_02_idle_12: -385610289647139004
+      Golem_02_idle_13: -2493343156971516495
+      Golem_02_idle_14: 7276317321190724333
+      Golem_02_idle_15: 3103693179992213493
+      Golem_02_idle_16: 6453272445420561400
+      Golem_02_idle_17: 6296559678389667052
+      Golem_02_idle_18: 5150804363469996377
+      Golem_02_idle_19: 6315180884653135604
+      Golem_02_idle_2: 3693807445688820747
+      Golem_02_idle_20: 7036299839043513527
+      Golem_02_idle_21: 4785568119141177610
+      Golem_02_idle_22: 142945590974191402
+      Golem_02_idle_23: 3543539471505383893
+      Golem_02_idle_24: 847862381038841850
+      Golem_02_idle_25: 2666422955766812631
+      Golem_02_idle_26: -3701923036198483948
+      Golem_02_idle_27: -4224552003692457850
+      Golem_02_idle_3: 6925297979082039439
+      Golem_02_idle_4: 642530067596304582
+      Golem_02_idle_5: 3380940359499570812
+      Golem_02_idle_6: -6236333266329782575
+      Golem_02_idle_7: -6196997323651737575
+      Golem_02_idle_8: 3915275481816456038
+      Golem_02_idle_9: 325569699902450326
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

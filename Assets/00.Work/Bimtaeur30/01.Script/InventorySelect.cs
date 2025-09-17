@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 using System.Linq;
-using DG.Tweening;
+using TMPro;
 
 public class InventorySelect : MonoBehaviour
 {
@@ -9,39 +9,45 @@ public class InventorySelect : MonoBehaviour
     public int currentInvenSelecting = 1; // 첨엔 1번 인벤토리부터
     private int invenChangeWay = 1; // 1 == 왼쪽으로, -1 == 오른쪽으로. 즉 각각 인벤토리 교체 번호가 커지는중(1), 작아지는중이다(2).
     private bool invenChanging = false;
-
+    [SerializeField] private TextMeshProUGUI invenTypeTxt;
     public void SlotSelectMethod(int num)
     {
-        if (currentSlotsSelecting == num)
+        if (num < 1 || num > InventoryManager.Instance.SlotCount) return;
+
+        // 실제 슬롯 인덱스 계산
+        int slotIndex = (currentInvenSelecting - 1) * InventoryManager.Instance.SlotCount + (num - 1);
+
+        if (currentSlotsSelecting == slotIndex)
         {
             SlotUnselectMethod();
             return;
         }
-        else if (currentInvenSelecting * 5 - 1 >= num && currentInvenSelecting * 5 - 5 <= num)
+
+        currentSlotsSelecting = slotIndex;
+
+        for (int i = 0; i < InventoryManager.Instance.SlotCount * InventoryManager.Instance.InvenCount; i++)
         {
-            currentSlotsSelecting = num;
+            RectTransform slotRect = InventoryManager.Instance.SlotList[i].GetComponent<RectTransform>();
+            CanvasGroup slotCg = InventoryManager.Instance.SlotList[i].transform.Find("SelectImage").GetComponent<CanvasGroup>();
 
-            for (int i = 0; i <= InventoryManager.Instance.SlotCount * InventoryManager.Instance.InvenCount - 1; i++)
+            if (i == slotIndex) // 선택된 슬롯
             {
-                RectTransform slotRect = InventoryManager.Instance.SlotList[i]
-                    .GetComponent<RectTransform>();
-
-                if (num == i) // 선택된 슬롯
+                Vector2 targetPos = new Vector2(slotRect.anchoredPosition.x, 10);
+                slotRect.DOAnchorPos(targetPos, 0.2f);
+                slotCg.DOFade(1f, 0.2f);
+            }
+            else // 선택 안된 슬롯
+            {
+                if (Mathf.Abs(slotRect.anchoredPosition.y) > 0.1f)
                 {
-                    Vector2 targetPos = new Vector2(slotRect.anchoredPosition.x, 10);
-                    slotRect.DOAnchorPos(targetPos, 0.2f);
-                }
-                else // 선택 안된 슬롯
-                {
-                    if (Mathf.Abs(slotRect.anchoredPosition.y) > 0.1f)
-                    {
-                        Vector2 originPos = new Vector2(slotRect.anchoredPosition.x, -60);
-                        slotRect.DOAnchorPos(originPos, 0.2f);
-                    }
+                    Vector2 originPos = new Vector2(slotRect.anchoredPosition.x, -60);
+                    slotRect.DOAnchorPos(originPos, 0.2f);
+                    slotCg.DOFade(0f, 0.2f);
                 }
             }
         }
     }
+
 
     public void SlotUnselectMethod()
     {
@@ -50,11 +56,15 @@ public class InventorySelect : MonoBehaviour
         {
             RectTransform slotRect = InventoryManager.Instance.SlotList[i]
                 .GetComponent<RectTransform>();
+            CanvasGroup slotCg = InventoryManager.Instance.SlotList[i].transform.Find("SelectImage").gameObject.GetComponent<CanvasGroup>();
+
 
             if (Mathf.Abs(slotRect.anchoredPosition.y) > 0.1f)
             {
                 Vector2 originPos = new Vector2(slotRect.anchoredPosition.x, -60);
                 slotRect.DOAnchorPos(originPos, 0.2f);
+                slotCg.DOFade(0f, 0.2f);
+
             }
         }
     }
@@ -68,9 +78,15 @@ public class InventorySelect : MonoBehaviour
 
         // 양 끝 도달 시 방향 반전
         if (currentInvenSelecting <= 1)
+        {
+            invenTypeTxt.text = "패시브템";
             invenChangeWay = 1;
+        }
         else if (currentInvenSelecting >= inventoryList.Length)
+        {
             invenChangeWay = -1;
+            invenTypeTxt.text = "공격템";
+        }
 
         float xOffset = 160 * invenChangeWay;
 
@@ -90,10 +106,10 @@ public class InventorySelect : MonoBehaviour
 
         Sequence seq = DOTween.Sequence();
 
-        seq.Join(recCurrent.DOAnchorPos(new Vector2(-xOffset, recCurrent.anchoredPosition.y), 0.5f).SetEase(Ease.OutQuad));
-        seq.Join(cgCurrent.DOFade(0f, 0.5f));
-        seq.Join(recNext.DOAnchorPosX(0, 0.5f).SetEase(Ease.OutQuad));
-        seq.Join(cgNext.DOFade(1f, 0.5f));
+        seq.Join(recCurrent.DOAnchorPos(new Vector2(-xOffset, recCurrent.anchoredPosition.y), 0.3f).SetEase(Ease.OutQuad));
+        seq.Join(cgCurrent.DOFade(0f, 0.3f));
+        seq.Join(recNext.DOAnchorPosX(0, 0.3f).SetEase(Ease.OutQuad));
+        seq.Join(cgNext.DOFade(1f, 0.3f));
 
         seq.OnComplete(() =>
         {

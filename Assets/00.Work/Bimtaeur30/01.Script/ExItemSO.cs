@@ -1,19 +1,87 @@
+using System;
 using System.Collections.Generic;
+using _00.Work.CheolYee._01.Codes.Items.PassiveItems;
+using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.lusalord._02.Script.SO.AttackItem;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
+
+[System.Serializable]
+public enum ItemType
+{
+    AttackItem,
+    PassiveItem
+}
 
 [System.Serializable]
 public class Ingredient
 {
-    public string Name;   // ¿Á∑· ¿Ã∏ß
-    public int Amount;    // « ø‰ ºˆ∑Æ
+    public string Name;   // Ïû¨Î£å Ïù¥Î¶Ñ
+    public int Amount;    // ÌïÑÏöî ÏàòÎüâ
 }
+
 [CreateAssetMenu(fileName = "ExItemSO", menuName = "SO/ExItemSO")]
 public class ExItemSO : ScriptableObject
 {
-    public Sprite ItemImage;
-    public string ItemName;
-    public string ItemDescription;
+    public ItemType ItemType;
+
+    [SerializeField, Range(1, 5)]
+    private int _itemLevel = 1;
+
+    public int ItemLevel
+    {
+        get
+        {
+            if (ItemType == ItemType.AttackItem) return attackItem.level;
+            if (ItemType == ItemType.PassiveItem) return passiveItem.level;
+            return _itemLevel;
+        }
+    }
+
+    public string ItemName
+    {
+        get
+        {
+            if (ItemType == ItemType.AttackItem) return attackItem.itemName;
+            if (ItemType == ItemType.PassiveItem) return passiveItem.itemName;
+            return null;
+        }
+    }
+
+    public Sprite ItemImage
+    {
+        get
+        {
+            if (ItemType == ItemType.AttackItem) return attackItem.icon;
+            if (ItemType == ItemType.PassiveItem) return passiveItem.icon;
+            return null;
+        }
+    }
+
+    public string ItemDescription
+    {
+        get
+        {
+            if (ItemType == ItemType.AttackItem) return attackItem.desc;
+            if (ItemType == ItemType.PassiveItem) return passiveItem.desc;
+            return null;
+        }
+    }
+
+    public AttackItemSo attackItem;
+    public PassiveItemSo passiveItem;
     public string[] itemAttributes;
-    public List<Ingredient> ItemIgdt = new List<Ingredient>(); // ≈©±‚ 3¬•∏Æ πËø≠
+    public List<Ingredient> ItemIgdt = new List<Ingredient>(); // Ïù∏Ïä§ÌéôÌÑ∞Ïóê Î≥¥ÏûÑ!
+    public ExItemSO nextItem;
+
+    public void Upgrade()
+    {
+        if (ItemType == ItemType.AttackItem)
+        {
+            ItemManager.Instance.CreateAttackItem(attackItem.id);
+        }
+
+        if (ItemType == ItemType.PassiveItem) ItemManager.Instance.CreatePassiveItem(passiveItem.id);
+    }
 }

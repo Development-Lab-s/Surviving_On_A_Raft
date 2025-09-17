@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a11b1fa2c850b2449121e36a07f1f29, type: 3}
+  m_Name: Electric LV 4
+  m_EditorClassIdentifier: 
+  ItemType: 0
+  _itemLevel: 4
+  attackItem: {fileID: 11400000, guid: f6365a24270abc846ac8610776c7c3ca, type: 2}
+  passiveItem: {fileID: 0}
+  itemAttributes:
+  - "\uACF5\uACA9"
+  ItemIgdt:
+  - Name: "\uAD6C\uB9AC"
+    Amount: 100
+  - Name: "\uAC15\uCCA0"
+    Amount: 30
+  - Name: "\uD669\uAE08"
+    Amount: 70
+  nextItem: {fileID: 11400000, guid: 93fdb8d5e0ebdc441bae6e99464efdbb, type: 2}

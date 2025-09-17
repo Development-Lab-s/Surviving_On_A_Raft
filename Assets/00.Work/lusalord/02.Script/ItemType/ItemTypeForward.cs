@@ -1,4 +1,3 @@
-using System;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using UnityEngine;
 
@@ -6,31 +5,47 @@ namespace _00.Work.lusalord._02.Script.ItemType
 {
     public abstract class ItemTypeForward : AttackItem
     {
+
+        [Header("Forward Settings")]
         [SerializeField] private DamageCaster damageCaster;
         
+        [SerializeField] private Animator animator;
+        
         private ForwardItemSO _forwardItemSo;
-
-        private float time = 0;
-
+        private float CoolTime => _coolTime - Player.CurrentAttackSpeed;
         private float _coolTime = 3;
-        public Transform pos;
-        protected virtual void Awake()
+        private float _timer;
+        
+        private static readonly int ForwardAttack = Animator.StringToHash("ForwardAttack");
+        protected override void Awake()
         {
             _forwardItemSo = (ForwardItemSO)attackItemSo;
 
+            animator.runtimeAnimatorController = _forwardItemSo.animatorController;
             gameObject.name = _forwardItemSo.itemName;
+            _coolTime = _forwardItemSo.coolTime;
+        }
+
+        public override void ApplySetting()
+        {
+            _forwardItemSo = (ForwardItemSO)attackItemSo;
             _coolTime = _forwardItemSo.coolTime;
         }
 
         protected virtual void Update()
         {
-            time += Time.deltaTime;
+            _timer += Time.deltaTime;
 
-            if (_coolTime <= time)
+            if (CoolTime <= _timer)
             {
-                damageCaster.CastDamage(10, 4);
-                time = 0;
+                animator.SetTrigger(ForwardAttack);
+                _timer = 0;
             }
+        }
+
+        public void AnimateForwardAttack()
+        {
+            damageCaster.CastDamage(_forwardItemSo.damage, _forwardItemSo.knockbackPower);
         }
     }
 }

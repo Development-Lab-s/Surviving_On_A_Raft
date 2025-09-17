@@ -4,12 +4,13 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 {
     public class Agent : MonoBehaviour
     {
-        //움직이는 생명체가 가질 기본 설정을 저장하고 있습니다.
+        //움직이는 생명체가 가질 기본 설정을 저장하고 있습니다.;
 
         [Header("Settings")]
         [SerializeField] private float extraGravity = 200f; //플레이어가 공중에 떠 있을 때 일정 시간 후 떨어지는 속도의 중력값
         [SerializeField] private float gravityDelay = 0.15f; //공중에 떠 있는 시간
 
+        private bool _isFacingRight = true;
         public AgentMovement MovementComponent { get; private set; } //이동 담당
         public AgentHealth HealthComponent { get; private set; } //체력 담당
 
@@ -17,7 +18,9 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         public Animator AnimatorComponent { get; private set; }
 
+
         public bool isDead; // 캐릭터가 죽었는가?
+        public bool isFliping;
 
         private float _timeInAir; // 캐릭터가 공중에 떠 있는 시간
         protected virtual void Awake()
@@ -55,27 +58,23 @@ namespace _00.Work.CheolYee._01.Codes.Agents
 
         #region Flip Controller
 
-        // 캐릭터가 오른쪽을 보고 있는지 확인
-        private bool IsFacingRight()
-        {
-            // y축 회전값이 0이면 오른쪽을 보고 있는 것으로 간주
-            //Approximately: 약, 대략이라는 뜻으로, 1번값과 2번값의 부동소수점을 비교하여 근사하면 true,
-            //일정 이상으로 비슷하지 않으면 false를 반환한다.
-            return Mathf.Approximately(transform.eulerAngles.y, 0);
-        }
-
         // 타겟 위치에 따라 캐릭터의 방향(스프라이트)을 좌우 반전
-        protected void HandleSpriteFlip(Vector3 targetPosition)
+        public void HandleSpriteFlip(Vector3 targetPosition)
         {
-            var rb = MovementComponent.RbCompo;
-            float vx = MovementComponent.RbCompo.linearVelocityX;
-            // 너무 느리게 움직일 땐 방향 유지
-            if (Mathf.Abs(vx) < 0.01f) return;
+            if (isFliping) return;
+            //만약에 타겟(마우스, 플레이어 등 움직이는 것)의 x좌표가 자신보다 크다면(오른쪽에 있다면)
+            float dir = targetPosition.x - transform.position.x;
 
-            var t = SpriteRendererComponent.transform;
-            var s = t.localScale;
-            s.x = vx >= 0 ? Mathf.Abs(s.x) : -Mathf.Abs(s.x);
-            t.localScale = s;
+            if (dir > 0.1 && !_isFacingRight) // 타겟이 오른쪽에 있음
+            {
+                transform.eulerAngles = Vector3.zero; // 오른쪽 바라봄
+                _isFacingRight = true;
+            }
+            else if (dir < -0.1 && _isFacingRight) // 타겟이 왼쪽에 있음
+            {
+                transform.eulerAngles = new Vector3(0, 180f, 0); // 왼쪽 바라봄
+                _isFacingRight = false;
+            }
         }
 
         #endregion

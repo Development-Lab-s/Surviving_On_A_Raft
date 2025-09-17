@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1a8e3d724b8c949848d8ac7747eb5d, type: 3}
+  m_Name: BigSpinItem Lv1
+  m_EditorClassIdentifier: 
+  id: 1
+  itemName: "\uAC70\uB300 \uD45C\uCC3D"
+  desc: "\uAC70\uB300\uD55C \uD45C\uCC3D\uC744 \uD68C\uC804 \uC2DC\uCF1C \uD53C\uD574\uB97C
+    \uAC00\uD569\uB2C8\uB2E4."
+  icon: {fileID: -132906764847973300, guid: 0c9163889891f2a488bbc8e1ddd9d75b, type: 3}
+  level: 1
+  damage: 20
+  knockbackPower: 2
+  nextLevel: {fileID: 11400000, guid: 896a3bcba6befc64ca23c801e3684d5c, type: 2}
+  spinRadius: 3
+  spinPrefab: {fileID: 3599668503528672686, guid: ee8d816bd8ffa704998ded5459be9448, type: 3}
+  spinSpeed: 2
+  spinAmount: 1
+  rotateSpeed: 10
+  isRotate: 0
+  rickRolling: 1
+  flip: 0

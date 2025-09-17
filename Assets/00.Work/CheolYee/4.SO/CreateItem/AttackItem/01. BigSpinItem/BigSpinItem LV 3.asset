@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a11b1fa2c850b2449121e36a07f1f29, type: 3}
+  m_Name: BigSpinItem LV 3
+  m_EditorClassIdentifier: 
+  ItemType: 0
+  _itemLevel: 3
+  attackItem: {fileID: 11400000, guid: 5b75a0c85ed4f1046befd3aab5e309f5, type: 2}
+  passiveItem: {fileID: 0}
+  itemAttributes:
+  - "\uACF5\uACA9"
+  ItemIgdt:
+  - Name: "\uAD6C\uB9AC"
+    Amount: 70
+  - Name: "\uAC15\uCCA0"
+    Amount: 100
+  - Name: "\uD669\uAE08"
+    Amount: 30
+  nextItem: {fileID: 11400000, guid: 31b982970d03a0344a3f48ec02570917, type: 2}

@@ -1,8 +1,6 @@
-using NUnit.Framework;
-using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
@@ -10,16 +8,15 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance { get; private set; }
 
     [SerializeField] private GameObject InvenSlotPrefab;
-
-    public ExItemSO[] ItemSlotList;
-
+    public PlayerItem[] ItemSlotList;            // Ïù¥Ï†ú PlayerItem Î∞∞Ïó¥
     public GameObject[] InventoryFrameList;
-    public List<GameObject> SlotList = new List<GameObject>(); // ¿Œ∫•≈‰∏Æ UI∏¶ ¥„æ∆µŒ¥¬ ∏ÆΩ∫∆Æ
+    public List<GameObject> SlotList = new List<GameObject>();
 
-    public int SlotCount = 5; // ¿Œ∫•≈‰∏Æ ƒ≠ ∞≥ºˆ ∫Øºˆ
-    public int InvenCount = 2; // ¿Œ∫•≈‰∏Æ (Ω∫≈≥) ∞≥ºˆ ∫Øºˆ
+    public int SlotCount = 5; // Ïä¨Î°Ø Í∞úÏàò
+    public int InvenCount = 2;
 
-    private int currentInvenCount = -1; // 0∫Œ≈Õ ΩΩ∑‘ π¯»£ Ω√¿€, -1¿∫ æ∆π´∞Õµµ æ∆¥‘
+    private int currentInvenCount = 0;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,15 +24,15 @@ public class InventoryManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
     }
 
     private void Start()
     {
-        ItemSlotList = new ExItemSO[SlotCount * InvenCount];
+        ItemSlotList = new PlayerItem[SlotCount * InvenCount];
         Generate();
     }
+
     private void Generate()
     {
         for (int i = 0; i < InventoryFrameList.Length; i++)
@@ -43,14 +40,18 @@ public class InventoryManager : MonoBehaviour
             for (int x = 0; x < SlotCount; x++)
             {
                 currentInvenCount++;
-                GameObject clonedInvenSlot = Instantiate(InvenSlotPrefab, InventoryFrameList[i].transform);
-                clonedInvenSlot.transform.Find("NumTxt").GetComponent<TextMeshProUGUI>().text = (currentInvenCount).ToString();
-                Image visualImage = clonedInvenSlot.transform.Find("VisualImage").GetComponent<Image>();
-                Color color = visualImage.color;
-                color.a = 0f;
-                visualImage.color = color;
-                SlotList.Add(clonedInvenSlot);
+                GameObject clonedSlot = Instantiate(InvenSlotPrefab, InventoryFrameList[i].transform);
+                clonedSlot.transform.Find("NumTxt").GetComponent<TextMeshProUGUI>().text = currentInvenCount.ToString();
+
+                Image visualImage = clonedSlot.transform.Find("VisualImage").GetComponent<Image>();
+                visualImage.color = new Color(1f, 1f, 1f, 0f);
+
+                SlotList.Add(clonedSlot);
+
+                // Ï¥àÍ∏∞ Ïä¨Î°ØÏùÄ ÎπÑÏñ¥ÏûàÏùå
+                ItemSlotList[currentInvenCount] = null;
             }
+            currentInvenCount = 0;
         }
     }
 }

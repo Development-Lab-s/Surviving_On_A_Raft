@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using _00.Work.Hedonism._06.Scripts.SO.Manager;
 using _00.Work.Resource.Manager;
 using _00.Work.Resource.SO;
 using DG.Tweening;
@@ -16,17 +16,13 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
         [SerializeField] private Light2D portalLight;
         [SerializeField] private string poolName;
         [SerializeField] private Transform spawnTrm;
-
+        [SerializeField] private float startDelay = 5;
+        
         private bool _closePortal;
         private bool _isLeft;
         
         public string ItemName => poolName;
         public GameObject GameObject => gameObject;
-
-        private void Start()
-        {
-            Initialize(PortalData, false);
-        }
 
         public void Initialize(PortalDataSo portalData, bool left)
         {
@@ -45,7 +41,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
 
         private void OpenPortal(Transform portalTrm)
         {
-            transform.position = portalTrm.position;
+            transform.position = portalTrm.position + Vector3.up;
             transform.localScale = Vector3.zero;
             
             Color transparentColor = PortalData.portalColor;
@@ -56,22 +52,40 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
             seq.Append(transform.DOScale(1, 1f));
             seq.Join(spriteRenderer.DOFade(1, 1f));
             seq.AppendInterval(0.5f);
-            seq.AppendCallback(() => StartCoroutine(SummonCoroutine()));
+            seq.AppendCallback(() =>
+            {
+                
+                StartCoroutine(SummonCoroutine());
+            });
         }
 
         private IEnumerator SummonCoroutine()
         {
+            yield return new WaitForSeconds(startDelay);
             while (_closePortal == false)
             {
                 float spawnTime = PortalData.GetRandomSpawnTime();
-                int randomListIndex = PortalData.GetRandomListIndex();
                 
-                Enemy enemy = PoolManager.Instance.Pop(PortalData.enemies[randomListIndex].poolName) as Enemy;
-                if (enemy != null)
+                if (SpawnManager.Instance.CanSpawn())
                 {
-                    enemy.transform.position = spawnTrm.position;
-                    if (_isLeft) enemy.MovementComponent.SetMovement(PortalData.launchForce);
-                    else enemy.MovementComponent.SetMovement(-PortalData.launchForce);
+                    int randomListIndex = PortalData.GetRandomListIndex();
+                    
+                    Enemy enemy = PoolManager.Instance.Pop(PortalData.enemies[randomListIndex].poolName) as Enemy;
+                    if (enemy != null)
+                    {
+                        if (PortalData.enemyData != null)
+                        {
+                            enemy.enemyData = PortalData.enemyData[randomListIndex];
+                            enemy.Initialize();
+                        }
+                        enemy.transform.position = spawnTrm.position;
+                        if (_isLeft) enemy.MovementComponent.SetMovement(PortalData.launchForce);
+                        else enemy.MovementComponent.SetMovement(-PortalData.launchForce);
+                        yield return new WaitForSeconds(spawnTime);
+                    }
+                }
+                else
+                {
                     yield return new WaitForSeconds(spawnTime);
                 }
             }
