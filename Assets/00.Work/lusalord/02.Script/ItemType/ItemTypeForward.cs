@@ -19,9 +19,10 @@ namespace _00.Work.lusalord._02.Script.ItemType
         private static readonly int ForwardAttack = Animator.StringToHash("ForwardAttack");
         protected override void Awake()
         {
+            base.Awake();
             _forwardItemSo = (ForwardItemSO)attackItemSo;
 
-            gameObject.name = _forwardItemSo.itemName;
+            animator.runtimeAnimatorController = _forwardItemSo.animatorController;
             _coolTime = _forwardItemSo.coolTime;
         }
 
