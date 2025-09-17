@@ -59,7 +59,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Attacks
                         }
                     }
 
-                    return false;
+                    return result;
                 case CasterType.Box:
                     cnt = Physics2D.OverlapBox(transform.position, boxSize, 0, whatIsTarget, _resultArray);
 
