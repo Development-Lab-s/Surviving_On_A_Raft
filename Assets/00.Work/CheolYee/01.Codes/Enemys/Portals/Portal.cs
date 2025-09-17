@@ -73,7 +73,11 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
                     Enemy enemy = PoolManager.Instance.Pop(PortalData.enemies[randomListIndex].poolName) as Enemy;
                     if (enemy != null)
                     {
-                        
+                        if (PortalData.enemyData != null)
+                        {
+                            enemy.enemyData = PortalData.enemyData[randomListIndex];
+                            enemy.Initialize();
+                        }
                         enemy.transform.position = spawnTrm.position;
                         if (_isLeft) enemy.MovementComponent.SetMovement(PortalData.launchForce);
                         else enemy.MovementComponent.SetMovement(-PortalData.launchForce);

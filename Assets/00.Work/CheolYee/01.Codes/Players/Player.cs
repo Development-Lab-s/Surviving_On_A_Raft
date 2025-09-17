@@ -11,13 +11,13 @@ namespace _00.Work.CheolYee._01.Codes.Players
     public class Player : Agent, IBuffable
     {
         //플레이어의 모든 컴포넌트를 관리하는 스크립트입니다.
-        
+
         [Header("Character SO Data")]
-        [field:SerializeField] public CharacterDataSo CharacterData {get; private set;} //캐릭터 데이터
-        
+        [field: SerializeField] public CharacterDataSo CharacterData { get; private set; } //캐릭터 데이터
+
         [Header("Agent SO Data")]
-        [field:SerializeField] public PlayerInputSo PlayerInput {get; private set;} //인풋SO
-        
+        [field: SerializeField] public PlayerInputSo PlayerInput { get; private set; } //인풋SO
+
         public float damageMulti = 1;
         public float critChanceMulti = 1;
         public float attackSpeedMulti = 1;
@@ -46,10 +46,10 @@ namespace _00.Work.CheolYee._01.Codes.Players
         }
 
         public bool IsCrit { get; private set; }
-        
+
         private int _critChance;
         public int CurrentCriticalChance => (int)(critChanceMulti * _critChance);
-        
+
         public bool HaveBloodSuckingItem { get; set; }
         public float BloodSuckingHealMultiplier { get; set; }
         
@@ -57,7 +57,6 @@ namespace _00.Work.CheolYee._01.Codes.Players
         public float HealingMultiplier { get; set; }
 
         private float _healTimer;
-
         public void BloodSucking()
         {
             if (HaveBloodSuckingItem)
@@ -68,11 +67,13 @@ namespace _00.Work.CheolYee._01.Codes.Players
         protected override void Awake()
         {
             base.Awake();
+            CharacterData = GameSelectManager.Instance.currentCharacter;
             PlayerAnimatorComponent = GetComponentInChildren<PlayerAnimator>(); //애니메이터 가져오기
 
             _damage = CharacterData.attack;
             _critChance = CharacterData.criticalChance;
             _attackSpeed = CharacterData.attackSpeed;
+            PlayerAnimatorComponent.AnimatorComponent.runtimeAnimatorController = CharacterData.animatorController;
 
             PlayerInput.OnJumpKeyPress += HandleJumpKeyPress; //점프키 이벤트에 점프 실행 로직 메서드 등록
             MovementComponent.GetComponent<PlayerMovement>().Initialize(CharacterData); //캐릭터 데이터로 기본값 설정
@@ -83,6 +84,8 @@ namespace _00.Work.CheolYee._01.Codes.Players
         {
             StatManager.Instance.OnPlayerBuff += ApplyBuff;
             StatManager.Instance.OnResetPlayerBuff += ResetBuff;
+            
+            ItemManager.Instance.CreateAttackItem(CharacterData.startItem);
         }
 
         private void OnDestroy()
@@ -112,7 +115,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
         {
             ApplyExtraGravity(); //추가 중력 적용
         }
-        
+
         public bool IsCritical()
         {
             int roll = Random.Range(0, 100);
@@ -146,7 +149,7 @@ namespace _00.Work.CheolYee._01.Codes.Players
             MovementComponent.StopImmediately();
             PlayerAnimatorComponent.SetDead(true);
         }
-        
+
         public void ApplyBuff(StatType stat, float buff)
         {
             if (stat == StatType.Damage) damageMulti += buff;

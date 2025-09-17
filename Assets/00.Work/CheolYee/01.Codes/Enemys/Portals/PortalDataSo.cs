@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _00.Work.CheolYee._01.Codes.SO;
 using _00.Work.Resource.SO;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
     {
         [Header("Portal Data")]
         public List<PoolItem> enemies; //포탈에서 나올 적들을 정의함
+        public List<EnemyDataSo> enemyData; //포탈에서 나올 적들을 정의함
 
         public int enemyCount = 10; //에너미 최대 개수
 

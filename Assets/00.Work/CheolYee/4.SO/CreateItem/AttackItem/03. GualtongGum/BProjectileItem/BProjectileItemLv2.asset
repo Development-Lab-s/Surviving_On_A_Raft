@@ -18,7 +18,7 @@ MonoBehaviour:
     \uB0A0\uC544\uAC11\uB2C8\uB2E4."
   icon: {fileID: 6130644427714032177, guid: d8879771a4d510f4690d22c57c871a7f, type: 3}
   level: 2
-  damage: 8
+  damage: 15
   knockbackPower: 10
   nextLevel: {fileID: 11400000, guid: d18b7e3545ec28641b8870ed2c0fa2fa, type: 2}
   speed: 17
