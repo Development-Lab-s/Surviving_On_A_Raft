@@ -1540,8 +1540,8 @@ MonoBehaviour:
   OriginSize: {x: 1.8, y: 1.8, z: 1.8}
   ImageSize: {fileID: 5483198681753915044}
   ImageObject: {fileID: 175944870465341993}
-  ImageColor: {r: 0.4645988, g: 0.6792453, b: 0.4536846, a: 1}
-  OriginColor: {r: 0.5294118, g: 0.78431374, b: 0.5137255, a: 1}
+  ImageColor: {r: 0.8352942, g: 0.7019608, b: 0.3372549, a: 1}
+  OriginColor: {r: 0.8352942, g: 0.7019608, b: 0.3372549, a: 1}
 --- !u!1 &4597790212109959186
 GameObject:
   m_ObjectHideFlags: 0

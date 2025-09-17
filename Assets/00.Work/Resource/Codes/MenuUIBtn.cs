@@ -1,5 +1,6 @@
 using _00.Work.Resource.Manager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace _00.Work.Resource.Codes
@@ -41,7 +42,12 @@ namespace _00.Work.Resource.Codes
 
         public void ExitButton()
         {
-            Application.Quit();
+            if (SceneManager.GetActiveScene().buildIndex != 0)
+                FadeManager.Instance.FadeToScene(0);
+            else
+            {
+                Application.Quit();
+            }
         }
     }
 }

@@ -24,7 +24,8 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
         {
             _damage = damage; //데미지
             _knockBackPower = knockbackPower; //넉백량
-            _direction = dir.normalized;
+
+            _direction = new Vector2(dir.x, 0);
             _speed = shotSpeed;
             transform.position = firePos.position;
             

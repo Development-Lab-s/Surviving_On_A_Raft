@@ -1,27 +1,50 @@
-using System;
-using _00.Work.CheolYee._01.Codes.SO;
 using UnityEngine;
+using _00.Work.CheolYee._01.Codes.SO;
 
 namespace _00.Work.lusalord._02.Script.Item
 {
     public class MousePosCaster : MonoBehaviour
     {
-        [SerializeField] private PlayerInputSo playerInputSo;
+        private bool _lockFlip = false;   // 방향 고정 여부
+        private float _lockedScaleX;      // 고정된 방향 값
+        private Vector3 _mousePosition;
 
         private void Update()
         {
-            Vector3 mousePos = playerInputSo.MousePosition;
+            if (_lockFlip)
+            {
+                // 공격 중에는 저장된 방향 유지
+                Vector3 scale = transform.localScale;
+                scale.x = _lockedScaleX;
+                transform.localScale = scale;
+                return;
+            }
+
+            
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
 
-            Vector3 scale = transform.localScale;
+            Vector3 newScale = transform.localScale;
 
-            // 마우스가 오브젝트 기준 오른쪽에 있으면 scale.x 양수, 왼쪽이면 음수
             if (mousePos.x > transform.position.x)
-                scale.x = Mathf.Abs(scale.x);   // 오른쪽
+                newScale.x = Mathf.Abs(newScale.x);   // 오른쪽
             else
-                scale.x = -Mathf.Abs(scale.x);  // 왼쪽
+                newScale.x = -Mathf.Abs(newScale.x);  // 왼쪽
 
-            transform.localScale = scale;
+            transform.localScale = newScale;
+        }
+
+        // 공격 시작 시 호출
+        public void LockDirection()
+        {
+            _lockFlip = true;
+            _lockedScaleX = transform.localScale.x;
+        }
+
+        // 공격 종료 시 호출
+        public void UnlockDirection()
+        {
+            _lockFlip = false;
         }
     }
 }

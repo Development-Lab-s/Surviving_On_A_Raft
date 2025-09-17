@@ -9,7 +9,7 @@ namespace _00.Work.Resource.Manager
 
         
         //Default 해상도 비율
-        private readonly float _fixedAspectRatio = 9f / 16f; 
+        private readonly float _fixedAspectRatio = 16f / 9f; 
 
         //현재 해상도의 비율
         private readonly float _currentAspectRatio = Screen.width / (float)Screen.height;

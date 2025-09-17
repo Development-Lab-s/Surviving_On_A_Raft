@@ -9,7 +9,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
         [Header("Forward Settings")]
         [SerializeField] private DamageCaster damageCaster;
         
-        [SerializeField] private Animator animator;
+        [SerializeField] public Animator animator;
         
         private ForwardItemSO _forwardItemSo;
         private float CoolTime => _coolTime / (1f + Player.CurrentAttackSpeed);
@@ -43,7 +43,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
             }
         }
 
-        public void AnimateForwardAttack()
+        public virtual void AnimateForwardAttack()
         {
             damageCaster.CastDamage(Player.CurrentDamage + _forwardItemSo.damage, _forwardItemSo.knockbackPower);
         }

@@ -19,7 +19,7 @@ namespace _00.Work.CheolYee._01.Codes.Items
 
             if (projectile != null)
             {
-                Vector3 dir = firePos.right * Mathf.Sign(transform.localScale.x);
+                Vector3 dir = firePos.localScale;
 
                 projectile.Initialize(
                     firePos,   // 발사 위치 기준을 firePos로 넘겨주는 게 일반적
