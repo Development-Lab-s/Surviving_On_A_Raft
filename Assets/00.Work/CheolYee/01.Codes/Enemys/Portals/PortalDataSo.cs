@@ -32,7 +32,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Portals
                 {
                     if (!item.prefab.TryGetComponent(out Enemy _))
                     {
-                        Debug.LogWarning($"{item.poolName} : 지금 넣은 풀아이템은 에너미가 아닙니다.");
                     }
                 }
             }

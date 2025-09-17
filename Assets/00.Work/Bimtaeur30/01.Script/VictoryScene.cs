@@ -28,6 +28,7 @@ public class VictoryScene : MonoSingleton<VictoryScene>
     public void ActivateVictoryUI()
     {
         clearScreen.SetActive(true);
+        SoundManager.Instance.PlayBgm("VICTORY");
         Spin.DORotate(
             new Vector3(0f, 0f, 180f), // 한 바퀴
             2f,                        // 2초 동안 회전

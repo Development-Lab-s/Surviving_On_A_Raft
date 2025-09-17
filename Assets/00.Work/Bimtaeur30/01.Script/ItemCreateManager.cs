@@ -72,13 +72,11 @@ namespace _00.Work.Bimtaeur30._01.Script
                     }
                     else
                     {
-                        Debug.Log(iname + ",을 지불할 수 없습니다. "+ costList[ind] + " " + iAmount);
                         return null;
                     }
                 }
                 else
                 {
-                    Debug.LogAssertion("������ ExSO ��� �̸� �����ϼ���");
                     return null;
                 }
             }

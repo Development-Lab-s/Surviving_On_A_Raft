@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using DG.Tweening;
@@ -116,8 +117,8 @@ namespace _00.Work.Resource.Manager
                 _settings = new SoundSettings
                 {
                     volume = 0.5f,
-                    bgmVolume = 0.5f,
-                    sfxVolume = 0.5f,
+                    bgmVolume = 0.1f,
+                    sfxVolume = 0.1f,
                 };
             }     
         }

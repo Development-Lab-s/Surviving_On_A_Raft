@@ -64,7 +64,6 @@ public class BossSlimeJumpAttack : SkillState
 
         if (_rb == null || Enemy.targetTrm == null)
         {
-            Debug.Log("이러면 안움직여요");
 
             return;
         }

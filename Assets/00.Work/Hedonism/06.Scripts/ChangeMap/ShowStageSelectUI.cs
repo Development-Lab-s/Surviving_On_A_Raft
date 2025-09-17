@@ -102,7 +102,6 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
                 {
                     if (!CostManager.Instance.IsPaid(resource.resourceIndex, resource.resourceAmount))
                     {
-                        Debug.Log("지불할 수 없습니다.");
                         return;
                     }
                 }
@@ -121,7 +120,6 @@ namespace _00.Work.Hedonism._06.Scripts.ChangeMap
                     }
                 }
 
-                Debug.Log("맵 생성 완료!");
 
                 StatManager.Instance.ResetGrowthMultipliers(); //적 성장 초기화;
                 SpawnManager.Instance.StartCycle(selectedIndex);

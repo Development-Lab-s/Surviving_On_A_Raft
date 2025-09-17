@@ -12,7 +12,6 @@ public class TsunamiDebugger : MonoBehaviour
         {
             testFloor++;
             TsunamiEventManager.Instance.LadderInteracted(testFloor);
-            Debug.Log("< Debugging > Floor Up");
         }
     }
 }

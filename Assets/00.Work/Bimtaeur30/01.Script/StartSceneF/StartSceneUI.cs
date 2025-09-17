@@ -10,6 +10,7 @@ public class StartSceneUI : MonoBehaviour
     [SerializeField] RectTransform TitleRec;
     [SerializeField] RectTransform TxtRec;
     [SerializeField] RectTransform ButtonsRec;
+    [SerializeField] RectTransform TutorialRec;
     
     [SerializeField] private GameObject StartBtn;
 
@@ -22,9 +23,12 @@ public class StartSceneUI : MonoBehaviour
         seq.Join(TitleRec.DOAnchorPos(new Vector2(0, 203), 1f));
         seq.Join(TxtRec.DOAnchorPos(new Vector2(0, 75), 1f));
         seq.Join(ButtonsRec.DOAnchorPos(new Vector2(0, -480), 1f));
-        seq.Join(TitleRec.gameObject.GetComponent<CanvasGroup>().DOFade(1f, 1f));
+        
+        seq.Join(TitleRec.gameObject.GetComponent<TextMeshProUGUI>().DOFade(1f, 1f));
         seq.Join(TxtRec.gameObject.GetComponent<TextMeshProUGUI>().DOFade(1f, 1f));
         
         seq.OnComplete(() => StartBtn.SetActive(true));
+        
+        SoundManager.Instance.PlayBgm("TITLE");
     }
 }

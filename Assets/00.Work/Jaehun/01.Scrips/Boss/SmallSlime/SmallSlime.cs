@@ -77,7 +77,6 @@ public class SmallSlime : GroundEnemy
 
         if (Keyboard.current.iKey.wasPressedThisFrame)
         {
-            Debug.Log("테스트: I 키로 SmallSlime 강제 사망");
             SetDead(); // -> Death 상태 진입
         }
     }
@@ -107,7 +106,6 @@ public class SmallSlime : GroundEnemy
     {
         if (bossSlimePrefab == null)
         {
-            Debug.Log("비어있음요");
         }
 
         // 1. 보스 소환
@@ -138,10 +136,6 @@ public class SmallSlime : GroundEnemy
                 bossEnemy.targetTrm = this.targetTrm;
                 bossEnemy.lastAttackTime = Time.time; // 스폰 직후 난사 방지 등
             }
-        }
-        else
-        {
-            Debug.LogWarning("[SmallSlime] bossSlimePrefab이 비어있음. 인스펙터에 지정하세요.");
         }
 
         // 2) 본인 제거(풀을 쓰지 않는다면 Destroy)

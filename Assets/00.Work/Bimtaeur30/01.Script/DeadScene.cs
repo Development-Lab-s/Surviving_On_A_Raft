@@ -29,6 +29,8 @@ public class DeadScene : MonoSingleton<DeadScene>
     public void ActiveDeadScene(DeathReasonEnum reason)
     {
         deathScreen.SetActive(true);
+        SoundManager.Instance.PlayBgm("DIE");
+        
         if (reason == DeathReasonEnum.watarDie)
         {
             Title.text = "익사";

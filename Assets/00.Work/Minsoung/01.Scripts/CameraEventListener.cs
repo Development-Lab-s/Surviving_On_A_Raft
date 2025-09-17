@@ -24,7 +24,6 @@ public class CameraEventListener : MonoBehaviour
         if (eventData.gain == 0)
         {
             _zeroGain = true;
-            Debug.Log("Shake stopping");
         }
         else
         {

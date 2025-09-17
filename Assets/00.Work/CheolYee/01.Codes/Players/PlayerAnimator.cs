@@ -1,4 +1,5 @@
 using _00.Work.CheolYee._01.Codes.Managers;
+using _00.Work.Hedonism._06.Scripts.SO.Manager;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Players
@@ -43,6 +44,9 @@ namespace _00.Work.CheolYee._01.Codes.Players
         
         public void SetDead(bool dead)
         {
+            AnimatorComponent.SetBool(Jump, false);
+            SpawnManager.Instance.ClearAllEnemies();
+            SpawnManager.Instance.DespawnCurrentPortals();
             AnimatorComponent.SetBool(Death, dead);
         }
 

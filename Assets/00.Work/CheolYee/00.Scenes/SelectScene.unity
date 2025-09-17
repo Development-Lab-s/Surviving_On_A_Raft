@@ -641,7 +641,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1248783182}
         m_TargetAssemblyTypeName: CharacterSelectUI, Assembly-CSharp
-        m_MethodName: OnClickNext
+        m_MethodName: OnClickPrev
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1773,7 +1773,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1248783182}
         m_TargetAssemblyTypeName: CharacterSelectUI, Assembly-CSharp
-        m_MethodName: OnClickPrev
+        m_MethodName: OnClickNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

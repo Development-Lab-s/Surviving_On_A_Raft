@@ -18,7 +18,7 @@ MonoBehaviour:
   icon: {fileID: -132906764847973300, guid: 0c9163889891f2a488bbc8e1ddd9d75b, type: 3}
   level: 1
   damage: 20
-  knockbackPower: 2
+  knockbackPower: 0
   nextLevel: {fileID: 11400000, guid: 896a3bcba6befc64ca23c801e3684d5c, type: 2}
   spinRadius: 3
   spinPrefab: {fileID: 3599668503528672686, guid: ee8d816bd8ffa704998ded5459be9448, type: 3}

@@ -95,7 +95,6 @@ namespace _00.Work.Bimtaeur30._01.Script
         {
             if (index < 0 || index >= TJ_ItemManager.Instance.attackItemList.Count)
             {
-                Debug.LogWarning("잘못된 어택 아이템 인덱스");
                 return;
             }
 
@@ -117,7 +116,6 @@ namespace _00.Work.Bimtaeur30._01.Script
         {
             if (index < 0 || index >= TJ_ItemManager.Instance.passiveItemList.Count)
             {
-                Debug.LogWarning("잘못된 패시브 아이템 인덱스");
                 return;
             }
 
@@ -169,7 +167,6 @@ namespace _00.Work.Bimtaeur30._01.Script
         {
             if (direction != 1 && direction != -1)
             {
-                Debug.LogWarning("direction must be +1 or -1");
                 return;
             }
 

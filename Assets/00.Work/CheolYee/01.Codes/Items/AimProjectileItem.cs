@@ -21,7 +21,6 @@ namespace _00.Work.CheolYee._01.Codes.Items
             if (projectile != null)
             {
                 projectile.Initialize(transform, dir, Damage + Player.CurrentDamage, KnockbackPower, Speed);
-                Debug.Log(CurrentProjectileSo.itemName);
             }
         }
 

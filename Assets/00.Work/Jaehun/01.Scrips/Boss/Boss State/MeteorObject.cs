@@ -46,7 +46,6 @@ public class MeteorObject : Projectile         // 민철이가 만든 총알과 
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("메테오 맞음");
         if (IsDead) return;
         
 

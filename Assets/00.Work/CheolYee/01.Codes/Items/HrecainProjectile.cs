@@ -15,11 +15,22 @@ namespace _00.Work.CheolYee._01.Codes.Items
         {
             base.SpawnProjectile();
 
-                Projectile projectile = PoolManager.Instance.Pop(CurrentProjectileSo.projectilePrefab.name) as Projectile;
-                Vector3 dir = firePos.transform.right;
-                if (projectile != null)
-                    projectile.Initialize(transform, dir, Damage + Player.CurrentDamage, KnockbackPower, Speed);
-                LastSpawnTime = Time.time;
+            Projectile projectile = PoolManager.Instance.Pop(CurrentProjectileSo.projectilePrefab.name) as Projectile;
+
+            if (projectile != null)
+            {
+                Vector3 dir = firePos.right * Mathf.Sign(transform.localScale.x);
+
+                projectile.Initialize(
+                    firePos,   // 발사 위치 기준을 firePos로 넘겨주는 게 일반적
+                    dir, 
+                    Damage + Player.CurrentDamage, 
+                    KnockbackPower, 
+                    Speed
+                );
+            }
+
+            LastSpawnTime = Time.time;
         }
         
         private void Update()

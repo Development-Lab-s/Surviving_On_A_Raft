@@ -24,7 +24,6 @@ namespace _00.Work.CheolYee._01.Codes.Skills
             
             if (CanUse)
             {
-                Debug.Log("Use skill");
                 Activate();
                 LastSkillCooldown = Time.time;
             }

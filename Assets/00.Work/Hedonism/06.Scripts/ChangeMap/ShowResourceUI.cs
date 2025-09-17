@@ -96,7 +96,6 @@ public class ShowResourceUI : MonoBehaviour
         
         if (resourceList.Count < REQUIRED_RESOURCE_COUNT) 
         {
-            Debug.LogWarning($"자원 리스트에 최소 {REQUIRED_RESOURCE_COUNT}개 이상의 자원이 필요합니다!");
             return;
         }
 

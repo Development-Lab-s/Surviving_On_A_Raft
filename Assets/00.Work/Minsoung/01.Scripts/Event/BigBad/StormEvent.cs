@@ -31,7 +31,6 @@ public class StormEvent : MonoBehaviour, IEvent
     {
         for (float i = 0; i < num; i++)
         {
-            Debug.Log("허리게인");
             yield return new WaitForSeconds(2f);
             _rand = Random.Range(-10f + i *20f, i * 10f);
             GameObject stormPrefab = Instantiate(stormPre);

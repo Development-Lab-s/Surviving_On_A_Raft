@@ -58,6 +58,11 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
 
         public void SpawnPortalInMap(MapArea map)
         {
+
+            if (GameManager.Instance.currentLevel == 12)
+            {
+                SoundManager.Instance.PlayBgm("BOSS");
+            }
             // 기존 포탈 전부 삭제
             DespawnCurrentPortals();
             ClearAllEnemies();
@@ -108,7 +113,6 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
                 {
                     PoolManager.Instance?.Push(portal);
                 }
-                Debug.Log("기존 포탈 제거 완료");
                 _currentPortals.Clear();
             }
         }

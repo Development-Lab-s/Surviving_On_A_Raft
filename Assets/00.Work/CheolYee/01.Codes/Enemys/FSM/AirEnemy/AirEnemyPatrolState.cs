@@ -12,10 +12,10 @@ public class AirEnemyPatrolState : EnemyAirState
     private readonly float _bobA;
     private readonly float _bobF;
 
-    private Vector2 _a;       // ½Ç»ç¿ë AÁ¡
-    private Vector2 _b;       // ½Ç»ç¿ë BÁ¡
-    private Vector2 _goal;    // ÇöÀç ¸ñÇ¥
-    private float _waitT;     // ³¡Á¡ ´ë±â Å¸ÀÌ¸Ó
+    private Vector2 _a;       // ï¿½Ç»ï¿½ï¿½ Aï¿½ï¿½
+    private Vector2 _b;       // ï¿½Ç»ï¿½ï¿½ Bï¿½ï¿½
+    private Vector2 _goal;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥
+    private float _waitT;     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¸ï¿½Ì¸ï¿½
     private float _seed;
 
     public AirEnemyPatrolState(Enemy enemy, EnemyStateMachine sm, string boolName,
@@ -30,11 +30,11 @@ public class AirEnemyPatrolState : EnemyAirState
 
     public override void Enter()
     {
-        base.Enter(); // "IDLE" bool ON (È£¹ö ¾Ö´Ï)
+        base.Enter(); // "IDLE" bool ON (È£ï¿½ï¿½ ï¿½Ö´ï¿½)
         var rb = Enemy.MovementComponent.RbCompo;
         rb.gravityScale = 0f;
 
-        // ¼øÂû ±¸°£ °è»ê
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         if (_startTf && _endTf)
         {
             _a = _startTf.position;
@@ -42,18 +42,17 @@ public class AirEnemyPatrolState : EnemyAirState
         }
         else
         {
-            // Æ®·£½ºÆû ¹ÌÁöÁ¤ ½Ã, ÇöÀç À§Ä¡ ±âÁØ ÁÂ¿ì patrolDist
+            // Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Â¿ï¿½ patrolDist
             var origin = rb.position;
             _a = origin + Vector2.left * _patrolDist;
             _b = origin + Vector2.right * _patrolDist;
         }
 
-        // °¡±î¿î ÂÊÀ» ¸ÕÀú ÇâÇÔ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         _goal = (Vector2.Distance(rb.position, _a) <= Vector2.Distance(rb.position, _b)) ? _a : _b;
 
         _waitT = 0f;
         _seed = Random.value * 10f;
-        Debug.Log("[Patrol] Enter");
     }
 
     public override void Update()
@@ -61,7 +60,7 @@ public class AirEnemyPatrolState : EnemyAirState
         base.Update();
         if (Enemy.isDead) return;
 
-        // ÇÃ·¹ÀÌ¾î ¹ß°ß Áï½Ã Ãß°Ý
+        // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
         var player = Enemy.GetPlayerInRange();
         if (player != null)
         {
@@ -72,7 +71,7 @@ public class AirEnemyPatrolState : EnemyAirState
         var rb = Enemy.MovementComponent.RbCompo;
         var pos = rb.position;
 
-        // ³¡Á¡ µµ´Þ ¡æ ´ë±â ¡æ ¹Ý´ëÆí ¸ñÇ¥
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ý´ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥
         if (Vector2.Distance(pos, _goal) <= 0.05f)
         {
             _waitT += Time.deltaTime;
@@ -85,13 +84,13 @@ public class AirEnemyPatrolState : EnemyAirState
             return;
         }
 
-        // ¸ñÇ¥ + »óÇÏ È£¹ö
+        // ï¿½ï¿½Ç¥ + ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½
         var hoverY = Mathf.Sin((Time.time + _seed) * _bobF) * _bobA;
         var target = new Vector2(_goal.x, _goal.y + hoverY);
 
         MoveTowardsSmooth(target, Enemy.enemyData.moveSpeed * _speedMul);
 
-        // (¼±ÅÃ) ½ºÇÁ¶óÀÌÆ® ÇÃ¸³: vx ±âÁØÀ¸·Î ½ºÄÉÀÏ¸¸ ¹ÝÀü
+        // (ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã¸ï¿½: vx ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½
         var vx = rb.linearVelocityX;
         if (Mathf.Abs(vx) > 0.01f)
         {
