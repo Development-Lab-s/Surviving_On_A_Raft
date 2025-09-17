@@ -25,6 +25,7 @@ public class ThunderEvent : MonoBehaviour, IEvent
     {
         SoundManager.Instance.PlaySfx("Electricity");
         StartCoroutine(CreateThunder());
+        EventTimer.Instance.StartTimer(10f);
     }
 
     private IEnumerator CreateThunder()
