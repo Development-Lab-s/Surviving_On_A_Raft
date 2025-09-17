@@ -49,7 +49,7 @@ public class ItemInfoView : MonoBehaviour
             ItemLevelTxt.text = "Level: " + playerItem.Level; // 레벨 표시
 
             seq.Join(ButtonImage.DOFade(1f, 1f));
-            seq.OnComplete(() => Time.timeScale = 0);
+            //seq.OnComplete(() => Time.timeScale = 0);
 
             PInput.ChangeUIEnabled(true);
             

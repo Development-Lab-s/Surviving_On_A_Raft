@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808b3eaf175ccb04b91aa8bd44b8d567, type: 3}
   m_Name: CostPoolItem
   m_EditorClassIdentifier: 
-  poolName: Cost 3
+  poolName: ItemCost
   prefab: {fileID: 2612318375182972417, guid: 3f412d631a0b4894ba4bcf1f6dcc0dcf, type: 3}
-  count: 10
+  count: 400

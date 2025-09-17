@@ -20,9 +20,7 @@ MonoBehaviour:
   - "\uB300\uBBF8\uC9C0 30, \uCFE8\uD0C0\uC784 3\uCD08"
   ItemIgdt:
   - Name: "\uAD6C\uB9AC"
-    Amount: 30
-  - Name: "\uAC15\uCCA0"
-    Amount: 50
-  - Name: "\uD669\uAE08"
-    Amount: 10
+    Amount: 80
+  - Name: "\uBCF4\uC11D"
+    Amount: 25
   nextItem: {fileID: 11400000, guid: 14e654799975ff24598e4b84fea54b55, type: 2}
