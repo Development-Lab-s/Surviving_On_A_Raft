@@ -64,6 +64,7 @@ namespace _00.Work.Resource.Manager
         {
             FadeIn(() =>
             {
+                DOTween.KillAll();
                 SceneManager.LoadScene(sceneIndex);
             });
         }

@@ -17,7 +17,7 @@ namespace _00.Work.CheolYee._01.Codes.Items
             Collider2D target = FindNearEnemy();
             if (target != null)
             {
-                Projectile projectile = PoolManager.Instance.Pop(CurrentProjectileSo.projectilePrefab.name) as Projectile;
+                Projectile projectile = PoolManager.Instance.Pop(CurrentProjectileSo.itemName) as Projectile;
                 Vector3 dir = target.transform.position - transform.position;
                 if (projectile != null)
                     projectile.Initialize(transform, dir, Damage + Player.CurrentDamage, KnockbackPower, Speed);

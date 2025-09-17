@@ -12,7 +12,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
         [SerializeField] private Animator animator;
         
         private ForwardItemSO _forwardItemSo;
-        private float CoolTime => _coolTime * Player.CurrentAttackSpeed;
+        private float CoolTime => _coolTime - Player.CurrentAttackSpeed;
         private float _coolTime = 3;
         private float _timer;
         
@@ -22,7 +22,7 @@ namespace _00.Work.lusalord._02.Script.ItemType
             base.Awake();
             _forwardItemSo = (ForwardItemSO)attackItemSo;
 
-            gameObject.name = _forwardItemSo.itemName;
+            animator.runtimeAnimatorController = _forwardItemSo.animatorController;
             _coolTime = _forwardItemSo.coolTime;
         }
 

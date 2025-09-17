@@ -12,7 +12,6 @@ public class EnemyAttackSpeedDownEvent : MonoBehaviour, IEvent
     public void StartEvent()
     {
         StatManager.Instance.EnemyBuffInTime(StatType.AttackSpeed, 0.8f, EventDuration);
-        EventTimer.Instance.StartTimer(EventDuration);
     }
 
     public void StartEventEffectText()

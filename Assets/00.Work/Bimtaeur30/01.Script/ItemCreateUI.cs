@@ -12,7 +12,7 @@ public class ItemCreateUI : MonoBehaviour
     [SerializeField] private Vector2 upPos;
     [SerializeField] private Vector2 downPos;
     [SerializeField] private Volume globalVolume;
-    [SerializeField] private PlayerInventoryInput pInventoryInput;
+    [SerializeField] private PlayerInventoryInput PInput;
     [SerializeField] private CanvasGroup UICanvasGroup;
 
     private DepthOfField dof; // DOF 효과 컨트롤
@@ -40,7 +40,7 @@ public class ItemCreateUI : MonoBehaviour
             return;
         }
 
-        if (pInventoryInput.isFullscreenUIEnabled != true)
+        if (PInput.isFullscreenUIEnabled != true)
         {
             
             MoveObject.gameObject.SetActive(true);
@@ -53,7 +53,7 @@ public class ItemCreateUI : MonoBehaviour
             {
                 isUIEnabled = true;
                 AnimateFocus(0.1f, 0.3f);
-                pInventoryInput.ChangeUIEnabled(true);
+                PInput.ChangeUIEnabled(true);
                 currentSeq = null; // 끝나면 초기화
                 Time.timeScale = 0;
             });
@@ -75,7 +75,7 @@ public class ItemCreateUI : MonoBehaviour
             MoveObject.gameObject.SetActive(false);
             isUIEnabled = false;
             AnimateFocus(10f, 0.3f);
-            pInventoryInput.ChangeUIEnabled(false);
+            PInput.ChangeUIEnabled(false);
             currentSeq = null; // 끝나면 초기화
         });
     }

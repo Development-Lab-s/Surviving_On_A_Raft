@@ -14,11 +14,11 @@ namespace _00.Work.CheolYee._01.Codes.Managers
         
         private PlayerSkillDataSo _currentSkillData;
 
-        protected override void Awake()
+        /*protected override void Awake()
         {
             base.Awake();
             _currentSkillData = player.CharacterData.playerSkillData;
-        }
+        }*/
 
         private void Start()
         {

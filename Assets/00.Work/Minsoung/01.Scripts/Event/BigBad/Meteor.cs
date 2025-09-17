@@ -1,6 +1,5 @@
-﻿using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
-using _00.Work.Resource.Manager;
-using System.Collections;
+﻿using System.Collections;
+using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,7 +34,6 @@ public class Meteor : MonoBehaviour
 
     private void Start()
     {
-        SoundManager.Instance.PlaySfx("Meteor");
         StartCoroutine(ColloiderActive());
     }
 
@@ -45,7 +43,6 @@ public class Meteor : MonoBehaviour
         eventSO.RaiseEvent(eventData);
 
         yield return new WaitForSeconds(colliderTime);
-        
         _collider.enabled = true;
         eventData.gain = 10;
         eventSO.RaiseEvent(eventData);
@@ -56,7 +53,6 @@ public class Meteor : MonoBehaviour
         if ((whatIsgroundCheck & (1 << collision.gameObject.layer)) != 0)
         {
             Debug.Log("Crash 레이어 일치! 파괴!");
-            SoundManager.Instance.PlaySfx("Explosion");
             StartCoroutine(MeteorParticle());
         }
         else

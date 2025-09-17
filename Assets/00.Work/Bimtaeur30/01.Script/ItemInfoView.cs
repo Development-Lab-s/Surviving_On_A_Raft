@@ -20,7 +20,7 @@ public class ItemInfoView : MonoBehaviour
 
     [SerializeField] private Volume globalVolume;
 
-    [SerializeField] private PlayerInventoryInput pInventoryInput;
+    [SerializeField] private PlayerInventoryInput PInput;
 
     private DepthOfField dof;
 
@@ -36,7 +36,7 @@ public class ItemInfoView : MonoBehaviour
     public void ItemInfoViewMethod(PlayerItem playerItem)
     {
 
-        if (!pInventoryInput.isFullscreenUIEnabled)
+        if (!PInput.isFullscreenUIEnabled)
         {
             Sequence seq = DOTween.Sequence();
             AnimateFocus(0.1f, 0.3f);
@@ -51,7 +51,7 @@ public class ItemInfoView : MonoBehaviour
             seq.Join(ButtonImage.DOFade(1f, 1f));
             seq.OnComplete(() => Time.timeScale = 0);
 
-            pInventoryInput.ChangeUIEnabled(true);
+            PInput.ChangeUIEnabled(true);
             
         }
     }
@@ -66,7 +66,7 @@ public class ItemInfoView : MonoBehaviour
         seq.AppendInterval(0f);
         seq.Join(ButtonImage.DOFade(0f, 1f));
 
-        pInventoryInput.ChangeUIEnabled(false);
+        PInput.ChangeUIEnabled(false);
     }
 
     public void AnimateFocus(float to, float duration)

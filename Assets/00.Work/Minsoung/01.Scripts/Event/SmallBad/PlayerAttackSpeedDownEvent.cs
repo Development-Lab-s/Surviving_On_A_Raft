@@ -12,7 +12,6 @@ public class PlayerAttackSpeedDownEvent : MonoBehaviour, IEvent
     public void StartEvent()
     {
         StatManager.Instance.PlayerBuffInTime(StatType.AttackSpeed, -0.2f, EventDuration);
-        EventTimer.Instance.StartTimer(EventDuration);
     }
 
     public void StartEventEffectText()

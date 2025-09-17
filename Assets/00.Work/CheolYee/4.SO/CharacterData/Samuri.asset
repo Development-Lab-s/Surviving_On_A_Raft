@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cd7fec0b449b5bfb068c9ddeff55a, type: 3}
+  m_Name: Samuri
+  m_EditorClassIdentifier: 
+  characterName: "\uC0AC\uBB34\uB77C\uC774"
+  animatorController: {fileID: 9100000, guid: 964429869a835b64fb38aeb3c80f3ca3, type: 2}
+  startItem: 11
+  health: 150
+  moveSpeed: 7
+  jumpForce: 35
+  attack: 20
+  attackSpeed: 1.2
+  criticalChance: 30

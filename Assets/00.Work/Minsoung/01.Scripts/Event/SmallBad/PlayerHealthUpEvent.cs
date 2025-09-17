@@ -12,7 +12,6 @@ public class PlayerHealthUpEvent : MonoBehaviour, IEvent
     public void StartEvent()
     {
         StatManager.Instance.PlayerBuffInTime(StatType.Health, 0.2f, EventDuration);
-        EventTimer.Instance.StartTimer(EventDuration);
     }
 
     public void StartEventEffectText()

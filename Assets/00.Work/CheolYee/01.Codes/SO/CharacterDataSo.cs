@@ -5,6 +5,11 @@ namespace _00.Work.CheolYee._01.Codes.SO
     [CreateAssetMenu(fileName = "NewCharacterData", menuName = "SO/Player/CharacterDataSo")]
     public class CharacterDataSo : ScriptableObject
     {
+        [Header("Character Information")]
+        public string characterName;
+        public RuntimeAnimatorController animatorController;
+        public int startItem;
+        
         [Header("CharacterData")]
         public float health = 100f;
         public float moveSpeed = 5;
@@ -12,8 +17,5 @@ namespace _00.Work.CheolYee._01.Codes.SO
         public float attack = 10f;
         public float attackSpeed;
         public int criticalChance = 10;
-        
-        [Header("SkillData")]
-        public PlayerSkillDataSo playerSkillData;
     }
 }
