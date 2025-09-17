@@ -27,9 +27,5 @@ public class ItemBtn : MonoBehaviour
         {
             infoPanel.SetItemInfo(itemData);
         }
-        else
-        {
-            Debug.LogWarning($"{name} 버튼에 InfoPanel 또는 ItemSO가 연결되지 않았습니다.");
-        }
     }
 }

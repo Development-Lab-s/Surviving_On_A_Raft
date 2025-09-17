@@ -39,10 +39,7 @@ public class EventUIManager : MonoBehaviour
                     int rand1 = Random.Range(0, smallGoodMessage.Count);
                     SetEventText(smallGoodMessage[rand1]);
                 }
-                else
-                {
-                    Debug.LogWarning("smallGoodMessage 리스트가 비어있습니다!");
-                }
+
                 break;
 
             case GameEventType.BigGood:
@@ -51,10 +48,7 @@ public class EventUIManager : MonoBehaviour
                     int rand2 = Random.Range(0, BigGoodMessage.Count);
                     SetEventText(BigGoodMessage[rand2]);
                 }
-                else
-                {
-                    Debug.LogWarning("BigGoodMessage 리스트가 비어있습니다!");
-                }
+
                 break;
 
             case GameEventType.SmallBad:
@@ -63,10 +57,7 @@ public class EventUIManager : MonoBehaviour
                     int rand3 = Random.Range(0, smallBadMessage.Count);
                     SetEventText(smallBadMessage[rand3]);
                 }
-                else
-                {
-                    Debug.LogWarning("smallBadMessage 리스트가 비어있습니다!");
-                }
+
                 break;
 
             case GameEventType.BigBad:
@@ -75,10 +66,7 @@ public class EventUIManager : MonoBehaviour
                     int rand4 = Random.Range(0, BigBadMessage.Count);
                     SetEventText(BigBadMessage[rand4]);
                 }
-                else
-                {
-                    Debug.LogWarning("BigBadMessage 리스트가 비어있습니다!");
-                }
+
                 break;
         }
     }

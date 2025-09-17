@@ -53,7 +53,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
 
             //거리 감지
             float dist = Vector3.Distance(Enemy.transform.position, Enemy.targetTrm.position);
-            Debug.Log(dist > _range);
             if (dist > _range) return false;
 
             return true;

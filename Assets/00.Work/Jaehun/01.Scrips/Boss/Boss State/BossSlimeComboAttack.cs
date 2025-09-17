@@ -54,7 +54,6 @@ public class BossSlimeComboAttack : SkillState
         LastAttackTime = Time.time;
         (Enemy as BossSlime)?.StartGlobalSkillLock();
 
-        Debug.Log("[Skill6 Combo] Enter. Waiting for AttackCast / Takeoff events.");
     }
 
 
@@ -65,7 +64,6 @@ public class BossSlimeComboAttack : SkillState
         bool hit = _hitCaster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
         // ��ٿ� ����(���� �߿��� �����صθ� ���� ���� Ÿ�ֿ̹��� �� ����)
         LastAttackTime = Time.time;
-        Debug.Log(hit ? "[Skill6 Combo] HIT" : "[Skill6 Combo] MISS");
     }
 
     public override void ComboFlip()
@@ -78,14 +76,8 @@ public class BossSlimeComboAttack : SkillState
         // �̵� �ӵ� �ܷ� ����
         if (_rb != null) _rb.linearVelocity = Vector2.zero;
 
-        Debug.Log("[Skill6 Combo] Flip side.");
     }
 
-    public override void AnimationEndTrigger()
-    {
-        base.AnimationEndTrigger(); // IsCompleted = true
-        Debug.Log("[Skill6 Combo] AnimationEnd.");
-    }
     public void SetCaster(DamageCaster caster)
     {
         _hitCaster = caster;

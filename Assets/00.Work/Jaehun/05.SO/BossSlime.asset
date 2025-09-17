@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a183b0e7f7f4be0a21626664b9f3947, type: 3}
   m_Name: BossSlime
   m_EditorClassIdentifier: 
-  maxHealth: 3000
+  maxHealth: 20000
   moveSpeed: 3
   jumpForce: 4
   knockbackDuration: 0

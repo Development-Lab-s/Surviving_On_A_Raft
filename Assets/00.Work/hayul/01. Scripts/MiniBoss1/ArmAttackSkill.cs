@@ -32,7 +32,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
         // 공격 발동 (Animation Event에서 호출됨)
         public override void OnAnimationCast()
         {
-            Debug.Log("보스 팔 공격 발동!");
 
             string poolName = _armPrefab.GetComponent<IPoolable>().ItemName;
             Projectile arms = PoolManager.Instance.Pop(poolName) as Projectile;

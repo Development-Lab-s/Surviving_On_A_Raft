@@ -113,7 +113,6 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
                 {
                     PoolManager.Instance?.Push(portal);
                 }
-                Debug.Log("기존 포탈 제거 완료");
                 _currentPortals.Clear();
             }
         }

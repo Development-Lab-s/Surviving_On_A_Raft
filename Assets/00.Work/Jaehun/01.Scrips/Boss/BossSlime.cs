@@ -174,8 +174,6 @@ namespace _00.Work.Jaehun._01.Scrips.Boss
             if (bossHpUI == null) bossHpUI = GetComponent<BossHealthBarUI>();
             if (bossHpUI != null && HealthComponent != null)
                 bossHpUI.Bind(HealthComponent);
-            else
-                Debug.LogWarning("[BossSlime] bossHpUI 또는 HealthComponent 없음. HP UI 바인딩 실패");
 
             var triggers = GetComponentsInChildren<EnemyAnimatorTrigger>(true);
             foreach (var t in triggers) t.Initialize(this);

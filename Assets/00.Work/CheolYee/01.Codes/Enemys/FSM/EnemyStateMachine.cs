@@ -18,7 +18,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
             _enemy = enemy;
             if (!_stateDictionary.TryGetValue(startState, out var st) || st == null)
             {
-                Debug.LogError($"[EnemyStateMachine] 초기 상태 '{startState}'가 등록되지 않았거나 null입니다. 오브젝트: {_enemy.name}");
                 return;
             }
             CurrentState = st;
@@ -30,7 +29,6 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.FSM
             if (_enemy.isDead && newState != EnemyBehaviourType.Death) return;
             if (!_stateDictionary.TryGetValue(newState, out var st) || st == null)
             {
-                Debug.LogError($"[EnemyStateMachine] '{newState}' 상태가 등록되지 않았거나 null입니다. 오브젝트: {_enemy.name}");
                 return;
             }
             CurrentState?.Exit();

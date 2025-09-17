@@ -69,13 +69,11 @@ public class BossSlimeBigAttack : SkillState
          Vector2 center = (Vector2)Enemy.transform.position + new Vector2(_hitBoxOffset.x * face, _hitBoxOffset.y);
 
          Collider2D[] hits = Physics2D.OverlapBoxAll(center, _hitBoxSize, 0f, _playerMask);
-         Debug.Log($"[BigAttack] HitBox center={center} size={_hitBoxSize} hit={hits.Length}");
 
          foreach (var h in hits)
          {
              // ���⼭ ���� ������/�˹��� �����ϼ���.
              // DamageCaster�� �ִٸ� �װ� �ᵵ OK. (��: _caster.CastDamage(...))
-             Debug.Log("[BigAttack] HIT " + h.name);
          }
 
          _didHit = true;*/

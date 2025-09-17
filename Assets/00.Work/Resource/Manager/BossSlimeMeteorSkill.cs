@@ -56,7 +56,6 @@ public class BossSlimeMeteorSkill : SkillState
 
         if (meteorPool == null || spawnPoints == null || spawnPoints.Length == 0)
         {
-            Debug.LogWarning("[MeteorSkill] pool 또는 spawnPoints가 비었슴요.");
             return;
         }
 

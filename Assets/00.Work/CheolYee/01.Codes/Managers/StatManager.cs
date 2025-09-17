@@ -132,7 +132,6 @@ namespace _00.Work.CheolYee._01.Codes.Managers
         }
         private void BuffPlayer(StatType stats, float multi)
         {
-            Debug.LogWarning($"{stats}, {multi}");
             OnPlayerBuff?.Invoke(stats, multi);
         }
     }

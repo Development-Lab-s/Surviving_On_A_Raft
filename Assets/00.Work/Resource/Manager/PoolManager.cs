@@ -27,7 +27,6 @@ namespace _00.Work.Resource.Manager
             IPoolable poolable = item.GetComponent<IPoolable>();
             if (poolable == null)
             {
-                Debug.LogError($"Item {item.name} does not implement IPoolable.");
                 return;
             }
 

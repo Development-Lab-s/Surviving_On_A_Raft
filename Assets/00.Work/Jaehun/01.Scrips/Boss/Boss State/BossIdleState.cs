@@ -10,7 +10,6 @@ public class BossIdleState : EnemyGroundState
     {
         base.Enter();
         Enemy.MovementComponent.StopImmediately();
-        Debug.Log("[BossIdleState] Enter");
     }
 
     public override void Update()
@@ -18,18 +17,10 @@ public class BossIdleState : EnemyGroundState
         base.Update();
 
         var col = Enemy.GetPlayerInRange();
-        Debug.Log($"[BossIdleState] Update: detected={(col != null)}");
 
         if (col != null)
         {
-            Debug.Log("[BossIdleState] Player detected -> Chase");
             StateMachine.ChangeState(EnemyBehaviourType.Chase);
         }
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-        Debug.Log("[BossIdleState] Exit");
     }
 }

@@ -24,7 +24,6 @@ namespace _00.Work.CheolYee._01.Codes.Items.SO
                 else
                 {
                     projectilePrefab = null;
-                    Debug.Log("얘는 발사체가 아닙니다.");
                 }
             }
         }

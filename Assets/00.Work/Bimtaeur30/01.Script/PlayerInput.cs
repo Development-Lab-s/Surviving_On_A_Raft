@@ -50,14 +50,6 @@ public class PlayerInput : MonoBehaviour
                     {
                         StartCoroutine(HoldKey(delectSlider));
                     }
-                    else
-                    {
-                        Debug.LogWarning("선택된 슬롯에서 Slider 컴포넌트를 찾을 수 없습니다.");
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("선택된 슬롯 인덱스가 유효하지 않습니다.");
                 }
             }
         }

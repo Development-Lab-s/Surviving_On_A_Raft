@@ -41,7 +41,6 @@ public class BossSlimeMeteorController : MonoBehaviour
         var poolable = meteorPrefab != null ? meteorPrefab.GetComponent<IPoolable>() : null;
         if (poolable == null)
         {
-            Debug.LogError("[MeteorController] meteorPrefab�� IPoolable�� �ʿ��մϴ�.");
         }
         else
         {
@@ -65,12 +64,10 @@ public class BossSlimeMeteorController : MonoBehaviour
 
         if (spawnPoints == null || spawnPoints.Length == 0)
         {
-            Debug.LogWarning("[MeteorController] spawnPoints �������");
             return;
         }
         if (string.IsNullOrEmpty(_poolName))
         {
-            Debug.LogError("[MeteorController] Ǯ �̸��� ������� (IPoolable �̼���?)");
             return;
         }
 
@@ -122,7 +119,6 @@ public class BossSlimeMeteorController : MonoBehaviour
         Transform p = spawnPoints[idx];
         if (p == null)
         {
-            Debug.LogWarning("[MeteorController] �� spawnPoint");
             return;
         }
 
@@ -130,7 +126,6 @@ public class BossSlimeMeteorController : MonoBehaviour
         var proj = PoolManager.Instance.Pop(_poolName) as Projectile;
         if (proj == null)
         {
-            Debug.LogError("[MeteorController] Ǯ Pop ����");
             return;
         }
 

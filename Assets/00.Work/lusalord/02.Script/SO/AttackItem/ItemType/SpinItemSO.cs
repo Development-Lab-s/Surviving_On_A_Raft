@@ -29,7 +29,6 @@ namespace _00.Work.lusalord._02.Script.SO.AttackItem.ItemType
                 else
                 {
                     spinPrefab = null;
-                    Debug.Log("얘는 스핀 캐스터가 아닙니다.");
                 }
             }
         }
