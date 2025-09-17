@@ -14,12 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 11400000, guid: 29204f7b524b78942ba9cd470e733609, type: 2}
-  enemiesData:
+  - {fileID: 11400000, guid: 268e7a706cdf4b748bfc826415e159f3, type: 2}
+  - {fileID: 11400000, guid: 7b5dc30de920a7643992424bb1421a4b, type: 2}
+  - {fileID: 11400000, guid: ea8a8ec89918ab346943cc018cdabdc3, type: 2}
+  - {fileID: 11400000, guid: 4abd138ee28c5ec48933fdb17f114827, type: 2}
+  - {fileID: 11400000, guid: 838111d6ac46d3842809e00808b978e0, type: 2}
+  - {fileID: 11400000, guid: 3dffb2594736b5b4cb6f85616a4963a6, type: 2}
+  enemyData:
   - {fileID: 11400000, guid: 04b254318ee536849b889be0141b5be2, type: 2}
+  - {fileID: 11400000, guid: 7ce8a5729ab53334a9754a07aed0483f, type: 2}
+  - {fileID: 11400000, guid: 7ce8a5729ab53334a9754a07aed0483f, type: 2}
+  - {fileID: 11400000, guid: e669892293a14a94b8a6372772698050, type: 2}
+  - {fileID: 11400000, guid: f82a7e982207eaa46b7028b57ab55b07, type: 2}
+  - {fileID: 11400000, guid: 0d2c4ac1ce7d69a418fd6fe49d76b0f8, type: 2}
+  - {fileID: 11400000, guid: 6c1a3afd360697b4eb7c8e51bc79cf42, type: 2}
   enemyCount: 20
   launchForce: 2
-  minTime: 1
-  maxTime: 4
-  portalColor: {r: 0.18396229, g: 0.628657, b: 1, a: 0.80784315}
+  minTime: 0.7
+  maxTime: 1.5
+  portalColor: {r: 1, g: 0.96924657, b: 0.18431371, a: 0.80784315}
   isBossStage: 1
   currentBoss: {fileID: 11400000, guid: af5d548cc7a317c4ea905b46bf0f988c, type: 2}

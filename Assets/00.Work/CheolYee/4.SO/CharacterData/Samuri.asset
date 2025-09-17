@@ -19,5 +19,5 @@ MonoBehaviour:
   moveSpeed: 7
   jumpForce: 35
   attack: 20
-  attackSpeed: 0.4
+  attackSpeed: 1.2
   criticalChance: 30
