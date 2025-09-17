@@ -52,7 +52,8 @@ public class ItemCreateUI : MonoBehaviour
             currentSeq.OnComplete(() =>
             {
                 isUIEnabled = true;
-                AnimateFocus(0.1f, 0.3f);
+                //AnimateFocus(0.1f, 0.3f);
+                dof.focusDistance.value = 0.1f;
                 PInput.ChangeUIEnabled(true);
                 currentSeq = null; // 끝나면 초기화
                 Time.timeScale = 0;
@@ -74,7 +75,8 @@ public class ItemCreateUI : MonoBehaviour
         {
             MoveObject.gameObject.SetActive(false);
             isUIEnabled = false;
-            AnimateFocus(10f, 0.3f);
+            //AnimateFocus(10f, 0.3f);
+            dof.focusDistance.value = 10f;
             PInput.ChangeUIEnabled(false);
             currentSeq = null; // 끝나면 초기화
         });
