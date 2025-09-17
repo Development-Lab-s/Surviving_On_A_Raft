@@ -17,12 +17,12 @@ MonoBehaviour:
   attackItem: {fileID: 0}
   passiveItem: {fileID: 11400000, guid: 6f5f6afc268c55342b20a8861f1f7b3f, type: 2}
   itemAttributes:
-  - "\uD06C\uD655 30%, \uACF5\uC18D, \uC774\uC18D -20%"
+  - "\uD06C\uD655 10%, \uACF5\uC18D -10%, \uC774\uC18D -10%"
   ItemIgdt:
+  - Name: "\uAD6C\uB9AC"
+    Amount: 10
   - Name: "\uAC15\uCCA0"
-    Amount: 6
-  - Name: "\uBCF4\uC11D"
-    Amount: 2
-  - Name: "\uB9C8\uC11D"
-    Amount: 3
+    Amount: 10
+  - Name: "\uD669\uAE08"
+    Amount: 15
   nextItem: {fileID: 11400000, guid: 7d16bd70f4199a74badeca4d107537d4, type: 2}
