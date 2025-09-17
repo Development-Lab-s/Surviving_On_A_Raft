@@ -1,11 +1,13 @@
+using _00.Work.Resource.Manager;
+
 namespace _00.Work.lusalord._02.Script.Item
 {
     public class TestForwardItem : ItemType.ItemTypeForward
     {
-        protected override void Awake()
+        public override void AnimateForwardAttack()
         {
-            base.Awake();
+            base.AnimateForwardAttack();
+            SoundManager.Instance.PlaySfx("HAMMER");
         }
-        
     }
 }

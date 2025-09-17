@@ -1,5 +1,6 @@
 using _00.Work.lusalord._02.Script.Item;
 using _00.Work.lusalord._02.Script.ItemType;
+using _00.Work.Resource.Manager;
 using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Items
@@ -12,6 +13,12 @@ namespace _00.Work.CheolYee._01.Codes.Items
         {
             // 공격 시작할 때 방향 고정
             mouseCaster.LockDirection();
+        }
+
+        public override void AnimateForwardAttack()
+        {
+            base.AnimateForwardAttack();
+            SoundManager.Instance.PlaySfx("SWORD");
         }
 
         // 애니메이션 끝에서 이벤트 호출

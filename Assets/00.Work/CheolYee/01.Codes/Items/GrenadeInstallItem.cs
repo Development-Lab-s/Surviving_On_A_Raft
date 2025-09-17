@@ -10,7 +10,7 @@ namespace _00.Work.CheolYee._01.Codes.Items
         protected override void SpawnProjectile()
         {
             base.SpawnProjectile();
-            Projectile projectile = PoolManager.Instance.Pop(InstallItemSo.itemName) as Projectile;
+            Projectile projectile = PoolManager.Instance.Pop(InstallItemSo.installItem.name) as Projectile;
             
             if (projectile != null)
                 projectile.Initialize(transform, Vector2.up, Player.CurrentDamage + Damage, KnockbackPower, Speed);
