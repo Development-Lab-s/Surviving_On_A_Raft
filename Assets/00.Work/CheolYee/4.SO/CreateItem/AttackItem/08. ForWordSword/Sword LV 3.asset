@@ -17,7 +17,7 @@ MonoBehaviour:
   attackItem: {fileID: 11400000, guid: 38403354babdd5245a7a4ab5805a1257, type: 2}
   passiveItem: {fileID: 0}
   itemAttributes:
-  - "\uACF5\uACA9"
+  - "\uB300\uBBF8\uC9C0 30, \uCFE8\uD0C0\uC784 3\uCD08"
   ItemIgdt:
   - Name: "\uAD6C\uB9AC"
     Amount: 30

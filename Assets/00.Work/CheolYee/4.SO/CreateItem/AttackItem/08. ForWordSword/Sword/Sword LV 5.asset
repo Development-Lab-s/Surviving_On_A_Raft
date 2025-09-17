@@ -17,7 +17,8 @@ MonoBehaviour:
   desc: "\uC804\uBC29\uC73C\uB85C \uD070 \uAC80\uC744 \uD718\uB450\uB985\uB2C8\uB2E4."
   icon: {fileID: 21300000, guid: 2fe6ad469a4de3942b2800d9a978dfdf, type: 3}
   level: 5
-  damage: 20
+  damage: 40
   knockbackPower: 10
   nextLevel: {fileID: 0}
+  animatorController: {fileID: 0}
   coolTime: 2.5
