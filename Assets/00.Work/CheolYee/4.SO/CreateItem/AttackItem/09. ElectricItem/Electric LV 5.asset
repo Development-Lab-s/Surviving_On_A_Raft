@@ -22,9 +22,7 @@ MonoBehaviour:
   - Name: "\uAD6C\uB9AC"
     Amount: 100
   - Name: "\uD669\uAE08"
-    Amount: 70
+    Amount: 90
   - Name: "\uB9C8\uC11D"
-    Amount: 20
-  - Name: "\uBCF4\uC11D"
-    Amount: 20
+    Amount: 80
   nextItem: {fileID: 0}
