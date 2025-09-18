@@ -14,6 +14,7 @@ namespace _00.Work.CheolYee._01.Codes.Items.PicupItem
         {
             if (other.gameObject.TryGetComponent(out Player p))
             {
+                SoundManager.Instance.PlaySfx("HEAL");
                 p.HealthComponent.HealPer(healPer);
                 PoolManager.Instance.Push(this);
             }

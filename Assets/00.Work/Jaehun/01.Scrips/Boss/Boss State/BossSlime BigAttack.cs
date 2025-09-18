@@ -2,6 +2,7 @@ using _00.Work.CheolYee._01.Codes.Enemys;
 using _00.Work.CheolYee._01.Codes.Enemys.Attacks;
 using _00.Work.CheolYee._01.Codes.Enemys.Boss.BossSkillAttack;
 using _00.Work.Jaehun._01.Scrips.Boss;
+using _00.Work.Resource.Manager;
 using UnityEngine;
 
 public class BossSlimeBigAttack : SkillState
@@ -61,6 +62,7 @@ public class BossSlimeBigAttack : SkillState
     {
         if (_hitCaster == null) return;
 
+        SoundManager.Instance.PlaySfx("BOSSSWORD");
         _hitCaster.CastDamage(Enemy.CurrentAttackDamage, Enemy.knockbackPower);
         LastAttackTime = Time.time;
         /* if (_didHit) return;

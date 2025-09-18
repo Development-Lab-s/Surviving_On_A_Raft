@@ -37,6 +37,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
             Projectile arms = PoolManager.Instance.Pop(poolName) as Projectile;
             if (arms)
             {
+                SoundManager.Instance.PlaySfx("ARM");
                 Vector2 dir = Enemy.targetTrm.position - _spawnPos.position;
                 arms.Initialize(_spawnPos, dir, Enemy.CurrentAttackDamage, 0, _shotSpeed);
             }

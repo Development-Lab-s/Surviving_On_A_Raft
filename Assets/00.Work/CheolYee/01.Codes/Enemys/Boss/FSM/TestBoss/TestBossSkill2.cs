@@ -26,6 +26,12 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.TestBoss
             _range = range;
         }
 
+        public override void Enter()
+        {
+            base.Enter();
+            SoundManager.Instance.PlaySfx("MAGIC");
+        }
+
         public override void OnAnimationCast()
         {
             //공격 로직 예시 (투사체)
