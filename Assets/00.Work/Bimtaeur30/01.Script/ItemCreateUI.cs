@@ -48,6 +48,8 @@ public class ItemCreateUI : MonoBehaviour
             currentSeq = DOTween.Sequence();
             currentSeq.Join(MoveObject.DOAnchorPos(upPos, 0.3f));
             currentSeq.Join(UICanvasGroup.DOFade(1f, 0.5f));
+            currentSeq.SetUpdate(true);
+            Time.timeScale = 0;
             
 
             currentSeq.OnComplete(() =>
@@ -57,7 +59,7 @@ public class ItemCreateUI : MonoBehaviour
                 dof.focusDistance.value = 0.1f;
                 PInput.ChangeUIEnabled(true);
                 currentSeq = null; // 끝나면 초기화
-                Time.timeScale = 0;
+                
             });
         }
     }
