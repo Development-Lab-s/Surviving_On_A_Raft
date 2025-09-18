@@ -135,6 +135,7 @@ namespace _00.Work.Hedonism._06.Scripts.SO.Manager
         public void StartCycle(int index)
         {
             // 플레이어 이동
+            SoundManager.Instance.PlaySfx("LADDER");
             StartCoroutine(MovePlayerTo(index));
         }
 

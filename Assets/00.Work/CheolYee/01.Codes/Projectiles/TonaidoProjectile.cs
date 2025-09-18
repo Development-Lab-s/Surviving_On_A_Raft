@@ -38,6 +38,7 @@ namespace _00.Work.CheolYee._01.Codes.Projectiles
 
         public void Forward()
         {
+            SoundManager.Instance.PlaySfx("TONAIDO");
             rb.AddForce(_direction * _speed, ForceMode2D.Impulse);   
         }
 

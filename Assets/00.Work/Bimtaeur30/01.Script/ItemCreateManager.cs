@@ -42,6 +42,10 @@ namespace _00.Work.Bimtaeur30._01.Script
                     //return;
                 }
             }
+            if (isInvenEmpty)
+            {
+                SoundManager.Instance.PlaySfx("UPGRADE");
+            }
             //IIGAR.FindInventorySlot(Item);
         }
         

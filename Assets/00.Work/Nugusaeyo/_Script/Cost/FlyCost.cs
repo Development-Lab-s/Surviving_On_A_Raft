@@ -74,6 +74,7 @@ public class FlyCost : MonoBehaviour
                     if (CostManager.Instance != null)
                     {
                         CostManager.Instance.PlusCost(costType, 1);
+                        SoundManager.Instance.PlaySfx("MONEY");
                         if (PoolManager.Instance != null) PoolManager.Instance.Push(_cost);
                     }
 

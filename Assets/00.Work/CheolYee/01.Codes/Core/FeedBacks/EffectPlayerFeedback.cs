@@ -12,6 +12,7 @@ namespace _00.Work.CheolYee._01.Codes.Core.FeedBacks
         {
             EffectPlayerSystem effect = PoolManager.Instance.Pop(effectItem.poolName) as EffectPlayerSystem;
             effect?.SetPosAndPlay(transform.position);
+            SoundManager.Instance.PlaySfx("BOOM");
         }
 
         public override void FinishFeedback()
