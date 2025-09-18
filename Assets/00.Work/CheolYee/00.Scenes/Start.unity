@@ -3998,7 +3998,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1293986874}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1312127117}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.MapUI.Tutorial, Assembly-CSharp
+        m_MethodName: NextTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1293986874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4111,6 +4123,7 @@ MonoBehaviour:
   - {fileID: -7371509505491802261, guid: 678000f37f809bd47a3a2779d8405586, type: 3}
   tutorialPanel: {fileID: 458411592}
   currentTutoImage: {fileID: 1928563697}
+  currentTutoText: {fileID: 714074048}
 --- !u!1001 &1341059819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5473,7 +5486,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1964023801}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1312127117}
+        m_TargetAssemblyTypeName: _00.Work.CheolYee._01.Codes.MapUI.Tutorial, Assembly-CSharp
+        m_MethodName: BackTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1964023801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6020,22 +6045,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3480926930646826895, guid: 63a1952a83871514f9c6c6016dd96e4e, type: 3}
-      propertyPath: sfxClips.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3480926930646826895, guid: 63a1952a83871514f9c6c6016dd96e4e, type: 3}
-      propertyPath: 'sfxClips.Array.data[9]'
-      value: 
-      objectReference: {fileID: 8300000, guid: cd7ec3d8ee7c54946a3318aa17861ecf, type: 3}
-    - target: {fileID: 3480926930646826895, guid: 63a1952a83871514f9c6c6016dd96e4e, type: 3}
-      propertyPath: 'sfxClips.Array.data[10]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 02da99e28d52be8469f1fd7efdc72ead, type: 3}
-    - target: {fileID: 3480926930646826895, guid: 63a1952a83871514f9c6c6016dd96e4e, type: 3}
-      propertyPath: 'sfxClips.Array.data[11]'
-      value: 
-      objectReference: {fileID: 8300000, guid: f975a318e201c1346925fa48a9863604, type: 3}
     - target: {fileID: 7111969675827113657, guid: 63a1952a83871514f9c6c6016dd96e4e, type: 3}
       propertyPath: m_Name
       value: SoundManager

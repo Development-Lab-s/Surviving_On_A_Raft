@@ -20,6 +20,7 @@ namespace _00.Work.CheolYee._01.Codes.Items
             Vector2 dir = Player.PlayerInput.MousePosition - (Vector2)transform.position;
             if (projectile != null)
             {
+                SoundManager.Instance.PlaySfx("ARROW");
                 projectile.Initialize(transform, dir, Damage + Player.CurrentDamage, KnockbackPower, Speed);
             }
         }

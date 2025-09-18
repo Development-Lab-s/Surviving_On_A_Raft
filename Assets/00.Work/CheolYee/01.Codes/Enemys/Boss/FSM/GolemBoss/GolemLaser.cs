@@ -48,6 +48,7 @@ namespace _00.Work.CheolYee._01.Codes.Enemys.Boss.FSM.GolemBoss
 
         private IEnumerator LifeTimeRoutine()
         {
+            SoundManager.Instance.PlaySfx("LASER");
             yield return new WaitForSeconds(_coolTime);
             PoolManager.Instance.Push(this);
         }
