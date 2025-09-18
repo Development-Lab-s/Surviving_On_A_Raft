@@ -34,7 +34,7 @@ public class Thunder : MonoBehaviour, IPoolable
         StartCoroutine(DotDamage());
         eventData.gain = 10;
         eventSO.RaiseEvent(eventData);
-        SoundManager.Instance.PlaySfx("LIGHTNING");
+        SoundManager.Instance.PlaySfx("Lightning");
 
     }
 
