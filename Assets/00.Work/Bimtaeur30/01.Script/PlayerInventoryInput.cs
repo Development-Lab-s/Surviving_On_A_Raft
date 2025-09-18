@@ -1,4 +1,5 @@
 using System.Collections;
+using _00.Work.Resource.Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -57,6 +58,7 @@ public class PlayerInventoryInput : MonoBehaviour
 
         if (Keyboard.current.tabKey.wasPressedThisFrame)
         {
+            SoundManager.Instance.PlaySfx("TAB");
             ICU.ItemCreateUIView();
         }
 
@@ -69,6 +71,7 @@ public class PlayerInventoryInput : MonoBehaviour
                 var playerItem = InventoryManager.Instance.ItemSlotList[selectedSlot];
                 if (playerItem != null)
                 {
+                    SoundManager.Instance.PlaySfx("TAB");
                     IIV.ItemInfoViewMethod(playerItem);
                 }
             }
@@ -92,6 +95,7 @@ public class PlayerInventoryInput : MonoBehaviour
 
             if (heldTime >= maxHoldTime)
             {
+                SoundManager.Instance.PlaySfx("UNEQ");
                 IIGAR.RemoveItem();
                 break;
             }

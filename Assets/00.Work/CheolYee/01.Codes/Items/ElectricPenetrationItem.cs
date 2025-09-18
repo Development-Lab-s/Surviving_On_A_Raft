@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _00.Work.CheolYee._01.Codes.Items
 {
-    public class PenetrationItem : ItemTypeProjectile
+    public class ElectricPenetrationItem : ItemTypeProjectile
     {
         [Header("PenetrationItem Item")]
         public float detectionRadius;
@@ -20,7 +20,10 @@ namespace _00.Work.CheolYee._01.Codes.Items
                 Projectile projectile = PoolManager.Instance.Pop(CurrentProjectileSo.projectilePrefab.name) as Projectile;
                 Vector3 dir = target.transform.position - transform.position;
                 if (projectile != null)
+                {
+                    SoundManager.Instance.PlaySfx("ELECTRIC");
                     projectile.Initialize(transform, dir, Damage + Player.CurrentDamage, KnockbackPower, Speed);
+                }
             }
             else
             {
@@ -28,7 +31,7 @@ namespace _00.Work.CheolYee._01.Codes.Items
             }
         }
         
-        protected virtual void Update()
+        private void Update()
         {
             if (LastSpawnTime + Cooldown < Time.time)
             {
@@ -36,7 +39,7 @@ namespace _00.Work.CheolYee._01.Codes.Items
             }
         }
 
-        private Collider2D FindNearEnemy()
+        protected Collider2D FindNearEnemy()
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer.layerMask);
            
@@ -47,23 +50,23 @@ namespace _00.Work.CheolYee._01.Codes.Items
 
             foreach (var detect in hits)
             {
-               float dist = Vector2.Distance(transform.position, detect.transform.position);
-               if (dist < minDist)
-               {
-                   nearest = detect;
-                   minDist = dist;
-               }
+                float dist = Vector2.Distance(transform.position, detect.transform.position);
+                if (dist < minDist)
+                {
+                    nearest = detect;
+                    minDist = dist;
+                }
             }
            
             return nearest;
         }
         
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         protected void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(transform.position, detectionRadius);
         }
-        #endif
+#endif
     }
 }

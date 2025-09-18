@@ -38,7 +38,7 @@ namespace _00.Work.hayul._01._Scripts.MiniBoss1
 
             // 스킬 2 팔 발사
             _bossAttackState.AddSkill(SkillType.Skill2, new ArmAttackSkill(
-                this, "ArmAttack", armAttackCooldown, armPrefab, armSpawnPoint, armRange, armShotSpeed));
+                this, "ARMATTACK", armAttackCooldown, armPrefab, armSpawnPoint, armRange, armShotSpeed));
         }
 
         public override void Attack()

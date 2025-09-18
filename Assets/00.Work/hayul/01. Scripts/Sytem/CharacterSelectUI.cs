@@ -43,12 +43,14 @@ public class CharacterSelectUI : MonoBehaviour
 
     public void OnClickNext()
     {
+        SoundManager.Instance.PlaySfx("NEXT");
         _currentIndex = (_currentIndex + 1) % slots.Count;
         InitUI();
     }
 
     public void OnClickPrev()
     {
+        SoundManager.Instance.PlaySfx("NEXT");
         _currentIndex = (_currentIndex - 1 + slots.Count) % slots.Count;
         InitUI();
     }
@@ -63,6 +65,7 @@ public class CharacterSelectUI : MonoBehaviour
         _selectedCharacter = slots[_currentIndex].data;
         GameSelectManager.Instance.currentCharacter = _selectedCharacter;
         RectTransform rect = slots[_currentIndex].rect;
+        SoundManager.Instance.PlaySfx("SELECT");
         rect.DOScale(_bigScale * 1.2f, 0.2f).OnComplete(() =>
         {
             rect.DOScale(_bigScale, 0.2f).OnComplete(() =>

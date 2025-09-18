@@ -170,8 +170,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1943377409
-  m_SortingLayer: 0
+  m_SortingLayerID: 1378446517
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5688739654425014672, guid: c5e42464bdaf633438a73f1985f98e62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -615,7 +615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
       propertyPath: groundCheckRadius.x
-      value: 0.64
+      value: 1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
+      propertyPath: groundCheckRadius.y
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 1871532934507486233, guid: d66b044698558d3469ff8734b9eb5647, type: 3}
       propertyPath: <RbCompo>k__BackingField

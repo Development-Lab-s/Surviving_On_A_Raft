@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7468640247858471585}
-  - component: {fileID: 4072559006989216001}
+  - component: {fileID: 7598581327427162347}
   - component: {fileID: 2450174667192673579}
   - component: {fileID: 5629991679007942590}
   m_Layer: 6
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 3320537478800930433}
   m_Father: {fileID: 5460400429420362176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4072559006989216001
+--- !u!114 &7598581327427162347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,12 +44,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 127000999896013493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78682a83d57951f40ab056d0e00b789c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1363b1cb7483479c82dda6086b89027a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackItemSo: {fileID: 11400000, guid: 124d8b8f8e02f6b4e82580ca4c99883e, type: 2}
   damageCaster: {fileID: 7161768043798173890}
   animator: {fileID: 5629991679007942590}
+  mouseCaster: {fileID: 1974233711776981906}
 --- !u!212 &2450174667192673579
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,7 +93,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1933110025
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -961,7 +962,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1933110025
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1394,7 +1395,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 456860619
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 815424164945274260, guid: cbd429b7944cc62428efc11aa5ea5531, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1519,7 +1520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a0ae83200f44e099abe5ea650181e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInputSo: {fileID: 11400000, guid: d51e8f2d96eb24b468b2dada5926d59c, type: 2}
 --- !u!1 &8422481312407097660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,16 +2288,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9035019448254164296, guid: 0de7b422b8d6d804a8462c84a3d6a5dd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5956350833101985644, guid: 0de7b422b8d6d804a8462c84a3d6a5dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7366507558765398434}
   m_SourcePrefab: {fileID: 100100000, guid: 0de7b422b8d6d804a8462c84a3d6a5dd, type: 3}
 --- !u!4 &1483782383691378480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8947650978733849057, guid: 0de7b422b8d6d804a8462c84a3d6a5dd, type: 3}
   m_PrefabInstance: {fileID: 7546631235560494801}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4184460440469111229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5956350833101985644, guid: 0de7b422b8d6d804a8462c84a3d6a5dd, type: 3}
+  m_PrefabInstance: {fileID: 7546631235560494801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7366507558765398434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184460440469111229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ea4b6c2e354188b4bc8b423a375faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackItemSo: {fileID: 11400000, guid: c02109ce79d433e42a54afd5ce0f9b26, type: 2}
+  detectionRadius: 8
+  enemyLayer:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 128
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!1001 &8612170619546880239
 PrefabInstance:
   m_ObjectHideFlags: 0

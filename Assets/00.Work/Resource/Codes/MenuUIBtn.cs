@@ -43,7 +43,10 @@ namespace _00.Work.Resource.Codes
         public void ExitButton()
         {
             if (SceneManager.GetActiveScene().buildIndex != 0)
+            {
+                Time.timeScale = 1;
                 FadeManager.Instance.FadeToScene(0);
+            }
             else
             {
                 Application.Quit();

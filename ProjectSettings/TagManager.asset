@@ -42,6 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 986417113
+    locked: 0
+  - name: Enemy
+    uniqueID: 1378446517
+    locked: 0
   - name: Bullet
     uniqueID: 2361857271
     locked: 0

@@ -96,9 +96,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 986417113
+  m_SortingLayer: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -6601591921341775230, guid: 3525c0631d91aae4487f0d15c3df8259, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -282,6 +282,7 @@ MonoBehaviour:
   portalLight: {fileID: 3540410646799726728}
   poolName: Portal
   spawnTrm: {fileID: 6697608521423559192}
+  startDelay: 5
 --- !u!1 &6794029608071382667
 GameObject:
   m_ObjectHideFlags: 0
