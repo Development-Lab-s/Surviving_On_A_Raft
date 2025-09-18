@@ -1238,7 +1238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 280}
+  m_AnchoredPosition: {x: -300, y: 300}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3672369005108152906
@@ -1271,7 +1271,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "[Tab] : \uC81C\uC791\n\uC0AC\uB2E4\uB9AC\uC5D0\uC11C \uBC29\uD5A5\uD0A4
     : \uB9F5 \uC120\uD0DD\nF : \uC120\uD0DD \uD655\uC815\n[1~5] : \uC544\uC774\uD15C
-    \uC120\uD0DD"
+    \uC120\uD0DD\nR : \uD328\uC2DC\uBE0C / \uACF5\uACA9 \uC544\uC774\uD15C \uC804\uD658"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9fe30e0f7e06a149a5dd1d8a551b63b, type: 2}
   m_sharedMaterial: {fileID: -8999951521012959139, guid: f9fe30e0f7e06a149a5dd1d8a551b63b, type: 2}
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

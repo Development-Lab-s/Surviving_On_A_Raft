@@ -784,10 +784,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1197577152007353973, guid: 28bf26928843981418dc881d0d016636, type: 3}
+      propertyPath: m_text
+      value: "[Tab] : \uC81C\uC791\n\uC0AC\uB2E4\uB9AC\uC5D0\uC11C \uBC29\uD5A5\uD0A4
+        : \uB9F5 \uC120\uD0DD\nF : \uC120\uD0DD \uD655\uC815\n[1~5] : \uC544\uC774\uD15C
+        \uC120\uD0DD\nR : \uD328\uC2DC\uBE0C / \uACF5\uACA9 \uC544\uC774\uD15C \uC804\uD658"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197577152007353973, guid: 28bf26928843981418dc881d0d016636, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 1238479180965889140, guid: 28bf26928843981418dc881d0d016636, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: dd468d44accad1747846856c65190d64, type: 3}
+    - target: {fileID: 2033292874063628764, guid: 28bf26928843981418dc881d0d016636, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 2734094731516929881, guid: 28bf26928843981418dc881d0d016636, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -902,6 +916,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7046e5e38c0bec04489901c59f424ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &226367233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471253421262621389, guid: 28bf26928843981418dc881d0d016636, type: 3}
+  m_PrefabInstance: {fileID: 160863802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &275707407
@@ -2361,6 +2386,7 @@ MonoBehaviour:
   globalVolume: {fileID: 1178866819}
   PInput: {fileID: 286363275}
   UICanvasGroup: {fileID: 1926566018}
+  settingButton: {fileID: 226367233}
 --- !u!4 &485094930
 Transform:
   m_ObjectHideFlags: 0

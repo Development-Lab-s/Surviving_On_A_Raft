@@ -18,6 +18,6 @@ MonoBehaviour:
   - resourceIndex: 0
     resourceData: {fileID: 11400000, guid: e5b5860bd4dce0c45979e997d980a38d, type: 2}
     resourceAmount: 60
-  - resourceIndex: 1
+  - resourceIndex: 4
     resourceData: {fileID: 11400000, guid: 2264059c612cce2448e5b494f45da84b, type: 2}
     resourceAmount: 15

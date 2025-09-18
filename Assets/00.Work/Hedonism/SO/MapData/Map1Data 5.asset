@@ -15,6 +15,6 @@ MonoBehaviour:
   mapIndex: 4
   mapIcon: {fileID: 21300000, guid: 4006902ce87bf7d409b59ce4e91efa0d, type: 3}
   resourceDatas:
-  - resourceIndex: 0
+  - resourceIndex: 1
     resourceData: {fileID: 11400000, guid: a16bbb5a68a0934468aaec639fa96ed7, type: 2}
     resourceAmount: 35

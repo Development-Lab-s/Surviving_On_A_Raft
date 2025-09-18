@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolName: ItemCost
   prefab: {fileID: 2612318375182972417, guid: 3f412d631a0b4894ba4bcf1f6dcc0dcf, type: 3}
-  count: 400
+  count: 700

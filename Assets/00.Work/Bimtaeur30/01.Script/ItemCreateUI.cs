@@ -14,6 +14,7 @@ public class ItemCreateUI : MonoBehaviour
     [SerializeField] private Volume globalVolume;
     [SerializeField] private PlayerInventoryInput PInput;
     [SerializeField] private CanvasGroup UICanvasGroup;
+    [SerializeField] private Button settingButton;
 
     private DepthOfField dof; // DOF 효과 컨트롤
     private bool isUIEnabled = false;
@@ -36,13 +37,14 @@ public class ItemCreateUI : MonoBehaviour
         if (isUIEnabled == true)
         {
             Time.timeScale = 1;
+            settingButton.gameObject.SetActive(true);
             ItemCreateUIUnView();
             return;
         }
         
         if (PInput.isFullscreenUIEnabled != true)
         {
-            
+            settingButton.gameObject.SetActive(false);
             MoveObject.gameObject.SetActive(true);
 
             currentSeq = DOTween.Sequence();
