@@ -51,6 +51,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheckRadius: {x: 0, y: 0}
   canMove: 1
+  canBeKnocked: 1
 --- !u!1 &1138426058186619927
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,13 +379,16 @@ MonoBehaviour:
   extraGravity: 200
   gravityDelay: 0.15
   isDead: 0
+  isFliping: 0
   onDeath:
     m_PersistentCalls:
       m_Calls: []
   enemyData: {fileID: 11400000, guid: 78a484f8a4f0cd34090997931cd9256e, type: 2}
   damageMulti: 0
+  attackSpeedMulti: 0
   detectRadius: 0
   attackRadius: 1.04
+  lockFlip: 0
   attackCooldown: 0
   knockbackPower: 0
   lastAttackTime: 0

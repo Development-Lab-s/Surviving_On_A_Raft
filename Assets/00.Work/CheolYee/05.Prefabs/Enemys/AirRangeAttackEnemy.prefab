@@ -82,6 +82,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheckRadius: {x: 0, y: 0}
   canMove: 1
+  canBeKnocked: 1
 --- !u!1 &2582371047335539429
 GameObject:
   m_ObjectHideFlags: 0
