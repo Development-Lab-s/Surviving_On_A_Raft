@@ -20,7 +20,7 @@ MonoBehaviour:
   - "\uD06C\uD655 15%, \uACF5\uC18D -15%, \uC774\uC18D -10%"
   ItemIgdt:
   - Name: "\uAC15\uCCA0"
-    Amount: 35
+    Amount: 65
   - Name: "\uB9C8\uC11D"
-    Amount: 5
+    Amount: 15
   nextItem: {fileID: 11400000, guid: 8076635f1b8a7c04ea513bd11fa8d3d4, type: 2}

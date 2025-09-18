@@ -48,6 +48,7 @@ public class ItemCreateUI : MonoBehaviour
             currentSeq = DOTween.Sequence();
             currentSeq.Join(MoveObject.DOAnchorPos(upPos, 0.3f));
             currentSeq.Join(UICanvasGroup.DOFade(1f, 0.5f));
+            
 
             currentSeq.OnComplete(() =>
             {
