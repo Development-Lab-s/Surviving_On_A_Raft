@@ -17,10 +17,10 @@ MonoBehaviour:
   desc: "\uB9C8\uC6B0\uC2A4 \uBC29\uD5A5\uC73C\uB85C \uB2E8\uAC80\uC744 \uB0A0\uB9BD\uB2C8\uB2E4."
   icon: {fileID: -2489603379309750059, guid: 99052b91f167dbc4fada0959145def9a, type: 3}
   level: 4
-  damage: 20
+  damage: 15
   knockbackPower: 8
   nextLevel: {fileID: 11400000, guid: 941d5702776d1ac499305b38b506d446, type: 2}
   speed: 8
   cooldown: 4
   projectilePrefab: {fileID: 3149612778032154149, guid: 077c7becde2a6a14facaaccb1b51ca9e, type: 3}
-  bulletCount: 4
+  bulletCount: 6

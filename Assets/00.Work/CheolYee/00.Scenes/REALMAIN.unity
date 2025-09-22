@@ -1063,6 +1063,11 @@ MonoBehaviour:
   ICU: {fileID: 485094929}
   maxHoldTime: 1
   isFullscreenUIEnabled: 0
+--- !u!1 &323439169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3838379757050682165, guid: 28bf26928843981418dc881d0d016636, type: 3}
+  m_PrefabInstance: {fileID: 160863802}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &341305546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,6 +2385,7 @@ MonoBehaviour:
   PInput: {fileID: 286363275}
   UICanvasGroup: {fileID: 1926566018}
   settingButton: {fileID: 226367233}
+  settingMenu: {fileID: 323439169}
 --- !u!4 &485094930
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using _00.Work.Resource.Manager;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -15,6 +16,7 @@ public class ItemCreateUI : MonoBehaviour
     [SerializeField] private PlayerInventoryInput PInput;
     [SerializeField] private CanvasGroup UICanvasGroup;
     [SerializeField] private Button settingButton;
+    [SerializeField] private GameObject settingMenu;
 
     private DepthOfField dof; // DOF 효과 컨트롤
     private bool isUIEnabled = false;
@@ -33,6 +35,11 @@ public class ItemCreateUI : MonoBehaviour
         // 애니메이션 도중엔 무시
         if (currentSeq != null && currentSeq.IsActive() && currentSeq.IsPlaying())
             return;
+        if (settingMenu.activeSelf)
+        {
+            return;
+        }
+        SoundManager.Instance.PlaySfx("TAB");
 
         if (isUIEnabled == true)
         {

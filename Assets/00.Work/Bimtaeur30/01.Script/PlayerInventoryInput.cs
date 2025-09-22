@@ -58,7 +58,6 @@ public class PlayerInventoryInput : MonoBehaviour
 
         if (Keyboard.current.tabKey.wasPressedThisFrame)
         {
-            SoundManager.Instance.PlaySfx("TAB");
             ICU.ItemCreateUIView();
         }
 

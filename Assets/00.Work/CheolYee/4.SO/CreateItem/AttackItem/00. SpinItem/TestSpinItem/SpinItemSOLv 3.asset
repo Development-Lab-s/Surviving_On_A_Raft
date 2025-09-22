@@ -17,7 +17,7 @@ MonoBehaviour:
   desc: "4\uAC1C\uC758 \uCE7C\uB0A0\uC774 \uD68C\uC804 \uACF5\uACA9\uC744 \uD569\uB2C8\uB2E4.\n"
   icon: {fileID: -5636343253877202797, guid: e1c737438debb2e4da16bd305001a55a, type: 3}
   level: 3
-  damage: 30
+  damage: 16
   knockbackPower: 0
   nextLevel: {fileID: 11400000, guid: 36c993d7d10bf6a4896f00463880fa16, type: 2}
   spinRadius: 4

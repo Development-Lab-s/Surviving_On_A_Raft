@@ -23,4 +23,4 @@ MonoBehaviour:
   speed: 15
   cooldown: 5
   projectilePrefab: {fileID: 3149612778032154149, guid: 845f780fc4dd79d45904886ead767e78, type: 3}
-  bulletCount: 1
+  bulletCount: 2

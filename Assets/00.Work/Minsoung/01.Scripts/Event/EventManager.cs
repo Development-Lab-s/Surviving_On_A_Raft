@@ -131,7 +131,6 @@ public class EventManager : MonoBehaviour
 
     private IEnumerator SmallGoodEvent()
     {
-        print("작고 좋은 이벤트 실행");
         if (smallGoodEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, smallGoodEventList.Count); // List 크기까지 랜덤
@@ -145,7 +144,6 @@ public class EventManager : MonoBehaviour
 
     private IEnumerator BigGoodEvent()
     {
-        print("크고 좋은 이벤트 실행");
         if (bigGoodEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, bigGoodEventList.Count);
@@ -157,7 +155,6 @@ public class EventManager : MonoBehaviour
 
     private IEnumerator SmallBadEvent()
     {
-        print("작고 나쁜 이벤트 실행");
         if (smallBadEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, smallBadEventList.Count);
@@ -169,7 +166,6 @@ public class EventManager : MonoBehaviour
 
     private IEnumerator BigBadEvent()
     {
-        print("크고 나쁜 이벤트 실행");
         if (bigBadEventList.Count > 0)
         {
             int randomIndex = Random.Range(0, bigBadEventList.Count);
